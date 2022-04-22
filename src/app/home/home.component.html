@@ -1,0 +1,154 @@
+  <!--category section start -->
+  <div class="container">
+    <div class="category_section">
+       <div class="row">
+          <div class="col-lg-2 col-sm-12">
+             <h1 class="category_text">Nos Produits</h1>
+          </div>
+          <div class="col-lg-10 col-sm-12 main">
+             <div class="col">
+                <div class="box_main">
+                   <div class="icon_1"></div>
+                   <h4 class="fashion_text active">Téléphonie</h4>
+                </div>
+             </div>
+             <div class="col">
+                <div class="box_main">
+                   <div class="icon_2"></div>
+                   <h4 class="fashion_text active">Informatique</h4>
+                </div>
+             </div>
+             <div class="col">
+                <div class="box_main">
+                   <div class="icon_3"></div>
+                   <h4 class="fashion_text active">Electroménager</h4>
+                </div>
+             </div>
+             <div class="col">
+                <div class="box_main">
+                  <div class="icon_4"></div>
+                   <h4 class="fashion_text active">Fashion</h4>
+                </div>
+             </div>
+             <div class="col">
+                <div class="box_main">
+                   <div class="icon_5"></div>
+                   <h4 class="fashion_text active">Impression</h4>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+
+ <br> <br>
+<div class="element_section">
+   <div class="center">
+   <mat-accordion multi="true">
+      <mat-expansion-panel class="panel" [expanded]="true">
+         <h2 class="example-h2">Ajouter Produit</h2>
+    <ol>
+      <form [formGroup]="nameForm">
+       <li>
+        <mat-form-field appearance="outline">
+          <mat-label>Référence de produit</mat-label>
+          <input matInput placeholder="Reference" name="Reference" [(ngModel)]="Reference" formControlName="Reference">
+        </mat-form-field>
+       </li>
+
+       <li>
+        <mat-form-field appearance="outline">
+            <mat-label>Catégorie de produit</mat-label>
+            <mat-select placeholder ="sous_famille" type="text" formControlName ="sous_famille" [(value)]="sous_famille" name="sous_famille" [(ngModel)]="sous_famille">
+                <mat-option value="Smartphone">Smartphone</mat-option>
+                <mat-option value="PC Portable">PC Portable</mat-option>
+                <mat-option value="Climatiseur">Climatiseur</mat-option>
+                <mat-option value="Refrigérateur">Réfrigérateur</mat-option>
+                <mat-option value="Scanner">Scanner</mat-option>
+            </mat-select>
+        </mat-form-field>
+       </li>
+        <li>
+        <mat-form-field appearance="outline">
+            <mat-label>Magasin</mat-label>
+            <input matInput placeholder="Magasin" formControlName ="Magasin" type="text" name="Magasin"  [(ngModel)]="Magasin" (blur)='testevent()'>
+        </mat-form-field>
+       </li>
+
+       <li>
+        <mat-form-field appearance="outline">
+            <mat-label>Prix</mat-label>
+            <input matInput placeholder="Prix" type="text" name="Prix" [(ngModel)]="Prix">
+        </mat-form-field>
+        </li>
+        <li>
+         <button mat-raised-button class="mybutton" color="primary">Ajouter</button>
+        </li>
+      </form>
+    </ol>
+    </mat-expansion-panel>
+    </mat-accordion>
+   </div>
+<br> <br>
+</div>
+<div class="category_section_2">
+   <div>
+     <mat-accordion>
+         <mat-expansion-panel class="panel2" [disabled]="isDisabled">
+           <mat-expansion-panel-header>
+             <mat-panel-title class="marp">
+               Nom de Produit
+             </mat-panel-title>
+             <mat-panel-description>
+               <p class="marpp">{{Reference}}</p>
+             </mat-panel-description>
+           </mat-expansion-panel-header>
+           <p class="marp">{{inspectionTypesList.description}}</p>
+           <ng-template matExpansionPanelContent>
+            <table class="table table-striped">
+               <thead>
+                 <th>Référence de produit</th>
+                 <th>Description</th>
+                 <th>Prix</th>
+                 <th>Photo </th>
+                 <th>Magasin</th>
+                 <th>Disponibilité</th>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let item of inspectionTypesList;">
+                    <td>{{item.reference}}</td>
+                    <td>{{item.description}}</td>
+                   <td>{{item.prix}}</td>
+                   <td><img [src]=getSantizeUrl(item.photo)  width="1680px" height="1580px"></td>
+                   <td><img [src]=getSantizeUrl(item.nom_magasin) width ="950px" height="950px"></td>
+                   <td>{{item.stock}}</td>         
+                  </tr>
+               </tbody>
+               </table>
+                  
+          </ng-template>
+         </mat-expansion-panel>
+     </mat-accordion>
+   </div>
+</div>
+<div class="container-wid">
+
+<div><h2>{{ProduitS}}</h2></div>
+<owl-carousel-o [options]="customOptions">
+
+   <ng-container *ngFor="let simialire of SimilaireProductList;">
+     <ng-template carouselSlide>
+      <mat-card class="ex-card">
+         <mat-card-header>
+            <mat-card-title class="textstyle">{{simialire.reference}}</mat-card-title>
+         </mat-card-header>
+       <img class="imgsize" [src]=getSantizeUrl(simialire.photo)>
+      </mat-card>
+     </ng-template>
+   </ng-container>
+ </owl-carousel-o>
+ 
+</div>
+  
+
+

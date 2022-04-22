@@ -1,0 +1,56 @@
+<div class="modal-content">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="login-form">
+        <div class="row justify-content-between">
+        <div class="col-4">
+            <h4 class="login-title text-left">Login</h4></div>
+        <div class="col-4">
+            <button type="button" class="close" data-dismiss="modal" mat-dialog-close>
+            <span class="text-end" aria-hidden="true">x</span>
+            </button>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-12 mb-20">
+                <label>Email Address*</label>
+                <input class="mb-0" type="email" placeholder="Email Address" formControlName="email">
+                <mat-error *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
+                    Email is required
+                </mat-error>
+            </div>
+            <div class="col-12 mb-20">
+                <label>Password</label>
+                <input class="mb-0" type="password" placeholder="Password" formControlName="password"> 
+                <mat-error *ngIf="!loginForm.get('password')?.errors?.required">
+                    Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters
+                  </mat-error>
+                  <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.required">
+                    Password is required
+                  </mat-error>
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+                <div class="check-box d-inline-block">
+                    <input type="checkbox" id="remember_me">
+                    <label for="remember_me">Remember me</label>
+                </div>
+            </div>
+            <br>
+            <div class="col-6 col-md-4">
+                <a href="#"> Forgotten password?</a>
+            </div>
+            <div class="col-md-12">
+                <button  [disabled]="!loginForm.valid" class="register-button btn-lg btn-block">Login</button>
+            </div>
+
+            <p class="text-center dont-do mt-3">Don't have an account?
+                <button class="dialg" href="#" data-toggle="modal" (click)="openDialog()"> 
+                    Register Now</button>
+            </p>
+        </div>
+    </div>
+</form>
+</div>
+

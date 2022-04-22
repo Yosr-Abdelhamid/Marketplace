@@ -1,0 +1,68 @@
+.center {
+    padding-left: 270px;
+  }
+mat-form-field {
+      padding-top: 15px;
+      width: 460px;
+      font-size: 16px;
+      color: black;
+    }
+.panel{
+    width: 70%;
+    border: black;
+    text-align: center;
+}
+.panel2{
+    width: 90%;
+    border: black;
+    text-align: center;
+    margin-right: 20px;
+  }
+  
+.mybutton{
+    width: 150px!important;
+   }
+
+.example-h2{
+    padding-top: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 24px;
+    color:blueviolet;}
+.marp{
+  margin-right:12px;
+  font-size: 22px;
+  color:black;
+  font-weight: bold;}
+  
+.marpp{
+    margin-top: 12px;
+    font-size: 16px;
+    color:gray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+.desc{
+    font-size: 14px;
+    margin-left: 0px;
+      
+  }
+
+.textstyle{
+  height: 42px;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: italic;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color:rgb(105, 103, 103);
+}
+.ex-card{
+  width :307.25px ;
+  height: 391.25px;
+  background-color: rgb(209, 199, 219);
+  border-radius:25px ;
+}
+.imgsize{
+  width: 105.25px ;
+  height: 305.25px ;
+  background-color: rgb(248, 248, 248);
+  border-radius: 10px;
+}

@@ -28,6 +28,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { HomeTwoComponent } from './home-two/home-two.component';
+import { ProductCarouselTwoComponent } from './home-two/product-carousel-two/product-carousel-two.component';
+import { OwlModule } from 'ngx-owl-carousel';
 
 
 @NgModule({
@@ -38,16 +42,18 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AccueilComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeTwoComponent,
+    ProductCarouselTwoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
+    MatFormFieldModule,MatTabsModule,
     MatInputModule,CarouselModule,
     MDBBootstrapModule.forRoot(),
-    MatIconModule,MatRadioModule,
+    MatIconModule,MatRadioModule,OwlModule,
     MatSelectModule,ReactiveFormsModule,
     MatDividerModule,FormsModule,MatGridListModule,
     MatListModule,HttpClientModule,

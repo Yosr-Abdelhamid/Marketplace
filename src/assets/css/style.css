@@ -64,6 +64,7 @@ body {
     line-height: 1.80857;
     font-weight: normal;
     overflow-x: hidden;
+    background-color: #F5F7F8 ;
 }
 
 a {
@@ -1095,52 +1096,53 @@ color: #242424;
     font-size: 20px;
     }
 
-    .footer-static-top-3 {
-        background: #fff;
-        border-bottom: 1px solid #e1e1e1;
-        height: 180px;
-    }
-    .footer-shipping {
+.footer-static-top-3 {
+    background: #F5F7F8 ;
+    height: 180px;
+
+}
+.footer-shipping {
         border-bottom: 1px dashed #e1e1e1;
     }
-    .footer-static-top-3 .footer-shipping {
+.footer-static-top-3 .footer-shipping {
         border-bottom: none;
     }
     /*Li's Sipping Inner Box*/
-    .li-shipping-inner-box {
+.li-shipping-inner-box {
         text-align: center;
         box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
 	    border: solid 1px #e8e8e8;
 	    padding-left: 36px;
         height: 140px;
+        background: #FFF;
     }
-    .footer-static-top-3 .li-shipping-inner-box {
+.footer-static-top-3 .li-shipping-inner-box {
         border-right: 1px solid #e1e1e1;
         border-left: 1px solid #e1e1e1;
         padding: 10px 15px 25px;
         border-radius: 15px;
         border: 1px solid rgb(228, 223, 223);
     }
-    .footer-static-top-3 .li-shipping-inner-box.last-child {
+.footer-static-top-3 .li-shipping-inner-box.last-child {
         border-right: 1px solid rgb(228, 223, 223);
     }
    
-    .shipping-icon {
+.shipping-icon {
         display: inline-block;
         width: 48px;
         height: 48px;
       
     }
-    .shipping-text {
+.shipping-text {
         padding-top: 10px;
     }
-    .shipping-text h2 {
+.shipping-text h2 {
         font-size: 16px;
         font-weight: 500;
         color: #242424;
         padding-bottom: 2px;
     }
-    .shipping-text p {
+.shipping-text p {
         color: #888;
         font-weight: 400;
         font-size: 14px;

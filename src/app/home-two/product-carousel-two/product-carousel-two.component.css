@@ -1,0 +1,67 @@
+.product-dialog 
+.mat-dialog-container {
+      overflow: visible;
+ }
+.swiper-container 
+      .swiper-wrapper 
+        img.img-fluid {
+          margin: auto;
+          max-width: 100%;
+        }
+      
+    
+.product-right {
+      padding: 0 30px;
+    }
+
+  
+  
+  .product-pagination .ngx-pagination {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 10px 5px;
+  
+  }
+  .product-pagination .ngx-pagination .current {
+    padding: 4px 12px;
+    background: theme-main;
+    color: grey;
+    cursor: default;
+    border-radius: 2px;
+    line-height: 22px;
+  }
+  
+  .product-dialog .mat-dialog-content {
+    max-width: 52vw;
+  }
+  
+  
+  /***************************************
+  *  Popular products styles
+  ****************************************/
+  .popular-products reviews .stars {
+          color: theme-main;
+          margin: 0px 0 5px 0;}
+.popular-products reviews .stars  .span {
+            color: grey3;
+            font-size: 13px;
+            margin-left: 10px;
+          }
+          mat-icon{
+            font-size: 17px;
+              line-height: 17px;
+              height: 17px;
+              width: 17px;
+              vertical-align: middle;
+        
+      
+  
+  }
+  .mega-menu-pane .mat-menu-panel{
+      width: 668px !important;}
+.mega-menu-pane .mat-menu-panel .mat-menu-content {
+        width: 100% !important;
+      }
+    
+  

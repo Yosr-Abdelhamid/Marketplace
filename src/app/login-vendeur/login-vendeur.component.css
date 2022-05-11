@@ -1,5 +1,5 @@
 .modal-content{
-    width:550px;
+    width:450px;
 }
 .login-title {
 	font-size: 26px;
@@ -18,7 +18,7 @@
     display: block;
     font-size: 14px;
     margin-bottom: 8px;
-    margin-top: 8px;
+    margin-top: 15px;
     font-weight: 500;
     text-transform: capitalize;
  }
@@ -57,7 +57,7 @@
     line-height: 23px;
     padding: 10px 20px;
     font-size: 14px;
-    color: #000000;
+    color: #7a7a7a;
     margin-bottom: 15px; 
 }
 .login-form input[type="checkbox"] {
@@ -146,4 +146,26 @@ button.close {
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 1;
+}
+.form-control input{
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #999999;
+    border-radius: 0;
+    line-height: 23px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #000000;
+    margin-bottom: 15px; 
+}
+.dialg{
+    background-color: transparent;
+    color:rgb(17, 23, 39);
+    font-weight: bold;
+}
+.Forgot{
+    background-color: transparent; 
+    color : #0D6EFD ;
+    font-size: 12px;
+    font-weight: bold;
 }

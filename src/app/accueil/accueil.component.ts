@@ -2,6 +2,10 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { OwlCarousel } from 'ngx-owl-carousel';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { RegisterVendeurComponent } from '../register-vendeur/register-vendeur.component';
+import { LoginVendeurComponent } from '../login-vendeur/login-vendeur.component';
+
 
 @Component({
   selector: 'app-accueil',
@@ -15,8 +19,6 @@ export class AccueilComponent implements OnInit {
   { src:'./assets/images/product/large-size/3.jpg'}
 
 ];
-
-
 
   customOptions: OwlOptions = {
     loop: false,
@@ -56,11 +58,16 @@ export class AccueilComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  
+  openDialog(){
+    const dialogRef = this.dialog.open(LoginVendeurComponent, {
+      id: 'dialog1'
+    });
+    console.log(dialogRef);
+  }
   
 }

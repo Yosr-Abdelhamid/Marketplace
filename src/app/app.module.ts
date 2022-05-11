@@ -32,6 +32,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { HomeTwoComponent } from './home-two/home-two.component';
 import { ProductCarouselTwoComponent } from './home-two/product-carousel-two/product-carousel-two.component';
 import { OwlModule } from 'ngx-owl-carousel';
+import { LoginVendeurComponent } from './login-vendeur/login-vendeur.component';
+import { RegisterVendeurComponent } from './register-vendeur/register-vendeur.component';
+import { PageVendeurComponent } from './page-vendeur/page-vendeur.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -44,7 +48,11 @@ import { OwlModule } from 'ngx-owl-carousel';
     LoginComponent,
     RegisterComponent,
     HomeTwoComponent,
-    ProductCarouselTwoComponent
+    ProductCarouselTwoComponent,
+    LoginVendeurComponent,
+    RegisterVendeurComponent,
+    PageVendeurComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

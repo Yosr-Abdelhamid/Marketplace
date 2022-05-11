@@ -1,5 +1,6 @@
+<app-header></app-header>
 <section class="slider_section">
-    <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel" data-interval="false">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="first-slide" src="./assets/images/banner.jpg" alt="First slide">
@@ -9,7 +10,7 @@
                         <h1>up to 25% Flat Sale</h1>
                         <p>It is a long established fact that a reader will be distracted by the readable content
                             <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                        <a class="buynow" href="#">Buy Now</a>
+                        <button class="buynow" (click)="openDialog()" href="#">Start Selling</button>
                     </div>
                 </div>
             </div>
@@ -17,7 +18,7 @@
                 <img class="second-slide" src="./assets/images/desktop.jpg" alt="Second slide">
                 <div class="container">
                     <div class="carousel-caption text-justify">
-                        <a class="buynow" href="#">Buy Now</a>
+                        <a class="buynow" (click)="openDialog()" href="#">Start Selling</a>
                     </div>
                 </div>
             </div>
@@ -29,7 +30,7 @@
                         <h1></h1>
                         <p>
                             <br><br></p>
-                        <a class="buynow" href="#">Buy Now</a>
+                        <a class="buynow" (click)="openDialog()" href="#">Start Selling</a>
                     </div>
                 </div>
             </div>
@@ -98,9 +99,164 @@
     </div>
      </div>
 </div>
-<br> <br>
-<!-------------->
 
+<!---------->
+<section class="catg">
+	<div class="container">
+        <div class="slider-header">
+            <h1 class="slider-title">Explore Our Categories</h1>
+        </div>
+        <div class="slider-content">
+	    <div class="row">
+	    <div class="col-md-2 mx-4">
+			<div class="flip-box">
+			<div class="flip-box-inner">
+			<div class="flip-box-front">
+				<div class="product-content">
+					<div class="product_img">
+				<img src="./assets/images/rubrique_1.png"></div>
+				<h3 class="item-title ellipsis ellipsis-2lines">Gros <br>Electroménager</h3> 
+			     </div>
+			</div>
+			<div class="flip-box-back">
+                <div class="backe">
+                    <br><br>
+				<h4>Réfrigérateur</h4>
+                <h4>Climatiseur</h4>
+                
+                </div>
+			</div>
+			</div>
+		    </div>
+	    </div>
+		<div class="col-md-2 mx-4 ">
+			<div class="flip-box">
+			<div class="flip-box-inner">
+			<div class="flip-box-front">
+				<div class="product-content">
+					<div class="product_img">
+				<img src="./assets/images/rubrique_3.png"></div>
+				<h3 class="item-title ellipsis ellipsis-2lines">Petit <br>Electroménager</h3> 
+			     </div>
+			</div>
+			<div class="flip-box-back">
+                <div class="backe">
+                    <br><br>
+				<h4>Robots de Cuisine </h4>
+                <h4>Cafetière</h4>
+			</div>
+			</div>
+		    </div>
+            </div>
+	    </div>
+        <div class="col-md-2 mx-4 ">
+			<div class="flip-box">
+			<div class="flip-box-inner">
+			<div class="flip-box-front">
+				<div class="product-content">
+					<div class="product_img">
+				<img src="./assets/images/pcyet.png"></div>
+				<h3 class="item-title ellipsis ellipsis-2lines">Informatique</h3> 
+			     </div>
+			</div>
+			<div class="flip-box-back">
+				<div class="backe">
+                    <br><br><br><br>
+				<h4>PC Portable Pro</h4>
+			</div>
+            </div>
+			</div>
+		    </div>
+	    </div>
+        <div class="col-md-2 mx-4">
+			<div class="flip-box">
+			<div class="flip-box-inner">
+			<div class="flip-box-front">
+				<div class="product-content">
+					<div class="product_img">
+				<img src="./assets/images/telephonie.png"></div>
+				<h3 class="item-title ellipsis ellipsis-2lines">Téléphonie</h3> 
+			     </div>
+			</div>
+			<div class="flip-box-back">
+				<div class="backe">
+                    <br><br><br><br>
+				<h4>Smartphones</h4>
+			</div>
+            </div>
+			</div>
+		    </div>
+	    </div>
+        <div class="col-md-2 mx-4">
+			<div class="flip-box">
+			<div class="flip-box-inner">
+			<div class="flip-box-front">
+				<div class="product-content">
+					<div class="product_img">
+				<img src="./assets/images/rubrique_8.png"></div>
+				<h3 class="item-title ellipsis ellipsis-2lines">TV</h3> 
+			     </div>
+			</div>
+			<div class="flip-box-back">
+				<div class="backe">
+                    <br><br><br><br>
+				<h4>Téléviseur</h4>
+			</div>
+			</div></div>
+		    </div>
+	    </div>
+	</div>
+    </div>
+	</div>
+</section>
+<!-------------->
+<br><br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="banner banner-overlay banner-overlay-light">
+                <a href="#">
+                    <img src="./assets/images/img/demos/demo-4/banners/banner-1.png" alt="Banner">
+                </a>
+
+                <div class="banner-content">
+                    <h4 class="banner-subtitle"><a href="#">Smart Offer</a></h4><!-- End .banner-subtitle -->
+                    <h3 class="banner-title"><a href="#">Save $150 <strong>on Samsung <br>Galaxy Note9</strong></a></h3><!-- End .banner-title -->
+                    <a href="#" class="banner-link">Shop Now<i class=" fa fa-solid fa-arrow-right"></i></a>
+                </div><!-- End .banner-content -->
+            </div><!-- End .banner -->
+        </div><!-- End .col-md-4 -->
+
+        <div class="col-md-6 col-lg-4">
+            <div class="banner banner-overlay banner-overlay-light">
+                <a href="#">
+                    <img src="./assets/images/img/demos/demo-4/banners/banner-2.jpg" alt="Banner">
+                </a>
+
+                <div class="banner-content">
+                    <h4 class="banner-subtitle"><a href="#">Time Deals</a></h4><!-- End .banner-subtitle -->
+                    <h3 class="banner-title"><a href="#"><strong>Bose SoundSport</strong> <br>Time Deal -30%</a></h3><!-- End .banner-title -->
+                    <a href="#" class="banner-link">Shop Now<i class=" fa fa-solid fa-arrow-right"></i></a>
+                </div><!-- End .banner-content -->
+            </div><!-- End .banner -->
+        </div><!-- End .col-md-4 -->
+
+        <div class="col-md-6 col-lg-4">
+            <div class="banner banner-overlay banner-overlay-light">
+                <a href="#">
+                    <img src="./assets/images/img/demos/demo-4/banners/banner-3.png" alt="Banner">
+                </a>
+
+                <div class="banner-content">
+                    <h4 class="banner-subtitle"><a href="#">Clearance</a></h4><!-- End .banner-subtitle -->
+                    <h3 class="banner-title"><a href="#"><strong>GoPro - Fusion 360</strong> <br>Save $70</a></h3><!-- End .banner-title -->
+                    <a href="#" class="banner-link">Shop Now<i class=" fa fa-solid fa-arrow-right"></i></a>
+                </div><!-- End .banner-content -->
+            </div><!-- End .banner -->
+        </div><!-- End .col-lg-4 -->
+    </div><!-- End .row -->
+</div>
+<br><br>
 <section class="produit">
     <div class="container--fluid"> 
             <div class="container h-100 d-flex justify-content-center border-bottom">
@@ -110,7 +266,8 @@
         <div class="row ml-5">
         <div class="col-md-3">
             <div class="container">
-            <img class="iaa" src="./assets/images/smartphone.jpg" alt="banner-img">
+            <div class="image_size">
+            <img class="iaa" src="./assets/images/smartphone.jpg" alt="banner-img" style="width:300px ; height: 390px;">
                 <div class="centered">
                     <h1 class="smarty">SMARTPHONES</h1>
                     <p class="test text-white drop-shadow-md">Choose your smartphone now!</p>
@@ -118,9 +275,11 @@
                     </button>
                 </div>
             </div>
+           </div>
 
         </div>
-        <div class="col-md-8 ml-4">
+       
+        <div class="col-md-8 ml-3">
         
 			<owl-carousel-o [options]="SlideCustomOptions">	
 
@@ -283,6 +442,31 @@
 		</div>
     </div>
 </section>
+<br><br><br>
+<section>
+<div class="li-banner-2">
+    <div class="row">
+        <!-- Begin Single Banner Area -->
+        <div class="col-lg-6 col-md-6">
+            <div class="single-banner">
+                <a href="#">
+                    <img src="./assets/images/banner/2_1.jpg" alt="Li's Static Banner">
+                </a>
+            </div>
+        </div>
+        <!-- Single Banner Area End Here -->
+        <!-- Begin Single Banner Area -->
+        <div class="col-lg-6 col-md-6">
+            <div class="single-banner pt-xs-30">
+                <a href="#">
+                    <img src="./assets/images/banner/2_2.jpg" alt="Li's Static Banner">
+                </a>
+            </div>
+        </div>
+        <!-- Single Banner Area End Here -->
+    </div>
+</div>
+</section>
 <br> <br> <br>
 <section>
     <div class="container--fluid"> 
@@ -293,7 +477,8 @@
         <div class="row ml-5">
         <div class="col-md-3">
             <div class="container">
-            <img class="iaa" src="./assets/images/notebooks.jpg" alt="banner-img">
+            <div class="image_size">
+            <img class="iaa" src="./assets/images/notebooks.jpg" alt="banner-img" style="width:300px ; height: 390px;">
                 <div class="centered">
                     <h1 class="smarty">LAPTOPS</h1>
                     <p class="test text-white drop-shadow-md">Choose your Laptop now!</p>
@@ -301,7 +486,7 @@
                     </button>
                 </div>
             </div>
-
+            </div>
         </div>
         <div class="col-md-8 ml-4">
         
@@ -749,148 +934,31 @@
 		</div>
 	</div>
 </div>
-<section class="catg">
-	<div class="container">
-	<div class="row">
-	    <div class="col-lg-3 col-md-3 col-sm-6 pb-xs-45">
-			<div class="flip-box">
-			<div class="flip-box-inner">
-			<div class="flip-box-front">
-				<div class="product-content">
-					<div class="product_img">
-				<img src="./assets/images/rubrique_1.png"></div>
-				<h3 class="item-title ellipsis ellipsis-2lines">Gros <br>Electroménager</h3> 
-			     </div>
-			</div>
-			<div class="flip-box-back">
-				<h2>Paris</h2>
-				<p>What an amazing city</p>
-			</div>
-			</div>
-		    </div>
-	    </div>
-		<div class="col-lg-3 col-md-3 col-sm-6 pb-xs-45">
-			<div class="flip-box">
-			<div class="flip-box-inner">
-			<div class="flip-box-front">
-				<img src="./assets/images/rubrique_1.png">
-			</div>
-			<div class="flip-box-back">
-				<h2>Paris</h2>
-				<p>What an amazing city</p>
-			</div>
-			</div>
-		    </div>
-	    </div>
-	</div>
-	</div>
-</section>
 
-
-
-
-<!-- -------------------Popular Categories Slider ------------------>
-<div class="popular_categories">
+<div class="brands">
+        <h1 class="header_brand">Top Brands</h1>
+   
     <div class="container">
         <div class="row">
-         <div class="col-lg-3">
-             <div class="popular_categories_content">
-            <div class="popular_categories_title">Popular Categories</div>
-            <div class="popular_categories_slider_nav">
-             <div class="popular_categories_prev popular_categories_nav"><i class="fas fa-angle-left ml-auto"></i></div>
-             <div class="popular_categories_next popular_categories_nav"><i class="fas fa-angle-right ml-auto"></i></div>
-            </div>
-            <div class="popular_categories_link"><a href="#">full catalog</a></div>
-             </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="popular_categories_slider_container">
-                    <owl-carousel-o [options]="customOptions" class="popular_categories_slider">
-                        <ng-container>
+            <div class="col">
+                <div class="brands_slider_container">
+                    
+                    <!-- Brands Slider -->
+                    <div class="row">
+                        
+                        <div class="col-md-3"><div class="brandd"><img src="./assets/images/samsung.png" alt="" style="height: 42px;width: 180px;"></div></div>
+                        <div class="col-md-3"><div class="brand"><img src="./assets/images/aple.png" alt="" style="height: 55px;width: 190px;"></div></div>
+                        <div class="col-md-3"><div class="brandd"><img src="./assets/images/lenovo.png" alt="" style="height: 32px;width: 170px;"></div></div>
+                        <div class="col-md-3"><div class="brandd"><img src="./assets/images/lg.png" alt="" style="height: 42px;width: 170px;"></div></div>
+                    </div>
 
-                        <!-- Popular Categories Item -->
-                        <ng-template carouselSlide>
-                            <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="./assets/images/image/popular_1.png" alt=""></div>
-                                <div class="popular_category_text">Smartphones & Tablets</div>
-                            </div>
-                        </ng-template>
-
-                        <!-- Popular Categories Item -->
-                        <ng-template carouselSlide>
-                            <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="./assets/images/image/popular_2.png" alt=""></div>
-                                <div class="popular_category_text">Computers & Laptops</div>
-                            </div>
-                        </ng-template>
-
-                        <!-- Popular Categories Item -->
-                        <ng-template carouselSlide>
-                            <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="./assets/images/image/popular_3.png" alt=""></div>
-                                <div class="popular_category_text">Gadgets</div>
-                            </div>
-                        </ng-template>
-
-                        <!-- Popular Categories Item -->
-                        <ng-template carouselSlide>
-                            <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="./assets/images/image/popular_4.png" alt=""></div>
-                                <div class="popular_category_text">Video Games & Consoles</div>
-                            </div>
-                        </ng-template>
-
-                        <!-- Popular Categories Item -->
-                        <ng-template carouselSlide>
-                            <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="./assets/images/image/popular_5.png" alt=""></div>
-                                <div class="popular_category_text">Accessories</div>
-                            </div>
-                        </ng-template>
-
-                       </ng-container>
-                    </owl-carousel-o>
+                  
+                    
+                   
 
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-<div class="brands">
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<div class="brands_slider_container">
-					
-					<!-- Brands Slider -->
-
-					<owl-carousel-o [options]="customOptions" class="brands_slider">
-						<ng-container class="brands_slider ">
-
-							<!-- Popular Categories Item -->
-						<ng-template carouselSlide>
-						<div class="justify-content-center"><img src="./assets/images/brands_1.jpg" alt=""></div>
-						</ng-template>
-						<ng-template carouselSlide>
-						<div class="justify-content-center"><img src="./assets/images/brands_2.jpg" alt=""></div>
-					    </ng-template>
-						<ng-template carouselSlide><div class="brands_item d-flex flex-column justify-content-center"><img src="./assets/images/brands_3.jpg" alt=""></div></ng-template>
-						<ng-template carouselSlide><div class="brands_item d-flex flex-column justify-content-center"><img src="./assets/images/brands_4.jpg" alt=""></div></ng-template>
-						<ng-template carouselSlide><div class="brands_item d-flex flex-column justify-content-center"><img src="./assets/images/brands_5.jpg" alt=""></div></ng-template>
-						<ng-template carouselSlide><div class="brands_item d-flex flex-column justify-content-center"><img src="./assets/images/brands_6.jpg" alt=""></div></ng-template>
-						<ng-template carouselSlide><div class="brands_item d-flex flex-column justify-content-center"><img src="./assets/images/brands_7.jpg" alt=""></div></ng-template>
-						<ng-template carouselSlide><div class="brands_item d-flex flex-column justify-content-center"><img src="./assets/images/brands_8.jpg" alt=""></div></ng-template>
-
-						</ng-container>
-					</owl-carousel-o>
-					
-					<!-- Brands Slider Navigation -->
-					<div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
-					<div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<app-footer></app-footer>

@@ -1,0 +1,62 @@
+<div class="modal-content">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="login-form">
+            <div class="row justify-content-between">
+            <div class="col-4">
+                <h4 class="login-title text-left">Login</h4></div>
+            <div class="col-4">
+                <button type="button" class="close" data-dismiss="modal" mat-dialog-close>
+                <span class="text-end" aria-hidden="true">x</span>
+                </button>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-12 mb-20">
+                    <label>Email Address*</label>
+                    <input class="mb-0" type="email" placeholder="Email Address"  [(ngModel)]="model.email" formControlName="email">
+                    <mat-error *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
+                        Email is required
+                    </mat-error>
+                </div>
+                <div class="col-12 mb-20">
+                    <label>Password</label>
+                    <input class="mb-0" [type]="showPassword ? 'text' : 'password'"
+                    placeholder="Password"  [(ngModel)]="model.motDePasse"  formControlName="motDePasse"> 
+                    <i class="far fa-eye fa-2x" id="togglePassword"
+                    (click)="showPassword = !showPassword"
+                    [class.hide]="showPassword" 
+                    style="margin-left: -30px; cursor: pointer;"></i>
+                
+                    <mat-error *ngIf="loginForm.get('motDePasse')?.invalid && (loginForm.get('motDePasse')?.dirty || loginForm.get('motDePasse')?.touched) && loginForm.get('motDePasse')?.errors?.required">
+                        Password is required
+                    </mat-error>
+                </div>
+                <br> <br>
+                <div class="col text-right">
+                    <button class="Forgot" href="#" data-toggle="modal" (click)="openDialogue()"> Forgotten password?</button>
+                </div>
+                <div class="col-md-12">
+                    <button  [disabled]="!loginForm.valid" class="register-button btn-lg btn-block">Login</button>
+                </div>
+            
+                <p class="text-center dont-do mt-3">Don't have an account?
+                    <button class="dialg" href="#" data-toggle="modal" (click)="openDialog()"> 
+                        Register Now</button>
+                </p>
+            </div>
+        </div>
+    </form>
+    <!-- <div class="myAlert-top alert alert-danger" *ngIf="isLoginFailed">
+        <a href="#" data-dismiss="alert" aria-label="close"></a>
+        Check your email and password please!
+      </div> -->
+    <div class="myAlert-top alert alert-success" *ngIf="isSuccessful">
+        <a href="#"  data-dismiss="alert" aria-label="close">&times;</a>
+        Success Login !
+      </div>
+    </div>
+    
+    

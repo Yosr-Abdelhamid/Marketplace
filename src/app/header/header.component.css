@@ -13,3 +13,70 @@
 .header-links li .btnlog:hover {
     color: #D10024;
   }
+.row{
+    width: 1100px;
+}
+
+.header-ctn {
+    float: right;
+    padding-top: 35px;
+    margin-right: -170px;
+    width:300px;
+  }
+  
+  .header-ctn>div {
+    display: inline-block;
+  }
+  
+  .header-ctn>div+div {
+    margin-left: 15px;
+  }
+  
+  .header-ctn>div>a {
+    display: block;
+    position: relative;
+    width: 90px;
+    text-align: center;
+    color: rgb(88, 9, 9);
+  }
+  
+  .header-ctn>div>a>i {
+    display: block;
+    font-size: 18px;
+  }
+  
+  .header-ctn>div>a>span {
+    font-size: 12px;
+  }
+  
+  .header-ctn>div>a>.qty {
+    position: absolute;
+    right: 15px;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 10px;
+    color: #FFF;
+    background-color: #D10024;
+  }
+  
+  .header-ctn .menu-toggle {
+    display: none;
+  }
+  
+  .cart-dropdown {
+    position: absolute;
+    width: 300px;
+    background: #FFF;
+    padding: 15px;
+    -webkit-box-shadow: 0px 0px 0px 2px #E4E7ED;
+    box-shadow: 0px 0px 0px 2px #E4E7ED;
+    z-index: 99;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  

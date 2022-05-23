@@ -1,3 +1,8 @@
+@import url("../../assets/css/style.min.css") ;
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+	background: #F5F7F8 ;}
+
 .products-2-section{
 	padding-top: 188px;
 }
@@ -86,8 +91,8 @@
 	text-decoration: underline;
 	text-decoration-line: 32px;
 	text-decoration-color: #ff0000;
-	line-height: 25px;
-	font-weight: 600;	
+	font-size: 26px;
+    font-weight: 600;
 	margin-bottom:0px;
 	padding-bottom: 0px;
 }
@@ -96,7 +101,7 @@
 	
 		position: absolute;
 		top: 50%;
-		left: 55%;
+		left: 62%;
 		transform: translate(-50%, -50%);	  
 }
 .iaa{
@@ -112,6 +117,7 @@
 	
 	font-weight: bold;
 	position: relative;
+	font-size: 26px;
 	color: #ff0000;
 	text-shadow:#dddb50 1px 0 10px;	
 	
@@ -122,9 +128,10 @@
 	padding-left: 60px;
 }
 .image_size{
-	width: 310px;
+	width: 350px;
 	height: 400px;
-	padding-left: 60px;
+	padding-left: 90px;
+	padding-right: 15px;
 }
 .prod-space{
 	padding-left: 150px;
@@ -148,7 +155,8 @@
 	transition: 0.3s;
 	border-radius: 8px; 
 	margin-top: 0;
-	width:260px
+	width:262px;
+	height: 390px;
 
 }
 .card-main{
@@ -208,7 +216,7 @@
 }
 .cart-item{
 	text-align: center;
-	line-height: 45px;
+	line-height: 43px;
 	background: #111;
 	position: relative;
 	top: 0x;
@@ -329,8 +337,9 @@ font-size: 12px;
 		height: 130px;
 		border: solid 1px #e8e8e8;
 		box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-		padding-left: 97px;
-		padding-right: 97px;
+		padding-left: 117px;
+		padding-right: 100px;
+		margin-left: 50px;
 	}
 .brands_slider
 	{
@@ -387,14 +396,41 @@ font-size: 12px;
 	width: 400px;
 	height: 140.19px;
 }
-.featured-manufacturer {
-		color: #a4a4a4;
-		font-size: 13px;
+.featured-manufacturer a { 
+		color: #2d4ee2 !important;;
+		font-size: 8px !important;
 		margin-top: 9px;
-		font-weight: 400;
 		text-transform: capitalize;
 		transition: all 0.3s ease-in-out;
 	}
+.shipping-text h2 {
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        color: #242424;
+        padding-bottom: 2px;
+    }
+.shipping-text p {
+        color: #888;
+        font-weight: 400 !important;
+        font-size: 14px !important;
+        padding-bottom: 5px;
+        
+    }
+h2 {
+	font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+    color: #333;
+    letter-spacing: -.03em;
+
+}
+.ml-4, .mx-4 {
+    margin-left: 0.5rem !important;
+}
+
+.featured-product{
+	margin-left: 35px;
+}
 .featured-product-active {
 		padding: 15px;
 	}
@@ -431,7 +467,7 @@ font-size: 12px;
 }
 
 .featured-pro-content h4 a {
-		font-size: 14px;
+		font-size: 12px;
 		font-weight: 500;
 		color: #0363cd;
 	}
@@ -440,7 +476,7 @@ font-size: 12px;
 		color: #0363cd;
 	}
 .featured-pro-content .rating-box {
-		padding-top: 5px;
+		padding-top: 1px;
 	}
 .featured-pro-wrapper:hover .featured-price-box {
 		opacity: 0;
@@ -463,8 +499,28 @@ font-size: 12px;
 	}
 .featured-price-box {
 		transition: all 0.5s ease-in-out;
+		padding-top: 1px !important;
 	}
 
+h4, .h4 {
+		font-size: 1.5rem;
+		font-weight: 500;
+		line-height: 1.1;
+		margin-bottom: 0.2rem;
+		color: #333;
+		letter-spacing: -.03em;
+		padding: 0 0 0px 0;
+	}	
+
+h5, .h5 {
+		font-size: 1rem !important;
+		letter-spacing: -.025em;
+		font-weight: 500;
+    	line-height: 1.1;
+    	margin-bottom: 0.2rem;
+    	color: #a5a5a5 !important;
+    
+}
 .product-img {
     width: 30%;
     float: left;
@@ -527,9 +583,9 @@ font-size: 12px;
 .catg{
 	
 	background: #fff;
-	margin-left:110px ;
-	margin-right:110px ;
-	height: 250px;
+	margin-left:90px ;
+	margin-right:95px ;
+	height: 280px;
 }
 .catg ul {
     list-style: none;
@@ -541,7 +597,10 @@ font-size: 12px;
     box-shadow: 0 0 10px rgb(0 0 0 / 10%);
     overflow: hidden;
 }
-
+.banner-link{
+	color: #0e8ce4;
+	font-size : 14px !important
+}
 .flip-box-inner {
 	position: relative;
 	width: 145px;
@@ -632,17 +691,28 @@ font-size: 12px;
 .backe h4{
 	
 	text-decoration: underline;
+	font-size: 16px;
+	font-weight: bold;
+	color: #000000;
 }
+.row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.justify-content-center {
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+}
+
 .banner-content {
     left: 30px;
     padding-top: 0;
 }
 .banner-subtitle {
-    font-size: 1.4rem;
+    font-size: 0.8rem !important;
     letter-spacing: -.01em;
     margin-bottom: 1.3rem;
 	color: #777;
-    font-weight: 300;
     line-height: 1.2;
 }
 .banner img {
@@ -651,17 +721,16 @@ font-size: 12px;
     width: 100%;
     height: auto;
 }
+
 .banner-title {
     color: #999;
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 1rem !important;
     line-height: 1.25;
     letter-spacing: -.01em;
     margin-bottom: 1.2rem;
 }
-banner-title a {
-    color: inherit;
-}
+
 .banner-title strong {
     font-weight: 600;
     color: rgb(7, 7, 7);
@@ -725,6 +794,8 @@ banner-title a {
 .header_brand{
 	text-transform: uppercase;
 	font-weight: 600;
-	margin-left: 110px;
+	margin-left: 130px;
     margin-bottom: 1.2rem;
+	font-size: 26px;
+  
 }

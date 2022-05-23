@@ -1,8 +1,10 @@
-.modal-content{
-    width:450px;
+.card{
+    width:550px;
+    margin-left: 350px;
+    
 }
 .login-title {
-	font-size: 26px;
+	font-size: 30px;
 	line-height: 23px;
 	text-transform: capitalize;
 	font-weight: 700;
@@ -11,6 +13,7 @@
 .login-form {
   background-color: #ffffff;
   padding: 30px;
+  height: 400px;
   -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1); 
 }
@@ -143,7 +146,7 @@ button.close {
     background-color: transparent;
     color:grey;
     float: right;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 600;
     line-height: 1;
 }
@@ -162,4 +165,7 @@ button.close {
     background-color: transparent;
     color:rgb(17, 23, 39);
     font-weight: bold;
+}
+.mat-error{
+    font-size: 12px;
 }

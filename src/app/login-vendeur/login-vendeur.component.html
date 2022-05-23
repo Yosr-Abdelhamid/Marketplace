@@ -1,5 +1,5 @@
 <div class="modal-content">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"  autocomplete="on"  novalidate>
         <div class="login-form">
             <div class="row justify-content-between">
             <div class="col-4">
@@ -25,10 +25,10 @@
                     <label>Password</label>
                     <input class="mb-0" [type]="showPassword ? 'text' : 'password'"
                     placeholder="Password"  [(ngModel)]="model.motDePasse"  formControlName="motDePasse"> 
-                    <i class="far fa-eye fa-2x" id="togglePassword"
+                    <i class="far fa-eye fa-1x" id="togglePassword"
                     (click)="showPassword = !showPassword"
                     [class.hide]="showPassword" 
-                    style="margin-left: -30px; cursor: pointer;"></i>
+                    style="margin-left: -40px ; cursor: pointer;"></i>
                 
                     <mat-error *ngIf="loginForm.get('motDePasse')?.invalid && (loginForm.get('motDePasse')?.dirty || loginForm.get('motDePasse')?.touched) && loginForm.get('motDePasse')?.errors?.required">
                         Password is required
@@ -43,20 +43,12 @@
                 </div>
             
                 <p class="text-center dont-do mt-3">Don't have an account?
-                    <button class="dialg" href="#" data-toggle="modal" (click)="openDialog()"> 
+                    <button class="dialg" href="#"  (click)="gotoregister()"> 
                         Register Now</button>
                 </p>
             </div>
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
         </div>
     </form>
-    <!-- <div class="myAlert-top alert alert-danger" *ngIf="isLoginFailed">
-        <a href="#" data-dismiss="alert" aria-label="close"></a>
-        Check your email and password please!
-      </div> -->
-    <div class="myAlert-top alert alert-success" *ngIf="isSuccessful">
-        <a href="#"  data-dismiss="alert" aria-label="close">&times;</a>
-        Success Login !
-      </div>
-    </div>
-    
-    
+</div>
+   

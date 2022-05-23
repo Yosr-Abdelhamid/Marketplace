@@ -121,9 +121,9 @@
             display: block;
             margin-top: 20px;
             border-radius: 0;
-            height: 36px;
+            height: 40px;
             border: none;
-            line-height: 24px;
+            line-height: 21px;
             padding: 6px 20px;
             float: left;
             font-weight: 400;
@@ -143,7 +143,7 @@ button.close {
     background-color: transparent;
     color:grey;
     float: right;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 600;
     line-height: 1;
 }
@@ -168,4 +168,7 @@ button.close {
     color : #0D6EFD ;
     font-size: 12px;
     font-weight: bold;
+}
+.mat-error{
+    font-size :12px !important;
 }

@@ -1,12 +1,54 @@
+.preloader{
+  width: 260px !important;
+
+}
+.layout-fixed .wrapper .sidebar {
+  height: calc(100vh - (3.5rem + 1px));
+}
+.sidebar {
+  height: calc(100% - (3.5rem + 1px));
+  overflow-x: hidden;
+  overflow-y: initial;
+  padding-bottom: 0;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0;
+  scrollbar-color: #a9a9a9 transparent;
+  scrollbar-width: none;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+.col-4{
+    width: 250px !important;
+    max-width: 250px !important;
+}
+.row{
+  height: 95px !important;
+}
+
+.main-header{
+  width: 1075px;
+  margin-left: 10px !important;
+}
 .center {
-    padding-left: 270px;
+    padding-left: 0px;
   }
-mat-form-field {
+
+.mat-form-field {
       padding-top: 15px;
       width: 460px;
       font-size: 16px;
+      height: 75px;
       color: black;
     }
+
+.mat-form-field mat-label {
+  font-weight: 400 !important;
+
+}
+
 .panel{
     width: 70%;
     border: black;
@@ -27,7 +69,7 @@ mat-form-field {
     padding-top: 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 24px;
-    color:blueviolet;}
+    color:rgb(139, 30, 30);}
 .marp{
   margin-right:12px;
   font-size: 22px;
@@ -36,7 +78,8 @@ mat-form-field {
   
 .marpp{
     margin-top: 12px;
-    font-size: 16px;
+    font-size: 20px;
+    font-family: 400;
     color:gray;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -65,4 +108,28 @@ mat-form-field {
   height: 305.25px ;
   background-color: rgb(248, 248, 248);
   border-radius: 10px;
+}
+.image-upload-container span{
+  padding-right: 20px;
+}
+.mat-card-actions{
+  padding-left: 40px;
+}
+.my-class{
+  width: 180px;
+  height: 40px;
+}
+.myclass{
+  width: 180px;
+  height: 40px;
+  background: #dddbdb;
+}
+table {
+  width: 100%;
+}
+td{
+  font-size: 14px !important;
+}
+tr{
+  font-size: 16px !important;;
 }

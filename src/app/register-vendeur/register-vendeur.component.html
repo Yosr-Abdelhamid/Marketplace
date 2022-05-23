@@ -1,15 +1,15 @@
-<div class="modal-content">
+<app-header></app-header>
+<br><br>
+<div class="card">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="login-form">
-            <div class="row justify-content-between">
-            <div class="col-4">
-                <h4 class="login-title text-left">Register</h4></div>
-            <div class="col-4">
+                <h1 class="login-title text-center">Register</h1>
+           <!--  <div class="col-4">
                 <button type="button" class="close" data-dismiss="modal" mat-dialog-close>
                 <span class="text-end" aria-hidden="true">x</span>
                 </button>
-            </div>
-            </div>
+            </div> -->
+         
             <div class="row">
                 <div class="col-md-6 col-12 mb-20">
                     <label>First Name</label>
@@ -78,6 +78,7 @@
         Success Registration !
       </div>
     </div>
-    
-    
+<app-alert></app-alert> 
+<br><br>
+<app-footer></app-footer>
     

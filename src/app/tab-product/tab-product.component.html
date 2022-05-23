@@ -1,0 +1,126 @@
+<app-header></app-header>
+<div class="container">
+    <div class="demo-button-container">
+        <button mat-raised-button class="demo-button" (click)="addData()">
+          Add Product
+        </button>
+        <button
+            mat-raised-button
+            [disabled]="!dataSource.length"
+            
+            class="demo-button">
+          Remove Product
+        </button>
+      </div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{element.position}}</td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Product Reference</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef>Product Price</th>
+          <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef>Product Quantity</th>
+          <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+<!-- <div class="Shopping-cart-area pt-60 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="#">
+                    <div class="table-content table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="li-product-remove">remove</th>
+                                    <th class="li-product-thumbnail">images</th>
+                                    <th class="cart-product-name">Product</th>
+                                    <th class="li-product-price">Unit Price</th>
+                                    <th class="li-product-quantity">Quantity</th>
+                                    <th class="li-product-subtotal">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+                                    <td class="li-product-thumbnail"><a href="#"><img src="./assets/images/product/small-size/5.jpg" alt="Li's Product Image"></a></td>
+                                    <td class="li-product-name"><a href="#">Accusantium dolorem1</a></td>
+                                    <td class="li-product-price"><span class="amount">$46.80</span></td>
+                                    <td class="quantity">
+                                        <label>Quantity</label>
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" value="1" type="text">
+                                            <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                            <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                        </div>
+                                    </td>
+                                    <td class="product-subtotal"><span class="amount">$70.00</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+                                    <td class="li-product-thumbnail"><a href="#"><img src="./assets/images/product/small-size/6.jpg" alt="Li's Product Image"></a></td>
+                                    <td class="li-product-name"><a href="#">Mug Today is a good day</a></td>
+                                    <td class="li-product-price"><span class="amount">$71.80</span></td>
+                                    <td class="quantity">
+                                        <label>Quantity</label>
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" value="1" type="text">
+                                            <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                            <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                        </div>
+                                    </td>
+                                    <td class="product-subtotal"><span class="amount">$60.50</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="coupon-all">
+                                <div class="coupon">
+                                    <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code" type="text">
+                                    <input class="button" name="apply_coupon" value="Apply coupon" type="submit">
+                                </div>
+                                <div class="coupon2">
+                                    <input class="button" name="update_cart" value="Update cart" type="submit">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 ml-auto">
+                            <div class="cart-page-total">
+                                <h2>Cart totals</h2>
+                                <ul>
+                                    <li>Subtotal <span>$130.00</span></li>
+                                    <li>Total <span>$130.00</span></li>
+                                </ul>
+                                <a href="#">Proceed to checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+<br><br><br>
+</div>
+<br><br><br>

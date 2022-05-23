@@ -1,11 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductApiService } from '../product-api.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { LoginVendeurService } from '../login-vendeur.service';
+import { User } from '../models/User';
+import { Router } from '@angular/router';
+
+class ImageSnippet {
+  constructor(public src: string, public file: File) {}
+}
 
 @Component({
   selector: 'app-home',
@@ -13,43 +20,35 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  public nameForm:FormGroup;
+  @ViewChild('imageInput', { static: true}) imageInput;  
+ 
+  options =["Apple", "Acer" , "Asus" ,"Beko" ,"Bosh" ,"Brandt", "Dell" ,"Haier","Huawei", " HP" , "Infinix" ,"LG" ,"Lenovo","MSI" , "Nokia" ,"Samsung",
+   "Xiaomi"]
+  filteredOptions: any;
 
   isDisabled=true ;
-  //inspectionList$!:Observable<any[]>;
-
+  selectedFile: ImageSnippet |any ;
+  Reference:string ='';
+  image:string='';
+  userDetails ;
+  model : any={}; 
+  userId:string ;
+  isSuccessful = false;
   inspectionTypesList:any=[];
-  SimilaireProductList:any=[];
-  ProduitS:string="";
-  sous_famille:string="";
-  Reference: string = "";
-  Magasin: string = "";
-  Prix: string = "";
-  description?:string;
+
+  showMe:boolean=false ;
 
   loading = false;
-    errorMessage = '';
-    customOptions: OwlOptions = {
-      loop: true,
-      items:4,
-      mouseDrag: true,
-      touchDrag: true,
-      pullDrag: true,
-      dots: true,
-      navSpeed: 700,
-      navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-      center:true,
-      margin:30,
-      nav: true
-    }
-  
-    constructor(private productapi:ProductApiService , private formBuilder: FormBuilder ,private sanitizer: DomSanitizer) { 
-      this.nameForm = this.formBuilder.group({
-        Reference: '' , sous_famille:'' ,Magasin:''
-      });
-      
-    }
+  errorMessage = '';
+  formGroup : FormGroup |any;
+  addProduct :FormGroup
+    
+    constructor(private productapi:ProductApiService , private fb: FormBuilder ,
+      private userService: LoginVendeurService,private router:Router,
+      private sanitizer: DomSanitizer) { 
+      }
+
+
     public getSantizeUrl(url : string) {
       return this.sanitizer.bypassSecurityTrustUrl(url);
   }
@@ -57,7 +56,7 @@ export class HomeComponent implements OnInit {
     public getRepos() {
       this.loading = true;
       this.errorMessage = '';
-      this.productapi.getInspectionList(this.Reference)
+      this.productapi.getInspectionList(this.formGroup.value.Reference)
           .subscribe((response) => {this.inspectionTypesList = response;},
                      (error) => {
                          this.errorMessage = error.message; this.loading = false; 
@@ -65,35 +64,97 @@ export class HomeComponent implements OnInit {
                       () => {this.loading = false;})
   
   }
-  public getSimialire() {
-    this.loading = true;
-    this.errorMessage = '';
-    this.productapi.getSimilaireList(this.Reference, this.sous_famille)
-        .subscribe((response) => {this.SimilaireProductList = response;},
-                   (error) => {
-                       this.errorMessage = error.message; this.loading = false; 
-                    },
-                    () => {this.loading = false;})
 
-}
-  
   testevent(){
-  
-    this.Reference=this.nameForm.get('Reference')?.value;
-    this.sous_famille=this.nameForm.get('sous_famille')?.value;
-    this.Magasin=this.nameForm.get('Magasin')?.value;
-  
-  
-    if((this.Reference != '')&& (this.sous_famille != '')&&(this.Magasin  != '')) {
-      this.isDisabled = false ;
+    if((this.formGroup.value.reference_prod != '')&& (this.formGroup.value.sous_famille_prod != '')&&(this.formGroup.value.Brand  != '') && (this.formGroup.value.quantity  != '')&& (this.formGroup.value.description_prod != '')) {
+      this.showMe =!this.showMe ;
       this.getRepos() ;
-      this.getSimialire();
-      this.ProduitS='Produits Similaires'
   
-    }
   }
+}
+  getUserDetails(){
+  this.userService.getUser().subscribe(
+    res => {
+      this.userDetails = res;
+      this.userId=this.userDetails.id;
+    },
+    err => {
+      console.log(err);
+    },
+  );
+  }
+
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+    });
+
+    reader.readAsDataURL(file);
+  }
+  
+  initForm(){
+    this.formGroup = this.fb.group({
+      Reference: ['',[Validators.required]] ,
+      sous_famille_prod:['',[Validators.required]],
+      Brand:['',[Validators.required]],
+      quantity:['',[Validators.required]],
+      description_prod:['',[Validators.required]],
+      prix_prod: ['',[Validators.required]],
+
+    })
+
+    this.formGroup.get('sous_famille_prod').valueChanges ;
+    this.formGroup.get('Brand').valueChanges.subscribe((response: any) => {
+      console.log('data is ', response);
+      this.filterData(response);
+    })
+  }
+
+  onSubmit(){
+ 
+    let formData = new FormData();  
+       
+    formData.append('Reference', this.formGroup.value.Reference);
+    formData.append('sous_famille_prod', this.formGroup.value.sous_famille_prod);
+    formData.append('Brand', this.formGroup.value.Brand);
+    formData.append('quantity', this.formGroup.value.quantity);
+    formData.append('description_prod', this.formGroup.value.description_prod);
+    formData.append('prix_prod', this.formGroup.value.prix_prod);  
+    formData.append('image_prod', this.imageInput.nativeElement.files[0]);
+    formData.append('id', this.userDetails.id);
+    this.userService.AddFileDetails(formData).subscribe(result => {});  
+    this.isSuccessful = true ;
+  }
+
+  
+
+  filterData(enteredData: string){
+    this.filteredOptions = this.options.filter(item => {
+      return item.toLowerCase().indexOf(enteredData.toLowerCase()) > -1
+    })
+  }
+
     ngOnInit(): void {
+      this.initForm() ;
+      this.userService.getUser().subscribe(
+        res => {
+          this.userDetails = res;
+          this.userId=this.userDetails.id;
+        },
+        err => {
+          console.log(err);
+        },
+      );
+      //this.getUserDetails()
       
+    }
+    onLogout() {
+      localStorage.removeItem('token');
+      this.router.navigate(['/accueil']);
     }
 
 }

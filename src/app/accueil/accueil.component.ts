@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { OwlCarousel } from 'ngx-owl-carousel';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
@@ -10,7 +10,9 @@ import { LoginVendeurComponent } from '../login-vendeur/login-vendeur.component'
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.css'],})
+  styleUrls: ['./accueil.component.css'],
+ 
+})
 
 export class AccueilComponent implements OnInit {
 
@@ -42,7 +44,7 @@ export class AccueilComponent implements OnInit {
     center:true,
     stagePadding : 38,
     margin:75,
-    navText: ['',''],
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     responsive: {
       0: {
         items: 1

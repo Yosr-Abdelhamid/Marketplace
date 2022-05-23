@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -36,13 +36,33 @@ import { LoginVendeurComponent } from './login-vendeur/login-vendeur.component';
 import { RegisterVendeurComponent } from './register-vendeur/register-vendeur.component';
 import { PageVendeurComponent } from './page-vendeur/page-vendeur.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AlertComponent } from './alert/alert.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FeedsComponent } from './dashboard/dashboard-components/feeds/feeds.component';
+import { TopSellingComponent } from './dashboard/dashboard-components/top-selling/top-selling.component';
+import { TopCardsComponent } from './dashboard/dashboard-components/top-cards/top-cards.component';
+import { BlogCardsComponent } from './dashboard/dashboard-components/blog-cards/blog-cards.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { TabProductComponent } from './tab-product/tab-product.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { DashboardVendeurComponent } from './dashboard-vendeur/dashboard-vendeur.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { JwtModule } from "@auth0/angular-jwt";
+import { AuthGuard } from './_helpers/AuthGuard';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxLoadingModule } from 'ngx-loading';
 
+export function tokenGetter() { 
+  return localStorage.getItem("jwt"); 
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
+    FeedsComponent,TopSellingComponent,TopCardsComponent,
+    HomeComponent,BlogCardsComponent,
     AccueilComponent,
     FooterComponent,
     LoginComponent,
@@ -52,7 +72,12 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     LoginVendeurComponent,
     RegisterVendeurComponent,
     PageVendeurComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    DashboardComponent,
+    AlertComponent,
+    TabProductComponent,
+    DashboardVendeurComponent
   ],
   imports: [
     BrowserModule,
@@ -60,13 +85,21 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     BrowserAnimationsModule,
     MatFormFieldModule,MatTabsModule,
     MatInputModule,CarouselModule,
-    MDBBootstrapModule.forRoot(),
-    MatIconModule,MatRadioModule,OwlModule,
-    MatSelectModule,ReactiveFormsModule,
+    MDBBootstrapModule.forRoot(),ToastrModule.forRoot(),
+    MatIconModule,MatRadioModule,OwlModule,MatToolbarModule,
+    MatSelectModule,ReactiveFormsModule, NgxLoadingModule.forRoot({}),
     MatDividerModule,FormsModule,MatGridListModule,
     MatListModule,HttpClientModule,
     MatCardModule,MatTableModule,NgbModule,
     MatExpansionModule,MatButtonModule,MatDialogModule,
+    NgApexchartsModule,MatAutocompleteModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:5001"],
+        disallowedRoutes: []
+      }
+    })
   ],
   providers: [ProductApiService],
   bootstrap: [AppComponent],

@@ -1,10 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginVendeurService } from '../login-vendeur.service';
 import { Register } from '../register';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AlertService } from '../alert/alert.service';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-register-vendeur',
@@ -22,7 +24,9 @@ export class RegisterVendeurComponent implements OnInit {
   errorMessage = '';
   modalVisible = false;
 
-  constructor(public dialog: MatDialog ,private formbulider: FormBuilder,  private router :Router , private loginService: LoginVendeurService) { } 
+  constructor(private formbulider: FormBuilder, 
+     private router :Router ,  private alertService: AlertService ,
+     private loginService: LoginVendeurService) { } 
 
   ngOnInit() {
    /*  this.registerForm = new FormGroup({
@@ -57,20 +61,26 @@ onSubmit(){
 }
 
 createUser(register: Register) {
-  this.loginService.Signup(register).subscribe(
-    () => {
-      this.data = true;
-      this.isSuccessful = true;
-      this.isSignUpFailed = false;
-
-
+  this.loginService.Signup(register)
+    .subscribe({
+    next: () => {
+        this.alertService.success('Success Registration !');
+        this.router.navigate(['/login']);
+        //this.closeDialog();
     },
-    err => {
-      this.errorMessage = err.error.message;
-      this.isSignUpFailed = true;
+    error: error => {
+        this.alertService.error("Check your informations please !");
     }
-    );
+});
 }
+
+  /* closeDialog(){
+   
+    setTimeout(() => {this.dialog.close();}, 3000)
+  } */
+
 }
 
   
+ 
+

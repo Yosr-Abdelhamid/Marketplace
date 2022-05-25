@@ -1,0 +1,253 @@
+<section class="sidebar-mini layout-fixed" style="height: auto;">
+  <div class="wrapper">
+  <div class="row">
+    <div class="col-4">
+  <div class="preloader justify-content-center align-items-center">
+  <img class="animation__shake" src="assets/img/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
+  </div>
+  <div class="col-8">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  
+  <ul class="navbar-nav">
+  <li class="nav-item">
+  <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+  </li>
+  <li class="nav-item d-none d-sm-inline-block">
+  <a href="index3.html" class="nav-link">Home</a>
+  </li>
+  <li class="nav-item d-none d-sm-inline-block">
+  <a href="#" class="nav-link">Contact</a>
+  </li>
+  </ul>
+  
+  <ul class="navbar-nav ml-auto">
+  
+  <li class="nav-item dropdown">
+  <a class="nav-link" data-toggle="dropdown" href="#">
+  <i class="far fa-comments"></i>
+  <span class="badge badge-danger navbar-badge">3</span>
+  </a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+  <i class="fas fa-expand-arrows-alt"></i>
+  </a>
+  </li>
+  <li class="nav-item">
+  <a><button class="btn btn-light my-2 my-sm-0" (click)="onLogout()">Logout</button>
+  </a>
+  </li>
+  </ul>
+  </nav>
+</div>
+ </div>
+  
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  
+  <a href="index3.html" class="brand-link">
+  <img src="assets/img/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+  <span class="brand-text font-weight-light">Dashboard Seller</span>
+  </a>
+  
+  <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition">
+  
+  <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+  <div class="image">
+  <img src="assets/img/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+  </div>
+  <div class="info" *ngIf="userDetails">
+    <a href="#" class="d-block">{{userDetails.prenom}} {{userDetails.nom}}</a>
+  </div>
+  </div>
+  
+  <div class="form-inline">
+  <div class="input-group" data-widget="sidebar-search">
+  <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+  <div class="input-group-append">
+  <button class="btn btn-sidebar">
+  <i class="fas fa-search fa-fw"></i>
+  </button>
+  </div>
+  </div>
+  </div>
+  
+  <nav class="mt-2">
+  <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false">
+  
+  <li class="nav-item">
+  <a routerLink="/dashboard-vendeur" class="nav-link active">
+  <i class="nav-icon fab fa-product-hunt"></i>
+  <p>
+  Produits
+  </p>
+  </a>
+  </li>
+
+  <li class="nav-item">
+  <a href="pages/widgets.html" class="nav-link">
+  <i class="nav-icon fas fa-th"></i>
+  <p>
+  Widgets
+  </p>
+  </a>
+  </li>
+
+  <li class="nav-item">
+  <a href="#" class="nav-link">
+  <i class="nav-icon fas fa-copy"></i>
+  <p>
+  Layout Options
+  </p>
+  </a>
+  </li>
+  <li class="nav-item">
+  <a href="#" class="nav-link">
+  <i class="nav-icon fas fa-tree"></i>
+  <p>
+  UI Elements
+  </p>
+  </a>
+  </li>
+
+
+  </ul>
+  </nav>
+  
+  </div>
+  
+  </aside>
+  
+  <div class="content-wrapper">
+  <section class="content">
+  <div class="container-fluid">
+
+   <div class="center">
+    <mat-card class="example-card">
+      <mat-card-title>Add new Product</mat-card-title>
+
+      <mat-card-content>
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" novalidate>
+          <div class="row">
+            <div class="col-sm-5 col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Product Name</mat-label>
+                <input matInput type="text" placeholder="Name" id="Reference"  formControlName="Reference">
+              </mat-form-field>
+            </div>
+            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+              <mat-form-field appearance="outline">
+                <mat-label>Product Category</mat-label>
+                <mat-select placeholder ="sous_famille" type="text" id="sous_famille_prod" formControlName="sous_famille_prod">
+                    <mat-option value="Smartphone">Smartphone</mat-option>
+                    <mat-option value="PC Portable">PC Portable</mat-option>
+                    <mat-option value="Climatiseur">Climatiseur</mat-option>
+                    <mat-option value="Refrigérateur">Réfrigérateur</mat-option>
+                    <mat-option value="Scanner">Scanner</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5 col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Product Brand</mat-label>
+                <input matInput type = "text" placeholder="Brand" id="Brand" formControlName="Brand"
+                [matAutocomplete]="auto" />
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let item of filteredOptions" [value]="item">
+                    {{item}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+              <mat-form-field appearance="outline">
+                <mat-label>Available Quantity</mat-label>
+                <input matInput  type="number" placeholder="Quantity"  id="Quantity" formControlName="quantity" >
+                <span matSuffix></span>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-5 col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Product Description</mat-label>
+                <textarea  matInput placeholder="Description" type="text"
+                 id="Description" formControlName="description_prod" 
+                 (blur)='testevent()'> </textarea>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                
+                <mat-form-field appearance="outline">
+                  <mat-label>Product Price</mat-label>
+                  <input matInput type="text" placeholder="0.000" step=0.001 id="prix_prod" 
+                  formControlName="prix_prod"  >
+                  <span matSuffix>DT</span>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+          <div class="col">
+            <br> <br>
+            <label class="image-upload-container btn btn-bwm">
+              <span>Select Product Image</span>
+              <input #imageInput
+                     type="file"
+                     accept="image/*"
+                     (change)="processFile(imageInput)" 
+                     id="Image">
+            </label>
+          </div>
+        </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="onSubmit()" class="my-class">ADD</button>
+        <button mat-raised-button class="myclass" (click)="reset()">RESET</button>
+        
+      </mat-card-actions>
+      <app-alert></app-alert>
+    </mat-card>
+   </div>
+
+<br> 
+    <div *ngIf="showMe">
+        <table class="table table-bordered">
+            <thead  class="thead-light">
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Product Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Store</th>
+                    <th scope="col">Availibility</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of inspectionTypesList;">
+                  <td>{{item.reference}}</td>
+                  <td>{{item.description}}</td>
+                  <td>{{item.prix}}</td>
+                  <td><img [src]=getSantizeUrl(item.photo)  width="1680px" height="1580px"></td>
+                  <td><img [src]=getSantizeUrl(item.nom_magasin) width ="950px" height="950px"></td>
+                  <td>{{item.stock}}</td>   
+              </tr>         
+            </tbody>
+        </table>
+    </div>
+    <br> <br>
+
+</div>
+</section>
+
+</div>
+
+</div>
+  
+</section>
+
+
+

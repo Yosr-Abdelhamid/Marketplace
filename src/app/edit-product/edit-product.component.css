@@ -1,0 +1,210 @@
+.preloader{
+    width: 260px !important;
+  
+  }
+  .layout-fixed .wrapper .sidebar {
+    height: calc(100vh - (3.5rem + 1px));
+  }
+  .sidebar {
+    height: calc(100% - (3.5rem + 1px));
+    overflow-x: hidden;
+    overflow-y: initial;
+    padding-bottom: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0;
+    scrollbar-color: #a9a9a9 transparent;
+    scrollbar-width: none;
+  }
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
+  
+  .col-4{
+      width: 250px !important;
+      max-width: 250px !important;
+  }
+  .row{
+    height: 95px !important;
+  }
+  
+  .main-header{
+    width: 1075px;
+    margin-left: 10px !important;
+  }
+  .center {
+      padding-left: 0px;
+    }
+  
+  .mat-form-field {
+        padding-top: 15px;
+        width: 460px;
+        font-size: 16px;
+        height: 75px;
+        color: black;
+      }
+  
+  .mat-form-field mat-label {
+    font-weight: 400 !important;
+  
+  }
+  
+  .panel{
+      width: 70%;
+      border: black;
+      text-align: center;
+  }
+  .panel2{
+      width: 90%;
+      border: black;
+      text-align: center;
+      margin-right: 20px;
+    }
+    
+  .mybutton{
+      width: 150px!important;
+     }
+  
+  .example-h2{
+      padding-top: 10px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 24px;
+      color:rgb(139, 30, 30);}
+  .marp{
+    margin-right:12px;
+    font-size: 22px;
+    color:black;
+    font-weight: bold;}
+    
+  .marpp{
+      margin-top: 12px;
+      font-size: 20px;
+      font-family: 400;
+      color:gray;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  .desc{
+      font-size: 14px;
+      margin-left: 0px;
+        
+    }
+  
+  .textstyle{
+    height: 42px;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:rgb(105, 103, 103);
+  }
+  .ex-card{
+    width :307.25px ;
+    height: 391.25px;
+    background-color: rgb(209, 199, 219);
+    border-radius:25px ;
+  }
+  .imgsize{
+    width: 105.25px ;
+    height: 305.25px ;
+    background-color: rgb(248, 248, 248);
+    border-radius: 10px;
+  }
+  .image-upload-container span{
+    padding-right: 20px;
+  }
+  .mat-card-actions{
+    padding-left: 40px;
+  }
+  .my-class{
+    width: 180px;
+    height: 40px;
+  }
+  .myclass{
+    width: 180px;
+    height: 40px;
+    background: #dddbdb;
+  }
+  table {
+    width: 100%;
+  }
+  td{
+    font-size: 14px !important;
+  }
+  tr{
+    font-size: 16px !important;;
+  }
+  body{margin-top:10px;
+    background-color:#f2f6fc;
+    color:#69707a;
+    }
+  .mt-4, .my-4 {
+      margin-top: 0rem !important;
+  }
+    .img-account-profile {
+        height: 10rem;
+    }
+    .rounded-circle {
+        border-radius: 50% !important;
+    }
+    .card {
+        box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    }
+    .card .card-header {
+        font-weight: 500;
+    }
+    .card-header:first-child {
+        border-radius: 0.35rem 0.35rem 0 0;
+    }
+    .card-header {
+        padding: 1rem 1.35rem;
+        margin-bottom: 0;
+        background-color: rgba(33, 40, 50, 0.03);
+        border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    }
+    .form-control, .dataTable-input {
+        display: block;
+        width: 100%;
+        padding: 0.875rem 0.925rem;
+        font-size: 0.975rem;
+        font-weight: 400;
+        line-height: 1;
+        color: #3b4550;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #c5ccd6;
+        border-bottom: 1px solid #c5ccd6 !important;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.35rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    
+    .nav-borders .nav-link.active {
+        color: #0061f2;
+        border-bottom-color: #0061f2;
+        font-weight: 600;
+        font-size:18px ;
+    }
+    .nav-borders .nav-link {
+        color: #69707a;
+        border-bottom-width: 0.125rem;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+.row {
+  margin-bottom: 0px !important;
+}
+.lightn{
+  background: #a9a9a9;
+}
+.test{
+  background: rgb(214, 125, 125);
+}

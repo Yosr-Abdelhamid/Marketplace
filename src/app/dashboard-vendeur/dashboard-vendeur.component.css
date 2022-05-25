@@ -48,8 +48,40 @@
     margin-left: 8px;
   }
 
+.edit-button{
+    background:rgb(136, 202, 116);
+    width: 75px;
+    margin-left: 8px;
+    padding-left: 0px !important;
+}
+.remove-button{
+    background:rgb(240, 75, 75);
+    width: 95px;
+    margin-left: 8px;
+}
+.table{
+    background: #fff;
+}
 .sticky{
-    background: linear-gradient(#a9a9a9, #eb8e8e);
+    background: linear-gradient(#a9a9a9, #d4b8b8);
     font-size: 16px;
     font-weight: bold;
+}
+.nav-borders .nav-link.active {
+    color: #0061f2;
+    border-bottom-color: #0061f2;
+    font-weight: 600;
+    font-size:22px ;
+}
+.nav-borders .nav-link {
+    color: #69707a;
+    border-bottom-width: 0.125rem;
+    border-bottom-style: solid;
+    border-bottom-color: #a9a9a9;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }

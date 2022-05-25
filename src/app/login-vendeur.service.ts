@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { RequestProduct } from './models/RequestProduct';
@@ -48,6 +48,17 @@ export class LoginVendeurService {
   resetPassword(token: string, password: string, confirmPassword: string) {
         return this.http.post(this.Url+  'reset-password', { token, password, confirmPassword });
     } 
+
+  getAllProducts(Id: string): Observable<any[]> {
+   
+   
+      let params = new HttpParams()
+              .set('Id', Id)
+    
+      console.log(params.toString());
+    
+      return this.http.get<any[]>(this.Url + 'GetAllProducts', {params});
+    }
   
   public getAll() {
     let userInfo = JSON.parse(localStorage.getItem("userInfo")) ;
@@ -76,16 +87,10 @@ export class LoginVendeurService {
         'Authorization':`Bearer ${ userInfo?.token}`
     });
 
-    return this.http.get(this.Url+ 'GetUserProfile' , {headers: headers}) }
+    return this.http.get(this.Url + 'GetUserProfile' , {headers: headers}) 
+  }
     
 
-
-  addProduct(requestProduct:RequestProduct , id:string , image_prod:File ){
-    const httpOptions  = {headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }),withCredentials: true
-  };
-
-    return this.http.post(this.Url+ 'addProduct',{requestProduct,id,image_prod} , httpOptions)
-  }
 
   AddFileDetails(data: FormData): Observable <string> {  
     let headers = new HttpHeaders();  
@@ -94,5 +99,17 @@ export class LoginVendeurService {
         headers: headers  
     };  
     return this.http.post<string>(this.Url + 'addProduct', data, httpOptions);  
-}  
+} 
+
+  deleteProduit(val:any) {
+  return this.http.delete(this.baseUrl+'Vendeur/'+ val);
+}
+
+  updateProduit(data: FormData){
+  return this.http.put(this.baseUrl+'Vendeur',data);
+}
+
+
+
+
 }

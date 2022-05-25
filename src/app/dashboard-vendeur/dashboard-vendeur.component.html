@@ -123,7 +123,10 @@
   <div class="container-fluid">
   <div class="row mb-2">
   <div class="col-sm-6">
-  <h1 class="m-0">Liste of Product</h1>
+    <nav class="nav nav-borders">
+      <a class="nav-link active ms-0" target="__blank"> List of Product</a>
+     
+  </nav>
   </div>
   <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
@@ -140,36 +143,60 @@
   
     <div class="demo-button-container text-right">
       <button mat-raised-button class="demo-button" (click)="addData()">
-        Add Product
-      </button>
-      <button
-          mat-raised-button
-          [disabled]="!dataSource.length"
-          
-          class="demo-button">
-        Remove Product
+        Add New Product
       </button>
     </div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-      <!-- Position Column -->
+
+    <table class="table mat-elevation-z8">
+      <thead  class="thead-light">
+          <tr>
+              <th class="sticky">No.</th>
+              <th class="sticky">Product Name</th>
+              <th class="sticky">Price</th>
+              <th class="sticky">Quantity</th>
+              <th class="sticky">Image</th>
+              <th class="sticky"></th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listProduits; let i =index;">
+            <td>{{i+1}}</td>
+            <td>{{item.reference}}</td>
+            <td>{{item.prix_prod}}DT</td>
+            <td>{{item.quantity}}</td>
+            <td><img src="data:image/PNG;base64,{{item.image_prod }}" style="width:140px;height:140px"></td> 
+            <td><div class="demo-button-container text-right">
+              <button mat-raised-button class="edit-button" (click)="edit(item)"><i class="fa fa-edit"></i> Edit</button>
+              <button mat-raised-button class="remove-button" (click)="removeP(item)"><i class="fa fa-trash-o text-start"></i> Remove</button>
+            </div></td>  
+        </tr>         
+      </tbody>
+  </table>
+
+
+
+
+
+   <!--  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef class="sticky">No.</th>
         <td mat-cell *matCellDef="let element">{{element.position}}</td>
       </ng-container>
     
-      <!-- Name Column -->
+    
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef  class="sticky">Product Reference</th>
         <td mat-cell *matCellDef="let element">{{element.name}}</td>
       </ng-container>
     
-      <!-- Weight Column -->
+     
       <ng-container matColumnDef="weight">
         <th mat-header-cell *matHeaderCellDef  class="sticky">Product Price</th>
         <td mat-cell *matCellDef="let element">{{element.weight}}</td>
       </ng-container>
     
-      <!-- Symbol Column -->
+    
       <ng-container matColumnDef="symbol">
         <th mat-header-cell *matHeaderCellDef  class="sticky">Product Quantity</th>
         <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
@@ -177,7 +204,7 @@
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    </table> -->
  
   
   </div>

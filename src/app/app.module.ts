@@ -4,7 +4,6 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MatButtonModule} from '@angular/material/button';
@@ -29,20 +28,12 @@ import { RegisterComponent } from './register/register.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
-import { HomeTwoComponent } from './home-two/home-two.component';
-import { ProductCarouselTwoComponent } from './home-two/product-carousel-two/product-carousel-two.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { LoginVendeurComponent } from './login-vendeur/login-vendeur.component';
 import { RegisterVendeurComponent } from './register-vendeur/register-vendeur.component';
-import { PageVendeurComponent } from './page-vendeur/page-vendeur.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AlertComponent } from './alert/alert.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { FeedsComponent } from './dashboard/dashboard-components/feeds/feeds.component';
-import { TopSellingComponent } from './dashboard/dashboard-components/top-selling/top-selling.component';
-import { TopCardsComponent } from './dashboard/dashboard-components/top-cards/top-cards.component';
-import { BlogCardsComponent } from './dashboard/dashboard-components/blog-cards/blog-cards.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { TabProductComponent } from './tab-product/tab-product.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -52,6 +43,8 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from './_helpers/AuthGuard';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -61,23 +54,19 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     HeaderComponent,
-    FeedsComponent,TopSellingComponent,TopCardsComponent,
-    HomeComponent,BlogCardsComponent,
     AccueilComponent,
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    HomeTwoComponent,
-    ProductCarouselTwoComponent,
     LoginVendeurComponent,
     RegisterVendeurComponent,
-    PageVendeurComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    DashboardComponent,
     AlertComponent,
     TabProductComponent,
-    DashboardVendeurComponent
+    DashboardVendeurComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

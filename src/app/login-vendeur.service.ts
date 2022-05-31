@@ -41,6 +41,7 @@ export class LoginVendeurService {
     return this.http.post<Register[]>(this.baseUrl + 'Vendeur', register , httpOptions)  
   } 
 
+  
   forgotPassword(email: string) {
         return this.http.post(this.Url+  'forgot-password', { email });
   }
@@ -48,6 +49,12 @@ export class LoginVendeurService {
   resetPassword(token: string, password: string, confirmPassword: string) {
         return this.http.post(this.Url+  'reset-password', { token, password, confirmPassword });
     } 
+  
+  verifyEmail(model: any) {
+
+      //let params = new HttpParams().set("token" , token)
+      return this.http.post( this.Url  + 'verify-email', model);
+  }
 
   getAllProducts(Id: string): Observable<any[]> {
    
@@ -108,6 +115,15 @@ export class LoginVendeurService {
   updateProduit(data: FormData){
   return this.http.put(this.baseUrl+'Vendeur',data);
 }
+
+  updateImage(data: FormData){
+  return this.http.put(this.Url+'UpdateImage',data);
+  }
+
+  AddImageOrg(data: FormData){
+    return this.http.put(this.Url+'AddImageOrg',data);
+  }
+
 
 
 

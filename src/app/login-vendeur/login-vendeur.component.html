@@ -1,5 +1,5 @@
 <div class="modal-content">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"  autocomplete="on"  novalidate>
+    <form [formGroup]="loginForm" autocomplete="on"  novalidate>
         <div class="login-form">
             <div class="row justify-content-between">
             <div class="col-4">
@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-12 col-12 mb-20">
                     <label>Email Address*</label>
-                    <input class="mb-0" type="email" placeholder="Email Address"  [(ngModel)]="model.email" formControlName="email">
+                    <input matInput type="email" placeholder="Email Address"  [(ngModel)]="model.email" formControlName="email">
                     <mat-error *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
                         Please enter a valid email address
                     </mat-error>
@@ -39,7 +39,7 @@
                     <button class="Forgot" href="#" data-toggle="modal" (click)="openDialogue()"> Forgotten password?</button>
                 </div>
                 <div class="col-md-12">
-                    <button  [disabled]="!loginForm.valid" class="register-button btn-lg btn-block">Login</button>
+                    <button  [disabled]="!loginForm.valid" (click) ="onSubmit()" class="register-button btn-lg btn-block">Login</button>
                 </div>
             
                 <p class="text-center dont-do mt-3">Don't have an account?
@@ -48,6 +48,7 @@
                 </p>
             </div>
         <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+        <app-alert></app-alert>
         </div>
     </form>
 </div>

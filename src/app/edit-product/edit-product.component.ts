@@ -55,6 +55,12 @@ export class EditProductComponent implements OnInit {
     });
 
     reader.readAsDataURL(file);
+    let formData = new FormData(); 
+    formData.append('id_prod', this.item.id_prod);
+    formData.append('image_prod', this.imageInput.nativeElement.files[0]);
+    this.userService.updateImage(formData).subscribe(result => {
+      this.alertService.success('Image updated with success !');
+    });  
   }
 
   onLogout() {
@@ -72,8 +78,7 @@ export class EditProductComponent implements OnInit {
     formData.append('Brand', (<HTMLInputElement>document.getElementById("Brand")).value);
     formData.append('quantity', (<HTMLInputElement>document.getElementById("quantity")).value);
     formData.append('description_prod', (<HTMLInputElement>document.getElementById("description_prod")).value);
-    formData.append('prix_prod', (<HTMLInputElement>document.getElementById("prix_prod")).value);  
-    formData.append('image_prod', this.imageInput.nativeElement.files[0]);
+    formData.append('prix_prod', (<HTMLInputElement>document.getElementById("prix_prod")).value); 
     this.userService.updateProduit(formData).subscribe(result => {
       this.alertService.success('Product updated with success !');
     });  

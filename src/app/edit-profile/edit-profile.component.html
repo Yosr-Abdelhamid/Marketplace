@@ -1,0 +1,96 @@
+<div class="modal-content">
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()"> 
+    <div class="login-form">                 
+    <div class="row">
+        
+            <button type="button" class="close text-end" data-dismiss="modal" mat-dialog-close>
+            <span  aria-hidden="true">x</span>
+            </button>
+        
+                        <div class="row">        
+                        <div class="col">
+                        <label>First Name</label>
+                        <input matInput type="text" placeholder="First Name" formControlName="Nom">
+                       
+                        </div>
+                        <div class="col">
+                        
+                            <label>LastName Name</label>
+                            <input matInput type="text" placeholder="Last Name" required formControlName="Prenom">
+                        </div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col">
+                           
+                            <label>Email Address*</label>
+                            <input matInput class="mb-0" type="email" placeholder="Email Address" formControlName="email">
+        
+                            <mat-error *ngIf="!form.get('email')?.errors?.required && (form.get('email')?.errors?.pattern)">
+                                Please enter a valid email address
+                            </mat-error>
+                        
+                        </div>
+                        <div class="col">
+                         
+                            <label>Address*</label>
+                            <input matInput class="mb-0" type="text" placeholder="Address" formControlName="Adresse">
+                        </div>
+                        </div>
+                   
+                    <div class="row">
+                        <div class="col-md-6 col-12 mb-20">
+                            <label>Phone</label>
+                            <input matInput class="mb-0" type="text" placeholder="Phone" formControlName="Num_Telephone">
+                            <mat-error *ngIf="form.get('Num_Telephone')?.invalid && (form.get('Num_Telephone')?.dirty || form.get('Num_Telephone')?.touched) && form.get('Num_Telephone')?.errors?.required">
+                                Phone is required
+                            </mat-error>
+                        </div>
+                        <div class="col-md-6 col-12 mb-20">
+                            <label>Zip Code</label>
+                            <input class="mb-0" type="text" placeholder="Zip Code" formControlName="ZipCode">
+                            <mat-error *ngIf="form.get('ZipCode')?.invalid && (form.get('ZipCode')?.dirty || form.get('ZipCode')?.touched) && form.get('ZipCode')?.errors?.required">
+                                Zip Code is required
+                            </mat-error>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-12 mb-20">
+                            <label>Organization Name</label>
+                            <input matInput class="mb-0" type="text" placeholder="Organization Name" formControlName="Organization">
+                            <mat-error *ngIf="form.get('Organization')?.invalid && (form.get('Organization')?.dirty || form.get('Organization')?.touched) && form.get('Organization')?.errors?.required">
+                                Organization Name
+                            </mat-error>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 mb-20">
+                        <label class="labli mb-0 pb-0" > Organisation Logo</label>
+                        <label class="image-upload-container btn btn-bwm"> 
+                            <input #imageInput class="special mt-0 pt-0"
+                                   type="file"
+                                   accept="image/*"
+                                   (change)="processFile(imageInput)" 
+                                   id="Image">
+                          </label>
+                        </div>
+                    </div>
+                        <br>
+                        <br>
+                        <div class="demo-button-container text-left">
+                            <br>
+                            <button mat-raised-button class="demo-button pp">
+                              Save
+                            </button>
+                            <button mat-raised-button class="demo-button">
+                               Clear
+                              </button>
+                          </div>
+                        <app-alert></app-alert>
+                        
+                       
+    </div>
+    </div>           
+</form>
+</div>
+ 

@@ -1,8 +1,10 @@
 export class Register {
-    Nom: string | undefined;  
-    Prenom: string | undefined;
-    Email: string | undefined;  
-    Adresse: string | undefined; 
-    Num_Telephone: string | undefined;
-    MotDePasse: string | undefined; 
+    Nom: string =""; 
+    Prenom: string ="";
+    Email: string =""; 
+    Adresse: string ="";
+    Num_Telephone: string ="";
+    ZipCode: number;
+    Organization : string ="";
+    MotDePasse : string ="";
 }

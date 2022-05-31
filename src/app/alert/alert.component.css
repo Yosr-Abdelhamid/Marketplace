@@ -3,3 +3,7 @@
     background: #6dd485;
     border-color: #6dd485;
 }
+:root{
+    --danger :#ffad99  !important;
+
+}

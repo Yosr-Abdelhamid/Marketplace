@@ -1,11 +1,88 @@
+.preloader{
+  width: 260px !important;
+
+}
+
+.layout-fixed .wrapper .sidebar {
+  height: calc(100vh - (3.5rem + 1px));
+}
+.sidebar {
+  height: calc(100% - (3.5rem + 1px));
+  overflow-x: hidden;
+  overflow-y: initial;
+  padding-bottom: 0;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0;
+  scrollbar-color: #a9a9a9 transparent;
+  scrollbar-width: none;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+.mt-2{
+  width: 235px;
+  height: 1530px;
+  
+}
+.col-4{
+  width: 250px !important;
+  max-width: 250px !important;
+}
+.main-header{
+  width: 1075px;
+  margin-left: 10px !important;
+}
 .demo-table {
   width: 100%;
 }
-
+.demo-button{
+  background:rgb(212, 211, 211);
+}
 .demo-button-container {
   padding-bottom: 16px;
 }
 
 .demo-button + .demo-button {
   margin-left: 8px;
+}
+
+.edit-button{
+  background:rgb(119, 173, 102);
+  width: 75px;
+  margin-left: 8px;
+  align-items: center;
+}
+.remove-button{
+  background:rgb(235, 109, 109);
+  width: 95px;
+  margin-left: 8px;
+}
+.table{
+  background: #fff;
+}
+.sticky{
+  background: linear-gradient(#a9a9a9, #d4b8b8);
+  font-size: 16px;
+  font-weight: bold;
+}
+.nav-borders .nav-link.active {
+  color: #0061f2;
+  border-bottom-color: #0061f2;
+  font-weight: 600;
+  margin-left: 15px !important;
+  font-size:22px ;
+}
+.nav-borders .nav-link {
+  color: #69707a;
+  border-bottom-width: 0.125rem;
+  border-bottom-style: solid;
+  border-bottom-color: #a9a9a9;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

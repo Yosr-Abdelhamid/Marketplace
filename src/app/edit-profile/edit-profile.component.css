@@ -1,101 +1,31 @@
-.page-wrapper {
-    min-height: 100vh;
-  }
-  
-  body {
-    font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-  }
-  .mat-error{
-      font-size: 12px;
-  }
-  /* ==========================================================================
-     #BACKGROUND
-     ========================================================================== */
-  
-  .bg-gra-02 {
-    background: -webkit-gradient(linear, left bottom, right top, from(#D10024), to(#393a3a));
-    background: -webkit-linear-gradient(bottom left, #D10024 0%, #393a3a 100%);
-    background: -moz-linear-gradient(bottom left, #D10024 0%, #393a3a 100%);
-    background: -o-linear-gradient(bottom left, #D10024 0%, #393a3a 100%);
-    background: linear-gradient(to top right, #D10024 0%, #393a3a 100%);
-  }
-  
-  /* ==========================================================================
-     #SPACING
-     ========================================================================== */
-  .p-t-100 {
-    padding-top: 100px;
-  }
-  
-  .p-t-130 {
-    padding-top: 130px;
-  }
-  
-  .p-t-180 {
-    padding-top: 180px;
-  }
-  
-  .p-t-20 {
-    padding-top: 20px;
-  }
-  
-  .p-t-15 {
-    padding-top: 15px;
-  }
-  
-  .p-t-10 {
-    padding-top: 10px;
-  }
-  
-  .p-t-30 {
-    padding-top: 30px;
-  }
-  
-  .p-b-100 {
-    padding-bottom: 100px;
-  }
-  
-  .m-r-45 {
-    margin-right: 45px;
-  }
-  
-  /* ==========================================================================
-     #WRAPPER
-     ========================================================================== */
-  .wrapper {
-    margin: 0 auto;
-  }
-  
-  .wrapper--w960 {
-    max-width: 960px;
-  }
-  
-.wrapper--w780 {
-    max-width: 780px;
-  }
-
-.wrapper--w680 {
-    max-width: 680px;
-  }
-.card{
-    width:550px;
-    padding: 50px 55px;
-    
+.mat-dialog-container {
+    display: flex !important;
+    padding: 8px !important;
+    border-radius: 4px;
+    outline: 0;
+    width:600px !important;
+    height: 100%;
 }
-@media (max-width: 767px) {
-    .card {
-      padding: 50px 40px;
-    }
-  }
-.imageclass{
+app-edit-profile.ng-star-inserted {
+    width: 700px !important;
+}
+.modal-content{
+    width:750px;
     align-items: center;
-    margin-left: 140px;
-    margin-top: -20px;
+}
+span{
+    font-size: 28px !important;
+    margin-right: 15px;
+}
+.image-upload-container span{
+    padding-right: 20px;
+  }
+.special{
+    border :0px !important;
+    margin-top: 0px;
 }
 .login-title {
-	font-size: 30px;
+	font-size: 26px;
 	line-height: 23px;
 	text-transform: capitalize;
 	font-weight: 700;
@@ -103,18 +33,20 @@
 }
 .login-form {
   background-color: #ffffff;
-  padding: 30px;
-  height: 470px;
+  padding: 10px;
   -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1); 
 }
 .login-form label {
     display: block;
     font-size: 14px;
-    margin-bottom: 8px;
-    margin-top: 15px;
+    margin-bottom: 4px;
+    margin-top: 4px;
     font-weight: 500;
     text-transform: capitalize;
+ }
+ .labli{
+    margin-bottom: 0px !important;
  }
 .login-form .nice-select {
     width: 100%;
@@ -149,10 +81,10 @@
     border: 1px solid #999999;
     border-radius: 0;
     line-height: 23px;
-    padding: 10px 20px;
+    padding: 5px 10px;
     font-size: 14px;
-    color: #7a7a7a;
-    margin-bottom: 15px; 
+    color: #000000;
+    margin-bottom: 10px; 
 }
 .login-form input[type="checkbox"] {
       width: auto; 
@@ -237,26 +169,20 @@ button.close {
     background-color: transparent;
     color:grey;
     float: right;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 600;
     line-height: 1;
 }
-.form-control input{
-    width: 100%;
-    background-color: transparent;
-    border: 1px solid #999999;
-    border-radius: 0;
-    line-height: 23px;
-    padding: 10px 20px;
-    font-size: 14px;
-    color: #000000;
-    margin-bottom: 15px; 
-}
-.dialg{
-    background-color: transparent;
-    color:rgb(17, 23, 39);
-    font-weight: bold;
-}
-.mat-error{
-    font-size: 12px;
-}
+.demo-button{
+    background:rgb(212, 211, 211);
+  }
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+  
+  .demo-button + .demo-button {
+    margin-left: 8px;
+  }
+  .pp{
+      background-color: #D10024;
+  }

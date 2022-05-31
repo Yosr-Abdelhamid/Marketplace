@@ -75,40 +75,32 @@
     <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false">
     
-    <li class="nav-item">
-    <a routerLink="/dashboard-vendeur" class="nav-link active">
-    <i class="nav-icon fab fa-product-hunt"></i>
-    <p>
-    Produits
-    </p>
-    </a>
-    </li>
-  
-    <li class="nav-item">
-    <a href="pages/widgets.html" class="nav-link">
-    <i class="nav-icon fas fa-th"></i>
-    <p>
-    Widgets
-    </p>
-    </a>
-    </li>
-  
-    <li class="nav-item">
-    <a href="#" class="nav-link">
-    <i class="nav-icon fas fa-copy"></i>
-    <p>
-    Layout Options
-    </p>
-    </a>
-    </li>
-    <li class="nav-item">
-    <a href="#" class="nav-link">
-    <i class="nav-icon fas fa-tree"></i>
-    <p>
-    UI Elements
-    </p>
-    </a>
-    </li>
+        <li class="nav-item">
+            <a routerLink="/dashboard-vendeur" class="nav-link">
+            <i class="nav-icon fab fa-product-hunt"></i>
+            <p>
+            Profile
+            </p>
+            </a>
+            </li>
+          
+            <li class="nav-item">
+            <a routerLink="/dashboard-vendeur/tab-product" class="nav-link active">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+          Produits
+            </p>
+            </a>
+            </li>
+          
+            <li class="nav-item">
+            <a routerLink="/dashboard-vendeur/commandes" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+           Commandes
+            </p>
+            </a>
+            </li>
   
   
     </ul>
@@ -131,14 +123,15 @@
             </nav>
             <hr class="mt-0 mb-4">
             <div class="row">
+                <app-alert></app-alert>
                 <div class="col-xl-4">
                     <!-- Profile picture card-->
                     <div class="card mb-4 mb-xl-0">
-                        <div class="card-header">Product  Image</div>
+                        <div class="card-header">Product Image</div>
                         <div class="card-body text-center">
                             <!-- Profile picture image-->
                             <img src="data:image/PNG;base64,{{item.image_prod }}" style="width:200px;height:250px"/>
-                            <br><br>
+                            <br>
                             <label for="files" class="btn">Select New Image</label>
                             <input #imageInput
                                 type="file"
@@ -187,13 +180,13 @@
       
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputEmailAddress">Product Price</label>
-                                    <input class="form-control"  type="text" step="0.000" name="prix_prod" id="prix_prod" placeholder="Enter the price" value="{{item.prix_prod}}">
+                                    <input class="form-control"  type="text" decimal-precision="3"  string-to-number step="0.001" name="prix_prod"
+                                     id="prix_prod" placeholder="Enter the price" value="{{item.prix_prod}}">
                                 </div>
                             
                                 <!-- Save changes button-->
                                 <button mat-raised-button class="test" type="button" (click)="onSubmit($event)">Save changes</button>
                             </form>
-                            <app-alert></app-alert>
                         </div>
                     </div>
                 </div>

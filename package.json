@@ -34,6 +34,7 @@
     "ngx-loading": "^2.0.1",
     "ngx-owl-carousel": "^2.0.7",
     "ngx-owl-carousel-o": "^7.0.2",
+    "ngx-progressbar": "^8.0.0",
     "ngx-slick-carousel": "^0.6.0",
     "ngx-swiper-wrapper": "^10.0.0",
     "ngx-toastr": "^14.3.0",

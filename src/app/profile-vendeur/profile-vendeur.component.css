@@ -36,8 +36,8 @@
 .nav-borders .nav-link.active {
     color: #0061f2;
     border-bottom-color: #0061f2;
-    margin-left: 15px !important;
     font-weight: 600;
+    margin-left: 15px !important;
     font-size:22px ;
 }
 .nav-borders .nav-link {
@@ -57,9 +57,7 @@ body {
 }
 
 .padding {
-    padding-left: 2.5rem !important ;
-    padding-right: 2.5rem !important ;
-    padding-top: 1.5rem ;
+    padding: 1rem !important
 }
 
 .user-card-full {
@@ -85,9 +83,6 @@ body {
 
 .m-l-0 {
     margin-left: 0px;
-}
-.cc {
-    height: 41px;
 }
 
 .user-card-full .user-profile {
@@ -131,21 +126,17 @@ p {
 }
 
 .card-block {
-    padding: 1rem;
+    padding: 1.25rem;
 }
 
 .b-b-default {
     border-bottom: 1px solid #e0e0e0;
 }
-.pp{
-    padding-top: 5px;
-}
+
 .m-b-20 {
     margin-bottom: 20px;
 }
-.m-b-22{
-    margin-bottom: 30px;
-}
+
 .p-b-5 {
     padding-bottom: 5px !important;
 }
@@ -174,9 +165,9 @@ p {
 }
 
 .text-mute{
-    color: #ffffff !important;
-    font-size: 18px;
-    font-weight: 600;
+    color: #fff !important;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 
@@ -238,35 +229,15 @@ input[type="file"]{
 }
 
 label {
-    color : #000;
-    height:20px ;
-    margin-top: -22px;
-    width: 120px;
-    margin-left: 22px;
-    background-color: transparent;
+    color : #fff;
+    height:40px ;
+    width: 150px;
+    background-color: #D10024;
     position: absolute;
     font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-label:hover {
-    background-color: #777474;
-    border-radius: 8px;
-}
-.upload{
-    background-color: #D10024;
-    margin-top: 14px;
-    margin-right: 45px;
-    color: white;
-    width: 120px;
-}
-.demo-button-container{
-    margin-right: 60px;
-}
-.button-demo{
-    background:rgb(212, 211, 211);
-    margin-left: 94px;
-    width: 75px;
-   
+    
+
 }

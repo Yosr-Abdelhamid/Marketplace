@@ -1,84 +1,91 @@
-<app-header></app-header>
-<br><br>
-<div class="card">
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div class="login-form">
-                <h1 class="login-title text-center">Register</h1>
-           <!--  <div class="col-4">
-                <button type="button" class="close" data-dismiss="modal" mat-dialog-close>
-                <span class="text-end" aria-hidden="true">x</span>
-                </button>
-            </div> -->
-         
-            <div class="row">
-                <div class="col-md-6 col-12 mb-20">
-                    <label>First Name</label>
-                    <input class="mb-0" type="text" placeholder="First Name" formControlName="Nom">
-                    <mat-error *ngIf="registerForm.get('Nom')?.invalid && (registerForm.get('Nom')?.dirty || registerForm.get('Nom')?.touched) && registerForm.get('Nom')?.errors?.required">
-                        FirstName is required
-                    </mat-error>
-                </div>
-                <div class="col-md-6 col-12 mb-20">
-                    <label>Last Name</label>
-                    <input class="mb-0" type="text" placeholder="Last Name" required formControlName="Prenom">
-                    <mat-error *ngIf="registerForm.get('Prenom')?.invalid && (registerForm.get('Prenom')?.dirty || registerForm.get('Prenom')?.touched) && registerForm.get('Prenom')?.errors?.required">
-                        Last Name is required
-                    </mat-error>
-                  
-                </div>
-                <div class="col-md-12 col-12 mb-20">
-                    <label>Email Address*</label>
-                    <input class="mb-0" type="email" placeholder="Email Address" formControlName="email">
+<div class="page-wrapper bg-gra-02">
+    <div class="wrapper wrapper--w680">
+        <br>
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Registration Form</h2>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="login-form">                     
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-20">
 
-                    <mat-error *ngIf="!registerForm.get('email')?.errors?.required && (registerForm.get('email')?.errors?.pattern)">
-                        Please enter a valid email address
-                    </mat-error>
-                    <mat-error *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched) && registerForm.get('email')?.errors?.required">
-                        Email is required
-                    </mat-error>
-                </div>
-                <div class="col-md-6 col-12 mb-20">
-                    <label>Address</label>
-                    <input class="mb-0" type="text" placeholder="Address" formControlName="Adresse">
-                    <mat-error *ngIf="registerForm.get('Adresse')?.invalid && (registerForm.get('Adresse')?.dirty || registerForm.get('Adresse')?.touched) && registerForm.get('Adresse')?.errors?.required">
-                        Address is required
-                    </mat-error>
-                </div>
-                <div class="col-md-6 col-12 mb-20">
-                    <label>Phone</label>
-                    <input class="mb-0" type="text" placeholder="Phone" formControlName="Num_Telephone">
-                    <mat-error *ngIf="registerForm.get('Num_Telephone')?.invalid && (registerForm.get('Num_Telephone')?.dirty || registerForm.get('Num_Telephone')?.touched) && registerForm.get('Num_Telephone')?.errors?.required">
-                        Phone is required
-                    </mat-error>
-                </div>
-     
-                <div class="col-12 mb-20">
-                    <label>Password</label>
-                    <input class="mb-0" type="password" placeholder="Password" formControlName="MotDePasse"> 
-                    <mat-error *ngIf="!registerForm.get('MotDePasse')?.errors?.required  && (registerForm.get('MotDePasse')?.errors?.pattern)">
-                        Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters
-                    </mat-error>
-                    <mat-error *ngIf="registerForm.get('MotDePasse')?.invalid && (registerForm.get('MotDePasse')?.dirty || registerForm.get('MotDePasse')?.touched) && registerForm.get('MotDePasse')?.errors?.required">
-                        Password is required
-                    </mat-error>
-                </div>
-                <br>
-                <br>
-                <div class="col-md-12">
-                    <button type="submit" data-dismiss="modal" [disabled]="!registerForm.valid" class="register-button btn-lg btn-block">Register</button>
-                </div>
-                <div class="alert alert-warning" *ngIf="registerForm.submitted && isSignUpFailed">
-                    Echec d'Inscription !<br />{{ errorMessage }}
-                  </div>
+                                <label>First Name</label>
+                                <input matInput type="text" placeholder="First Name" formControlName="Nom">
+                                <mat-error *ngIf="registerForm.get('Nom')?.invalid && (registerForm.get('Nom')?.dirty || registerForm.get('Nom')?.touched) && registerForm.get('Nom')?.errors?.required">
+                                    FirstName is required
+                                </mat-error>
+                            </div>
+                           <div class="col-md-6 col-12 mb-20">
+                                <label>Last Name</label>
+                                <input matInput type="text" placeholder="Last Name" required formControlName="Prenom">
+                                <mat-error *ngIf="registerForm.get('Prenom')?.invalid && (registerForm.get('Prenom')?.dirty || registerForm.get('Prenom')?.touched) && registerForm.get('Prenom')?.errors?.required">
+                                    Last Name is required
+                                </mat-error>
+                              
+                            </div>
+                            <div class="col-md-12 col-12 mb-20">
+                                <label>Email Address*</label>
+                                <input matInput class="mb-0" type="email" placeholder="Email Address" formControlName="email">
+            
+                                <mat-error *ngIf="!registerForm.get('email')?.errors?.required && (registerForm.get('email')?.errors?.pattern)">
+                                    Please enter a valid email address
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched) && registerForm.get('email')?.errors?.required">
+                                    Email is required
+                                </mat-error>
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                <label>Address</label>
+                                <input matInput class="mb-0" type="text" placeholder="Address" formControlName="Adresse">
+                                <mat-error *ngIf="registerForm.get('Adresse')?.invalid && (registerForm.get('Adresse')?.dirty || registerForm.get('Adresse')?.touched) && registerForm.get('Adresse')?.errors?.required">
+                                    Address is required
+                                </mat-error>
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                <label>Phone</label>
+                                <input matInput class="mb-0" type="text" placeholder="Phone" formControlName="Num_Telephone">
+                                <mat-error *ngIf="registerForm.get('Num_Telephone')?.invalid && (registerForm.get('Num_Telephone')?.dirty || registerForm.get('Num_Telephone')?.touched) && registerForm.get('Num_Telephone')?.errors?.required">
+                                    Phone is required
+                                </mat-error>
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                <label>Zip Code</label>
+                                <input class="mb-0" type="text" placeholder="Zip Code" formControlName="ZipCode">
+                                <mat-error *ngIf="registerForm.get('ZipCode')?.invalid && (registerForm.get('ZipCode')?.dirty || registerForm.get('ZipCode')?.touched) && registerForm.get('ZipCode')?.errors?.required">
+                                    Zip Code is required
+                                </mat-error>
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                <label>Organization Name</label>
+                                <input matInput class="mb-0" type="text" placeholder="Organization Name" formControlName="Organization">
+                                <mat-error *ngIf="registerForm.get('Organization')?.invalid && (registerForm.get('Organization')?.dirty || registerForm.get('Organization')?.touched) && registerForm.get('Organization')?.errors?.required">
+                                    Organization Name
+                                </mat-error>
+                            </div>
+                 
+                            <div class="col-12 mb-20">
+                                <label>Password</label>
+                                <input matInput class="mb-0" type="password" placeholder="Password" formControlName="MotDePasse"> 
+                                <mat-error *ngIf="!registerForm.get('MotDePasse')?.errors?.required  && (registerForm.get('MotDePasse')?.errors?.pattern)">
+                                    Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('MotDePasse')?.invalid && (registerForm.get('MotDePasse')?.dirty || registerForm.get('MotDePasse')?.touched) && registerForm.get('MotDePasse')?.errors?.required">
+                                    Password is required
+                                </mat-error>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="col-md-12">
+                                <button type="submit" data-dismiss="modal" [disabled]="!registerForm.valid" class="register-button btn-lg btn-block">Register</button>
+                           
+                            <app-alert></app-alert>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </form>
-    <div class="myAlert-top alert alert-success" *ngIf="isSuccessful">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        Success Registration !
-      </div>
+        <br>
     </div>
-<app-alert></app-alert> 
-<br><br>
-<app-footer></app-footer>
-    
+</div>

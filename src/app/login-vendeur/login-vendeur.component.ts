@@ -38,7 +38,7 @@ export class LoginVendeurComponent implements OnInit {
 
   constructor(public dialog: MatDialog , private tokenStorage: TokenStorageServiceService,
     private formbulider: FormBuilder, private router :Router , private route: ActivatedRoute,
-    private loginService: LoginVendeurService, private toastr: ToastrService) {
+    private loginService: LoginVendeurService, private alertService: AlertService) {
       
       
     this.loginForm = new FormGroup({
@@ -71,20 +71,21 @@ export class LoginVendeurComponent implements OnInit {
 }
 onSubmit(){ 
   this.loading = true;   
-  this.loginService.Login(this.model).subscribe((data:any) => {  
+  this.loginService.Login(this.model).subscribe(
+      (data:any) => {  
           localStorage.setItem("userInfo" , JSON.stringify(data.dateSet)) ;
           let vendeur = data.dateSet as Vendeur;
           this.dialog.closeAll();
           this.loading = false;
           this.router.navigate(["/dashboard-vendeur"]);
-        
-   },
-    err => {
-    if (err.status == 400)
-      this.toastr.error('Incorrect username or password.', 'Authentication failed.');
-    else
-      console.log(err);
-  })      
+      },
+      err => {
+      this.loading = false;
+      if (err.status == 400)
+        this.alertService.error('Incorrect username or password.', 'Authentication failed.');
+      else
+        console.log(err);
+      })      
       /* error: _error => {
           this.alertService.error("Check you email and password please !");
          

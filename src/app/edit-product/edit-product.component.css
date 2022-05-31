@@ -208,3 +208,17 @@
 .test{
   background: rgb(214, 125, 125);
 }
+input[type="file" i] {
+  width: 150px;
+  appearance: none;
+  background-color: initial;
+  cursor: default;
+  align-items: baseline;
+  color: transparent;
+  text-overflow: ellipsis;
+  white-space: pre;
+  text-align: start !important;
+  padding: initial;
+  border: initial;
+  overflow: hidden !important;
+}

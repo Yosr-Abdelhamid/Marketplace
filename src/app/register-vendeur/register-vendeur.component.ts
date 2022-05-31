@@ -1,12 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginVendeurService } from '../login-vendeur.service';
 import { Register } from '../register';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AlertService } from '../alert/alert.service';
-import { timeout } from 'rxjs';
+import { first, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-register-vendeur',
@@ -25,7 +25,7 @@ export class RegisterVendeurComponent implements OnInit {
   modalVisible = false;
 
   constructor(private formbulider: FormBuilder, 
-     private router :Router ,  private alertService: AlertService ,
+     private router :Router ,  private alertService: AlertService , private route: ActivatedRoute,
      private loginService: LoginVendeurService) { } 
 
   ngOnInit() {
@@ -40,19 +40,12 @@ export class RegisterVendeurComponent implements OnInit {
           Prenom:new FormControl('', [Validators.required]),
           Adresse:new FormControl('', [Validators.required]),
           Num_Telephone:new FormControl('', [Validators.required]),
+          ZipCode:new FormControl('', [Validators.required]),
+          Organization:new FormControl('', [Validators.required]),
           MotDePasse: new FormControl('', [Validators.required,Validators.pattern(
             '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$'
           )])
         });
-     /*  this.registerForm = this.formbulider.group({    
-      Nom: ['', [Validators.required]],    
-      Prenom: ['', [Validators.required]],    
-      Email: ['', [Validators.required,Validators.email,Validators.pattern(
-        '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,63}$' ),]],    
-      Adresse: ['', [Validators.required]],    
-      Num_Telephone: ['', [Validators.required]],    
-      MotDePasse: ['', [Validators.required]],    
-    }); */
  
 }
 onSubmit(){
@@ -61,23 +54,23 @@ onSubmit(){
 }
 
 createUser(register: Register) {
-  this.loginService.Signup(register)
+  this.loginService.Signup(register).pipe(first())
     .subscribe({
     next: () => {
-        this.alertService.success('Success Registration !');
-        this.router.navigate(['/login']);
+        this.alertService.success('Registration successful, please check your email for verification instructions');
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+          }, 4000);
         //this.closeDialog();
     },
     error: error => {
-        this.alertService.error("Check your informations please !");
+      if (error.status == 400) {
+        this.alertService.error("Email in use ! Check your informations please !");
+      }
     }
 });
 }
 
-  /* closeDialog(){
-   
-    setTimeout(() => {this.dialog.close();}, 3000)
-  } */
 
 }
 

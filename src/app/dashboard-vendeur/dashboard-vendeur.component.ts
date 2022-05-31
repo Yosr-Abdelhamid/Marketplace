@@ -1,19 +1,10 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Location } from '@angular/common';
-import { MatTable } from '@angular/material/table';
-import { Router, ActivatedRoute } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { first } from 'rxjs';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { AlertService } from '../alert/alert.service';
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { LoginVendeurService } from '../login-vendeur.service';
-import { User } from '../models/User';
-import { Vendeur } from '../models/Vendeur';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+
 
 @Component({
   selector: 'app-dashboard-vendeur',
@@ -21,53 +12,61 @@ export interface PeriodicElement {
   styleUrls: ['./dashboard-vendeur.component.css']
 })
 export class DashboardVendeurComponent  implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  userDetails;
-  listProduits =[];
-  id:string ;
+  userDetails ;
+  isUploading: boolean = false;
+  file: File;
+  infoMessage: any;
 
-  @ViewChild(MatTable) table: MatTable<PeriodicElement> | undefined;
+  imageUrl: string | ArrayBuffer =
+    "./assets/images/add_log.png";
+  
 
-  constructor(private router: Router, private http: HttpClient ,  public _location: Location,
-    private userService :LoginVendeurService) { }
+  constructor(private userService:LoginVendeurService , private router:Router ,
+    private alertService : AlertService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.userService.getUser().subscribe(
       res => {
         this.userDetails = res;
-        this.id =  this.userDetails.id ;
-        this.userService.getAllProducts(this.userDetails.id)
-        .subscribe((response) => { this.listProduits = response;}) ;
       }
     );
-    //this.getAllProducts();
-  }
-  
-  addData(){
-    this.router.navigate(['dashboard-vendeur/add-product']);
-
   }
 
-  removeP(item){
-    if(confirm('Are you sure to delete this Product?')){
-      this.userService.deleteProduit(item.id_prod).subscribe(data=>{
-        alert(data.toString());
-        this.router.navigateByUrl("/dashboard-vendeur", { skipLocationChange: true }).then(() => {
-          console.log(decodeURI(this._location.path()));
-          this.router.navigate([decodeURI(this._location.path())]);
-          });
-      })
+  processFile(imageInput){
+  }
+
+  onChange(file: File) {
+    if (file) {
+      this.file = file;
+
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = event => {
+        this.imageUrl = reader.result;
+      };
     }
   }
 
-  edit(item){
-    this.router.navigate(['dashboard-vendeur/edit-product'], {
-      queryParams:{item:btoa(JSON.stringify(item))}
+  onUpload() {
+  
+    this.isUploading = true;
+    let formData = new FormData();
+    formData.append('id', this.userDetails.id);
+    formData.append('image_org', this.file); 
+    this.userService.AddImageOrg(formData).subscribe(message => {
+      this.isUploading = false;
+      this.alertService.success("Image uploaded successufly")
     });
-
   }
-    
 
+  edit(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(EditProfileComponent,dialogConfig);
+  }
 
   onLogout() {
     localStorage.removeItem('userInfo');
@@ -75,4 +74,3 @@ export class DashboardVendeurComponent  implements OnInit {
   }
 
 }
-

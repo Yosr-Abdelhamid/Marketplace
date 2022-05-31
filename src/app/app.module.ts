@@ -45,6 +45,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { ProfileVendeurComponent } from './profile-vendeur/profile-vendeur.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { CommandesComponent } from './commandes/commandes.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -66,7 +71,11 @@ export function tokenGetter() {
     TabProductComponent,
     DashboardVendeurComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    ProfileVendeurComponent,
+    VerifyEmailComponent,
+    CommandesComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,

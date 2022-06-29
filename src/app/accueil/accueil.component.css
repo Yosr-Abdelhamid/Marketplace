@@ -100,10 +100,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 .centered{
 	
 		position: absolute;
-		top: 50%;
+		top: 55%;
 		left: 62%;
 		transform: translate(-50%, -50%);	  
 }
+.centere{
+	
+	position: absolute;
+	top: 55%;
+	left: 58%;
+	transform: translate(-50%, -50%);	  
+}
+
 .iaa{
 	border-radius: 10px;
 	width: 280px;
@@ -119,7 +127,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 	position: relative;
 	font-size: 26px;
 	color: #ff0000;
-	text-shadow:#dddb50 1px 0 10px;	
+	text-shadow:#dddb50 1px 0 10px;
+	margin-bottom: 12px !important;	
 	
 }
 .produiit-content{
@@ -139,17 +148,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 .test{
 	font-weight: bold;
-	font-family:'Cambria'
+	font-family:'Cambria';
+	font-size:18px;
+	margin-bottom: 8px;
 }
 .btn-effect{
 	background-color: #ff0000;
+	height: 40px;
+	width:90px;
 	font-size: 14px;
 	border-radius: 12px;
+	text-align:center;
 }
 .produit{
 	background-color: #F5F7F8 ;
 }
-
+.item_textt{
+	background-color: transparent;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.item_text{
+	font-size: 8px;
+}
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	transition: 0.3s;
@@ -292,7 +314,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 	text-decoration: none;
 }
 .rating i{
-color : #fa0;
+color :    #D10024;
 line-height: 22px;
 margin: 0 2px;
 font-size: 12px;
@@ -301,11 +323,14 @@ font-size: 12px;
 	margin-bottom: 0;
 }
 .content .money{
-	font-size: 20px;
-	color: #fa0;
+	font-size: 16px;
+	color: #978e90;
 	font-weight: 700;
 	font-style: italic;
-	margin-right: 6px;
+	margin-right: 5px;
+}
+.content a {
+	font-size: 13px;
 }
 .content .old-price{
 	line-height: 18px;
@@ -471,6 +496,14 @@ h2 {
 		font-weight: 500;
 		color: #0363cd;
 	}
+
+.featured-pro-content h5 a {
+		font-size: 16px;
+		font-weight: 500;
+		font-family: 'Poppins';
+		color: #5c6064;
+	}
+
 .featured-pro-content h4:hover {
 		text-decoration: underline;
 		color: #0363cd;
@@ -659,7 +692,6 @@ h5, .h5 {
 	background-color: #fff;
 	border-radius: 5px;
 	color: white;
-	text-align: center;
 	transform: rotateY(180deg);
   }
   .item-title:hover {
@@ -692,6 +724,7 @@ h5, .h5 {
 	
 	text-decoration: underline;
 	font-size: 16px;
+	margin-left: 5px;
 	font-weight: bold;
 	color: #000000;
 }
@@ -798,4 +831,16 @@ h5, .h5 {
     margin-bottom: 1.2rem;
 	font-size: 26px;
   
+}
+
+
+.owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+	background: #869791;
+}
+.cadre{
+
+	border: solid 1px #e8e8e8;
+	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+	margin-left: 5px;
+	margin-right: 5px;
 }

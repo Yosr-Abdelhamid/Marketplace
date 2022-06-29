@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
+import { PasswordReset } from './models/PasswordReset';
 import { RequestProduct } from './models/RequestProduct';
 import { ResponseModel } from './models/ResponseModel';
 import { User } from './models/User';
@@ -46,8 +47,8 @@ export class LoginVendeurService {
         return this.http.post(this.Url+  'forgot-password', { email });
   }
     
-  resetPassword(token: string, password: string, confirmPassword: string) {
-        return this.http.post(this.Url+  'reset-password', { token, password, confirmPassword });
+  resetPassword(requestPass: PasswordReset) {
+        return this.http.post(this.Url+  'reset-password',requestPass);
     } 
   
   verifyEmail(model: any) {
@@ -58,7 +59,6 @@ export class LoginVendeurService {
 
   getAllProducts(Id: string): Observable<any[]> {
    
-   
       let params = new HttpParams()
               .set('Id', Id)
     
@@ -66,9 +66,31 @@ export class LoginVendeurService {
     
       return this.http.get<any[]>(this.Url + 'GetAllProducts', {params});
     }
+
+  public GetProductsByCategory(sous_famille_prod: string) {
+   
+   
+      let params = new HttpParams()
+              .set('sous_famille_prod', sous_famille_prod)
+    
+      console.log(params.toString());
+    
+      return this.http.get<any[]>(this.Url + 'GetProductByCategory' , {params});
+    }
+
+    public GetProductsCategory(sous_famille: string) {
+   
+   
+      let params = new HttpParams()
+              .set('sous_famille_prod', sous_famille)
+    
+      console.log(params.toString());
+    
+      return this.http.get<any[]>(this.Url + 'GetProductByCategory' , {params});
+    }
   
   public getAll() {
-    let userInfo = JSON.parse(localStorage.getItem("userInfo")) ;
+    let userInfo = JSON.parse(localStorage.getItem("userInf")) ;
     const headers=new HttpHeaders({
         'Authorization':`Bearer ${ userInfo?.token}`
     });
@@ -80,7 +102,7 @@ export class LoginVendeurService {
             if(res.dateSet)
              {
              res.dateSet.map((x:User)=>{
-                 userList.push(new User(x.id,x.nom,x.prenom,x.email,x.adresse,x.num_Telephone));
+                 userList.push(new User(x.id,x.nom,x.prenom,x.email,x.adresse,x.num_Telephone,x.zipCode ,x.organization));
              })
              }
             }
@@ -124,6 +146,9 @@ export class LoginVendeurService {
     return this.http.put(this.Url+'AddImageOrg',data);
   }
 
+  UpdateProfile(data: FormData){
+    return this.http.put(this.Url+'UpdateProfile' , data) ;
+  }
 
 
 

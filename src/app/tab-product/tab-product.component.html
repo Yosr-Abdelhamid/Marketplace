@@ -76,18 +76,18 @@
     
         <li class="nav-item">
             <a routerLink="/dashboard-vendeur" class="nav-link ">
-            <i class="nav-icon fab fa-product-hunt"></i>
-            <p>
-            Profile
-            </p>
-            </a>
-            </li>
-          
-            <li class="nav-item">
-            <a routerLink="/dashboard-vendeur/tab-product" class="nav-link active">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-          Produits
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+              Profile
+              </p>
+              </a>
+              </li>
+            
+              <li class="nav-item">
+              <a routerLink="/dashboard-vendeur/tab-product" class="nav-link">
+              <i class="nav-icon fab fa-product-hunt"></i>
+              <p>
+            Products
             </p>
             </a>
             </li>
@@ -96,7 +96,7 @@
             <a routerLink="/dashboard-vendeur/commandes" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
             <p>
-           Commandes
+           Orders
             </p>
             </a>
             </li>
@@ -132,38 +132,60 @@
   
     <section class="content">
     <div class="container-fluid">
-    
+    <div class="row">
+      <div class="col">
+      <div class="search-container">
+          <input class="search" matInput placeholder=" Search Product.." autocomplete="off" (keyup)="filterData($event)">
+          <mat-icon matPrefix>search</mat-icon>
+      </div>
+      </div>
+      <div class="col">
       <div class="demo-button-container text-right">
         <button mat-raised-button class="demo-button" (click)="addData()">
           Add New Product
         </button>
       </div>
-  
-      <table class="table mat-elevation-z8">
-        <thead  class="thead-light">
-            <tr>
-                <th class="sticky">No.</th>
-                <th class="sticky">Product Name</th>
-                <th class="sticky">Price</th>
-                <th class="sticky">Quantity</th>
-                <th class="sticky">Image</th>
-                <th class="sticky"></th>
-            </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of listProduits; let i =index;">
-              <td>{{i+1}}</td>
-              <td>{{item.reference}}</td>
-              <td>{{item.prix_prod}} DT</td>
-              <td>{{item.quantity}}</td>
-              <td><img src="data:image/PNG;base64,{{item.image_prod }}" style="width:140px;height:140px"></td> 
-              <td><div class="demo-button-container text-right">
-                <button mat-raised-button class="edit-button" (click)="edit(item)"><i class="fa fa-edit"></i> Edit</button>
-                <button mat-raised-button class="remove-button" (click)="removeP(item)"><i class="fa fa-trash-o text-start"></i> Remove</button>
-              </div></td>  
-          </tr>         
-        </tbody>
-    </table>
+    </div>
+    </div>
+
+
+      <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+        <ng-container matColumnDef="rowIndex">
+          <th mat-header-cell mat-sort-header class="sticky" *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element;index as i;"> {{i+1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="reference">
+          <th mat-header-cell class="sticky" mat-sort-header *matHeaderCellDef> Product Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.reference}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="prix_prod">
+          <th mat-header-cell mat-sort-header class="sticky" *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.prix_prod}} DT </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef class="sticky"> Quantity </th>
+          <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+        </ng-container>
+        <ng-container matColumnDef="image_prod">
+          <th mat-header-cell *matHeaderCellDef class="sticky"> Image </th>
+          <td mat-cell *matCellDef="let element"> <img src="data:image/PNG;base64,{{element.image_prod }}" style="width:140px;height:140px"></td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef class="sticky"> </th>
+          <td mat-cell *matCellDef="let item of listProduits">
+            <button mat-raised-button class="edit-button" (click)="edit(item)"><i class="fa fa-edit"></i> Edit</button>
+            <button mat-raised-button class="remove-button" (click)="removeP(item)"><i class="fa fa-trash-o text-start"></i> Remove</button>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    <mat-paginator #paginator  [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
     
     </div>
     
@@ -174,3 +196,30 @@
     </div>
       
   </section>
+
+
+<!--   <table class="table mat-elevation-z8">
+    <thead  class="thead-light">
+        <tr>
+            <th class="sticky">No.</th>
+            <th class="sticky">Product Name</th>
+            <th class="sticky">Price</th>
+            <th class="sticky">Quantity</th>
+            <th class="sticky">Image</th>
+            <th class="sticky"></th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listProduits; let i =index;">
+          <td>{{i+1}}</td>
+          <td>{{item.reference}}</td>
+          <td>{{item.prix_prod}} DT</td>
+          <td>{{item.quantity}}</td>
+          <td><img src="data:image/PNG;base64,{{item.image_prod }}" style="width:140px;height:140px"></td> 
+          <td><div class="demo-button-container text-right">
+            <button mat-raised-button class="edit-button" (click)="edit(item)"><i class="fa fa-edit"></i> Edit</button>
+            <button mat-raised-button class="remove-button" (click)="removeP(item)"><i class="fa fa-trash-o text-start"></i> Remove</button>
+          </div></td>  
+      </tr>         
+    </tbody>
+</table> -->

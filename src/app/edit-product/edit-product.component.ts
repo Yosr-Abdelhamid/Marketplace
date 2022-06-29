@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService } from '../alert/alert.service';
 import { LoginVendeurService } from '../login-vendeur.service';
@@ -22,9 +23,13 @@ export class EditProductComponent implements OnInit {
   onSelected;
   item:any ;
   selectedProduct: [];
+  file: File;
+  infoMessage: any;
+  imageUrl: string | ArrayBuffer;
+ 
 
 
-  constructor(private userService:LoginVendeurService , private router:Router ,
+  constructor(private userService:LoginVendeurService , private router:Router ,private  _sanitizer: DomSanitizer,
     private route:ActivatedRoute , private fb: FormBuilder , private alertService:AlertService ) { }
 
   ngOnInit(): void {
@@ -40,12 +45,14 @@ export class EditProductComponent implements OnInit {
 
     this.route.queryParams.subscribe((params)=> {
       this.item = JSON.parse(atob(params['item'])) ;
+      this.imageUrl='data:image/png;base64,'+this.item.image_prod ;
 
     })
 
   
   }
-  processFile(imageInput: any) {
+ 
+ /*  processFile(imageInput: any) {
     const file: File = imageInput.files[0];
     const reader = new FileReader();
 
@@ -60,8 +67,44 @@ export class EditProductComponent implements OnInit {
     formData.append('image_prod', this.imageInput.nativeElement.files[0]);
     this.userService.updateImage(formData).subscribe(result => {
       this.alertService.success('Image updated with success !');
-    });  
+    },
+    err => {
+    if (err.status == 400)
+      this.alertService.error('Enter a valid informations please!.');
+    else
+      console.log(err);
+    })      ; 
+  } */
+  onChange(file: File) {
+    if (file) {
+      this.file = file;
+      
+
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = event => {
+        this.imageUrl = reader.result;
+        let formData = new FormData();
+        formData.append('id_prod', this.item.id_prod);
+        formData.append('image_prod', this.file);
+        this.userService.updateImage(formData).subscribe(result => {
+        this.alertService.success('Image updated with success !');
+      });
+   
+    }}
   }
+
+  onUpload() {
+  
+    let formData = new FormData();
+    formData.append('id', this.userDetails.id);
+    formData.append('image_org', this.file); 
+    this.userService.AddImageOrg(formData).subscribe(message => {
+      this.alertService.success("Image uploaded successufly")
+    });
+  }
+
 
   onLogout() {
     localStorage.removeItem('userInfo');

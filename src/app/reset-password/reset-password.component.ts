@@ -5,12 +5,8 @@ import { first, fromEvent, Observable, Subscription } from 'rxjs';
 import { MustMatch } from 'src/must-match.validator';
 import { AlertService } from '../alert/alert.service';
 import { LoginVendeurService } from '../login-vendeur.service';
+import { PasswordReset } from '../models/PasswordReset';
 
-enum TokenStatus {
-  Validating,
-  Valid,
-  Invalid
-}
 
 @Component({
   selector: 'app-reset-password',
@@ -18,12 +14,12 @@ enum TokenStatus {
   styleUrls: ['./reset-password.component.css']
 })
 export class ResetPasswordComponent implements OnInit {
-  TokenStatus = TokenStatus;
-  tokenStatus = TokenStatus.Validating;
-  token = '';
+ 
   form: FormGroup | any;
   loading = false;
   submitted = false;
+  urlParams: any = {};
+  model : any ;
   resizeObservable$: Observable<Event> | any;
   resizeSubscription$: Subscription | any;
 
@@ -41,15 +37,12 @@ export class ResetPasswordComponent implements OnInit {
       validator: MustMatch('password', 'confirmPassword')
   });
 
-  const token = this.route.snapshot.queryParams['token'];
-
+  this.urlParams.token = this.route.snapshot.queryParamMap.get('token');
+  console.log(this.urlParams.token)
   // remove token from url to prevent http referer leakage
-  this.router.navigate([], { relativeTo: this.route, replaceUrl: true });
+  //this.router.navigate([], { relativeTo: this.route, replaceUrl: true });
   
-  this.resizeObservable$ = fromEvent(window, 'resize')
-    this.resizeSubscription$ = this.resizeObservable$.subscribe( (evt: any) => {
-      console.log('event: ', evt)
- }) }
+  }
 // convenience getter for easy access to form fields
 get f() { return this.form.controls; }
 
@@ -65,12 +58,15 @@ onSubmit() {
   }
 
   this.loading = true;
-  this.accountService.resetPassword(this.token, this.f.password.value, this.f.confirmPassword.value)
+  let request = new PasswordReset(this.urlParams.token ,this.f.password.value, this.f.confirmPassword.value ) ;
+  this.accountService.resetPassword(request)
       .pipe(first())
       .subscribe({
           next: () => {
-              this.alertService.success('Password reset successful, you can now login', { keepAfterRouteChange: true });
-              this.router.navigate(['../login'], { relativeTo: this.route });
+              this.alertService.success('Password reset successful, you can now login');
+              setTimeout(() => {
+                this.router.navigate(['../login']);
+                }, 5000);
           },
           error: error => {
               this.alertService.error(error);

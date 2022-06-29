@@ -10,6 +10,7 @@ import { LoginVendeurService } from '../login-vendeur.service';
 import { User } from '../models/User';
 import { Router } from '@angular/router';
 import { AlertService } from '../alert/alert.service';
+import { MatStepper } from '@angular/material/stepper';
 
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
@@ -27,7 +28,12 @@ export class AddProductComponent implements OnInit {
   options =["Apple", "Acer" , "Asus" ,"Beko" ,"Bosh" ,"Brandt", "Dell" ,"Haier","Huawei", " HP" , "Infinix" ,"LG" ,"Lenovo","MSI" , "Nokia" ,"Samsung",
    "Xiaomi"]
   filteredOptions: any;
-
+  title = 'angular13bestcode';
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  PcFormGroup: FormGroup;
+  SmartphoneFormGroup: FormGroup;
+  step = 1;
   isDisabled=true ;
   selectedFile: ImageSnippet |any ;
   Reference:string ='';
@@ -36,17 +42,20 @@ export class AddProductComponent implements OnInit {
   model : any={}; 
   userId:string ;
   inspectionTypesList:any=[];
+  pcSelected:boolean=false;
+  phoneSelected:boolean=false ;
 
   showMe:boolean=false ;
 
   loading = false;
   errorMessage = '';
   formGroup : FormGroup |any;
+  addDetailsformGroup : FormGroup |any;
   addProduct :FormGroup
     
-    constructor(private productapi:ProductApiService , private fb: FormBuilder ,
+    constructor(private productapi:ProductApiService , private fb: FormBuilder ,private formBuilder: FormBuilder,
       private userService: LoginVendeurService,private router:Router,private alertService: AlertService ,
-      private sanitizer: DomSanitizer) { 
+      private sanitizer: DomSanitizer ,private _formBuilder: FormBuilder ) { 
       }
 
 
@@ -99,7 +108,6 @@ export class AddProductComponent implements OnInit {
 
     this.formGroup.get('sous_famille_prod').valueChanges ;
     this.formGroup.get('Brand').valueChanges.subscribe((response: any) => {
-      console.log('data is ', response);
       this.filterData(response);
     })
   }
@@ -118,11 +126,16 @@ export class AddProductComponent implements OnInit {
     formData.append('id', this.userDetails.id);
     this.userService.AddFileDetails(formData).subscribe(result => {
       this.alertService.success('Product Added with success !');
-    });  
+    },
+    err => {
+    if (err.status == 400)
+      this.alertService.error('Enter a valid informations please!');
+    else
+      console.log(err);
+    })        
     
   }
 
-  
 
   filterData(enteredData: string){
     this.filteredOptions = this.options.filter(item => {
@@ -141,9 +154,8 @@ export class AddProductComponent implements OnInit {
           console.log(err);
         },
       );
-      //this.getUserDetails()
-      
-    }
+      }
+      //this.getUserDetails(
 
     reset(){
       this.formGroup.reset() ;

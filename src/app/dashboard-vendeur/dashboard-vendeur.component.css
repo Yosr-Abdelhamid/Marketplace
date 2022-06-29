@@ -95,8 +95,8 @@ body {
 }
 
 .bg-c-lite-green {
-    background: -webkit-gradient(linear, left top, right top, from(#ccc9c7), to(#fcfafa));
-    background: linear-gradient(to right, #dbdada, #f7f5f4);
+    background: -webkit-gradient(linear, left top, right top, from(#dfdcdb), to(#dfdcdb));
+    background: linear-gradient(to right, #dfdcdb, #dfdcdb);
 }
 
 .user-profile {
@@ -139,6 +139,10 @@ p {
 }
 .pp{
     padding-top: 5px;
+    width: 200px;
+}
+.badge{
+  font-size: 8px;  
 }
 .m-b-20 {
     margin-bottom: 20px;

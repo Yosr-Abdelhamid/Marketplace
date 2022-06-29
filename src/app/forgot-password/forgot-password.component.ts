@@ -39,21 +39,6 @@ export class ForgotPasswordComponent implements OnInit {
   public hasError = (controlName: string, errorName: string) => {
     return this.form.controls[controlName].hasError(errorName);
   };
-
-  // function call on submit login form
-  /* public submitLoginForm () {
-    if (this.loginForm.valid) {
-      this.loading = true;
-      this.alertService.clear();
-      this.accountService.forgotPassword(this.f.email.value)
-          .pipe(first())
-          .pipe(finalize(() => this.loading = false))
-          .subscribe({
-              next: () => this.alertService.success('Please check your email for password reset instructions'),
-              error: error => this.alertService.error(error)
-          });
-  }
-    } */
     onSubmit() {
       this.submitted = true;
 
@@ -74,7 +59,8 @@ export class ForgotPasswordComponent implements OnInit {
               next: () => this.alertService.success('Please check your email for password reset instructions'),
               error: error => this.alertService.error(error)
           });
-          this.closeDialog();
+          setTimeout(() => {this.closeDialog(); },5000) ;
+          
   }
 
 
@@ -84,7 +70,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   closeDialog(){
    
-    setTimeout(() => {this.dialogRef.close();}, 8000)
+    this.dialogRef.close();
   }
 }
 

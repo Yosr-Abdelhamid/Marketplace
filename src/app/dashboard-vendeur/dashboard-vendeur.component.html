@@ -79,7 +79,7 @@
   
   <li class="nav-item">
   <a routerLink="/dashboard-vendeur" class="nav-link active">
-  <i class="nav-icon fab fa-product-hunt"></i>
+  <i class="nav-icon fas fa-user-circle"></i>
   <p>
   Profile
   </p>
@@ -88,9 +88,9 @@
 
   <li class="nav-item">
   <a routerLink="/dashboard-vendeur/tab-product" class="nav-link">
-  <i class="nav-icon fas fa-th"></i>
+  <i class="nav-icon fab fa-product-hunt"></i>
   <p>
-Produits
+Products
   </p>
   </a>
   </li>
@@ -99,7 +99,7 @@ Produits
   <a routerLink="/dashboard-vendeur/commandes" class="nav-link">
   <i class="nav-icon fas fa-copy"></i>
   <p>
- Commandes
+ Orders
   </p>
   </a>
   </li>
@@ -125,7 +125,7 @@ Produits
   <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
   <li class="breadcrumb-item"><a href="#">Home</a></li>
-  <li class="breadcrumb-item active">Product</li>
+  <li class="breadcrumb-item active">Profile</li>
   </ol>
   </div>
   </div>
@@ -151,17 +151,8 @@ Produits
                         </div>
                       <div class="card-block text-center text-white">
                           <div class="m-b-25" *ngIf="userDetails">
-                               <img [src]="imageUrl" style="width:100px ;height:100px" />
-                              <!-- <img src="assets/images/add_log.png" style="width: 100px;height:100px" class="img-radius" alt="User-Profile-Image"> -->
-                              </div>
-                              <div class="imagee text-center">
-                              <input  #fileInput
-                              type="file"
-                              accept="image/*"
-                              (change)="onChange(fileInput.files[0])"
-                              id="file"><label for="file">Select Image</label>
-                              <button mat-raised-button class="upload"  (click)="onUpload()"
-                              [attr.disabled]="isUploading ? '' : null"><i class="fa fa-upload"></i> Upload</button>
+                              
+                             <img src="data:image/PNG;base64,{{userDetails.image_org }}" class="img-radius" alt="User-Profile-Image">
                               </div>
                                 </div>
                                    </div>
@@ -170,7 +161,7 @@ Produits
                                         <div class="row justify-content-between b-b-default">
                                           <div class="col-4">
                                             
-                                           <h6 class="text-center pp f-w-500">Personnel Information</h6>
+                                           <h6 class="pp f-w-500">Personnel Information</h6>
                                           </div>
 
                                           <div class="col-4">
@@ -203,7 +194,7 @@ Produits
                                             </div>
                                             <div class="row">
                                               <div class="col-sm-6">
-                                              <p class="m-b-10 f-w-600">Adress</p>
+                                              <p class="m-b-10 f-w-600">Address</p>
                                                   <h6 class="text-muted f-w-400">{{userDetails.adresse}}</h6>
                                               </div>
                                             <div class="col-sm-6">
@@ -229,3 +220,19 @@ Produits
 </div>
 
 </section>
+
+
+
+
+
+<!-- <img [src]="imageUrl" style="width:100px ;height:100px" />
+</div>
+<div class="imagee text-center">
+<input  #fileInput
+type="file"
+accept="image/*"
+(change)="onChange(fileInput.files[0])"
+id="file"><label for="file">Select Image</label>
+<button mat-raised-button class="upload"  (click)="onUpload()"
+[attr.disabled]="isUploading ? '' : null"><i class="fa fa-upload"></i> Upload</button>
+</div> -->

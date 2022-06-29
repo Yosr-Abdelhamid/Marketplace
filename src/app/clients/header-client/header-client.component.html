@@ -1,0 +1,146 @@
+<header> 
+    <div id="top-header">
+        <div class="container">
+            <ul class="header-links pull-left">
+                <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+                <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+            </ul>
+            <ul class="header-links pull-right" *ngIf="profile">
+                <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+                <li><a href="#"><i class="fa fa-user-o"></i>{{profile.nom}} {{profile.prenom}}</a></li>
+                <li><button style="background-color:transparent;color:white" (click)="Logout()"><i class="fa fa-sign-out"></i>Logout</button></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
+        <div class="container">
+            <div class="row">
+                <!-- Begin Header Logo Area -->
+                <div class="col-lg-3">
+                    <div class="pb-sm-30 pb-xs-30">
+                        <a href="index.html">
+                            <img class= "logon" src="./assets/images/Logoo.PNG" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- Header Logo Area End Here -->
+                <!-- Begin Header Middle Right Area -->
+                <div class="col-lg-9">
+                    <!-- Begin Header Middle Searchbox Area -->
+                    <form action="#" class="hm-searchbox">
+                        <select class="nice-select select-search-category">
+                            <option value="0">All</option>                         
+                            <option value="10">Laptops</option>                                                    
+                            <option value="12">Smartphone</option>                           
+                            <option value="13">Cameras</option>                          
+                            <option value="14">headphone</option>                                
+                            <option value="15">Smartphones</option>                           
+                            <option value="16">Laptops</option>
+                        </select>
+                        <input type="text" placeholder="Enter your search key ...">
+                        <button class="search-btn">Search</button>
+                    </form>
+                    <!-- Header Middle Searchbox Area End Here -->
+                    <!-- Begin Header Middle Right Area -->
+                    <div class="header-middle-right">
+                        <div class="col-md-3 clearfix">
+                            <div class="header-ctn">
+                                <!-- Wishlist -->
+                                <div>
+                                    <a href="#">
+                                        <i class="fa fa-heart-o"></i>
+                                        <span>Your Wishlist</span>
+                                        <div class="qty">0</div>
+                                    </a>
+                                </div>
+                                <!-- /Wishlist -->
+
+                                <!-- Cart -->
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" routerLink="/add-toCart" data-toggle="dropdown" aria-expanded="true">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span>Your Cart</span>
+                                        <div class="qty">{{(items$ | async).length}}</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <!-- Header Middle Right Area End Here -->
+                </div>
+                <!-- Header Middle Right Area End Here -->
+            </div>
+        </div>
+    </div>
+    <!-- /MAIN HEADER -->
+    <!-- Header Middle Area End Here -->
+    <!-- Begin Header Bottom Area -->
+    <div class="header-bottom header-sticky stick d-none d-lg-block d-xl-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                   <!-- Begin Header Bottom Menu Area -->
+                   <div class="hb-menu">
+                       <nav>
+                           <ul>
+                            <li><a routerLink="/accueil">Home</a></li>
+                               <li class="megamenu-holder"><a href="index.html">Categories</a>
+                                <ul class="hb-dropdown">
+                                    <li class="sub-dropdown-holder"><a>Home Appliance</a>
+                                        <ul class="hb-dropdown hb-sub-dropdown">
+                                            <li><a routerLink="/accueil/fridges">Fridge</a></li>
+                                            <li><a routerLink="/accueil/air-conditoner">Air Conditioner</a></li>
+                                        </ul>
+                                    </li>
+                                        
+                                    <li class="sub-dropdown-holder"><a>Kitchen Appliance</a>
+                                        <ul class="hb-dropdown hb-sub-dropdown">
+                                            <li><a routerLink="/accueil/smartphones">Blender</a></li>
+                                            <li><a href="index-2.html">Coffe Machine</a></li>
+                                           
+                                        </ul></li>
+                                    <li><a>Computers</a>
+                                        <ul class="hb-dropdown hb-sub-dropdown">
+                                            <li><a routerLink="/accueil/laptops">Laptops</a></li>   
+                                        </ul></li>
+                                    <li><a>Telephony</a>
+                                        <ul class="hb-dropdown hb-sub-dropdown">
+                                            <li><a routerLink="/accueil/smartphones">Smartphones</a></li>   
+                                        </ul></li>
+                                    <li><a>Impression</a>
+                                        <ul class="hb-dropdown hb-sub-dropdown">
+                                            <li><a routerLink="/accueil/scanners">Scanners</a></li>   
+                                        </ul></li>
+                                </ul>
+                                   
+                               </li>
+                               <li class="dropdown-holder"><a href="blog-left-sidebar.html">Best Sellers</a>
+                                   
+                               </li>
+                               <li></li>
+                               <li><a routerLink="/accueil/about">About Us</a></li>
+                               <li><a routerLink="/accueil/contact"> Contact </a></li>
+                               <li><a routerLink="/accueil/smartphones">Smartphones</a></li>
+                               <li><a routerLink="/accueil/laptops">Laptops</a></li>
+                           </ul>
+                       </nav>
+                   </div>
+                   <!-- Header Bottom Menu Area End Here -->
+                </div>
+            </div>
+        </div>
+    </div>
+   <!-- Header Bottom Area End Here -->
+        <!-- Begin Mobile Menu Area -->
+        <div class="mobile-menu-area mobile-menu-area-4 d-lg-none d-xl-none col-12">
+            <div class="container"> 
+                <div class="row">
+                    <div class="mobile-menu">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Area End Here -->
+</header>

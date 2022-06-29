@@ -7,8 +7,8 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-						<li><button class="btnlog" href="#" (click)="openDialog()"><i class="fa fa-user-o"></i>Login</button></li>
+						<li><a href="#"><i class='fas fa-language fa-pull-left' style="font-size:24px"></i> EN</a></li>
+						<li><button class="btnlog" routerLink="/login-user"><i class="fa fa-user-o"></i>Login</button></li>
 					</ul>
 				</div>
             </div>
@@ -50,7 +50,7 @@
                                             <a href="#">
                                                 <i class="fa fa-heart-o"></i>
                                                 <span>Your Wishlist</span>
-                                                <div class="qty">2</div>
+                                                <div class="qty">0</div>
                                             </a>
                                         </div>
                                         <!-- /Wishlist -->
@@ -60,7 +60,7 @@
                                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 <span>Your Cart</span>
-                                                <div class="qty">3</div>
+                                                <div class="qty">0</div>
                                             </a>
                                         </div>
                                     </div>
@@ -84,25 +84,45 @@
                            <div class="hb-menu">
                                <nav>
                                    <ul>
-                                       <li class="dropdown-holder"><a href="index.html">Home</a>
-                                           <ul class="hb-dropdown">
-                                               <li><a href="index.html">Home One</a></li>
-                                               <li><a href="index-2.html">Home Two</a></li>
-                                               <li><a href="index-3.html">Home Three</a></li>
-                                               <li class="active"><a href="index-4.html">Home Four</a></li>
-                                           </ul>
-                                       </li>
-                                       <li class="megamenu-holder"><a href="shop-left-sidebar.html">Categories</a>
+                                    <li><a routerLink="/accueil">Home</a></li>
+                                       <li class="megamenu-holder"><a href="index.html">Categories</a>
+                                        <ul class="hb-dropdown">
+                                            <li class="sub-dropdown-holder"><a>Home Appliance</a>
+                                                <ul class="hb-dropdown hb-sub-dropdown">
+                                                    <li><a routerLink="/accueil/fridges">Fridge</a></li>
+                                                    <li><a routerLink="/accueil/air-conditoner">Air Conditioner</a></li>
+                                                </ul>
+                                            </li>
+                                                
+                                            <li class="sub-dropdown-holder"><a>Kitchen Appliance</a>
+                                                <ul class="hb-dropdown hb-sub-dropdown">
+                                                    <li><a routerLink="/accueil/smartphones">Blender</a></li>
+                                                    <li><a href="index-2.html">Coffe Machine</a></li>
+                                                   
+                                                </ul></li>
+                                            <li><a>Computers</a>
+                                                <ul class="hb-dropdown hb-sub-dropdown">
+                                                    <li><a routerLink="/accueil/laptops">Laptops</a></li>   
+                                                </ul></li>
+                                            <li><a>Telephony</a>
+                                                <ul class="hb-dropdown hb-sub-dropdown">
+                                                    <li><a routerLink="/accueil/smartphones">Smartphones</a></li>   
+                                                </ul></li>
+                                            <li><a>Impression</a>
+                                                <ul class="hb-dropdown hb-sub-dropdown">
+                                                    <li><a routerLink="/accueil/scanners">Scanners</a></li>   
+                                                </ul></li>
+                                        </ul>
                                            
                                        </li>
                                        <li class="dropdown-holder"><a href="blog-left-sidebar.html">Best Sellers</a>
                                            
                                        </li>
                                        <li></li>
-                                       <li><a href="about-us.html">About Us</a></li>
-                                       <li><a href="contact.html"> Contact </a></li>
-                                       <li><a href="shop-left-sidebar.html">Smartphones</a></li>
-                                       <li><a href="shop-left-sidebar.html">Laptops</a></li>
+                                       <li><a routerLink="/accueil/about">About Us</a></li>
+                                       <li><a routerLink="/accueil/contact"> Contact </a></li>
+                                       <li><a routerLink="/accueil/smartphones">Smartphones</a></li>
+                                       <li><a routerLink="/accueil/laptops">Laptops</a></li>
                                    </ul>
                                </nav>
                            </div>

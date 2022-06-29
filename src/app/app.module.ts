@@ -49,7 +49,37 @@ import { ProfileVendeurComponent } from './profile-vendeur/profile-vendeur.compo
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { CommandesComponent } from './commandes/commandes.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { LoginUserComponent } from './clients/login-user/login-user.component';
+import { RegisterUserComponent } from './clients/register-user/register-user.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { VerifyEmailClientComponent } from './clients/verify-email-client/verify-email-client.component';
+import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
+import { ListClientsComponent } from './admin/list-clients/list-clients.component';
+import { ListProductsComponent } from './admin/list-products/list-products.component';
+import { SmartphonesComponent } from './categories/smartphones/smartphones.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { RefrigerateursComponent } from './categories/refrigerateurs/refrigerateurs.component';
+import { PcPortablesComponent } from './categories/pc-portables/pc-portables.component';
+import { ClimatiseursComponent } from './categories/climatiseurs/climatiseurs.component';
+import { ScannersComponent } from './categories/scanners/scanners.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { ListContactComponent } from './admin/list-contact/list-contact.component';
+import { ReplyContactComponent } from './admin/reply-contact/reply-contact.component';
+import { ForgotPasswordUserComponent } from './clients/forgot-password-user/forgot-password-user.component';
+import { ResetPasswordUserComponent } from './clients/reset-password-user/reset-password-user.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsPcComponent } from './product-details-pc/product-details-pc.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { CompteClientComponent } from './clients/compte-client/compte-client.component';
+import { HeaderClientComponent } from './clients/header-client/header-client.component';
+import { AddToCartComponent } from './clients/add-to-cart/add-to-cart.component';
+import { ElectroDetailsComponent } from './electro-details/electro-details.component';
+import { ProdDetailsPcComponent } from './clients/produits/prod-details-pc/prod-details-pc.component';
+import { ProdDetailsPhoneComponent } from './clients/produits/prod-details-phone/prod-details-phone.component';
+import { ProdDetailsElectroComponent } from './clients/produits/prod-details-electro/prod-details-electro.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -67,7 +97,7 @@ export function tokenGetter() {
     RegisterVendeurComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    AlertComponent,
+    AlertComponent,VerifyEmailClientComponent,
     TabProductComponent,
     DashboardVendeurComponent,
     AddProductComponent,
@@ -76,18 +106,43 @@ export function tokenGetter() {
     VerifyEmailComponent,
     CommandesComponent,
     EditProfileComponent,
+    LoginUserComponent,
+    RegisterUserComponent,
+    DashboardAdminComponent,
+    ListClientsComponent,
+    ListProductsComponent,
+    SmartphonesComponent,
+    RefrigerateursComponent,
+    PcPortablesComponent,
+    ClimatiseursComponent,
+    ScannersComponent,
+    AboutComponent,
+    ContactComponent,
+    ListContactComponent,
+    ReplyContactComponent,
+    ForgotPasswordUserComponent,
+    ResetPasswordUserComponent,
+    ProductDetailsComponent,
+    ProductDetailsPcComponent,
+    CompteClientComponent,
+    HeaderClientComponent,
+    AddToCartComponent,
+    ElectroDetailsComponent,
+    ProdDetailsPcComponent,
+    ProdDetailsPhoneComponent,
+    ProdDetailsElectroComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,MatTabsModule,
-    MatInputModule,CarouselModule,
+    BrowserAnimationsModule,FlexLayoutModule,
+    MatFormFieldModule,MatTabsModule,MatProgressBarModule,
+    MatInputModule,CarouselModule,MatPaginatorModule,MatStepperModule,
     MDBBootstrapModule.forRoot(),ToastrModule.forRoot(),
     MatIconModule,MatRadioModule,OwlModule,MatToolbarModule,
     MatSelectModule,ReactiveFormsModule, NgxLoadingModule.forRoot({}),
     MatDividerModule,FormsModule,MatGridListModule,
-    MatListModule,HttpClientModule,
+    MatListModule,HttpClientModule,NgxPaginationModule,
     MatCardModule,MatTableModule,NgbModule,
     MatExpansionModule,MatButtonModule,MatDialogModule,
     NgApexchartsModule,MatAutocompleteModule,

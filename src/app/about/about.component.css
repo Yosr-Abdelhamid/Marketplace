@@ -1,0 +1,110 @@
+.breadcrumb-area {
+	padding: 21px 0 22px;
+	background: #f9f9f9;
+}
+.breadcrumb-content li {
+	color: #a4a4a4;
+	display: inline-block;
+	font-size: 14px;
+	margin-right: 28px;
+	position: relative;
+}
+.breadcrumb-content li a {
+	color: #242424;
+}
+.breadcrumb-content li a:hover {
+	color: #242424;
+}
+.breadcrumb-content li::before {
+	background-color: #aaaaaa;
+	content: "";
+	height: 2px;
+	position: absolute;
+	right: -22px;
+	top: 10px;
+	transform: rotate(-67deg);
+	transition: all 0.4s ease 0s;
+	width: 12px;
+}
+.breadcrumb-content li:last-child::before {
+	display: none;
+}
+.counterup-area{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.limupa-counter {
+	padding-bottom: 90px;
+	padding-top: 90px;
+	text-align: center;
+	width: 100%;
+    background-color: rgb(218, 219, 217);
+}
+.footer-static-top footer-static-top container{
+    border: solid 1px #242424 ;
+}
+.li-shipping-inner-bo{
+   
+        text-align: center;
+      
+	    
+	    padding-left: 36px;
+        height: 140px;
+        background-color: #F5F7F8 ;
+    
+}
+.footer-static-top .li-shipping-inner-bo {
+  
+    padding: 10px 15px 25px;
+   
+    
+}
+
+.bgg{
+    background-color: #f7f7f7;
+}
+.counter-img {
+	display: inline-block;
+	margin-right: 20px;
+	vertical-align: middle;
+}
+.counter-info {
+	color: #444;
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+.about-text-wrap {
+    font-size: 16px;
+    line-height: 28px;
+  }
+  .about-text-wrap h2 {
+    color: #292825;
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top: -6px;
+  }
+  .about-text-wrap h2 span {
+    display: block;
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 12px;
+  }
+  .about-image-wrap {
+    position: relative;
+    padding-left: 30px;
+    padding-top: 30px;
+    margin-bottom: 50px;
+  }
+  .about-image-wrap::after {
+      border: 5px solid #f86c83;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: calc(100% - 30px);
+      width: calc(100% - 30px);
+      z-index: -1;
+  }

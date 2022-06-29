@@ -77,18 +77,18 @@
   
     <li class="nav-item">
       <a routerLink="/dashboard-vendeur" class="nav-link">
-      <i class="nav-icon fab fa-product-hunt"></i>
-      <p>
-      Profile
-      </p>
-      </a>
-      </li>
-    
-      <li class="nav-item">
-      <a routerLink="/dashboard-vendeur/tab-product" class="nav-link active">
-      <i class="nav-icon fas fa-th"></i>
-      <p>
-    Produits
+        <i class="nav-icon fas fa-user-circle"></i>
+        <p>
+        Profile
+        </p>
+        </a>
+        </li>
+      
+        <li class="nav-item">
+        <a routerLink="/dashboard-vendeur/tab-product" class="nav-link active">
+        <i class="nav-icon fab fa-product-hunt"></i>
+        <p>
+      Products
       </p>
       </a>
       </li>
@@ -97,7 +97,7 @@
       <a routerLink="/dashboard-vendeur/commandes" class="nav-link">
       <i class="nav-icon fas fa-copy"></i>
       <p>
-     Commandes
+     Orders
       </p>
       </a>
       </li>
@@ -115,123 +115,110 @@
   <div class="container-fluid">
 
    <div class="center">
+  
     <mat-card class="example-card">
       <mat-card-title>Add new Product</mat-card-title>
 
       <mat-card-content>
+        <br> <br>
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" novalidate>
-          <div class="row">
-            <div class="col-sm-5 col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>Product Name</mat-label>
-                <input matInput type="text" placeholder="Name" id="Reference"  formControlName="Reference">
-              </mat-form-field>
-            </div>
-            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-              <mat-form-field appearance="outline">
-                <mat-label>Product Category</mat-label>
-                <mat-select placeholder ="sous_famille" type="text" id="sous_famille_prod" formControlName="sous_famille_prod">
-                    <mat-option value="Smartphone">Smartphone</mat-option>
-                    <mat-option value="PC Portable">PC Portable</mat-option>
-                    <mat-option value="Climatiseur">Climatiseur</mat-option>
-                    <mat-option value="Refrigérateur">Réfrigérateur</mat-option>
-                    <mat-option value="Scanner">Scanner</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-5 col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>Product Brand</mat-label>
-                <input matInput type = "text" placeholder="Brand" id="Brand" formControlName="Brand"
-                [matAutocomplete]="auto" />
-                <mat-autocomplete #auto="matAutocomplete">
-                  <mat-option *ngFor="let item of filteredOptions" [value]="item">
-                    {{item}}
-                  </mat-option>
-                </mat-autocomplete>
-              </mat-form-field>
-            </div>
-            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-              <mat-form-field appearance="outline">
-                <mat-label>Available Quantity</mat-label>
-                <input matInput  type="number" placeholder="Quantity"  id="Quantity" formControlName="quantity" >
-                <span matSuffix></span>
-              </mat-form-field>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-5 col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>Product Description</mat-label>
-                <textarea  matInput placeholder="Description" type="text"
-                 id="Description" formControlName="description_prod" 
-                 (blur)='testevent()'> </textarea>
-              </mat-form-field>
-            </div>
-            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-                
-                <mat-form-field appearance="outline">
-                  <mat-label>Product Price</mat-label>
-                  <input matInput type="text" placeholder="0.000" step=0.001 id="prix_prod" 
-                  formControlName="prix_prod"  >
-                  <span matSuffix>DT</span>
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="row">
-          <div class="col">
-            <br> <br>
-            <label class="image-upload-container btn btn-bwm">
-              <span>Select Product Image</span>
-              <input #imageInput
-                     type="file"
-                     accept="image/*"
-                     (change)="processFile(imageInput)" 
-                     id="Image">
-            </label>
-          </div>
-        </div>
-        </form>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="warn" (click)="onSubmit()" class="my-class">ADD</button>
-        <button mat-raised-button class="myclass" (click)="reset()">RESET</button>
-        
-      </mat-card-actions>
-      <app-alert></app-alert>
-    </mat-card>
+                <div class="row">
+                  <div class="col-sm-5 col-md-6">
+                    <label for="Reference">Product Name</label>
+                     <input matInput type="text" class="form-control" placeholder="Name" id="Reference"  formControlName="Reference">
+                  </div>
+                  <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                    <label for="sous_famille_prod">Product Category</label>
+                     <mat-select placeholder ="Smartphone" class="form-control" type="text" id="sous_famille_prod" formControlName="sous_famille_prod">
+                        <mat-option value="Smartphone">Smartphone</mat-option>
+                        <mat-option value="PC Portable">Laptops</mat-option>
+                        <mat-option value="Climatiseur">Air Conditioner</mat-option>
+                        <mat-option value="Refrigérateur">Fridge</mat-option>
+                        <mat-option value="Scanner">Scanner</mat-option>
+                    </mat-select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-5 col-md-6">
+                      <label for="Brand">Product Brand</label>
+                      <input matInput type = "text" class="form-control" placeholder="Brand" id="Brand" formControlName="Brand"
+                      [matAutocomplete]="auto" />
+                      <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let item of filteredOptions" [value]="item">
+                          {{item}}
+                        </mat-option>
+                      </mat-autocomplete>
+                  </div>
+                  <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                      <label for="Quantity">Available Quantity</label>
+                      <input matInput  type="number" class="form-control" placeholder="Quantity"  id="Quantity" formControlName="quantity" >
+                      <span matSuffix></span>
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-sm-5 col-md-6">
+                      <label for="Description">Product Description</label>
+                      <textarea  matInput class="form-control" placeholder="Processor:xxx-" type="text"
+                       id="Description" formControlName="description_prod" style="height:60px ;"
+                       (blur)='testevent()'> </textarea>
+                  </div>
+                  <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                        <label>Product Price</label>
+                        <input matInput type="text" class="form-control" placeholder="0,000" step=0.001 id="prix_prod" 
+                        formControlName="prix_prod">
+                        <span style="top:150px">DT</span>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col">
+                  <br> <br>
+                  <label class="image-upload-container btn btn-bwm">
+                    <span>Select Product Image</span>
+                    <input #imageInput
+                           type="file"
+                           accept="image/*"
+                           (change)="processFile(imageInput)" 
+                           id="Image">
+                  </label>
+                </div>
+              </div>
+            </form>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="warn" (click)="onSubmit()" class="my-class">ADD</button>
+            <button mat-raised-button class="myclass" (click)="reset()">RESET</button>
+            
+          </mat-card-actions>
+          <app-alert></app-alert>
+        </mat-card>
    </div>
-
-<br> 
-    <div *ngIf="showMe">
-        <table class="table table-bordered">
-            <thead  class="thead-light">
-                <tr>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Product Description</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Store</th>
-                    <th scope="col">Availibility</th>
-                </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of inspectionTypesList;">
-                  <td>{{item.reference}}</td>
-                  <td>{{item.description}}</td>
-                  <td>{{item.prix}}</td>
-                  <td><img [src]=getSantizeUrl(item.photo)  width="1680px" height="1580px"></td>
-                  <td><img [src]=getSantizeUrl(item.nom_magasin) width ="950px" height="950px"></td>
-                  <td>{{item.stock}}</td>   
-              </tr>         
-            </tbody>
-        </table>
-    </div>
-    <br> <br>
-
+   <br> 
+   <div *ngIf="showMe">
+       <table class="table table-bordered">
+           <thead  class="thead-light">
+               <tr>
+                   <th scope="col">Product Name</th>
+                   <th scope="col">Product Description</th>
+                   <th scope="col">Price</th>
+                   <th scope="col">Image</th>
+                   <th scope="col">Store</th>
+                   <th scope="col">Availibility</th>
+               </tr>
+           </thead>
+           <tbody>
+             <tr *ngFor="let item of inspectionTypesList;">
+                 <td>{{item.reference}}</td>
+                 <td>{{item.description}}</td>
+                 <td>{{item.prix}}</td>
+                 <td><img [src]=getSantizeUrl(item.photo)  width="1680px" height="1580px"></td>
+                 <td><img [src]=getSantizeUrl(item.nom_magasin) width ="950px" height="950px"></td>
+                 <td>{{item.stock}}</td>   
+             </tr>         
+           </tbody>
+       </table>
+   </div>
+   <br> <br>
 </div>
 </section>
 

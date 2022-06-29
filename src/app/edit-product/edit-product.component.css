@@ -19,6 +19,9 @@
   *, ::after, ::before {
     box-sizing: border-box;
   }
+  .badge{
+    font-size: 8px;  
+  }
   
   .col-4{
       width: 250px !important;
@@ -208,17 +211,24 @@
 .test{
   background: rgb(214, 125, 125);
 }
-input[type="file" i] {
-  width: 150px;
-  appearance: none;
-  background-color: initial;
-  cursor: default;
-  align-items: baseline;
-  color: transparent;
-  text-overflow: ellipsis;
-  white-space: pre;
-  text-align: start !important;
-  padding: initial;
-  border: initial;
-  overflow: hidden !important;
+input[type="file"]{
+  display : none;
+  margin-left: 20px;
+}
+.des{
+height: 350px;
+}
+.imq {
+  color : #000;
+  width: 120px;
+  border-radius: 2px;
+  height : 26px ;
+  background-color: transparent;
+  font-size: 14px;
+  align-items: center;
+  text-align: center;
+
+}
+.imq:hover{
+  background-color: #dddbdb;
 }

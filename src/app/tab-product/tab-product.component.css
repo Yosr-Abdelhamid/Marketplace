@@ -20,7 +20,9 @@
 *, ::after, ::before {
   box-sizing: border-box;
 }
-
+.badge{
+  font-size: 8px;  
+}
 .mt-2{
   width: 235px;
   height: 1530px;
@@ -37,6 +39,28 @@
 .demo-table {
   width: 100%;
 }
+
+.mat-column-prix_prod {
+
+  text-align: center;
+}
+.mat-column-quantity{
+  padding-left: 20px;
+  text-align: center;
+}
+
+.mat-column-image_prod{
+  padding-left: 20px;
+  text-align: center;
+  padding-top:8px ;
+  padding-bottom:8px ;
+}
+.mat-column-actions{
+  padding-left: 20px;
+  text-align: center;
+}
+
+
 .demo-button{
   background:rgb(212, 211, 211);
 }
@@ -85,4 +109,15 @@
   padding-right: 0;
   margin-left: 1rem;
   margin-right: 1rem;
+}
+.search{
+  width : 350px;
+  height: 40px;
+  border-radius: 15px;
+  border : 1px solid #d5d6d8; 
+  padding-left: 15px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+mat-icon{
+margin-left : -25px; 
 }

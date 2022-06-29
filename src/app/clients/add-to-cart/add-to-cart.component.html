@@ -1,0 +1,158 @@
+<app-header-client></app-header-client>
+<!-- <section class="cart_section section_space">
+    <div class="container">
+      <div class="cart_update_wrap">
+        <p class="mb-0"><i class="fal fa-check-square"></i> Shipping costs updated.</p>
+      </div>
+
+      <div class="cart_table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>PRODUCT</th>
+              <th class="text-center">PRICE</th>
+              <th class="text-center">QUANTITY</th>
+              <th class="text-center">TOTAL</th>
+              <th class="text-center">REMOVE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of products">
+              <td>
+                <div class="cart_product">
+                  <img src="data:image/PNG;base64,{{item.image_org }}" alt="image_not_found">
+                  <h3><a href="shop_details.html">{{item.reference}}</a></h3>
+                </div>
+              </td>
+              <td class="text-center"><span class="price_text">{{item.prix_prod}}</span></td>
+              <td class="text-center">
+                <form action="#">
+                  <div class="quantity_input">
+                    <button type="button" class="input_number_decrement">
+                      <i class="fal fa-minus"></i>
+                    </button>
+                    <input class="input_number" type="text" value="1">
+                    <button type="button" class="input_number_increment">
+                      <i class="fal fa-plus"></i>
+                    </button>
+                  </div>
+                </form>
+              </td>
+              <td class="text-center"><span class="price_text">$10.50</span></td>
+              <td class="text-center"><button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cart_btns_wrap">
+        <div class="row">
+          <div class="col col-lg-6">
+            <ul class="btns_group ul_li_right">
+              <li><a class="btn border_black" href="#!">Update Cart</a></li>
+              <li><a class="btn btn_dark" href="#!">Prceed To Checkout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-lg-6">
+          <div class="calculate_shipping">
+            <h3 class="wrap_title">Calculate Shipping <span class="icon"><i class="far fa-arrow-up"></i></span></h3>
+            <form action="#">
+              <div class="select_option clearfix">
+                <select>
+                  <option data-display="Select Your Currency">Select Your Option</option>
+                  <option value="1" selected>United Kingdom (UK)</option>
+                  <option value="2">United Kingdom (UK)</option>
+                  <option value="3">United Kingdom (UK)</option>
+                  <option value="4">United Kingdom (UK)</option>
+                  <option value="5">United Kingdom (UK)</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="col col-md-6">
+                  <div class="form_item">
+                    <input type="text" name="location" placeholder="State / Country">
+                  </div>
+                </div>
+                <div class="col col-md-6">
+                  <div class="form_item">
+                    <input type="text" name="postalcode" placeholder="Postcode / ZIP">
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn_primary rounded-pill">Update Total</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col col-lg-6">
+          <div class="cart_total_table">
+            <h3 class="wrap_title">Cart Totals</h3>
+            <ul class="ul_li_block">
+              <li>
+                <span>Cart Subtotal</span>
+                <span>$52.50</span>
+              </li>
+              <li>
+                <span>Shipping and Handling</span>
+                <span>Free Shipping</span>
+              </li>
+              <li>
+                <span>Order Total</span>
+                <span class="total_price">$52.50</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+          <div id="collapseExample" [ngbCollapse]="false">
+              <div class="card">
+                <div class="card-body">
+                 <h1 style="color:chocolate ;font-size: 34px; font-family: 'Times New Roman', Times, serif;">Products in Cart<span style="margin-left: 62%;color:black ; font-size: 22px;">
+                    Total value is: {{allTotal}} DT</span>
+                    <!--button class="btn btn-outline-success" (click)="acc.toggle('static-2')">CheckOut</button-->
+                   </h1>
+                    
+                    <table class="table table-bordered table-hover">
+                      <thead class="thead-light">
+                      <tr>
+                        <th>Image</th>
+                        <th>Name & Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total For Item</th>
+                      </tr>
+                      </thead>
+                      <tr *ngFor="let prod of items$ | async ; let i =index">
+                        <td><img src="data:image/png;base64,{{prod.image_prod}}" width="150px;" height="170px;"/></td>
+                        <td class="wid">{{prod.reference}}-{{prod.description_prod}}</td>
+                        <td>{{prod.prix_prod}}DT</td>
+                        <td class="text-center">
+                            <div class="quantity_input">
+                              <button type="button" (click)="onRemoveQuantity(prod)" class="input_number_decrement">
+                                <i class="fa fa-minus"></i>
+                              </button>
+                              <input type="text"  [ngModel] ="prod.quantityP" (ngModelChange) ="prod.quantityP=$event" class="form-control form-inline" id="count">
+                              <button type="button" class="input_number_increment" (click)="onAddQuantity(prod)">
+                                <i class="fa fa-plus"></i>
+                              </button>
+                            </div>
+                        </td>
+                        <td>{{prod.prix_prod * prod.quantityP}}DT</td>
+                      </tr>
+                    </table>
+                    <br>
+                    <button type="submit" class="remove" (click)="removeall()">Empty Cart</button>
+                </div>
+              </div>
+            </div>
+
+ 
+ 
+  <app-footer></app-footer>

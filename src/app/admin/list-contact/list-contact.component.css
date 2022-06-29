@@ -92,7 +92,9 @@ body {
     height: 41px;
 }
 .example-container {
-    height: 400px;
+    height: 700px;
+    width: 1010px;
+    margin-left: 40px;
     overflow: auto;
   }
   
@@ -104,4 +106,68 @@ th {
     font-size: 16px;
     font-weight: 500;
     background-color: #dddbdb;
+}
+mat-expansion-panel{
+    width: 70%;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+mat-panel-title{
+width: 380px;
+}
+
+.test{
+    color: rgb(62, 87, 116);
+    font-weight: 700;
+    font-size: 16px;
+}
+.test span {
+    color: #111822;
+    padding-left: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Copperplate';
+    text-transform: capitalize;
+    text-decoration: underline;
+}
+
+.title{
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    width: 70px;
+    padding-bottom: 5px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+textarea {
+    background-color: #ffffff;
+    width: 100%;
+    outline: none;
+    color: #949494;
+    border: 1px solid #fff;
+    height: 60px; 
+  }
+.spacing{
+color: #949494;
+font-weight: 100;
+font-size: 16px;
+font-family: 'Georgia';
+}
+.col-sm-8{
+width: 600px;
+height: 60px;
+}
+.boutn{
+    width : 80px;
+    text-align: center;
+    background-color: rgb(191, 214, 191);
+    margin-left: 35px;
+}
+.iconcol{
+    color: #d10024;
+   margin-left : 350px;
+}
+mat-panel-description{
+    text-align: end;
 }

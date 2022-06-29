@@ -77,18 +77,18 @@
     
         <li class="nav-item">
             <a routerLink="/dashboard-vendeur" class="nav-link">
-            <i class="nav-icon fab fa-product-hunt"></i>
-            <p>
-            Profile
-            </p>
-            </a>
-            </li>
-          
-            <li class="nav-item">
-            <a routerLink="/dashboard-vendeur/tab-product" class="nav-link active">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-          Produits
+                <i class="nav-icon fas fa-user-circle"></i>
+                <p>
+                Profile
+                </p>
+                </a>
+                </li>
+              
+                <li class="nav-item">
+                <a routerLink="/dashboard-vendeur/tab-product" class="nav-link">
+                <i class="nav-icon fab fa-product-hunt"></i>
+                <p>
+              Products
             </p>
             </a>
             </li>
@@ -97,7 +97,7 @@
             <a routerLink="/dashboard-vendeur/commandes" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
             <p>
-           Commandes
+           Orders
             </p>
             </a>
             </li>
@@ -128,16 +128,21 @@
                     <!-- Profile picture card-->
                     <div class="card mb-4 mb-xl-0">
                         <div class="card-header">Product Image</div>
-                        <div class="card-body text-center">
-                            <!-- Profile picture image-->
-                            <img src="data:image/PNG;base64,{{item.image_prod }}" style="width:200px;height:250px"/>
-                            <br>
-                            <label for="files" class="btn">Select New Image</label>
+                        <div class="card-body des text-center">
+                            <!-- Profile picture image data:image/PNG;base64,{{item.image_prod }}-->
+                            <img [src]="imageUrl" style="width:200px;height:250px"/>
+                            <br> <br>
+                            <input  #fileInput
+                                type="file"
+                                accept="image/*"
+                                (change)="onChange(fileInput.files[0])"
+                                id="file"><label class="imq" for="file">Upload new Image</label>
+                           <!--  <label for="files" class="btn">Select New Image</label>
                             <input #imageInput
                                 type="file"
                                 accept="image/*"
                                (change)="processFile(imageInput)" 
-                                id="Image">
+                                id="Image"> -->
                         </div>
                     </div>
                 </div>
@@ -174,7 +179,7 @@
                                     
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLocation">Product Description</label>
-                                        <input class="form-control"  type="text" name="description_prod" id="description_prod" placeholder="Enter the description" value="{{item.description_prod}}">
+                                        <textarea class="form-control"  type="text" name="description_prod" id="description_prod" placeholder="Enter the description" value="{{item.description_prod}}"></textarea>
                                     </div>
                                 </div>
       
@@ -188,8 +193,11 @@
                                 <button mat-raised-button class="test" type="button" (click)="onSubmit($event)">Save changes</button>
                             </form>
                         </div>
+                        
                     </div>
                 </div>
+                
+               
             </div>
         </div>
      

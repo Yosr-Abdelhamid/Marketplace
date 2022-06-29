@@ -22,6 +22,7 @@ export class VerifyEmailComponent implements OnInit {
   loading = false;
   emailConfirmed: boolean = false;
   urlParams: any = {};
+  value= 6 ;
   constructor(
       private route: ActivatedRoute,
       private router: Router,
@@ -43,6 +44,10 @@ export class VerifyEmailComponent implements OnInit {
           this.alertService.success('Email Confirmed');
           this.loading = false;
           this.emailConfirmed = true;
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+            }, 6000);
+
         },
         (error) => {
           //this.progressBar.setFailure();
@@ -50,6 +55,10 @@ export class VerifyEmailComponent implements OnInit {
           this.alertService.error('Unable to confirm email')
           this.loading = false;
           this.emailConfirmed = false;
+          setTimeout(() => {
+            this.router.navigate(['/register-vendeur']);
+            }, 5000);
+          
         }
       );
     }

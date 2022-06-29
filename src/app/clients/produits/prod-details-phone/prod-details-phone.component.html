@@ -1,0 +1,275 @@
+<app-header-client></app-header-client>
+<section>
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Product Details</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Li's Breadcrumb Area End Here -->
+<!-- content-wraper start -->
+<div class="all">
+<div class="content-wraper">
+    <div class="container">
+      <br><br>
+        <div class="row single-product-area">
+            <div class="col-lg-5 col-md-6">
+               <!-- Product Details Left -->
+                <div class="product-details-left">
+                    <div class="product-details-images slider-navigation-1">
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item" href="./assets/images/product/large-size/1.jpg" data-gall="myGallery">
+                                <img src="data:image/PNG;base64,{{item.image_prod }}"  style="width: 450px;height:450px;" alt="product image">
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!--// Product Details Left -->
+            </div>
+
+            <div class="col-lg-7 col-md-6">
+                <div class="product-details-view-content pt-60">
+                    <div class="product-info">
+                        <h2>{{item.reference}}</h2>
+                        <span class="product-details-ref">Brand: {{item.brand}}</span>
+                        <div class="rating-box pt-20">
+                            <ul class="rating rating-with-review-item">
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                            </ul>
+                        </div>
+                        <div class="price-box pt-20">
+                            <span class="new-price new-price-2">{{item.prix_prod}} DT</span>
+                        </div>
+                        <div class="product-desc">
+                            <p>
+                                <span>{{item.description_prod}}
+                                </span>
+                            </p>
+                        </div>
+                        <div class="single-add-to-cart">
+                            <form action="#" class="cart-quantity">
+                                <div class="quantity">
+                                    <label>Quantity</label>
+                                    <div class="cart-plus-minus">
+                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                    </div>
+                                </div>
+                                <button class="add-to-cart" type="submit" (click)="addToCart(item)">Add to cart</button>
+                            </form>
+                        </div>
+                       
+                        <div class="product-additional-info pt-25">
+                            <br>
+                            <a class="wishlist-btn" href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a>
+                        </div>
+                        <div class="block-reassurance">
+                            <ul>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                        </div>
+                                        <p>Security policy (edit with Customer reassurance module)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-truck"></i>
+                                        </div>
+                                        <p>Delivery policy (edit with Customer reassurance module)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-exchange"></i>
+                                        </div>
+                                        <p> Return policy (edit with Customer reassurance module)</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+<section class="back_details">
+<div class="details_information_tab">
+    <ul class="tabs_nav nav ul_li" role=tablist>
+      <li>
+        <button class="active" data-toggle="tab" data-target="#description_tab" type="button" role="tab" aria-controls="description_tab" aria-selected="true">
+          Description
+        </button>
+      </li>
+      <li>
+        <button data-toggle="tab" data-target="#reviews_tab" type="button" role="tab" aria-controls="reviews_tab" aria-selected="false">
+          Reviews
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="description_tab" role="tabpanel">
+        <p style="font-size: 20px; font-family:'Times New Roman', Times, serif">{{splitted[0]}} <br> {{splitted[1]}} <br> {{splitted[2]}} <br> {{splitted[3]}} <br>  
+          {{splitted[4]}} <br> {{splitted[5]}} <br> {{splitted[6]}} <br> {{splitted[7]}} <br> 
+          {{splitted[8]}} <br> {{splitted[9]}} <br> {{splitted[10]}} <br> </p>
+      </div>
+      <div class="tab-pane fade" id="reviews_tab" role="tabpanel">
+        <div class="average_area">
+          <h4 class="reviews_tab_title"> Average Ratings</h4>
+          <div class="row align-items-center">
+            <div class="col-md-5 order-last">
+              <div class="average_rating_text">
+                <ul class="rating_star ul_li_center">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star-half-alt"></i></li>
+                </ul>
+                <p class="mb-0 siz">
+                  Average Star Rating: <span>4.3 out of 5</span> (2 vote)
+                </p>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="product_ratings_progressbar">
+                <ul class="five_star ul_li">
+                  <li><span>5 Star</span></li>
+                  <li><div class="progress_bar"></div></li>
+                  <li>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </li>
+                </ul>
+                <ul class="four_star ul_li">
+                  <li><span>4 Star</span></li>
+                  <li><div class="progress_bar"></div></li>
+                  <li>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                  </li>
+                </ul>
+                <ul class="three_star ul_li">
+                  <li><span>3 Star</span></li>
+                  <li><div class="progress_bar"></div></li>
+                  <li>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                  </li>
+                </ul>
+                <ul class="two_star ul_li">
+                  <li><span>2 Star</span></li>
+                  <li><div class="progress_bar"></div></li>
+                  <li>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                  </li>
+                </ul>
+                <ul class="one_star ul_li">
+                  <li><span>1 Star</span></li>
+                  <li><div class="progress_bar"></div></li>
+                  <li>
+                    <i class="fas fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+      </div>
+    </div>
+  </div>
+  <br> <br>
+</section>
+</div>
+  <br><br> <br>
+<div class="footer-static-top footer-static-top-3 pt-xs-50">
+    <div class="container">
+        <!-- Begin Footer Shipping Area -->
+    <div class="footer-shipping pb-xs-0">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 pb-xs-45">
+        <div class="li-shipping-inner-b">
+        <div class="shipping-icon">
+            <img src="./assets/images/shipping-icon/1.png" alt="Shipping Icon">
+        </div>
+        <div class="shipping-text">
+            <h2>Free Delivery</h2>
+            <p>And free returns</p>
+        </div>
+        </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 pb-xs-45">
+            <div class="li-shipping-inner-b">
+                <div class="shipping-icon">
+                    <img src="./assets/images/shipping-icon/2.png" alt="Shipping Icon">
+                </div>
+                <div class="shipping-text">
+                    <h2>Safe Payment</h2>
+                    <p>Secured payment.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 pb-xs-45">
+            <div class="li-shipping-inner-b">
+                <div class="shipping-icon">
+                    <img src="./assets/images/shipping-icon/shield.png" alt="Shipping Icon">
+                </div>
+                <div class="shipping-text">
+                    <h2>Shop with Confidence</h2>
+                    <p>Protected purchase.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6">
+            <div class="li-shipping-inner-b last-child">
+                <div class="shipping-icon">
+                    <img src="./assets/images/shipping-icon/4.png" alt="Shipping Icon">
+                </div>
+                <div class="shipping-text">
+                    <h2>24/7 Help Center</h2>
+                    <p>Have a question?.</p>
+                </div>
+            </div>
+        </div>
+<!-- Li's Shipping Inner Box Area End Here -->
+    </div>
+    </div>
+     </div>
+</div>
+</section>
+
+<app-footer></app-footer>

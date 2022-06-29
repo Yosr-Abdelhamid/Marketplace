@@ -3,5 +3,5 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons' ;
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
-background: #F5F7F8 ;}
+background: #F5F7F8 !important;}
 

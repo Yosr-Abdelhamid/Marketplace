@@ -115,14 +115,14 @@
 				<div class="product-content">
 					<div class="product_img">
 				<img src="./assets/images/rubrique_1.png"></div>
-				<h3 class="item-title ellipsis ellipsis-2lines">Gros <br>Electroménager</h3> 
+				<h3 class="item-title ellipsis ellipsis-2lines">Home <br> Appliance</h3> 
 			     </div>
 			</div>
 			<div class="flip-box-back">
                 <div class="backe">
                     <br><br>
-				<h4>Réfrigérateur</h4>
-                <h4>Climatiseur</h4>
+				<a routerLink="/accueil/fridges"><h4>Fridge</h4></a><br>
+                <a routerLink="/accueil/air-conditoner"><h4>Air conditioner</h4></a>
                 
                 </div>
 			</div>
@@ -136,14 +136,14 @@
 				<div class="product-content">
 					<div class="product_img">
 				<img src="./assets/images/rubrique_3.png"></div>
-				<h3 class="item-title ellipsis ellipsis-2lines">Petit <br>Electroménager</h3> 
+				<h3 class="item-title ellipsis ellipsis-2lines">Kitchen <br>Appliance</h3> 
 			     </div>
 			</div>
 			<div class="flip-box-back">
                 <div class="backe">
                     <br><br>
-				<h4>Robots de Cuisine </h4>
-                <h4>Cafetière</h4>
+				<h4>Blender </h4> <br>
+                <h4>Coffe Machine</h4>
 			</div>
 			</div>
 		    </div>
@@ -156,13 +156,13 @@
 				<div class="product-content">
 					<div class="product_img">
 				<img src="./assets/images/pcyet.png"></div>
-				<h3 class="item-title ellipsis ellipsis-2lines">Informatique</h3> 
+				<h3 class="item-title ellipsis ellipsis-2lines">Computers</h3> 
 			     </div>
 			</div>
 			<div class="flip-box-back">
 				<div class="backe">
                     <br><br>
-				<h4>PC Portable Pro</h4>
+				<a routerLink="/accueil/laptops"><h4>Laptops</h4></a>
 			</div>
             </div>
 			</div>
@@ -175,13 +175,13 @@
 				<div class="product-content">
 					<div class="product_img">
 				<img src="./assets/images/telephonie.png"></div>
-				<h3 class="item-title ellipsis ellipsis-2lines">Téléphonie</h3> 
+				<h3 class="item-title ellipsis ellipsis-2lines">Telephony</h3> 
 			     </div>
 			</div>
 			<div class="flip-box-back">
 				<div class="backe">
                     <br><br>
-				<h4>Smartphones</h4>
+				<a routerLink = "/accueil/smartphones"><h4>Smartphones</h4></a>
 			</div>
             </div>
 			</div>
@@ -194,13 +194,13 @@
 				<div class="product-content">
 					<div class="product_img">
 				<img src="./assets/images/rubrique_8.png"></div>
-				<h3 class="item-title ellipsis ellipsis-2lines">TV</h3> 
+				<h3 class="item-title ellipsis ellipsis-2lines">Impression</h3> 
 			     </div>
 			</div>
 			<div class="flip-box-back">
 				<div class="backe">
                     <br><br>
-				<h4>Téléviseur</h4>
+				<h4>Scanner</h4>
 			</div>
 			</div></div>
 		    </div>
@@ -220,7 +220,7 @@
                 </a>
                 <div class="banner-content">
                     <h4 class="banner-subtitle"><a href="#">Smart Offer</a></h4><!-- End .banner-subtitle -->
-                    <h3 class="banner-title"><a href="#">Save $150 <strong>on Samsung <br>Galaxy Note9</strong></a></h3><!-- End .banner-title -->
+                    <h3 class="banner-title"><a href="#">Save 150 DT <strong>on Samsung <br>Galaxy Note9</strong></a></h3><!-- End .banner-title -->
                     <a href="#" class="banner-link">Shop Now<i class=" fa fa-solid fa-arrow-right"></i></a>
                 </div>
            <!-- End .banner-content -->
@@ -249,7 +249,7 @@
 
                 <div class="banner-content">
                     <h4 class="banner-subtitle"><a href="#">Clearance</a></h4><!-- End .banner-subtitle -->
-                    <h3 class="banner-title"><a href="#"><strong>GoPro - Fusion 360</strong> <br>Save $70</a></h3><!-- End .banner-title -->
+                    <h3 class="banner-title"><a href="#"><strong>GoPro - Fusion 360</strong> <br>Save 70DT</a></h3><!-- End .banner-title -->
                     <a href="#" class="banner-link">Shop Now<i class=" fa fa-solid fa-arrow-right"></i></a>
                 </div><!-- End .banner-content -->
             </div><!-- End .banner -->
@@ -271,7 +271,7 @@
                 <div class="centered">
                     <h1 class="smarty">SMARTPHONES</h1>
                     <p class="test text-white drop-shadow-md">Choose your smartphone now!</p>
-                    <button class="btn-effect inline-block text-white text-center  py-3 px-4" href="#">Show more
+                    <button  routerLink = "/accueil/smartphones" class="btn-effect inline-block text-white text-center" href="#">Show more
                     </button>
                 </div>
             </div>
@@ -283,156 +283,29 @@
         
 			<owl-carousel-o [options]="SlideCustomOptions">	
 
-                <ng-template carouselSlide>
+                <ng-template carouselSlide *ngFor="let item of data">
                     <div class="card">
-                        <div class="card-main">
-
-                            <div class="label label-green">Pre-Order</div>
-                            
+                        <div class="card-main">                            
                             <div class="image">
-                                <img src="./assets/images/iphone.jpg" alt="image">
+                                <img src="data:image/PNG;base64,{{item.image_prod }}" alt="image">
                             </div>
                             <div class="cart-line"></div>
                             <div class="cart-item">
-                                <ul>
-                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+                                <ul class="text-center">
+                                <li><a routerLink="/login-user"><i class="fa fa-shopping-basket"></i></a></li>
                                 <li><a href=""><i class="fa fa-heart"></i></a></li>
-                                <li><a href=""><i class="fa fa-search"></i></a></li>
                             </ul>
                             </div>
                         </div>
                         <div class="content">
-                            <a href="">IPHONE 12 Pro</a>
+                            <button class="item_textt"  (click)="routProd(item)" href="">{{item.reference}}</button>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <p><span class="money">$10</span><span class="old-price">$15</span></p>
-                        </div>
-                    </div>
-				</ng-template>
-
-                
-				<ng-template carouselSlide>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="label label-green">Pre-Order</div>
-                           
-                            <div class="image">
-                                <img src="./assets/images/moto.jpg" alt="image">
-                            </div>
-                            <div class="cart-line"></div>
-                            <div class="cart-item">
-                                <ul>
-                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
-                                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                                <li><a href=""><i class="fa fa-search"></i></a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <a href="">Moto e7i Power</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p><span class="money">$10</span><span class="old-price">$15</span></p>
-                        </div>
-                    </div>
-				</ng-template>
-
-				<ng-template carouselSlide>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="label label-green">Pre-Order</div>
-                            
-                            <div class="image">
-                                <img src="./assets/images/nokia.jpg" alt="image">
-                            </div>
-                            <div class="cart-line"></div>
-                            <div class="cart-item">
-                                <ul>
-                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
-                                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                                <li><a href=""><i class="fa fa-search"></i></a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <a href="">NOKIA 5.4</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p><span class="money">$10</span><span class="old-price">$15</span></p>
-                        </div>
-                    </div>
-
-                </ng-template>
-
-				<ng-template carouselSlide>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="label label-green">Pre-Order</div>
-                           
-                            <div class="image">
-                                <img src="./assets/images/samsung.jpg" alt="image">
-                            </div>
-                            <div class="cart-line"></div>
-                            <div class="cart-item">
-                                <ul>
-                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
-                                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                                <li><a href=""><i class="fa fa-search"></i></a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <a href="">Smartphone SAMSUNG</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p><span class="money">$10</span><span class="old-price">$15</span></p>
-                        </div>
-                    </div>
-
-                </ng-template>
-
-				<ng-template carouselSlide>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="label label-green">Pre-Order</div>
-                           
-                            <div class="image">
-                                <img src="./assets/images/nokia.jpg" alt="image">
-                            </div>
-                            <div class="cart-line"></div>
-                            <div class="cart-item">
-                                <ul>
-                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
-                                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                                <li><a href=""><i class="fa fa-search"></i></a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <a href="">NOKIA 5.1</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p><span class="money">$10</span><span class="old-price">$15</span></p>
+                            <p><span class="money">{{item.prix_prod}} DT</span></p>
                         </div>
                     </div>
 				</ng-template>
@@ -479,10 +352,10 @@
             <div class="container">
             <div class="image_size">
             <img class="iaa" src="./assets/images/notebooks.jpg" alt="banner-img" style="width:300px ; height: 390px;">
-                <div class="centered">
+                <div class="centere">
                     <h1 class="smarty">LAPTOPS</h1>
                     <p class="test text-white drop-shadow-md">Choose your Laptop now!</p>
-                    <button class="btn-effect inline-block text-white text-center  py-3 px-4" href="#">Show more
+                    <button routerLink="/accueil/laptops" class="btn-effect inline-block text-white text-center" href="#">Show more
                     </button>
                 </div>
             </div>
@@ -492,156 +365,31 @@
         
 			<owl-carousel-o [options]="SlideCustomOptions">	
 
-                <ng-template carouselSlide>
+                <ng-template carouselSlide *ngFor ="let prod of list_prod">
                     <div class="card">
                         <div class="card-main">
 
-                            <div class="label label-green">Pre-Order</div>
                             
                             <div class="image">
-                                <img src="./assets/images/pc_1.jpg" alt="image">
+                                <img src="data:image/PNG;base64,{{prod.image_prod}}" alt="image">
                             </div>
                             <div class="cart-line"></div>
                             <div class="cart-item">
-                                <ul>
-                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+                                <ul class="text-center">
+                                <li><a routerLink="/login-user"><i class="fa fa-shopping-basket"></i></a></li>
                                 <li><a href=""><i class="fa fa-heart"></i></a></li>
-                                <li><a href=""><i class="fa fa-search"></i></a></li>
                             </ul>
                             </div>
                         </div>
                         <div class="content">
-                            <a href="">Lenovo V15</a>
+                            <button class="item_textt" (click)="routProdPC(prod)" href="">{{prod.reference}}</button>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <p><span class="money">$10</span><span class="old-price">$15</span></p>
-                        </div>
-                    </div>
-				</ng-template>
-
-                
-				<ng-template carouselSlide>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="label label-green">Pre-Order</div>
-                           
-                            <div class="image">
-                                <img src="./assets/images/pc_2.jpg" alt="image">
-                            </div>
-                            <div class="cart-line"></div>
-                            <div class="cart-item">
-                                <ul>
-                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
-                                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                                <li><a href=""><i class="fa fa-search"></i></a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <a href="">HP 255 G7</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p><span class="money">$10</span><span class="old-price">$15</span></p>
-                        </div>
-                    </div>
-				</ng-template>
-
-				<ng-template carouselSlide>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="label label-green">Pre-Order</div>
-                            
-                            <div class="image">
-                                <img src="./assets/images/pc_3.jpg" alt="image">
-                            </div>
-                            <div class="cart-line"></div>
-                            <div class="cart-item">
-                                <ul>
-                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
-                                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                                <li><a href=""><i class="fa fa-search"></i></a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <a href="">Apple Macbook</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p><span class="money">$10</span><span class="old-price">$15</span></p>
-                        </div>
-                    </div>
-
-                </ng-template>
-
-				<ng-template carouselSlide>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="label label-green">Pre-Order</div>
-                           
-                            <div class="image">
-                                <img src="./assets/images/pc_1.jpg" alt="image">
-                            </div>
-                            <div class="cart-line"></div>
-                            <div class="cart-item">
-                                <ul>
-                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
-                                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                                <li><a href=""><i class="fa fa-search"></i></a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <a href="">AZUZ ZenBook 15</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p><span class="money">$10</span><span class="old-price">$15</span></p>
-                        </div>
-                    </div>
-
-                </ng-template>
-
-				<ng-template carouselSlide>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="label label-green">Pre-Order</div>
-                           
-                            <div class="image">
-                                <img src="./assets/images/pc_2.jpg" alt="image">
-                            </div>
-                            <div class="cart-line"></div>
-                            <div class="cart-item">
-                                <ul>
-                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
-                                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                                <li><a href=""><i class="fa fa-search"></i></a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <a href="">LENOVO V15</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p><span class="money">$10</span><span class="old-price">$15</span></p>
+                            <p><span class="money">{{prod.prix_prod}} DT</span></p>
                         </div>
                     </div>
 				</ng-template>
@@ -652,6 +400,61 @@
     </div>
 </section>
 <br> <br>
+<div class="row">
+    <div class="container">
+        <a href="#">
+            <img src="./assets/images/selection-lg.png"  style="margin-left:18px ; height:270px ;width: 1100px;">
+        </a>
+    </div><!-- End .banner -->
+</div>
+<br><br>
+<section>
+    <div class="container"> 
+            <div class="container h-100 d-flex justify-content-center border-bottom">
+				<h1 class="smart text-center">Home Appliances</h1>
+			</div>
+            <br><br>
+        <div class="row">
+            <div class="container"> 
+                <section class="cadre"> 
+                    <br>   
+			    <owl-carousel-o [options]="SlideCustOptions">	
+                <ng-container *ngFor="let produit of list_fridg">    
+                <ng-template carouselSlide style="float: right;">
+                    <div class="card" style="height:370px ; width : 242px">
+                        <div class="card-main">
+                            <div class="image" style="height: 200px;">
+                                <img src="data:image/PNG;base64,{{produit.image_prod}}" alt="image">
+                            </div>
+                            <div class="cart-line"></div>
+                            <div class="cart-item">
+                                <ul class="text-center">
+                                <li><a routerLink="/login-user"><i class="fa fa-shopping-basket"></i></a></li>
+                                <li><a href=""><i class="fa fa-heart"></i></a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <button class="item_textt" (click)="routProdElect(produit)" href="">{{produit.reference}}</button>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <p><span class="money">{{produit.prix_prod}} DT</span></p>
+                        </div>
+                    </div>
+				</ng-template>
+                </ng-container>
+			</owl-carousel-o>
+            <br>
+        </section>  
+        </div> 
+		</div>
+    </div>
+</section>
+<br><br>
 <div class="group-featured-product">
 	<div class="container">
 		<div class="row">
@@ -668,13 +471,13 @@
 								<div class="group-featured-pro-wrapper">
 									<div class="product-img">
 										<a href="product-details.html">
-											<img alt="" src="./assets/images/featured-product/1.jpg">
+											<img alt="" src="./assets/images/shop/product_img_12.png">
 										</a>
 									</div>
 									<div class="featured-pro-content">
 										<div class="product-review">
 											<h5 class="manufacturer">
-												<a href="product-details.html">Studio Design</a>
+												<a href="product-details.html">LAPTOP HP X360</a>
 											</h5>
 										</div>
 										<div class="rating">
@@ -683,9 +486,9 @@
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 										</div>
-										<h4><a class="featured-product-name" href="single-product.html">Mug Today is a good day</a></h4>
+										<h4><a class="featured-product-name" href="single-product.html">This pc is on order</a></h4>
 										<div class="featured-price-box">
-											<span class="new-price">$71.80</span>
+											<span class="new-price">1 229,000 DT</span>
 										</div>
 									</div>
 								</div>
@@ -694,13 +497,13 @@
 								<div class="group-featured-pro-wrapper">
 									<div class="product-img">
 										<a href="product-details.html">
-											<img alt=""src="./assets/images/featured-product/2.jpg">
+											<img alt=""src="./assets/images/shop/product_img_8.png">
 										</a>
 									</div>
 									<div class="featured-pro-content">
 										<div class="product-review">
 											<h5 class="manufacturer">
-												<a href="product-details.html">Studio Design</a>
+												<a href="product-details.html">LENOVO K13 </a>
 											</h5>
 										</div>
 										<div class="rating">
@@ -709,9 +512,9 @@
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 										</div>
-										<h4><a class="featured-product-name" href="single-product.html">Mug Today is a good day</a></h4>
+										<h4><a class="featured-product-name" href="single-product.html">This is a new arrivage</a></h4>
 										<div class="featured-price-box">
-											<span class="new-price">$71.80</span>
+											<span class="new-price">460.80DT</span>
 										</div>
 									</div>
 								</div>
@@ -720,13 +523,13 @@
 								<div class="group-featured-pro-wrapper">
 									<div class="product-img">
 										<a href="product-details.html">
-											<img alt=""src="./assets/images/featured-product/3.jpg">
+											<img alt=""src="./assets/images/clima.jpg">
 										</a>
 									</div>
 									<div class="featured-pro-content">
 										<div class="product-review">
 											<h5 class="manufacturer">
-												<a href="product-details.html">Studio Design</a>
+												<a href="product-details.html">Air Conditioner LG</a>
 											</h5>
 										</div>
 										<div class="rating">
@@ -734,10 +537,10 @@
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
-										</div>
-										<h4><a class="featured-product-name" href="single-product.html">Mug Today is a good day</a></h4>
+										</div> 
+										<h4><a class="featured-product-name" href="single-product.html">New product of LG</a></h4>
 										<div class="featured-price-box">
-											<span class="new-price">$71.80</span>
+											<span class="new-price">1950.80 DT</span>
 										</div>
 									</div>
 								</div>
@@ -760,13 +563,13 @@
 								<div class="group-featured-pro-wrapper">
 									<div class="product-img">
 										<a href="product-details.html">
-											<img alt=""src="./assets/images/featured-product/4.jpg">
+											<img alt=""src="./assets/images/shop/product2_img_5.png">
 										</a>
 									</div>
 									<div class="featured-pro-content">
 										<div class="product-review">
 											<h5 class="manufacturer">
-												<a href="product-details.html">Studio Design</a>
+												<a href="product-details.html">Samsung Galaxy A12</a>
 											</h5>
 										</div>
 										<div class="rating">
@@ -775,9 +578,9 @@
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 										</div>
-										<h4><a class="featured-product-name" href="single-product.html">Mug Today is a good day</a></h4>
+										<h4><a class="featured-product-name" href="single-product.html">Hot Resolution</a></h4>
 										<div class="featured-price-box">
-											<span class="new-price">$71.80</span>
+											<span class="new-price">648.80 DT</span>
 										</div>
 									</div>
 								</div>
@@ -786,13 +589,13 @@
 								<div class="group-featured-pro-wrapper">
 									<div class="product-img">
 										<a href="product-details.html">
-											<img alt=""src="./assets/images/featured-product/5.jpg">
+											<img alt=""src="./assets/images/scann.jpg">
 										</a>
 									</div>
 									<div class="featured-pro-content">
 										<div class="product-review">
 											<h5 class="manufacturer">
-												<a href="product-details.html">Studio Design</a>
+												<a href="product-details.html">Scanner HP</a>
 											</h5>
 										</div>
 										<div class="rating">
@@ -801,9 +604,9 @@
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 										</div>
-										<h4><a class="featured-product-name" href="single-product.html">Mug Today is a good day</a></h4>
+										<h4><a class="featured-product-name" href="single-product.html">Scanner à plat HP scanjet</a></h4>
 										<div class="featured-price-box">
-											<span class="new-price">$71.80</span>
+											<span class="new-price">780.000DT</span>
 										</div>
 									</div>
 								</div>
@@ -812,13 +615,13 @@
 								<div class="group-featured-pro-wrapper">
 									<div class="product-img">
 										<a href="product-details.html">
-											<img alt=""src="./assets/images/featured-product/6.jpg">
+											<img alt=""src="./assets/images/shop/product2_img_1.png">
 										</a>
 									</div>
 									<div class="featured-pro-content">
 										<div class="product-review">
 											<h5 class="manufacturer">
-												<a href="product-details.html">Studio Design</a>
+												<a href="product-details.html">PC Asus Dual Core</a>
 											</h5>
 										</div>
 										<div class="rating">
@@ -827,9 +630,9 @@
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 										</div>
-										<h4><a class="featured-product-name" href="single-product.html">Mug Today is a good day</a></h4>
+										<h4><a class="featured-product-name" href="single-product.html">Performant Processus</a></h4>
 										<div class="featured-price-box">
-											<span class="new-price">$71.80</span>
+											<span class="new-price">1541.800 DT</span>
 										</div>
 									</div>
 								</div>
@@ -838,6 +641,9 @@
 					</div>
 				</div>
 			</div>
+            
+
+
 			<!-- Featured Product Area End Here -->
 			<!-- Begin Featured Product Area -->
 			<div class="col-lg-4">
@@ -852,13 +658,13 @@
 								<div class="group-featured-pro-wrapper">
 									<div class="product-img">
 										<a href="product-details.html">
-											<img alt=""src="./assets/images/featured-product/6.jpg">
+											<img alt=""src="./assets/images/fridgee.jpg">
 										</a>
 									</div>
 									<div class="featured-pro-content">
 										<div class="product-review">
 											<h5 class="manufacturer">
-												<a href="product-details.html">Studio Design</a>
+												<a href="product-details.html">Fridge Samsung</a>
 											</h5>
 										</div>
 										<div class="rating">
@@ -867,9 +673,9 @@
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 										</div>
-										<h4><a class="featured-product-name" href="single-product.html">Mug Today is a good day</a></h4>
+										<h4><a class="featured-product-name" href="single-product.html">Fridge SAMSUNG 2 doors -</a></h4>
 										<div class="featured-price-box">
-											<span class="new-price">$71.80</span>
+											<span class="new-price">1891.800 DT</span>
 										</div>
 									</div>
 								</div>
@@ -878,13 +684,13 @@
 								<div class="group-featured-pro-wrapper">
 									<div class="product-img">
 										<a href="product-details.html">
-											<img alt=""src="./assets/images/featured-product/4.jpg">
+											<img alt=""src="./assets/images/smartphone-huawei.jpg">
 										</a>
 									</div>
 									<div class="featured-pro-content">
 										<div class="product-review">
 											<h5 class="manufacturer">
-												<a href="product-details.html">Studio Design</a>
+												<a href="product-details.html">Huawei Smartphone</a>
 											</h5>
 										</div>
 										<div class="rating">
@@ -895,7 +701,7 @@
 										</div>
 										<h4><a class="featured-product-name" href="single-product.html">Mug Today is a good day</a></h4>
 										<div class="featured-price-box">
-											<span class="new-price">$71.80</span>
+											<span class="new-price">599.000 DT</span>
 										</div>
 									</div>
 								</div>
@@ -904,13 +710,13 @@
 								<div class="group-featured-pro-wrapper">
 									<div class="product-img">
 										<a href="product-details.html">
-											<img alt=""src="./assets/images/featured-product/2.jpg">
+											<img alt=""src="./assets/images/shop/product_img_18.png">
 										</a>
 									</div>
 									<div class="featured-pro-content">
 										<div class="product-review">
 											<h5 class="manufacturer">
-												<a href="product-details.html">Studio Design</a>
+												<a href="product-details.html">LENOVO IP3</a>
 											</h5>
 										</div>
 										<div class="rating">
@@ -919,9 +725,9 @@
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 										</div>
-										<h4><a class="featured-product-name" href="single-product.html">Mug Today is a good day</a></h4>
+										<h4><a class="featured-product-name" href="single-product.html">Best laptops resolution</a></h4>
 										<div class="featured-price-box">
-											<span class="new-price">$71.80</span>
+											<span class="new-price">791.400 DT</span>
 										</div>
 									</div>
 								</div>

@@ -29,4 +29,12 @@ a{
 .widget-title{
     margin-left: 30px;
 }
-
+.widget-list a {
+    color:#757575 
+}
+.widget-about{
+    font-size: 14px;
+}
+.btn-cc{
+background-color: #c04f61;
+}

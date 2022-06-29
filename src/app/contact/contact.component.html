@@ -1,0 +1,71 @@
+<app-header></app-header>
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Contact</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<!-- Li's Breadcrumb Area End Here -->     
+<!-- Begin Contact Main Page Area -->
+<div class="contact-main-page mt-60 mb-40 mb-md-40 mb-sm-40 mb-xs-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 offset-lg-1 col-md-12 order-1 order-lg-2">
+                <div class="contact-page-side-content">
+                    <h3 class="contact-page-title">Contact Us</h3>
+                    <p class="contact-page-message mb-25">Created in 2022, Tunitechno is the leader in the sale of computer equipment, High-Tech, household appliances and multimedia in Tunisia. With a great experience with a team passionate about new technologies, Tunitechno is committed to meeting your requirements...</p>
+                    <div class="single-contact-block">
+                        <h4><i class="fa fa-fax"></i> Address</h4>
+                        <p>58, Street Charguia Industry 2035 Tunis, Tunisia</p>
+                    </div>
+                    <div class="single-contact-block">
+                        <h4><i class="fa fa-phone"></i> Phone</h4>
+                        <p>Mobile: (+216) 36 010 100</p>
+                        <p>WhatsApp : 22 669 988</p>
+                    </div>
+                    <div class="single-contact-block last-child">
+                        <h4><i class="fa fa-envelope-o"></i> Email</h4>
+                        <p>info@tunitechno.tn</p>
+                        <p>support@tunitechno.tn</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 order-2 order-lg-1">
+                <div class="contact-form-content pt-sm-55 pt-xs-55">
+                    <h3 class="contact-page-title">Tell Us Your Message</h3>
+                    <div class="contact-form">
+                        <form  [formGroup]="contactForm" action="http://demo.hasthemes.com/limupa-v3/limupa/mail.php">
+                            <div class="form-group">
+                                <label>Your Name <span class="required">*</span></label>
+                                <input type="text" formControlName="Name" name="customerName" id="customername" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Your Email <span class="required">*</span></label>
+                                <input type="email" formControlName ="Email" name="customerEmail" id="customerEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" formControlName="Subject" name="contactSubject" id="contactSubject">
+                            </div>
+                            <div class="form-group mb-30">
+                                <label>Your Message</label>
+                                <textarea name="contactMessage" formControlName="Message" id="contactMessage" ></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" value="submit" id="submit" class="li-btn-3" (click)="submit()">send</button>
+                            </div>
+                            <app-alert></app-alert>
+                        </form>
+                    </div>
+                    <p class="form-messege"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

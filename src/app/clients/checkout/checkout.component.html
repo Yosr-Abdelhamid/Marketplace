@@ -1,0 +1,135 @@
+<app-header-client></app-header-client>
+<section>
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <div class="container" style="margin-left:70px ; margin-top:0px" >
+            <ol class="breadcrumb" style="background: #F5F7F8; border-bottom : 1px solid #d9dadb">
+                <li class="breadcrumb-item"><a>Home</a></li>
+                <li class="breadcrumb-item"><a >Cart</a></li>
+                <li class="breadcrumb-item"><a href="#">Checkout</a></li>
+            </ol>
+        </div><!-- End .container -->
+    </nav>
+    <div class="page-content">
+        <div class="checkout">
+            <div class="container" style="margin-left:70px">
+               <!-- End .checkout-discount -->
+                <form action="#">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <br>
+                            <mat-stepper linear #stepper>
+                                <mat-step [stepControl]="formGroup" [editable]="isEditable">
+                                  <form [formGroup]="formGroup">
+                                    <ng-template style="font-size : 18px ;font-weight: 600 ;" matStepLabel>Delivery Address</ng-template>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label class="labelD">First Name *</label>
+                                            <input type="text" class="form-control"  formControlName="name" required>
+                                            <mat-error *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
+                                                FirstName is required
+                                            </mat-error>
+                                        </div><!-- End .col-sm-6 -->
+    
+                                        <div class="col-sm-6">
+                                            <label class="labelD">Last Name *</label>
+                                            <input type="text" class="form-control" formControlName="lastName" required>
+                                        </div><!-- End .col-sm-6 -->
+                                    </div><!-- End .row -->
+    
+                                    <label class="labelD">Company Name (Optional)</label>
+                                    <input type="text" class="form-control" formControlName="company" >
+    
+                                    <label class="labelD">Country *</label>
+                                    <input type="text" class="form-control"  formControlName="country" required>
+    
+                                    <label class="labelD">Street address *</label>
+                                    <input type="text" class="form-control" formControlName="street" required>
+    
+                                    <label class="labelD">Town / City *</label>
+                                    <input type="text" class="form-control"  formControlName="city" required>
+                                      <!-- End .col-sm-6 -->
+    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label class="labelD">Postcode / ZIP *</label>
+                                            <input type="text" class="form-control" formControlName="zip" required>
+                                        </div><!-- End .col-sm-6 -->
+    
+                                        <div class="col-sm-6">
+                                            <label class="labelD">Phone *</label>
+                                            <input type="tel" class="form-control" formControlName="phone" required>
+                                        </div><!-- End .col-sm-6 -->
+                                    </div><!-- End .row -->
+    
+                                    <label class="labelD">Email address *</label>
+                                    <input type="email" class="form-control" formControlName="email" required>
+                                    <br>
+                                    <div>
+                                      <button mat-raised-button style="float:right ; background-color: #65ba7d;"  matStepperNext>Next <i class="fa fa-arrow-right"></i></button>
+                                    </div>
+                                  </form>
+                                </mat-step>
+                                <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+                                    <ng-template matStepLabel> Verifiction and payment</ng-template>
+                                    <br> <br>
+                                    <label id="example-radio-group-label" style ="font-size:20px">Pick your Payment Method</label>
+                                    <br> <br>
+                                    <mat-radio-group name="radioOpt1" [(ngModel)]="selectedRadio"    aria-labelledby="example-radio-group-label"
+                                    class="example-radio-group" [ngModelOptions]="{standalone: true}" (change)="radioChange($event)">
+                                    <mat-radio-button value="Check payments" name="own">Check payments</mat-radio-button>
+                                    <mat-radio-button value="Cash on delivery" name="own">Cash on delivery</mat-radio-button>
+                                    <mat-radio-button value="Credit Card" name="own">Credit Card <img src="./assets/images/img/payments.png" style="margin-left: 50px ;"></mat-radio-button>  
+                                    </mat-radio-group>
+                                    
+                                    <div style="float: right;">
+                                      <button mat-raised-button style="background-color:#d9dadb; margin-right: 5px;" matStepperPrevious>  <i class="fa fa-arrow-left"></i> Back</button>
+                                      <button mat-raised-button style="background-color: #65ba7d;;" matStepperNext>Next  <i class="fa fa-arrow-right"></i></button>
+                                    </div>
+                                
+                                </mat-step>
+                              </mat-stepper><!-- End .checkout-title -->
+                                
+                        </div><!-- End .col-lg-9 -->
+                        <aside class="col-lg-3">
+                            <div class="summary">
+                                <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+
+                                <table class="table table-summary">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let prod of items$  | async">
+                                            <td><a class="text">{{prod.reference}}</a></td>
+                                            <td>{{prod.prix_prod}} DT</td>
+                                        </tr>
+
+                                        <tr class="summary-subtotal">
+                                            <td style="font-weight: bold;">Subtotal:</td>
+                                            <td>{{allTotal | number }} DT</td>
+                                        </tr><!-- End .summary-subtotal -->
+                                        <tr>
+                                            <td>Shipping:</td>
+                                            <td>7 DT</td>
+                                        </tr>
+                                        <tr class="summary-total">
+                                            <td style="font-weight: bold;">Total:</td>
+                                            <td>{{allTotal+ 7 | number }} DT</td>
+                                        </tr><!-- End .summary-total -->
+                                    </tbody>
+                                </table><!-- End .table table-summary -->
+                            </div><!-- End .summary -->
+                        </aside><!-- End .col-lg-3 -->
+                    </div><!-- End .row -->
+                </form>
+            </div><!-- End .container -->
+        </div><!-- End .checkout -->
+    </div>
+
+</section>
+<br><br>
+<app-footer></app-footer>

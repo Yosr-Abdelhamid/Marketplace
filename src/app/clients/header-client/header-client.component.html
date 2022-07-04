@@ -2,12 +2,12 @@
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
-                <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-                <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i> (+216)36 331 002</a></li>
+				<li><a href="#"><i class="fa fa-envelope-o"></i> tunitechno@gmail.com</a></li>
+				<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Charguia  1 </a></li>
             </ul>
             <ul class="header-links pull-right" *ngIf="profile">
-                <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+                <li><a href="#"><i class='fas fa-language fa-pull-left' style="font-size:24px"></i> EN</a></li>
                 <li><a href="#"><i class="fa fa-user-o"></i>{{profile.nom}} {{profile.prenom}}</a></li>
                 <li><button style="background-color:transparent;color:white" (click)="Logout()"><i class="fa fa-sign-out"></i>Logout</button></li>
             </ul>
@@ -47,12 +47,40 @@
                         <div class="col-md-3 clearfix">
                             <div class="header-ctn">
                                 <!-- Wishlist -->
-                                <div>
-                                    <a href="#">
+                                <div ngbDropdown class="d-inline-block">
+                                    <a type="button"  id="dropdownBasic1" ngbDropdownToggle>
                                         <i class="fa fa-heart-o"></i>
                                         <span>Your Wishlist</span>
-                                        <div class="qty">0</div>
+                                        <div class="qty">{{(itemsW$ | async).length}}</div>
                                     </a>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="drop">
+                                        <div class="dropdown-cart-products">
+                                            <div class="product" *ngFor="let item of itemsW$ | async | slice:0:3">
+                                                <div class="product-cart-details">
+                                                    <h4 class="product-title">
+                                                        <a href="product.html">{{item.reference}}</a>
+                                                    </h4>
+        
+                                                    <span class="cart-product-info">
+                                                       
+                                                    {{item.prix_prod}} DT
+                                                    </span>
+                                                </div><!-- End .product-cart-details -->
+        
+                                                <figure class="product-image-container">
+                                                    <a href="product.html" class="product-image">
+                                                        <img  src="data:image/png;base64,{{item.image_prod}}">
+                                                    </a>
+                                                </figure>
+                                                <a  class="btn-remove" (click)="removeItem(item)" title="Remove Product"><i class="fa fa-close"></i></a>
+                                            </div><!-- End .product -->
+        
+                                            <div class="dropdown-cart-action">
+                                                <button class="whish" (click)="route()">View WhishList</button>
+                                               
+                                            </div><!-- End .product -->
+                                       </div>
+                                    </div>
                                 </div>
                                 <!-- /Wishlist -->
 

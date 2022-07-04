@@ -306,7 +306,7 @@
                         </div>
                         <div class="item_content text-center">
                           <h3 class="item_title">
-                            <a href="shop_details.html">{{item.reference}}</a>
+                            <a routerLink="accueil/product-details">{{item.reference}}</a>
                           </h3>
                           <div class="brand">
                             <a>{{item.brand}}</a>
@@ -321,9 +321,10 @@
                           <div class="item_price text-center">
                             <span>{{item.prix_prod}} DT</span>
                           </div>
-                          <div class="item_btns_group">
-                           <a class="addtocart_btn center" href="#!">Add To Cart</a>
-                          </div>
+                          <ul class="item_btns_group ul_li">
+                            <li><a class="addtocart_btn center" href="#!">Add To Cart</a></li>
+                            <li><a (click)="addToWhishlist(item)"><i class="fas fa-heart"></i></a></li>
+                           </ul>
                         </div>
                       </div>
                   </ng-container>

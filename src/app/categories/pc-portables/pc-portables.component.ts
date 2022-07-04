@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { WhishlistService } from 'src/app/clients/services/whishlist.service';
 import { LoginVendeurService } from 'src/app/login-vendeur.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class PcPortablesComponent implements OnInit {
   data:any=[];
        
   
-    constructor(private service : LoginVendeurService,private router :Router) { }
+    constructor(private service : LoginVendeurService,private router :Router , private whishlistService : WhishlistService ,) { }
   
     ngOnInit(): void {
   
@@ -33,5 +34,8 @@ export class PcPortablesComponent implements OnInit {
       
   
     }
+    addToWhishlist(item){
+      this.whishlistService.addToCart(item)
+  }
 
 }

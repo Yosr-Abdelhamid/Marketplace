@@ -1111,6 +1111,11 @@ d-flex{
   border-color: #D10024;
   background-color: #D10024;
 }
+.product_layout1 .item_btns_group a:hover {
+  color: #ffffff;
+  border-color: #D10024;
+  background-color: #D10024;
+}
 .product_layout1 .item_btns_group .addtocart_btn {
   padding: 10px;
   color: #252525;

@@ -8,6 +8,7 @@ import { RegisterVendeurComponent } from '../register-vendeur/register-vendeur.c
 import { LoginVendeurComponent } from '../login-vendeur/login-vendeur.component';
 import { AdminClientService } from '../clients/admin-client.service';
 import { LoginVendeurService } from '../login-vendeur.service';
+import { WhishlistService } from 'src/app/clients/services/whishlist.service';
 
 
 @Component({
@@ -89,7 +90,8 @@ results ;
     navText:['<button type="button" class="btn slider-left-btn" style:"height:50px"></button>','<button type="button" class="btn slider-right-btn" style:"height:50px"> </button>'],
   }
 
-  constructor(public dialog: MatDialog , private service : LoginVendeurService, private router : Router ) { }
+  constructor(public dialog: MatDialog , private service : LoginVendeurService, private router : Router,
+    private whishlistService : WhishlistService ) { }
 
   ngOnInit(): void {
     this.service.GetProductsByCategory(this.sous_famille_prod).subscribe(
@@ -140,5 +142,14 @@ results ;
       queryParams:{produit:btoa(JSON.stringify(produit))}
     });
   }
+  addToWhishlist(item){
+    this.whishlistService.addToCart(item)
+}
+addToWhishlistt(prod){
+  this.whishlistService.addToCart(prod)
+}
+addToWhishliste(produit){
+  this.whishlistService.addToCart(produit)
+}
   
 }

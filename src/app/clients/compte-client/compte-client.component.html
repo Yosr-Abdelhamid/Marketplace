@@ -118,8 +118,8 @@
 			<div class="flip-box-back">
                 <div class="backe">
                     <br><br>
-				<a routerLink="/accueil/fridges"><h4>Fridge</h4></a><br>
-                <a routerLink="/accueil/air-conditoner"><h4>Air conditioner</h4></a>
+				<a routerLink="/compte-client/fridges"><h4>Fridge</h4></a><br>
+                <a routerLink="/compte-client/air-conditoner"><h4>Air conditioner</h4></a>
                 
                 </div>
 			</div>
@@ -159,7 +159,7 @@
 			<div class="flip-box-back">
 				<div class="backe">
                     <br><br>
-				<a routerLink="/accueil/laptops"><h4>Laptops</h4></a>
+				<a routerLink="/compte-client/laptops"><h4>Laptops</h4></a>
 			</div>
             </div>
 			</div>
@@ -178,7 +178,7 @@
 			<div class="flip-box-back">
 				<div class="backe">
                     <br><br>
-				<a routerLink = "/accueil/smartphones"><h4>Smartphones</h4></a>
+				<a routerLink = "/compte-client/smartphones"><h4>Smartphones</h4></a>
 			</div>
             </div>
 			</div>
@@ -197,7 +197,7 @@
 			<div class="flip-box-back">
 				<div class="backe">
                     <br><br>
-				<h4>Scanner</h4>
+				<a routerLink = "/compte-client/scanners"><h4>Scanner</h4></a>
 			</div>
 			</div></div>
 		    </div>
@@ -268,7 +268,7 @@
                 <div class="centered">
                     <h1 class="smarty">SMARTPHONES</h1>
                     <p class="test text-white drop-shadow-md">Choose your smartphone now!</p>
-                    <button  routerLink = "/accueil/smartphones" class="btn-effect inline-block text-white text-center" href="#">Show more
+                    <button  routerLink = "/compte-client/smartphones" class="btn-effect inline-block text-white text-center" href="#">Show more
                     </button>
                 </div>
             </div>
@@ -291,9 +291,9 @@
                             </div>
                             <div class="cart-line"></div>
                             <div class="cart-item">
-                            <ul>
+                            <ul class="text-center">
                                 <li><button class="transp" (click)="addToCart(item)"><i class="fa fa-shopping-basket"></i></button></li>
-                                <li><a href=""><i class="fa fa-heart"></i></a></li>
+                                <li><button style="margin-left: 8px;" class="transp" (click)="addToWhishlist(item)"><i class="fa fa-heart"></i></button></li>
                                
                             </ul>
                             </div>
@@ -375,9 +375,9 @@
                             </div>
                             <div class="cart-line"></div>
                             <div class="cart-item">
-								<ul>
+								<ul class="text-center">
 									<li><button class="transp" (click)="addToCartt(prod)"><i class="fa fa-shopping-basket"></i></button></li>
-									<li><a href=""><i class="fa fa-heart"></i></a></li>
+									<li><button style="margin-left: 8px;" class="transp" (click)="addToWhishlistt(prod)"><i class="fa fa-heart"></i></button></li>
 								   
 								</ul>
                             </div>
@@ -427,9 +427,9 @@
                             </div>
                             <div class="cart-line"></div>
                             <div class="cart-item">
-								<ul>
+								<ul class="text-center">
 									<li><button class="transp" (click)="addToCarte(produit)"><i class="fa fa-shopping-basket"></i></button></li>
-									<li><a href=""><i class="fa fa-heart"></i></a></li>
+									<li><button style="margin-left: 8px;" class="transp" (click)="addToWhishliste(produit)"><i class="fa fa-heart"></i></button></li>
 								   
 								</ul>
                             </div>

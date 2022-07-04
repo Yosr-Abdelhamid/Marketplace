@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginVendeurService } from 'src/app/login-vendeur.service';
+import { WhishlistService } from 'src/app/clients/services/whishlist.service';
 
 @Component({
   selector: 'app-smartphones',
@@ -13,7 +14,7 @@ p:any;
 data:any=[];
      
 
-  constructor(private service : LoginVendeurService, private router :Router) { }
+  constructor(private service : LoginVendeurService, private router :Router ,  private whishlistService : WhishlistService ,) { }
 
   ngOnInit(): void {
 
@@ -24,6 +25,10 @@ data:any=[];
   )
   //this.getData({ pageIndex: this.page, pageSize: this.size });
 
+  }
+
+ addToWhishlist(item){
+      this.whishlistService.addToCart(item)
   }
   routProd(item){
     this.router.navigate(['accueil/product-details'], {

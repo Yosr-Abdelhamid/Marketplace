@@ -199,7 +199,8 @@ h6 span{
 }
 .form-stylee {
   padding: 13px 20px;
-  padding-left: 40px;
+  padding-left: 30px;
+  padding-top: 5px;
   height: 52px;
   width: 100%;
   font-weight: 500;
@@ -338,4 +339,16 @@ h6 span{
 }
 mat-error{
   font-size: 12px;
+}
+.input-iconn {
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  height: 42px;
+  font-size: 18px;
+  line-height: 38px;
+  text-align: left;
+  color: #e3c0ce;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
 }

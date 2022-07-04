@@ -1118,6 +1118,11 @@ d-flex{
   border-color: #f4f4f4;
   background-color: #f4f4f4;
 }
+.product_layout1 .item_btns_group a:hover {
+  color: #ffffff;
+  border-color: #D10024;
+  background-color: #D10024;
+}
 .product_layout1:hover {
   z-index: 2;
   border-color: #D10024;

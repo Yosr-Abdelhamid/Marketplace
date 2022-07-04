@@ -1,0 +1,38 @@
+<app-header-client></app-header-client>
+       <div id="collapseExample" [ngbCollapse]="false">
+              <div class="card">
+                <div class="card-body">
+                 <h1 style="color:chocolate ;font-size: 34px; font-family: 'Times New Roman', Times, serif;">Product in WhishList
+                    
+                    <!--button class="btn btn-outline-success" (click)="acc.toggle('static-2')">CheckOut</button-->
+                   </h1>
+                    
+                    <table class="table table-bordered table-hover">
+                      <thead class="thead-light">
+                      <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                      </thead>
+                      <tr *ngFor="let prod of itemsW$ | async ; let i =index">
+                        <td><img src="data:image/png;base64,{{prod.image_prod}}" width="150px;" height="170px;"/></td>
+                        <td >{{prod.reference}}</td>
+                        <td class="wid">{{prod.description_prod}}</td>
+                        <td>{{prod.prix_prod}} DT</td>
+                        <td><button  (click)="addToCart(prod)" class="bttn">Add To Cart</button></td>
+                        <td><button  (click)="removeItem(prod)" style="background-color : transparent ; color : #d10024" ><i class="fa fa-trash"></i></button></td>
+                      </tr>
+                    </table>
+                    <br>
+                    <button type="submit" class="remove" (click)="removeall()">Clear All</button>
+                </div>
+              </div>
+            </div>
+
+ 
+ 
+  <app-footer></app-footer>

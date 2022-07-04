@@ -1,0 +1,111 @@
+.summary {
+    padding: 1rem 1rem 3rem;
+    border: 0.1rem dashed #d7d7d7;
+    background-color: #fff;
+    border-radius: 0.3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width : 366px !important
+}
+.col-lg-9{
+    width: 980px !important ; 
+}
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+.accordion-summary .card {
+    color: #999;
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.67;
+    border: none;
+    background-color: transparent;
+}
+.card {
+    border-radius: 0;
+    margin-bottom: 0;
+    border: none;
+    border-top: 0.1rem solid #ebebeb;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+.card-header:first-child {
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+.card-header {
+    position: relative;
+    padding: 0;
+    border: none;
+    font-weight: 700;
+    line-height: 1.5;
+    background-color: transparent;
+    margin: 0;
+}
+.accordion-summary .card-title {
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: #333;
+    letter-spacing: 0;
+}
+.accordion-summary .card-title a {
+    color: inherit;
+    padding: 0.7rem 0 0.7rem 3rem;
+}
+.card-title a {
+    display: block;
+    padding: 1.7rem 4rem 1.7rem 1.2rem;
+    position: relative;
+    color: #c96;
+    border: none;
+    background-color: transparent;
+    outline: none !important;
+}
+.summary-title{
+    font-size:18px ;
+}
+.text{
+    color: #9e9b9b !important ;
+    font-weight: 600 ;
+    font-size: 14px;
+}
+.labelD{
+    font-size: 15px !important;
+    font-weight:400 !important;
+    color: #7d7d7d
+}
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    font-weight:200 !important;
+    align-items: flex-start;
+  }
+  
+.example-radio-button {
+    margin: 5px;
+    font-weight:200 !important ;
+  }
+
+mat-radio-button{
+    height : 60px !important ;
+}
+::ng-deep .mat-radio-label-content{
+    font-weight: 400 !important;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  !important;
+    font-size: 18px !important;
+}

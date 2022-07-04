@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { CartService } from '../../services/cart.service';
+import { WhishlistService } from '../../services/whishlist.service';
 
 @Component({
   selector: 'app-prod-details-phone',
@@ -11,7 +13,9 @@ export class ProdDetailsPhoneComponent implements OnInit {
 
   item:any ;
    @Input() splitted:any;
-  constructor(private route:ActivatedRoute , private cartService: CartService) { }
+  constructor(private route:ActivatedRoute , private cartService: CartService ,
+    private whishlistService : WhishlistService ,
+     private notifyService: NotificationService ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params)=> {
@@ -22,5 +26,14 @@ export class ProdDetailsPhoneComponent implements OnInit {
 
 addToCart(item) {
   this.cartService.addToCart(item);
-}
+  this.showToasterSuccess() ;
+    }
+showToasterSuccess() {
+  this.notifyService.showSuccess(
+    'Product Added !!' );
+    }
+    
+addToWhishlist(item){
+      this.whishlistService.addToCart(item)
+  }
 }

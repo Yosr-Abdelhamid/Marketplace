@@ -80,6 +80,13 @@ import { ElectroDetailsComponent } from './electro-details/electro-details.compo
 import { ProdDetailsPcComponent } from './clients/produits/prod-details-pc/prod-details-pc.component';
 import { ProdDetailsPhoneComponent } from './clients/produits/prod-details-phone/prod-details-phone.component';
 import { ProdDetailsElectroComponent } from './clients/produits/prod-details-electro/prod-details-electro.component';
+import { PhonesComponent } from './clients/categories-clients/phones/phones.component';
+import { LaptopsComponent } from './clients/categories-clients/laptops/laptops.component';
+import { ClimaComponent } from './clients/categories-clients/clima/clima.component';
+import { FridgeComponent } from './clients/categories-clients/fridge/fridge.component';
+import { ScannerComponent } from './clients/categories-clients/scanner/scanner.component';
+import { WhishlistTableComponent } from './clients/whishlist-table/whishlist-table.component';
+import { CheckoutComponent } from './clients/checkout/checkout.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -131,6 +138,13 @@ export function tokenGetter() {
     ProdDetailsPcComponent,
     ProdDetailsPhoneComponent,
     ProdDetailsElectroComponent,
+    PhonesComponent,
+    LaptopsComponent,
+    ClimaComponent,
+    FridgeComponent,
+    ScannerComponent,
+    WhishlistTableComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -1218,6 +1218,11 @@ d-flex{
 .layout_btns button:hover {
   border-color: #333333;
 }
+.product_layout1 .item_btns_group a:hover {
+  color: #ffffff;
+  border-color: #D10024;
+  background-color: #D10024;
+}
 .layout_btns button.active {
   color: #ffffff;
   background-color: #333333;

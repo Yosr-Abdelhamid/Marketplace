@@ -38,3 +38,12 @@ a{
 .btn-cc{
 background-color: #c04f61;
 }
+.widget-call {
+    position: relative;
+    font-size: 0.98rem !important;
+    padding: 0rem 0rem 0rem 5rem !important;
+    border: 0.1rem solid #e1e1e1;
+    border-radius: 0.3rem;
+    line-height: 1.25;
+    max-width: 270px;
+}

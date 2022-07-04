@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Product } from 'src/app/models/Product';
 import { CartService } from '../services/cart.service';
 import { tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -18,14 +19,15 @@ export class AddToCartComponent implements OnInit {
   sum;
   productAddedTocart:Product[];
   Quantity:number = 1 ;
-  constructor(private cartService : CartService) { }
-  items$ = this.cartService.items$;
+  items$ ;
+  items:Product[] ;
+  constructor(private cartService : CartService , private router : Router ) { }
+  //items$ = this.cartService.items$;
  
 
   deliveryForm:FormGroup;
   ngOnInit(): void {
-    this.productAddedTocart=this.cartService.getProductFromCart();
-
+    this.items$ = this.cartService.items$;
     this.cartService.items$.subscribe(result  => {
        this.productAddedTocart = result;
        console.log(this.productAddedTocart);
@@ -80,5 +82,26 @@ export class AddToCartComponent implements OnInit {
 
   removeall(){
   this.cartService.removeAllProductFromCart() ;
-  this.ngOnInit() ; }
+  this.items$ = this.cartService.items$;
+ }
+
+ removeItem(prod) {
+  this.items$ = this.cartService.items$;
+  this.cartService.items$.subscribe(result  => {
+    this.items = result;
+    console.log(this.items);
+    const index = this.items.findIndex(o => o.id_prod === prod.id_prod);
+    console.log(prod.id_prod) ;
+    console.log(index);
+    if (index > -1) {
+      this.items.splice(index, 1);
+      JSON.parse(localStorage.getItem('product'));
+   
+  }})
+  this.items$ = this.cartService.items$ ;
+}
+
+CheckOut(){
+  this.router.navigate(['add-toCart/checkout']);
+}
 }

@@ -2,9 +2,9 @@
             <div id="top-header">
                 <div class="container">
 					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+						<li><a href="#"><i class="fa fa-phone"></i> (+216)36 331 002</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> tunitechno@gmail.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Charguia  1 </a></li>
 					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class='fas fa-language fa-pull-left' style="font-size:24px"></i> EN</a></li>
@@ -46,18 +46,72 @@
                                 <div class="col-md-3 clearfix">
                                     <div class="header-ctn">
                                         <!-- Wishlist -->
-                                        <div>
-                                            <a href="#">
+                                        <!-- <div class="order-last">
+                                            <button type="button" class="cart_btn">
+                                                <i class="icon icon-ShoppingCart"></i>
+                                                <span>Your Wishlist</span>
+                                                <div class="qty">0</div>
+                                            </button> 
+                                        </div> -->
+                                        <div ngbDropdown class="d-inline-block">
+                                            <a type="button"  id="dropdownBasic1" ngbDropdownToggle>
                                                 <i class="fa fa-heart-o"></i>
                                                 <span>Your Wishlist</span>
                                                 <div class="qty">0</div>
                                             </a>
+                                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="drop">
+                                                <div class="dropdown-cart-products">
+                                                    <div class="product">
+                                                        <div class="product-cart-details">
+                                                            <h4 class="product-title">
+                                                                <a href="product.html">Beige knitted elastic runner shoes</a>
+                                                            </h4>
+                
+                                                            <span class="cart-product-info">
+                                                               
+                                                             $84.00
+                                                            </span>
+                                                        </div><!-- End .product-cart-details -->
+                
+                                                        <figure class="product-image-container">
+                                                            <a href="product.html" class="product-image">
+                                                                <img src="./assets/images/pc_1.jpg" >
+                                                            </a>
+                                                        </figure>
+                                                        <a href="#" class="btn-remove" title="Remove Product"><i class="fa fa-close"></i></a>
+                                                    </div><!-- End .product -->
+                
+                                                    <div class="product">
+                                                        <div class="product-cart-details">
+                                                            <h4 class="product-title">
+                                                                <a href="product.html">Blue utility pinafore denim dress</a>
+                                                            </h4>
+                
+                                                            <span class="cart-product-info">
+                                                               
+                                                                $76.00
+                                                            </span>
+                                                        </div><!-- End .product-cart-details -->
+                
+                                                        <figure class="product-image-container">
+                                                            <a href="product.html" class="product-image">
+                                                                <img src="./assets/images/pc_1.jpg">
+                                                            </a>
+                                                        </figure>
+                                                        <a href="#" class="btn-remove" title="Remove Product"><i class="fa fa-close"></i></a>
+                                                    </div>
+                                                    <div class="dropdown-cart-action">
+                                                        <button class="whish">View WhishList</button>
+                                                       
+                                                    </div><!-- End .product -->
+                                               </div>
+                                            </div>
                                         </div>
-                                        <!-- /Wishlist -->
+                                        
         
                                         <!-- Cart -->
                                         <div class="dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                            <a>
                                                 <i class="fa fa-shopping-cart"></i>
                                                 <span>Your Cart</span>
                                                 <div class="qty">0</div>

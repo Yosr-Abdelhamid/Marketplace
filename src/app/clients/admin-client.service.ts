@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Acheteur } from '../models/Acheteur';
+import { Commande } from '../models/Commande';
 import { Contact } from '../models/Contact';
 import { ContactRequest } from '../models/ContactRequest';
 import { PasswordReset } from '../models/PasswordReset';
@@ -106,6 +107,14 @@ export class AdminClientService {
      };
     
     return this.http.post<Contact[]>(this.baseUrl + 'AddContact', contact , httpOptions)  
+  } 
+
+
+  AddOrder(commande:Commande)  { 
+    const httpOptions  = {headers: new HttpHeaders({ 'Content-Type': 'application/json' }),withCredentials: true
+     };
+    
+    return this.http.post<Commande[]>(this.baseUrl + 'AddOrder', commande , httpOptions)  
   } 
 
   GetContact():Observable<any[]>  { 

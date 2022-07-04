@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { WhishlistService } from 'src/app/clients/services/whishlist.service';
 
 @Component({
   selector: 'app-product-details',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailsComponent implements OnInit {
   item:any ;
    @Input() splitted:any;
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute ,private whishlistService : WhishlistService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params)=> {
@@ -18,4 +19,7 @@ export class ProductDetailsComponent implements OnInit {
   });
 }
 
+ addToWhishlist(item){
+      this.whishlistService.addToCart(item)
+  }
 }

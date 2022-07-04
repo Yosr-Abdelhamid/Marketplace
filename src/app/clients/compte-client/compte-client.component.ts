@@ -5,9 +5,11 @@ import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { LoginVendeurService } from 'src/app/login-vendeur.service';
 import { IAlert } from 'src/app/models/IAlert';
 import { Product } from 'src/app/models/Product';
+import { NotificationService } from 'src/app/notification.service';
 import { AdminClientService } from '../admin-client.service';
 import { CartService } from '../services/cart.service';
 import { SharedService } from '../services/shared.service';
+import { WhishlistService } from '../services/whishlist.service';
 
 @Component({
   selector: 'app-compte-client',
@@ -40,59 +42,62 @@ productAddedTocart:Product[];
 
 ];
 
-  customOptions: OwlOptions = {
-    loop: false,
-    items:5,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: true,
-    dots: true,
-    navSpeed: 1700,
-    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-    nav: true
-  }
+customOptions: OwlOptions = {
+  loop: false,
+  items:5,
+  mouseDrag: true,
+  touchDrag: true,
+  pullDrag: true,
+  dots: true,
+  navSpeed: 700,
+  navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+  nav: true
+}
 
-  SlideCustomOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: true,
-    dots: false,
-    navSpeed: 700,
-    center:true,
-    stagePadding : 38,
-    margin:75,
-    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 2
-      },
-      740: {
-        items: 3
-      },
+SlideCustomOptions: OwlOptions = {
+  loop: true,
+  mouseDrag: true,
+  touchDrag: true,
+  pullDrag: true,
+  dots: false,
+  navSpeed: 500,
+  center:true,
+  autoplay: true,
+  stagePadding : 38,
+  margin:75,
+  navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+  responsive: {
+    0: {
+      items: 1
     },
-    nav: true
-  }
- SlideCustOptions: OwlOptions = {
-    items:4,
-    loop: true,
-    autoplay: true,
-    center:true,
-    dots: false,
-    navSpeed:1000,
-    autoHeight: true,
-    autoWidth: false,
-    rtl: false,
-    stagePadding:2,
-    lazyLoad: false,
-    navText:['<button type="button" class="btn slider-left-btn"> </button>','<button type="button" class="btn slider-right-btn"> </button>'],
-  }
+    400: {
+      items: 2
+    },
+    740: {
+      items: 3
+    },
+  },
+  nav: true
+}
+SlideCustOptions: OwlOptions = {
+  items:4,
+  loop: true,
+  autoplay: true,
+  center:true,
+  autoplayTimeout:7000,
+  dots: false,
+  navSpeed:1000,
+  margin:8,
+  autoHeight: true,
+  autoWidth: false,
+  rtl: true,
+  stagePadding:2,
+  lazyLoad: false,
+  navText:['<button type="button" class="btn slider-left-btn" style:"height:50px"></button>','<button type="button" class="btn slider-right-btn" style:"height:50px"> </button>'],
+}
 
-  constructor(private service : LoginVendeurService , private router : Router, 
-    private sharedService : SharedService  ,private cartService : CartService) { }
+  constructor(private service : LoginVendeurService , private router : Router, private notifyService: NotificationService,
+    private sharedService : SharedService  ,private cartService : CartService , private whislitService : WhishlistService) { }
 
   ngOnInit(): void {
     this.service.GetProductsByCategory(this.sous_famille_prod).subscribe(
@@ -121,92 +126,51 @@ productAddedTocart:Product[];
 
   addToCart(item) {
     this.cartService.addToCart(item);
-  }
+    this.showToasterSuccess() ;
+    }
   addToCartt(prod) {
     this.cartService.addToCart(prod);
+    this.showToasterSuccess() ;
+
   }
   addToCarte(produit) {
     this.cartService.addToCart(produit);
+    this.showToasterSuccess() ;
+
   }
 
-/*   addtocart(item: any){
-    this.cartService.addtoCart(item);
-  } */
-
-  /* OnAddCart(product:Product)
-  {
-  
-    {
-      console.log(product);
-      
-      this.productAddedTocart=this.cartService.getProductFromCart();
-      if(this.productAddedTocart==null)
-      {
-        this.productAddedTocart=[];
-        this.productAddedTocart.push(product);
-        this.cartService.addProductToCart(this.productAddedTocart);
-        this.alerts.push({
-          id: 1,
-          type: 'success',
-          message: 'Product added to cart.'
-        });
-        setTimeout(()=>{   
-          this.closeAlert(this.alerts);
-     }, 3000);
-
-      }
-      else
-      {
-        let tempProduct=this.productAddedTocart.find(p=>p.Id_prod==product.Id_prod);
-        if(tempProduct==null)
-        {
-          this.productAddedTocart.push(product);
-          this.cartService.addProductToCart(this.productAddedTocart);
-          this.alerts.push({
-            id: 1,
-            type: 'success',
-            message: 'Product added to cart.'
-          });
-          //setTimeout(function(){ }, 2000);
-          setTimeout(()=>{   
-            this.closeAlert(this.alerts);
-       }, 3000);
-        }
-        else
-        {
-          this.alerts.push({
-            id: 2,
-            type: 'warning',
-            message: 'Product already exist in cart.'
-          });
-          setTimeout(()=>{   
-            this.closeAlert(this.alerts);
-       }, 3000);
-        }
-        
-      }
-      //console.log(this.cartItemCount);
-      this.cartItemCount=this.productAddedTocart.length;
-      this.cartEvent.emit(this.cartItemCount);
-      this.sharedService.updateCartCount(this.cartItemCount);
+  showToasterSuccess() {
+  this.notifyService.showSuccess(
+    'Product Added !!' );
     }
-  } */
+
+addToWhishlist(item){
+    this.whislitService.addToCart(item)
+}
+
+addToWhishlistt(prod){
+  this.whislitService.addToCart(prod)
+}
+addToWhishliste(produit){
+  this.whislitService.addToCart(produit)
+}
+
   public closeAlert(alert:any) {
     const index: number = this.alerts.indexOf(alert);
     this.alerts.splice(index, 1);
 }   
   routProd(item){
-    this.router.navigate(['accueil/product-details'], {
+    this.router.navigate(['compte-client/prod-details'], {
       queryParams:{item:btoa(JSON.stringify(item))}
     });
   }
   routProdPC(prod){
-    this.router.navigate(['accueil/product-details-pc'], {
+    this.router.navigate(['compte-client/prod-details-pc'], {
       queryParams:{prod:btoa(JSON.stringify(prod))}
     });
   }
   routProdElect(produit){
-    this.router.navigate(['accueil/product-details-electro'], {
+    this.router.navigate(['compte-client/prod-details-electro'], {
       queryParams:{produit:btoa(JSON.stringify(produit))}
     });
   }

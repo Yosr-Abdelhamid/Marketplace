@@ -37,6 +37,14 @@ import { AddToCartComponent } from './clients/add-to-cart/add-to-cart.component'
 import { ElectroDetailsComponent } from './electro-details/electro-details.component';
 import { ProdDetailsPhoneComponent } from './clients/produits/prod-details-phone/prod-details-phone.component';
 import { ProdDetailsPcComponent } from './clients/produits/prod-details-pc/prod-details-pc.component';
+import { ProdDetailsElectroComponent } from './clients/produits/prod-details-electro/prod-details-electro.component';
+import { LaptopsComponent } from './clients/categories-clients/laptops/laptops.component';
+import { PhonesComponent } from './clients/categories-clients/phones/phones.component';
+import { FridgeComponent } from './clients/categories-clients/fridge/fridge.component';
+import { ClimaComponent } from './clients/categories-clients/clima/clima.component';
+import { ScannerComponent } from './clients/categories-clients/scanner/scanner.component';
+import { WhishlistTableComponent } from './clients/whishlist-table/whishlist-table.component';
+import { CheckoutComponent } from './clients/checkout/checkout.component';
 
 export const routes: Routes = [ 
   { path: 'accueil', component : AccueilComponent }, 
@@ -58,6 +66,7 @@ export const routes: Routes = [
   { path : 'login-user' , component: LoginUserComponent} ,
   { path :  'compte-client' , component : CompteClientComponent , canActivate:[AuthorizationGuard]},
   { path:   'add-toCart' , component : AddToCartComponent , canActivate:[AuthorizationGuard]},
+  { path:   'add-toCart/checkout' , component : CheckoutComponent, canActivate:[AuthorizationGuard]},
   { path : 'dashboard-admin/list-clients' , component : ListClientsComponent,canActivate:[AuthorizationGuard]},
   { path : 'dashboard-admin/list-produits' , component : ListProductsComponent,canActivate:[AuthorizationGuard]},
   { path : 'accueil/smartphones' , component : SmartphonesComponent} ,
@@ -74,8 +83,16 @@ export const routes: Routes = [
   { path:   'reset-password-user' , component: ResetPasswordUserComponent},
   { path: 'accueil/product-details-pc' , component:ProductDetailsPcComponent},
   {path :'accueil/product-details-electro' ,component:ElectroDetailsComponent},
-  {path :'compte-client/prod-details-phone' , component: ProdDetailsPhoneComponent},
-  {path :'compte-client/prod-details-pc' , component : ProdDetailsPcComponent},
+  {path :'compte-client/prod-details' , component: ProdDetailsPhoneComponent , canActivate:[AuthorizationGuard]},
+  {path :'compte-client/prod-details-pc' , component : ProdDetailsPcComponent ,canActivate:[AuthorizationGuard]},
+  {path:'compte-client/prod-details-electro' , component : ProdDetailsElectroComponent ,canActivate:[AuthorizationGuard]} ,
+  {path:'compte-client/laptops' , component : LaptopsComponent ,canActivate:[AuthorizationGuard]} ,
+  {path:'compte-client/smartphones' , component : PhonesComponent , canActivate:[AuthorizationGuard]} ,
+  {path:'compte-client/fridges' , component : FridgeComponent ,canActivate:[AuthorizationGuard]} ,
+  {path:'compte-client/air-conditoner' , component : ClimaComponent ,canActivate:[AuthorizationGuard]} ,
+  { path:'compte-client/scanners' , component : ScannerComponent ,canActivate:[AuthorizationGuard]} ,
+  { path: 'whislist-Table' , component : WhishlistTableComponent ,canActivate:[AuthorizationGuard] } ,
+  
   { path: '', redirectTo: 'accueil', pathMatch: 'full' }
 
 ]; 

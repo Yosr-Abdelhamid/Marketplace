@@ -87,6 +87,8 @@ import { FridgeComponent } from './clients/categories-clients/fridge/fridge.comp
 import { ScannerComponent } from './clients/categories-clients/scanner/scanner.component';
 import { WhishlistTableComponent } from './clients/whishlist-table/whishlist-table.component';
 import { CheckoutComponent } from './clients/checkout/checkout.component';
+import { ListCommandeComponent } from './admin/list-commande/list-commande.component';
+
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -145,6 +147,7 @@ export function tokenGetter() {
     ScannerComponent,
     WhishlistTableComponent,
     CheckoutComponent,
+    ListCommandeComponent,
   ],
   imports: [
     BrowserModule,

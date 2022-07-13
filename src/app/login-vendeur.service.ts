@@ -130,6 +130,7 @@ export class LoginVendeurService {
     return this.http.post<string>(this.Url + 'addProduct', data, httpOptions);  
 } 
 
+
   deleteProduit(val:any) {
   return this.http.delete(this.baseUrl+'Vendeur/'+ val);
 }

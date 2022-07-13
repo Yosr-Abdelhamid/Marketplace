@@ -1,12 +1,14 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Acheteur } from '../models/Acheteur';
+import { CategoryProduct } from '../models/CategoryProduct';
 import { Commande } from '../models/Commande';
 import { Contact } from '../models/Contact';
 import { ContactRequest } from '../models/ContactRequest';
 import { PasswordReset } from '../models/PasswordReset';
 import { ProductResult } from '../models/ProductResult';
+import { RequestCategory } from '../models/RequestCategory';
 import { RequestProduct } from '../models/RequestProduct';
 import { ResponseModel } from '../models/ResponseModel';
 import { User } from '../models/User';
@@ -101,6 +103,41 @@ export class AdminClientService {
     }))
   }
 
+  public getProductByCategory(sous_famille: string){
+  let params = new HttpParams()
+            .set('sous_famille', sous_famille)
+
+    return this.http.get<RequestCategory>(this.baseUrl + 'GetProductsByCategory' ,{params}).pipe(map(data =>{
+      let productsList =  new Array<CategoryProduct>();
+      for (let key in data)
+          if (data.hasOwnProperty(key))
+              productsList.push(
+              new CategoryProduct (
+                data[key].reference ,
+                data[key].quantity,
+                data[key].description_prod,
+                data[key].brand,
+                data[key].prix_prod,
+                data[key].image_prod,
+                data[key].vendeurs[0].organization))
+                return productsList ;
+
+              }))  
+              }
+
+
+
+  GetOrders():Observable<any[]>  { 
+  
+    return this.http.get<any[]>(this.baseUrl + 'GetOrder')  
+  } 
+
+  public GetOrderByStore(organization: string):Observable<any[]>{
+    let params = new HttpParams()
+    .set('organization', organization)
+    
+    return this.http.get<any[]>(this.baseUrl + 'GetOrderByStore' , {params})  
+    }
 
   AddContact(contact:Contact)  { 
     const httpOptions  = {headers: new HttpHeaders({ 'Content-Type': 'application/json' }),withCredentials: true
@@ -110,12 +147,13 @@ export class AdminClientService {
   } 
 
 
-  AddOrder(commande:Commande)  { 
+  AddOrder(commande : Commande) { 
     const httpOptions  = {headers: new HttpHeaders({ 'Content-Type': 'application/json' }),withCredentials: true
      };
     
-    return this.http.post<Commande[]>(this.baseUrl + 'AddOrder', commande , httpOptions)  
+    return this.http.post(this.baseUrl + 'AddOrder', commande , httpOptions)  
   } 
+
 
   GetContact():Observable<any[]>  { 
   

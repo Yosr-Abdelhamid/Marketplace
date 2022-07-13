@@ -35,9 +35,9 @@
             <div class="col-lg-7 col-md-6">
                 <div class="product-details-view-content pt-60">
                     <div class="product-info">
-                        <h2>{{item.reference}}</h2>
+                        <h1>{{item.reference}}</h1>
                         <span class="product-details-ref">Brand: {{item.brand}}</span>
-                        <div class="rating-box pt-20">
+                        <div class="rating-box pt-20 pl-0">
                             <ul class="rating rating-with-review-item">
                                 <li><i class="fa fa-star-o"></i></li>
                                 <li><i class="fa fa-star-o"></i></li>
@@ -55,6 +55,11 @@
                                 </span>
                             </p>
                         </div>
+                        <div>
+                          <label><strong>Store : </strong>
+                              <span style="font-weight: 400;">{{item.organization}}
+                              </span></label> 
+                            </div>                   
                         <div class="single-add-to-cart">
                             <form action="#" class="cart-quantity">
                                 <div class="quantity">
@@ -66,6 +71,7 @@
                                     </div>
                                 </div>
                                 <button class="add-to-cart" type="submit">Add to cart</button>
+                                <input type="checkbox" checked data-toggle="toggle" data-on="Delivered" data-off="Not Delivered" data-onstyle="success" data-offstyle="danger">
                             </form>
                         </div>
                        

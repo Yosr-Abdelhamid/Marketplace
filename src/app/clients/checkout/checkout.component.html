@@ -1,6 +1,6 @@
 <app-header-client></app-header-client>
 <section>
-    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+    <nav aria-value="breadcrumb" class="breadcrumb-nav">
         <div class="container" style="margin-left:70px ; margin-top:0px" >
             <ol class="breadcrumb" style="background: #F5F7F8; border-bottom : 1px solid #d9dadb">
                 <li class="breadcrumb-item"><a>Home</a></li>
@@ -36,11 +36,61 @@
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->
     
-                                    <label class="labelD">Company Name (Optional)</label>
-                                    <input type="text" class="form-control" formControlName="company" >
-    
                                     <label class="labelD">Country *</label>
-                                    <input type="text" class="form-control"  formControlName="country" required>
+                                    <mat-select placeholder ="Select a country ... " class="form-control" type="text" id="country" formControlName="country">
+
+                                            <mat-option  value="Algeria">Algeria</mat-option>
+                                            <mat-option  value="Angola">Angola</mat-option>
+                                            <mat-option  value="Benin">Benin</mat-option>
+                                            <mat-option  value="Botswana">Botswana</mat-option>
+                                            <mat-option  value="Burkina Faso">Burkina Faso</mat-option>
+                                            <mat-option  value="Burundi">Burundi</mat-option>
+                                            <mat-option  value="Cameroon">Cameroon</mat-option>
+                                            <mat-option  value="Cape Verde">Cape Verde</mat-option>
+                                            <mat-option value="Central African Republic">Central African Republic</mat-option>
+                                            <mat-option  value="Chad">Chad</mat-option>
+                                            <mat-option  value="Comoros">Comoros</mat-option>
+                                            <mat-option  value="Congo - Brazzaville">Congo - Brazzaville</mat-option>
+                                            <mat-option  value="Congo - Kinshasa">Congo - Kinshasa</mat-option>
+                                            <mat-option  value="Côte d’Ivoire">Côte d’Ivoire</mat-option>
+                                            <mat-option  value="Djibouti">Djibouti</mat-option>
+                                            <mat-option  value="Egypt">Egypt</mat-option>
+                                            <mat-option  value="Equatorial Guinea">Equatorial Guinea</mat-option>
+                                            <mat-option  value="Eritrea">Eritrea</mat-option>
+                                            <mat-option  value="Ethiopia">Ethiopia</mat-option>
+                                            <mat-option  value="Gabon">Gabon</mat-option>
+                                            <mat-option  value="Gambia">Gambia</mat-option>
+                                            <mat-option  value="Ghana">Ghana</mat-option>
+                                            <mat-option  value="Guinea">Guinea</mat-option>
+                                            <mat-option  value="Guinea-Bissau">Guinea-Bissau</mat-option>
+                                            <mat-option  value="Kenya">Kenya</mat-option>
+                                            <mat-option value="Lesotho">Lesotho</mat-option>
+                                            <mat-option  value="Liberia">Liberia</mat-option>
+                                            <mat-option  value="Libya">Libya</mat-option>
+                                            <mat-option  value="Madagascar">Madagascar</mat-option>
+                                            <mat-option  value="Malawi">Malawi</mat-option>
+                                            <mat-option  value="Mali">Mali</mat-option>
+                                            <mat-option  value="Mauritania">Mauritania</mat-option>
+                                            <mat-option  value="Mauritius">Mauritius</mat-option>
+                                            <mat-option  value="Mayotte">Mayotte</mat-option>
+                                            <mat-option  value="Morocco">Morocco</mat-option>
+                                            <mat-option  value="Mozambique">Mozambique</mat-option>
+                                            <mat-option  value="Namibia">Namibia</mat-option>
+                                  
+                                            <mat-option  value="Nigeria">Nigeria</mat-option>
+                                            <mat-option  value="Rwanda">Rwanda</mat-option>
+                                            
+                                            <mat-option  value="South Africa">South Africa</mat-option>
+                                            <mat-option  value="Sudan">Sudan</mat-option>
+                                            <mat-option  value="Togo">Togo</mat-option>
+                                            <mat-option  value="Tunisia">Tunisia</mat-option>
+                                            <mat-option  value="Uganda">Uganda</mat-option>
+                                           
+                                            <mat-option  value="Zambia">Zambia</mat-option>
+                                            <mat-option  value="Zimbabwe">Zimbabwe</mat-option>
+                                        </mat-select>
+                                
+                                   <!--  <input type="text" class="form-control"  formControlName="country" required> -->
     
                                     <label class="labelD">Street address *</label>
                                     <input type="text" class="form-control" formControlName="street" required>
@@ -52,7 +102,7 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <label class="labelD">Postcode / ZIP *</label>
-                                            <input type="text" class="form-control" formControlName="zip" required>
+                                            <input type="number" class="form-control" formControlName="zip" required>
                                         </div><!-- End .col-sm-6 -->
     
                                         <div class="col-sm-6">
@@ -65,11 +115,11 @@
                                     <input type="email" class="form-control" formControlName="email" required>
                                     <br>
                                     <div>
-                                      <button mat-raised-button style="float:right ; background-color: #65ba7d;"  matStepperNext>Next <i class="fa fa-arrow-right"></i></button>
+                                      <button mat-raised-button [disabled]="!formGroup.valid" style="float:right ; background-color: #65ba7d;"  matStepperNext>Next <i class="fa fa-arrow-right"></i></button>
                                     </div>
                                   </form>
                                 </mat-step>
-                                <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+                                <mat-step >
                                     <ng-template matStepLabel> Verifiction and payment</ng-template>
                                     <br> <br>
                                     <label id="example-radio-group-label" style ="font-size:20px">Pick your Payment Method</label>
@@ -83,7 +133,24 @@
                                     
                                     <div style="float: right;">
                                       <button mat-raised-button style="background-color:#d9dadb; margin-right: 5px;" matStepperPrevious>  <i class="fa fa-arrow-left"></i> Back</button>
-                                      <button mat-raised-button style="background-color: #65ba7d;;" matStepperNext>Next  <i class="fa fa-arrow-right"></i></button>
+                                      <button mat-raised-button style="background-color: #65ba7d;" matStepperNext (click)="sendOrder()">Next  <i class="fa fa-arrow-right"></i></button>
+                                    </div>
+                                
+                                </mat-step>
+
+                                 <mat-step [editable]="isEditable">
+                                    <ng-template matStepLabel>Confirmation</ng-template>
+                                    <br> <br>
+                                    <div class="text-center">
+                                        <div class="success-marker">
+                                            <i class="fa fa-check-circle" style="color: green; font-size: 48px;"></i>
+                                        </div>
+                                        <br>
+                                        <div class="success-text">
+                                            <h2 class="sample-step-title">Your Order for this products has been sent
+                                                successfully!</h2>
+                                            <p>We will contact you within a few hours.</p>
+                                        </div>
                                     </div>
                                 
                                 </mat-step>

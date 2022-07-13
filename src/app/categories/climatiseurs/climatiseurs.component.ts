@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminClientService } from 'src/app/clients/admin-client.service';
 import { WhishlistService } from 'src/app/clients/services/whishlist.service';
 import { LoginVendeurService } from 'src/app/login-vendeur.service';
 
@@ -10,17 +11,17 @@ import { LoginVendeurService } from 'src/app/login-vendeur.service';
 })
 export class ClimatiseursComponent implements OnInit {
 
-  sous_famille_prod = 'Climatiseur' ;
+  sous_famille= 'Climatiseur' ;
   p:any;
   data:any=[];
        
   
-    constructor(private service : LoginVendeurService , private router : Router,
+    constructor(private service : AdminClientService , private router : Router,
       private whishlistService : WhishlistService) { }
   
     ngOnInit(): void {
   
-    this.service.GetProductsByCategory(this.sous_famille_prod).subscribe(
+    this.service.getProductByCategory(this.sous_famille).subscribe(
       res => {
         this.data = res;
       }

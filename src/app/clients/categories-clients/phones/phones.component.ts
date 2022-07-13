@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginVendeurService } from 'src/app/login-vendeur.service';
 import { NotificationService } from 'src/app/notification.service';
+import { AdminClientService } from '../../admin-client.service';
 import { CartService } from '../../services/cart.service';
 import { WhishlistService } from '../../services/whishlist.service';
 
@@ -11,18 +12,18 @@ import { WhishlistService } from '../../services/whishlist.service';
   styleUrls: ['./phones.component.css']
 })
 export class PhonesComponent implements OnInit {
-  sous_famille_prod = 'Smartphone' ;
+  sous_famille = 'Smartphone' ;
   p:any;
   data:any=[];
        
   
-    constructor(private service : LoginVendeurService, private router :Router ,
+    constructor(private service : AdminClientService, private router :Router ,
       private whishlistService:WhishlistService,
       private notifyService: NotificationService , private cartService: CartService) { }
   
     ngOnInit(): void {
   
-    this.service.GetProductsByCategory(this.sous_famille_prod).subscribe(
+    this.service.getProductByCategory(this.sous_famille).subscribe(
       res => {
         this.data = res;
       }

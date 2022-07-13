@@ -96,27 +96,27 @@ SlideCustOptions: OwlOptions = {
   navText:['<button type="button" class="btn slider-left-btn" style:"height:50px"></button>','<button type="button" class="btn slider-right-btn" style:"height:50px"> </button>'],
 }
 
-  constructor(private service : LoginVendeurService , private router : Router, private notifyService: NotificationService,
+  constructor(private service : AdminClientService , private router : Router, private notifyService: NotificationService,
     private sharedService : SharedService  ,private cartService : CartService , private whislitService : WhishlistService) { }
 
   ngOnInit(): void {
-    this.service.GetProductsByCategory(this.sous_famille_prod).subscribe(
+    this.service.getProductByCategory(this.sous_famille_prod).subscribe(
       res => {
         this.data = res;
       })
     
-    this.service.GetProductsCategory(this.sous_famille).subscribe(
+    this.service.getProductByCategory(this.sous_famille).subscribe(
       res => {
         this.list_prod = res;
           })
 
-          this.service.GetProductsCategory(this.sf).subscribe(
+          this.service.getProductByCategory(this.sf).subscribe(
             res => {
               this.list_clim = res;
       
                 })
       
-          this.service.GetProductsCategory(this.cat).subscribe(
+          this.service.getProductByCategory(this.cat).subscribe(
             res => {
               this.list_fridg = res;
               this.list_fridg.push(...this.list_clim);

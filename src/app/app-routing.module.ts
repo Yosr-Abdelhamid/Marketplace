@@ -45,6 +45,7 @@ import { ClimaComponent } from './clients/categories-clients/clima/clima.compone
 import { ScannerComponent } from './clients/categories-clients/scanner/scanner.component';
 import { WhishlistTableComponent } from './clients/whishlist-table/whishlist-table.component';
 import { CheckoutComponent } from './clients/checkout/checkout.component';
+import { ListCommandeComponent } from './admin/list-commande/list-commande.component';
 
 export const routes: Routes = [ 
   { path: 'accueil', component : AccueilComponent }, 
@@ -76,7 +77,8 @@ export const routes: Routes = [
   { path : 'accueil/scanners' , component : ScannersComponent} ,
   { path : 'accueil/about' , component : AboutComponent} ,
   { path : 'accueil/contact' , component : ContactComponent} ,
-  {path :  'accueil/product-details' , component : ProductDetailsComponent},
+  { path :  'accueil/product-details' , component : ProductDetailsComponent},
+  { path : 'dashboard-admin/Orders' , component : ListCommandeComponent },
   { path : 'dashboard-admin/Messages' , component : ListContactComponent,canActivate:[AuthorizationGuard]},
   { path : 'dashboard-admin/Messages/Reply' , component : ReplyContactComponent ,canActivate:[AuthorizationGuard]},
   { path : 'login-user/forgot-password-user' , component : ForgotPasswordComponent} ,

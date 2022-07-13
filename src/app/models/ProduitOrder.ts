@@ -1,4 +1,8 @@
 export class ProduitOrder {
-    reference : string ='' ;
-    prix: number;
+   
+
+    constructor(public reference : string , public prix: number , public organization : string){
+       
+    }
+
 }

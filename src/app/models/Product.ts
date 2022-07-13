@@ -6,5 +6,6 @@ export interface Product {
     quantityP: number  ;
     prix_prod: number;
     description_prod : string;
+    organization : string ;
     image_prod: string;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginVendeurService } from 'src/app/login-vendeur.service';
 import { WhishlistService } from 'src/app/clients/services/whishlist.service';
+import { AdminClientService } from 'src/app/clients/admin-client.service';
 
 @Component({
   selector: 'app-smartphones',
@@ -9,16 +10,16 @@ import { WhishlistService } from 'src/app/clients/services/whishlist.service';
   styleUrls: ['./smartphones.component.css']
 })
 export class SmartphonesComponent implements OnInit {
-sous_famille_prod = 'Smartphone' ;
+sous_famille = 'Smartphone' ;
 p:any;
 data:any=[];
      
 
-  constructor(private service : LoginVendeurService, private router :Router ,  private whishlistService : WhishlistService ,) { }
+  constructor(private service : AdminClientService, private router :Router ,  private whishlistService : WhishlistService ,) { }
 
   ngOnInit(): void {
 
-  this.service.GetProductsByCategory(this.sous_famille_prod).subscribe(
+  this.service.getProductByCategory(this.sous_famille).subscribe(
     res => {
       this.data = res;
     }

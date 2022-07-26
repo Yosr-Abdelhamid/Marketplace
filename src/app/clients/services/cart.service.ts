@@ -71,6 +71,8 @@ export class CartService {
     })
     this.productList.next(this.cartItemList);
   }
+
+  
   removeAllCart(){
     this.cartItemList = []
     this.productList.next(this.cartItemList);

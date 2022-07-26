@@ -56,10 +56,10 @@
                                 </mat-error>
                             </div>
                             <div class="col-md-6 col-12 mb-20">
-                                <label>Organization Name</label>
+                                <label>Store Name</label>
                                 <input matInput class="mb-0" type="text" placeholder="Organization Name" formControlName="Organization">
                                 <mat-error *ngIf="registerForm.get('Organization')?.invalid && (registerForm.get('Organization')?.dirty || registerForm.get('Organization')?.touched) && registerForm.get('Organization')?.errors?.required">
-                                    Organization Name
+                                    Store Name is required
                                 </mat-error>
                             </div>
                  

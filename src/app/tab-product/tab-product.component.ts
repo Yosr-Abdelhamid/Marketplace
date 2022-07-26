@@ -63,7 +63,7 @@ export class TabProductComponent implements OnInit {
 
   edit(item){
     this.router.navigate(['dashboard-vendeur/edit-product'], {
-      queryParams:{item:btoa(JSON.stringify(item))}
+      queryParams:{item:btoa(unescape(encodeURIComponent(JSON.stringify(item))))}
     });
 
   }

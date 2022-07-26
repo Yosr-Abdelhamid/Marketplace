@@ -79,16 +79,17 @@ createUser(client: Client) {
           this.loading = false;
           console.log(userInfo.role) ;
           if (userInfo.role === "isClient") {
-            this.router.navigate(['/compte-client']);
+            this.router.navigate(['/add-toCart/checkout']);
           } 
           else if(userInfo.role === "isAdmin") {
             this.router.navigate(['/dashboard-admin']) ;
           }
+         
       },
       err => {
       this.loading = false;
-      if (err.status == 400)
-        this.alertService.error('Incorrect username or password.', 'Authentication failed.');
+      if (err.status == 400 || err.status == 500)
+        this.alertService.error('Incorrect username or password or not activated yet', 'Authentication failed.');
       else
         console.log(err);
       })      

@@ -17,16 +17,16 @@
     <a href="index3.html" class="nav-link">Home</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-    <a href="#" class="nav-link">Contact</a>
+    <a routerLink="/accueil/contact" class="nav-link">Contact</a>
     </li>
     </ul>
     
     <ul class="navbar-nav ml-auto">
     
     <li class="nav-item dropdown">
-    <a class="nav-link" data-toggle="dropdown" href="#">
-    <i class="far fa-comments"></i>
-    <span class="badge badge-danger navbar-badge">3</span>
+    <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/notifications">
+    <i class="fa fa-bell" style="font-size: 24px;"></i>
+    <span class="badge badge-danger navbar-badge" style="font-size:8px !important ;">1</span>
     </a>
     </li>
     <li class="nav-item">
@@ -111,18 +111,28 @@
     </aside>
     
     <div class="content-wrapper">
-    <section class="content">
-    <div class="container-fluid">
   
-    <div class="center">
-        <div class="container-xl px-4 mt-4">
-            <!-- Account page navigation-->
-            <nav class="nav nav-borders">
-                <a class="nav-link active ms-0" target="__blank"> Orders</a>
-               
-            </nav>
-        </div>
-    </div>
+      <div class="content-header">
+      <div class="container-fluid">
+      <div class="row mb-2">
+      <div class="col-sm-6">
+        <nav class="nav nav-borders">
+          <a class="nav-link active ms-0" target="__blank"> Orders</a>
+         
+      </nav>
+      </div>
+      <div class="col-sm-6">
+      <ol class="breadcrumb float-sm-right">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item active">Orders</li>
+      </ol>
+      </div>
+      </div>
+      </div>
+      </div>
+    
+      <section class="content">
+      <div class="container-fluid">
     <br> 
     <div class="accordion" role="tablist" id="accordionExample">
         <div class="accordion-item" *ngFor="let order of orders ; let i= index" >
@@ -186,8 +196,12 @@
                         <div class="col-6 col-md-4">{{order.payment}}</div>
                     </div>
                     <br> 
-                    <input type="button" value="Download PDF" style="float:right" class="btn btn-success" (click)="SavePDF()">
-                  <br> <br>
+                    <mat-card-actions style="float:right ;">
+                      <input type="checkbox" class="btn-check" id="btn-check-2-outlined" autocomplete="off" [checked]="checked" [ngModel]="checked" (click)="delivred(order)">
+                      <label class="btn btn-outline-success" for="btn-check-2-outlined"><i class="fa fa-check"></i> Delivered</label>
+                    <input type="button" value="Download PDF" class="btn btn-success"  style="margin-left: 5px; margin-bottom: 6px;" (click)="SavePDF()">
+                    </mat-card-actions>
+                    <br> <br>
                   </div>
             </div>
           </div>
@@ -197,3 +211,6 @@
     </div>
     </section>
     </div>
+    </div>
+    </section>
+  

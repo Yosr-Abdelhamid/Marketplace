@@ -14,8 +14,8 @@
             <div class="container" style="margin-left:70px">
                <!-- End .checkout-discount -->
                 <form action="#">
-                    <div class="row">
-                        <div class="col-lg-9">
+                    <div class="row"  >
+                        <div class="col-lg-9" *ngIf ="profile;">
                             <br>
                             <mat-stepper linear #stepper>
                                 <mat-step [stepControl]="formGroup" [editable]="isEditable">
@@ -24,7 +24,7 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <label class="labelD">First Name *</label>
-                                            <input type="text" class="form-control"  formControlName="name" required>
+                                            <input type="text" class="form-control"  required id="name" value={{profile.nom}}>
                                             <mat-error *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
                                                 FirstName is required
                                             </mat-error>
@@ -32,7 +32,7 @@
     
                                         <div class="col-sm-6">
                                             <label class="labelD">Last Name *</label>
-                                            <input type="text" class="form-control" formControlName="lastName" required>
+                                            <input type="text" class="form-control" id="prenom" value={{profile.prenom}} required>
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->
     
@@ -93,7 +93,7 @@
                                    <!--  <input type="text" class="form-control"  formControlName="country" required> -->
     
                                     <label class="labelD">Street address *</label>
-                                    <input type="text" class="form-control" formControlName="street" required>
+                                    <input type="text" class="form-control" id="adresse" required value={{profile.adresse}}>
     
                                     <label class="labelD">Town / City *</label>
                                     <input type="text" class="form-control"  formControlName="city" required>
@@ -102,17 +102,17 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <label class="labelD">Postcode / ZIP *</label>
-                                            <input type="number" class="form-control" formControlName="zip" required>
+                                            <input type="number" class="form-control"  id="zipCode" required value={{profile.zipCode}}>
                                         </div><!-- End .col-sm-6 -->
     
                                         <div class="col-sm-6">
                                             <label class="labelD">Phone *</label>
-                                            <input type="tel" class="form-control" formControlName="phone" required>
+                                            <input type="tel" class="form-control" id="phone" required value={{profile.num_Telephone}}>
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->
     
                                     <label class="labelD">Email address *</label>
-                                    <input type="email" class="form-control" formControlName="email" required>
+                                    <input type="email" class="form-control" id="email" required value={{profile.email}}>
                                     <br>
                                     <div>
                                       <button mat-raised-button [disabled]="!formGroup.valid" style="float:right ; background-color: #65ba7d;"  matStepperNext>Next <i class="fa fa-arrow-right"></i></button>

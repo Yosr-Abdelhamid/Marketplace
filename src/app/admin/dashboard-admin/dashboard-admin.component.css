@@ -105,3 +105,11 @@ th {
     font-weight: 500;
     background-color: #dddbdb;
 }
+.active-button{
+    background-color: #87D37C;
+}
+.text-muted{
+    color :#c0bdbd ;
+    font-weight: 500;
+    
+}

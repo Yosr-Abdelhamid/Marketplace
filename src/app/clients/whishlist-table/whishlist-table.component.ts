@@ -46,13 +46,15 @@ export class WhishlistTableComponent implements OnInit {
       this.whishlistService.itemsW$.subscribe(result  => {
         this.items = result;
         console.log(this.items);
-        const index = this.items.findIndex(o => o.id_prod === prod.id_prod);
+        const index = this.items.findIndex(o => o.id === prod.id);
         if (index > -1) {
           this.items.splice(index, 1);
           JSON.parse(localStorage.getItem('whishlist'));
        
       }})
+      this.showToasterError() ;
       this.itemsW$ = this.whishlistService.itemsW$ ;
+      
     }
 
   removeall(){
@@ -69,6 +71,11 @@ export class WhishlistTableComponent implements OnInit {
   this.notifyService.showSuccess(
     'Product Added !!' );
     }
+
+  showToasterError() {
+  this.notifyService.showSuccess(
+    'Product Deleted !!' );
+        }
 
 
 

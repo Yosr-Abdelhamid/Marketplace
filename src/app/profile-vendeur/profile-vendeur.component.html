@@ -24,7 +24,7 @@
     <ul class="navbar-nav ml-auto">
     
     <li class="nav-item dropdown">
-    <a class="nav-link" data-toggle="dropdown" href="#">
+    <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/notifications">
     <i class="far fa-comments"></i>
     <span class="badge badge-danger navbar-badge">3</span>
     </a>
@@ -143,14 +143,14 @@
             <div class="card user-card-full">
                  <div class="row m-l-0 m-r-0">
                     <div class="col-sm-4 bg-c-lite-green user-profile">
-                      <h6 class="m-b-20 p-b-5 m-l-5 b-b-default f-w-500">  Organization Information</h6>
+                      <h6 class="m-b-20 p-b-5 m-l-5 b-b-default f-w-500">  Store Information</h6>
                       <div class="col-sm-6">
                         <br>
-                        <p class="m-b-10 m-l-4 f_w f-w-600">Organization Name</p>
+                        <p class="m-b-10 m-l-4 f_w f-w-600">Store Name</p>
                             <h6 class="text-mute m-l-4 f-w-400">{{userDetails.organization}}</h6>
                         </div>
                         <div class="col-sm-6">
-                          <p class="m-b-10 m-l-4 f_w f-w-600">Organization Logo</p> 
+                          <p class="m-b-10 m-l-4 f_w f-w-600">Store Logo</p> 
                           </div>
                         <div class="card-block text-center text-white">
                             <div class="m-b-25" *ngIf="userDetails">

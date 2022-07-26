@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WhishlistService } from 'src/app/clients/services/whishlist.service';
+import { CartService } from '../clients/services/cart.service';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-product-details',
@@ -10,16 +12,27 @@ import { WhishlistService } from 'src/app/clients/services/whishlist.service';
 export class ProductDetailsComponent implements OnInit {
   item:any ;
    @Input() splitted:any;
-  constructor(private route:ActivatedRoute ,private whishlistService : WhishlistService) { }
+  constructor(private route:ActivatedRoute ,private whishlistService : WhishlistService,
+    private cartService: CartService , private notifyService:NotificationService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params)=> {
-      this.item = JSON.parse(atob(params['item'])) ;
+      this.item = JSON.parse(decodeURIComponent(escape(atob(params['item'])))) ;
       this.splitted = this.item.description_prod.split('-');
   });
 }
 
- addToWhishlist(item){
-      this.whishlistService.addToCart(item)
-  }
+addToWhishlist(produit){
+  this.whishlistService.addToCart(produit);
+  this.showToasterSuccess() ;
+}
+addToCart(item) {
+  this.cartService.addToCart(item);
+  this.showToasterSuccess() ;
+}
+showToasterSuccess() {
+  this.notifyService.showSuccess(
+    'Product Added !!' );
+}
+  
 }

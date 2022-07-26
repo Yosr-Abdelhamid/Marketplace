@@ -4,6 +4,7 @@ import { AdminClientService } from '../clients/admin-client.service';
 import { LoginVendeurService } from '../login-vendeur.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';  
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-commandes',
@@ -14,9 +15,16 @@ export class CommandesComponent implements OnInit {
 
   userDetails ;
   orders ;
-  @ViewChild('collapseOne') collapseOne:ElementRef;
-  constructor(private userService:LoginVendeurService ,private service : AdminClientService , private router : Router) { }
+  id : string='' ;
+  i : number ;
+  checked : boolean = false  ;
+  checkboxes = document.querySelectorAll('input[type=checkbox]');
 
+  @ViewChild('collapseOne') collapseOne:ElementRef;
+  constructor(private userService:LoginVendeurService ,private service : AdminClientService ,
+     private router : Router , private notifyService : NotificationService) { }
+
+  
   ngOnInit(): void {
     this.userService.getUser().subscribe(
       res => {
@@ -24,13 +32,26 @@ export class CommandesComponent implements OnInit {
       
         this.service.GetOrderByStore(this.userDetails.organization).subscribe(
           res => {
-              this.orders = res
+              this.orders = res ;
+            
           }
+          
         )
       
       }
     );
      }
+     delivred(order){
+    
+      this.service.UpdateOrder(order.id).subscribe(result => {
+        this.checked = true ;
+        this.showToasterSuccess()})
+      } 
+
+    showToasterSuccess() {
+    this.notifyService.showSuccess(
+      'Product Delivred !!' );
+      }
      
   onLogout() {
     localStorage.removeItem('userInfo');

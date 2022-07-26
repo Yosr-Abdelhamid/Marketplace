@@ -1,4 +1,5 @@
 export class CategoryProduct {
+    id:string
     reference: string;
     quantity: number ;
     description_prod:string;
@@ -6,8 +7,9 @@ export class CategoryProduct {
     prix_prod: number;
     image_prod: string;
     organization:string;
-    constructor(reference : string , quantity : number ,description_prod:string,
+    constructor(id :string ,reference : string , quantity : number ,description_prod:string,
         brand:string, prix_prod :number , image_prod : string , organization : string) {
+            this.id= id;
             this.reference = reference ;
             this.quantity =quantity ;
             this.description_prod =description_prod ;

@@ -47,6 +47,16 @@ export class AdminClientService {
        
   } 
 
+  ActivateVendeur(id: string){
+
+    return this.http.post(this.baseUrl + 'ActivateVendeur' , {id})
+}
+
+  ActivateClient(id: string){
+
+  return this.http.post(this.baseUrl + 'ActivateClient' , {id})
+}
+
 
   public getAdmin() {
     let userInfo = JSON.parse(localStorage.getItem("userInf")) ;
@@ -66,6 +76,8 @@ export class AdminClientService {
     return this.http.get(this.baseUrl + 'GetClientProfile' , {headers: headers}) 
   }
 
+
+
   public getAllClients() {
     let userInfo = JSON.parse(localStorage.getItem("userInf")) ;
     const headers=new HttpHeaders({
@@ -79,7 +91,7 @@ export class AdminClientService {
             if(res.dateSet)
              {
              res.dateSet.map((x:Utilisateur)=>{
-                 userList.push(new Utilisateur(x.id,x.nom,x.prenom,x.email,x.adresse,x.num_Telephone,x.zipCode));
+                 userList.push(new Utilisateur(x.id,x.nom,x.prenom,x.email,x.adresse,x.num_Telephone,x.zipCode, x.isActived));
              })
              }
             }
@@ -113,6 +125,7 @@ export class AdminClientService {
           if (data.hasOwnProperty(key))
               productsList.push(
               new CategoryProduct (
+                data[key].id ,
                 data[key].reference ,
                 data[key].quantity,
                 data[key].description_prod,
@@ -139,6 +152,15 @@ export class AdminClientService {
     return this.http.get<any[]>(this.baseUrl + 'GetOrderByStore' , {params})  
     }
 
+
+  public GetOrderByEmail(email: string):Observable<any[]>{
+      let params = new HttpParams()
+      .set('email', email)
+      
+      return this.http.get<any[]>(this.baseUrl + 'GetOrderByEmail' , {params})  
+      }
+
+
   AddContact(contact:Contact)  { 
     const httpOptions  = {headers: new HttpHeaders({ 'Content-Type': 'application/json' }),withCredentials: true
      };
@@ -154,6 +176,10 @@ export class AdminClientService {
     return this.http.post(this.baseUrl + 'AddOrder', commande , httpOptions)  
   } 
 
+  UpdateOrder(id: string){
+
+      return this.http.post(this.baseUrl + 'UpdateOrder' , {id})
+  }
 
   GetContact():Observable<any[]>  { 
   

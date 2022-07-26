@@ -1,4 +1,5 @@
 export class RequestCategory{
+    id: string="";
     reference: string ="";
     quantity: number;
     description_prod : string ="";

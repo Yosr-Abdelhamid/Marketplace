@@ -4,6 +4,7 @@ import { Product } from 'src/app/models/Product';
 import { CartService } from '../services/cart.service';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -18,10 +19,11 @@ export class AddToCartComponent implements OnInit {
   allTotal:number ;
   sum;
   productAddedTocart:Product[];
-  Quantity:number = 1 ;
+  //Quantity:number = 1 ;
   items$ ;
   items:Product[] ;
-  constructor(private cartService : CartService , private router : Router ) { }
+  delete ;
+  constructor(private cartService : CartService , private router : Router  , private notifyService : NotificationService) { }
   //items$ = this.cartService.items$;
  
 
@@ -48,23 +50,27 @@ export class AddToCartComponent implements OnInit {
 
   onAddQuantity(product:Product)
   {
-    product.quantityP = product.quantityP+1;
-    this.cartService.items$.subscribe(result  => {
-      this.productAddedTocart = result;
-      console.log(this.productAddedTocart);
-      this.calculteAllTotal(this.productAddedTocart);
 
-   });
+      if(product.quantity > product.quantityP ) 
+      {
+        product.quantityP = product.quantityP+1;
+        console.log(product.quantityP);
+        this.cartService.items$.subscribe(result  => {
+          this.productAddedTocart = result;
+          console.log(this.productAddedTocart);
+          this.calculteAllTotal(this.productAddedTocart)
 
-  
+    })}
   }
+  
   onRemoveQuantity(product:Product)
   {
-    product.quantityP = product.quantityP-1;
-    this.cartService.items$.subscribe(result  => {
-      this.productAddedTocart = result;
-      console.log(this.productAddedTocart);
-      this.calculteAllTotal(this.productAddedTocart);
+   
+      product.quantityP = product.quantityP-1;
+      this.cartService.items$.subscribe(result  => {
+        this.productAddedTocart = result;
+        console.log(this.productAddedTocart);
+        this.calculteAllTotal(this.productAddedTocart);
 
    });
    
@@ -90,18 +96,24 @@ export class AddToCartComponent implements OnInit {
   this.cartService.items$.subscribe(result  => {
     this.items = result;
     console.log(this.items);
-    const index = this.items.findIndex(o => o.id_prod === prod.id_prod);
-    console.log(prod.id_prod) ;
+    const index = this.items.findIndex(o => o.id === prod.id);
+    console.log(prod.reference) ;
     console.log(index);
     if (index > -1) {
       this.items.splice(index, 1);
-      JSON.parse(localStorage.getItem('product'));
-   
+      localStorage.setItem('products',JSON.stringify(this.items));
   }})
+  this.showToasterSuccess() ;
+  
   this.items$ = this.cartService.items$ ;
 }
 
 CheckOut(){
-  this.router.navigate(['add-toCart/checkout']);
+  this.router.navigate(['/login-user']);
+}
+
+showToasterSuccess() {
+  this.notifyService.showError(
+    'Product Deleted !!' );
 }
 }

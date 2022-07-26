@@ -144,3 +144,16 @@ tr{
   background: #6dd485;
   border-color: #6dd485;
 }
+
+.view{
+  font-size: 28px;
+  font-weight: 600;
+  font-family:Bodoni MT ;
+  margin-bottom: 8px;
+  text-decoration: underline;
+}
+.example-container {
+  height: 700px;
+  max-width: 100%;
+  overflow: auto;
+}

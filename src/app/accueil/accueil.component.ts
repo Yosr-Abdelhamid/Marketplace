@@ -9,6 +9,8 @@ import { LoginVendeurComponent } from '../login-vendeur/login-vendeur.component'
 import { AdminClientService } from '../clients/admin-client.service';
 import { LoginVendeurService } from '../login-vendeur.service';
 import { WhishlistService } from 'src/app/clients/services/whishlist.service';
+import { CartService } from '../clients/services/cart.service';
+import { NotificationService } from '../notification.service';
 
 
 @Component({
@@ -25,6 +27,8 @@ sous_famille_prod = 'Smartphone' ;
 sous_famille = 'PC Portable' ; 
 sf='Climatiseur'
 cat ='Refrigérateur'  ;
+public filterCategory : any
+searchKey:string ="";
 
 list_prod:any=[];
 list_clim:any=[];
@@ -90,27 +94,27 @@ results ;
     navText:['<button type="button" class="btn slider-left-btn" style:"height:50px"></button>','<button type="button" class="btn slider-right-btn" style:"height:50px"> </button>'],
   }
 
-  constructor(public dialog: MatDialog , private service : LoginVendeurService, private router : Router,
-    private whishlistService : WhishlistService ) { }
+  constructor(public dialog: MatDialog , private service : AdminClientService, private router : Router,
+    private whishlistService : WhishlistService , private cartService : CartService , private notifyService : NotificationService ) { }
 
   ngOnInit(): void {
-    this.service.GetProductsByCategory(this.sous_famille_prod).subscribe(
+    this.service.getProductByCategory(this.sous_famille_prod).subscribe(
       res => {
         this.data = res;
       })
     
-    this.service.GetProductsCategory(this.sous_famille).subscribe(
+    this.service.getProductByCategory(this.sous_famille).subscribe(
       res => {
         this.list_prod = res;
           })
 
-    this.service.GetProductsCategory(this.sf).subscribe(
+    this.service.getProductByCategory(this.sf).subscribe(
       res => {
         this.list_clim = res;
 
           })
 
-    this.service.GetProductsCategory(this.cat).subscribe(
+    this.service.getProductByCategory(this.cat).subscribe(
       res => {
         this.list_fridg = res;
         this.list_fridg.push(...this.list_clim);
@@ -128,28 +132,54 @@ results ;
 
   routProd(item){
     this.router.navigate(['accueil/product-details'], {
-      queryParams:{item:btoa(JSON.stringify(item))}
+      queryParams:{item:btoa(unescape(encodeURIComponent(JSON.stringify(item))))}
     });
   }
   routProdPC(prod){
     this.router.navigate(['accueil/product-details-pc'], {
-      queryParams:{prod:btoa(JSON.stringify(prod))}
+      queryParams:{prod:btoa(unescape(encodeURIComponent(JSON.stringify(prod))))}
     });
   }
 
   routProdElect(produit){
     this.router.navigate(['accueil/product-details-electro'], {
-      queryParams:{produit:btoa(JSON.stringify(produit))}
+      queryParams:{produit:btoa(unescape(encodeURIComponent(JSON.stringify(produit))))}
     });
   }
+
+  addToCart(item) {
+    this.cartService.addToCart(item);
+    this.showToasterSuccess() ;
+    }
+  addToCartt(prod) {
+    this.cartService.addToCart(prod);
+    this.showToasterSuccess() ;
+
+  }
+  addToCarte(produit) {
+    this.cartService.addToCart(produit);
+    this.showToasterSuccess() ;
+
+  }
+
+  showToasterSuccess() {
+  this.notifyService.showSuccess(
+    'Product Added !!' );
+    }
+
+
+
   addToWhishlist(item){
-    this.whishlistService.addToCart(item)
+    this.whishlistService.addToCart(item);
+    this.showToasterSuccess() ;
 }
 addToWhishlistt(prod){
-  this.whishlistService.addToCart(prod)
+  this.whishlistService.addToCart(prod);
+  this.showToasterSuccess() ;
 }
 addToWhishliste(produit){
-  this.whishlistService.addToCart(produit)
+  this.whishlistService.addToCart(produit);
+  this.showToasterSuccess() ;
 }
   
 }

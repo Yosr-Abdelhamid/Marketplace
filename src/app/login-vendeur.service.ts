@@ -67,6 +67,12 @@ export class LoginVendeurService {
       return this.http.get<any[]>(this.Url + 'GetAllProducts', {params});
     }
 
+    getAllNotifs(id_vendeur : string) : Observable<any[]>{
+      let params =  new HttpParams().set('id_vendeur' , id_vendeur)
+
+      return this.http.get<any[]>(this.Url + 'GetAllNotifications' , {params});
+    }
+
   public GetProductsByCategory(sous_famille_prod: string) {
    
    
@@ -88,6 +94,27 @@ export class LoginVendeurService {
     
       return this.http.get<any[]>(this.Url + 'GetProductByCategory' , {params});
     }
+
+    public GetProductsReference(reference: string) {
+   
+      let params = new HttpParams()
+              .set('Reference', reference)
+    
+      console.log(params.toString());
+    
+      return this.http.get(this.Url + 'GetProductByReference' , {params});
+    }
+
+    public GetProductsBrand(Brand: string , sous_famille_prod : string) {
+   
+      let params = new HttpParams()
+              .set('Brand', Brand)
+              .set('sous_famille_prod' , sous_famille_prod)
+    
+      console.log(params.toString());
+    
+      return this.http.get(this.Url + 'GetProductByBrand' , {params});
+    }
   
   public getAll() {
     let userInfo = JSON.parse(localStorage.getItem("userInf")) ;
@@ -102,7 +129,7 @@ export class LoginVendeurService {
             if(res.dateSet)
              {
              res.dateSet.map((x:User)=>{
-                 userList.push(new User(x.id,x.nom,x.prenom,x.email,x.adresse,x.num_Telephone,x.zipCode ,x.organization));
+                 userList.push(new User(x.id,x.nom,x.prenom,x.email,x.adresse,x.num_Telephone,x.zipCode ,x.organization, x.isActived));
              })
              }
             }
@@ -129,8 +156,6 @@ export class LoginVendeurService {
     };  
     return this.http.post<string>(this.Url + 'addProduct', data, httpOptions);  
 } 
-
-
   deleteProduit(val:any) {
   return this.http.delete(this.baseUrl+'Vendeur/'+ val);
 }
@@ -151,6 +176,9 @@ export class LoginVendeurService {
     return this.http.put(this.Url+'UpdateProfile' , data) ;
   }
 
+  deleteNotif(val:any) {
+    return this.http.delete(this.baseUrl+'Notification/'+ val);
+  }
 
 
 

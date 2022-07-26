@@ -46,6 +46,9 @@ import { ScannerComponent } from './clients/categories-clients/scanner/scanner.c
 import { WhishlistTableComponent } from './clients/whishlist-table/whishlist-table.component';
 import { CheckoutComponent } from './clients/checkout/checkout.component';
 import { ListCommandeComponent } from './admin/list-commande/list-commande.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { ProfilUserComponent } from './clients/profil-user/profil-user.component';
+import { HistoryComponent } from './clients/history/history.component';
 
 export const routes: Routes = [ 
   { path: 'accueil', component : AccueilComponent }, 
@@ -58,6 +61,7 @@ export const routes: Routes = [
   { path: 'dashboard-vendeur' , component: DashboardVendeurComponent,canActivate:[AuthGuard]},
   { path: 'dashboard-vendeur/add-product' , component: AddProductComponent,canActivate:[AuthGuard]},
   { path: 'dashboard-vendeur/edit-product' , component : EditProductComponent ,canActivate:[AuthGuard]},
+  { path: 'dashboard-vendeur/notifications', component: NotificationsComponent },
   { path: 'dashboard-vendeur/profile-vendeur' , component : ProfileVendeurComponent ,canActivate:[AuthGuard]},
   { path: 'verify-email' , component:VerifyEmailComponent},
   { path : 'verify-email-client' , component : VerifyEmailClientComponent},
@@ -66,7 +70,9 @@ export const routes: Routes = [
   { path:  'dashboard-admin' , component: DashboardAdminComponent,canActivate:[AuthorizationGuard]},
   { path : 'login-user' , component: LoginUserComponent} ,
   { path :  'compte-client' , component : CompteClientComponent , canActivate:[AuthorizationGuard]},
-  { path:   'add-toCart' , component : AddToCartComponent , canActivate:[AuthorizationGuard]},
+  { path :  'compte-client/profile' , component : ProfilUserComponent , canActivate:[AuthorizationGuard]},
+  { path :  'compte-client/history' , component : HistoryComponent , canActivate:[AuthorizationGuard]},
+  { path:   'add-toCart' , component : AddToCartComponent},
   { path:   'add-toCart/checkout' , component : CheckoutComponent, canActivate:[AuthorizationGuard]},
   { path : 'dashboard-admin/list-clients' , component : ListClientsComponent,canActivate:[AuthorizationGuard]},
   { path : 'dashboard-admin/list-produits' , component : ListProductsComponent,canActivate:[AuthorizationGuard]},

@@ -25,7 +25,7 @@ export class AddProductComponent implements OnInit {
 
   @ViewChild('imageInput', { static: true}) imageInput;  
  
-  options =["Apple", "Acer" , "Asus" ,"Beko" ,"Bosh" ,"Brandt", "Dell" ,"Haier","Huawei", " HP" , "Infinix" ,"LG" ,"Lenovo","MSI" , "Nokia" ,"Samsung",
+  options =["Apple", "Acer" , "Asus" ,"Beko" ,"Bosh" ,"Brandt", "Dell" ,"Haier","Huawei", " HP" , "Infinix" ,"LG" ,"Lenovo","EPSON" ,"MSI" ,"Midea" , "Nokia" ,"Samsung", "TCL" , "Gree",
    "Xiaomi"]
   filteredOptions: any;
   title = 'angular13bestcode';

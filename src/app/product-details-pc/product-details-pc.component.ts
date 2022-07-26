@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../clients/services/cart.service';
 import { WhishlistService } from '../clients/services/whishlist.service';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-product-details-pc',
@@ -12,17 +14,28 @@ export class ProductDetailsPcComponent implements OnInit {
   prod:any ;
   i :number ;
   @Input() splitted:any;
-  constructor(private route:ActivatedRoute , private whishlistService : WhishlistService) { }
+  constructor(private route:ActivatedRoute , private whishlistService : WhishlistService,
+    private cartService: CartService , private notifyService:NotificationService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params)=> {
-      this.prod = JSON.parse(atob(params['prod'])) ;
+      this.prod = JSON.parse(decodeURIComponent(escape(atob(params['prod'])))) ;
       this.splitted = this.prod.description_prod.split('-');
   });
   
 }
 addToWhishlist(prod){
-  this.whishlistService.addToCart(prod)
+  this.whishlistService.addToCart(prod);
+  this.showToasterSuccess() ;
+}
+
+addToCart(prod) {
+  this.cartService.addToCart(prod);
+  this.showToasterSuccess() ;
+}
+showToasterSuccess() {
+  this.notifyService.showSuccess(
+    'Product Added !!' );
 }
 }
 

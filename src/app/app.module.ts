@@ -88,6 +88,11 @@ import { ScannerComponent } from './clients/categories-clients/scanner/scanner.c
 import { WhishlistTableComponent } from './clients/whishlist-table/whishlist-table.component';
 import { CheckoutComponent } from './clients/checkout/checkout.component';
 import { ListCommandeComponent } from './admin/list-commande/list-commande.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ProfilUserComponent } from './clients/profil-user/profil-user.component';
+import { HistoryComponent } from './clients/history/history.component';
+
 
 
 export function tokenGetter() { 
@@ -148,10 +153,14 @@ export function tokenGetter() {
     WhishlistTableComponent,
     CheckoutComponent,
     ListCommandeComponent,
+    NotificationsComponent,
+    ProfilUserComponent,
+    HistoryComponent,
+   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,Ng2SearchPipeModule,
     BrowserAnimationsModule,FlexLayoutModule,
     MatFormFieldModule,MatTabsModule,MatProgressBarModule,
     MatInputModule,CarouselModule,MatPaginatorModule,MatStepperModule,

@@ -66,9 +66,9 @@ export class LoginComponent implements OnInit {
             this.router.navigate(["/dashboard-vendeur"]);
         },
         err => {
-        //this.loading = false;
+        this.loading = false;
         if (err.status == 400)
-          this.alertService.error('Incorrect username or password.', 'Authentication failed.');
+          this.alertService.error('Incorrect username or password or not activated yet', 'Authentication failed.');
         else
           console.log(err);
         })      

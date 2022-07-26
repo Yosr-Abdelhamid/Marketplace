@@ -18,6 +18,7 @@ import { CartService } from '../services/cart.service';
 export class CheckoutComponent implements OnInit {
   favoriteSeason: string ;
   items$ ;
+  profile;
   allTotal:number ;
   productAddedTocart:Product[];
   isEditable = false;
@@ -29,14 +30,14 @@ export class CheckoutComponent implements OnInit {
  ; 
 
   formGroup = this._formBuilder.group({
-    name: ['', Validators.required],
-    lastName: ['', Validators.required],
+    //name: ['', Validators.required],
+    //lastName: ['', Validators.required],
     country: ['', Validators.required],
-    street: ['', Validators.required],
+    //street: ['', Validators.required],
     city: ['', Validators.required],
-    zip: ['', Validators.required],
-    phone: ['', Validators.required],
-    email: ['', Validators.required],
+    //zip: ['', Validators.required],
+    //phone: ['', Validators.required],
+    //email: ['', Validators.required],
   });
  
 
@@ -55,6 +56,11 @@ export class CheckoutComponent implements OnInit {
     private service : AdminClientService) { }
 
   ngOnInit(): void {
+    this.service.getClient().subscribe( res => {
+      this.profile = res ;
+      console.log(this.profile.nom)
+    }) ;
+
     this.items$ = this.cartService.items$;
     this.cartService.items$.subscribe(result  => {
        this.productAddedTocart = result;
@@ -103,14 +109,14 @@ sendOrder(){
  /*  commande.produits = [{"reference" : this.productAddedTocart[0].reference , "prix" : this.productAddedTocart[0].prix_prod},
   {"reference" : this.productAddedTocart[1].reference , "prix" : this.productAddedTocart[1].prix_prod},
   {"reference" : this.productAddedTocart[2].reference , "prix" : this.productAddedTocart[2].prix_prod}],  */
-    commande.name  = this.formGroup.value.name ,
-    commande.lastName = this.formGroup.value.lastName ,
+    commande.name  = (<HTMLInputElement>document.getElementById("name")).value ,
+    commande.lastName = (<HTMLInputElement>document.getElementById("prenom")).value,
     commande.country = this.formGroup.value.country,
-    commande.street = this.formGroup.value.street,
+    commande.street = (<HTMLInputElement>document.getElementById("adresse")).value,
     commande.city = this.formGroup.value.city,
-    commande.zip = this.formGroup.value.zip, 
-    commande.phone = this.formGroup.value.phone,
-    commande.email = this.formGroup.value.email,
+    commande.zip = (<HTMLInputElement>document.getElementById("zipCode")).value,
+    commande.phone = (<HTMLInputElement>document.getElementById("phone")).value,
+    commande.email = (<HTMLInputElement>document.getElementById("email")).value,
     commande.total = this.allTotal+7 ,
     commande.produits= this.list
     commande.payment = this.selectedRadio ,

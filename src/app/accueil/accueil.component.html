@@ -200,7 +200,7 @@
 			<div class="flip-box-back">
 				<div class="backe">
                     <br><br>
-				<h4>Scanner</h4>
+					<a routerLink = "/accueil/scanners"><h4>Printers</h4></a>
 			</div>
 			</div></div>
 		    </div>
@@ -292,7 +292,7 @@
                             <div class="cart-line"></div>
                             <div class="cart-item">
                                 <ul class="text-center">
-                                <li><a routerLink="/login-user"><i class="fa fa-shopping-basket"></i></a></li>
+                                <li><a (click)="addToCart(item)"><i class="fa fa-shopping-basket"></i></a></li>
                                 <li><a (click)="addToWhishlist(item)"><i class="fa fa-heart"></i></a></li>
                             </ul>
                             </div>
@@ -376,7 +376,7 @@
                             <div class="cart-line"></div>
                             <div class="cart-item">
                                 <ul class="text-center">
-                                <li><a routerLink="/login-user"><i class="fa fa-shopping-basket"></i></a></li>
+                                <li><a (click)="addToCartt(prod)"><i class="fa fa-shopping-basket"></i></a></li>
                                 <li><a (click)="addToWhishlistt(prod)"><i class="fa fa-heart"></i></a></li>
                             </ul>
                             </div>
@@ -420,7 +420,7 @@
                     <br>   
 			    <owl-carousel-o [options]="SlideCustOptions">	
                 <ng-container *ngFor="let produit of list_fridg">    
-                <ng-template carouselSlide style="float: right;">
+                <ng-template carouselSlide >
                     <div class="card" style="height:370px ; width : 242px">
                         <div class="card-main">
                             <div class="image" style="height: 200px;">
@@ -429,7 +429,7 @@
                             <div class="cart-line"></div>
                             <div class="cart-item">
                                 <ul class="text-center">
-                                <li><a routerLink="/login-user"><i class="fa fa-shopping-basket"></i></a></li>
+                                <li><a (click)="addToCarte(produit)"><i class="fa fa-shopping-basket"></i></a></li>
                                 <li><a (click)="addToWhishliste(produit)"><i class="fa fa-heart"></i></a></li>
                             </ul>
                             </div>
@@ -442,7 +442,7 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <p><span class="money">{{produit.prix_prod}} DT</span></p>
+                            <p><span class="money">{{produit.prix_prod }}DT  </span></p>
                         </div>
                     </div>
 				</ng-template>

@@ -17,16 +17,16 @@
   <a href="index3.html" class="nav-link">Home</a>
   </li>
   <li class="nav-item d-none d-sm-inline-block">
-  <a href="#" class="nav-link">Contact</a>
+  <a routerLink="/accueil/contact" class="nav-link">Contact</a>
   </li>
   </ul>
   
   <ul class="navbar-nav ml-auto">
   
   <li class="nav-item dropdown">
-  <a class="nav-link" data-toggle="dropdown" href="#">
-  <i class="far fa-comments"></i>
-  <span class="badge badge-danger navbar-badge">3</span>
+  <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/notifications">
+  <i class="fa fa-bell"></i>
+  <span class="badge badge-danger navbar-badge">1</span>
   </a>
   </li>
   <li class="nav-item">
@@ -195,6 +195,9 @@
    </div>
    <br> 
    <div *ngIf="showMe">
+    <div class="view">View Competitors Stores</div>
+    <br>
+    <div class="example-container mat-elevation-z8">
        <table class="table table-bordered">
            <thead  class="thead-light">
                <tr>
@@ -217,6 +220,7 @@
              </tr>         
            </tbody>
        </table>
+      </div>
    </div>
    <br> <br>
 </div>

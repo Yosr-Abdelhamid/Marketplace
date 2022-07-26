@@ -154,7 +154,11 @@ hr {
   margin: 25px 0;
   border-top: 1px solid #f5f5f5;
 }
-
+.range{
+  font-size: 14px;
+  font-weight: 600;
+  color: #5d5d61;
+}
 
 .bg_default_red {
   background-color: #cd1212;
@@ -699,7 +703,7 @@ d-flex{
           align-items: center;
 }
 .average_rating_list i {
-  color: #fedc19;
+  color: #d10024;
 }
 .average_rating_list span {
   margin-left: 10px;
@@ -1116,6 +1120,12 @@ d-flex{
   border-color: #D10024;
   background-color: #D10024;
 }
+.product_layout1 .item_btns_group button:hover {
+  color: #ffffff;
+  border-color: #D10024;
+  background-color: #D10024;
+}
+
 .product_layout1 .item_btns_group .addtocart_btn {
   padding: 10px;
   color: #252525;
@@ -1144,11 +1154,9 @@ d-flex{
   margin-top: 0;
 }
 .product_layout1:hover .item_title > a {
-  color: #D10024;
+  color: #1f1f1f;;
 }
-.product_layout1:hover .item_price span {
-  color: #cd1212;
-}
+
 .product_layout1:hover .item_btns_group > li {
   opacity: 1;
   -webkit-transform: translateY(0px);

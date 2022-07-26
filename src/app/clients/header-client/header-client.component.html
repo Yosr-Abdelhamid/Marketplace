@@ -86,7 +86,7 @@
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" routerLink="/add-toCart" data-toggle="dropdown" aria-expanded="true">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>Your Cart</span>
                                         <div class="qty">{{(items$ | async).length}}</div>
@@ -113,9 +113,10 @@
                    <div class="hb-menu">
                        <nav>
                            <ul>
-                            <li><a routerLink="/compte-client">Home</a></li>
+                                <li><a routerLink="/compte-client">Home</a></li>
+
                                <li class="megamenu-holder"><a href="index.html">Categories</a>
-                                <ul class="hb-dropdown">
+                                    <ul class="hb-dropdown">
                                     <li class="sub-dropdown-holder"><a>Home Appliance</a>
                                         <ul class="hb-dropdown hb-sub-dropdown">
                                             <li><a routerLink="/compte-client/fridges">Fridge</a></li>
@@ -140,18 +141,26 @@
                                     <li><a>Impression</a>
                                         <ul class="hb-dropdown hb-sub-dropdown">
                                             <li><a routerLink="/compte-client/scanners">Scanners</a></li>   
-                                        </ul></li>
-                                </ul>
+                                        </ul>
+                                    </li>
+                                    </ul>
                                    
                                </li>
-                               <li class="dropdown-holder"><a href="blog-left-sidebar.html">Best Sellers</a>
-                                   
-                               </li>
-                               <li></li>
+
+                          
+
                                <li><a routerLink="/accueil/about">About Us</a></li>
                                <li><a routerLink="/accueil/contact"> Contact </a></li>
-                               <li><a routerLink="/compte-client/smartphones">Smartphones</a></li>
-                               <li><a routerLink="/compte-client/laptops">Laptops</a></li>
+                               <li><a routerLink="/compte-client/profile">Profile</a>  
+                               </li>
+
+                               <li><a routerLink="/compte-client/history">Order History</a>  
+                               </li>
+                          
+
+                           
+                              
+                               
                            </ul>
                        </nav>
                    </div>

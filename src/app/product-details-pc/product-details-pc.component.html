@@ -71,7 +71,7 @@
                                         <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                     </div>
                                 </div>
-                                <button class="add-to-cart" type="submit">Add to cart</button>
+                                <button class="add-to-cart" type="submit" (click)="addToCart(prod)">Add to cart</button>
                             </form>
                         </div>
                        
@@ -129,7 +129,7 @@
     </ul>
     <div class="tab-content">
       <div class="tab-pane fade show active" id="description_tab" role="tabpanel">
-          <p>{{splitted[0]}} <br> {{splitted[1]}} <br> {{splitted[2]}} <br> {{splitted[3]}} <br>  
+          <p style="font-size: 20px; font-family:'Times New Roman', Times, serif">{{splitted[0]}} <br> {{splitted[1]}} <br> {{splitted[2]}} <br> {{splitted[3]}} <br>  
             {{splitted[4]}} <br> {{splitted[5]}} <br> {{splitted[6]}} <br> {{splitted[7]}} <br> 
             {{splitted[8]}} <br> {{splitted[9]}} <br> {{splitted[10]}} <br> </p>
       </div>

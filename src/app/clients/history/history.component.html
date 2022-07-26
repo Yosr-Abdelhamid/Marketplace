@@ -1,0 +1,84 @@
+<app-header-client></app-header-client>
+<section class="content">
+    <div class="container-fluid">
+<div class="accordion" role="tablist" id="accordionExample" style="width:1100px ;margin-left:100px">
+    <div class="accordion-item" *ngFor="let order of orders ; let i= index" >
+      <h2 class="accordion-header"  role="tab" id="headingOne">
+        <button class="accordion-button des" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Order Num # {{i+1}}
+        </button>
+      </h2>
+      <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionExample"  class ="collapse show" #collapseOne>
+        <div class="accordion-body">
+            <div class="container">
+                <div class="row row-cols-2">
+                    <div class="col-6 col-md-4 format">Client Name </div>
+                    <div class="col-6 col-md-4">{{order.name}} {{order.lastName}}</div>
+                </div>
+                <div class="row row-cols-2">
+                    <div class="col-6 col-md-4 format">Client Country </div>
+                    <div class="col-6 col-md-4">{{order.country}}</div>
+                </div>
+                <div class="row row-cols-2">
+                    <div class="col-6 col-md-4 format">Client City </div>
+                    <div class="col-6 col-md-4">{{order.street}}</div>
+                </div>
+                <div class="row row-cols-2">
+                    <div class="col-6 col-md-4 format">Client Street Address / Zip Code </div>
+                    <div class="col-6 col-md-4">{{order.city}}/ {{order.zip}}</div>
+                </div>
+                <div class="row row-cols-2">
+                    <div class="col-6 col-md-4 format">Client Phone </div>
+                    <div class="col-6 col-md-4">{{order.phone}}</div>
+                </div>
+                <div class="row row-cols-2">
+                    <div class="col-6 col-md-4 format">Client Email </div>
+                    <div class="col-6 col-md-4">{{order.email}}</div>
+                </div>
+                <br>
+                <div class="row row-cols-2 ">
+                    <div class="col-6 col-md-4 format">Orders</div>
+                    <div class="col-9 col-md-6">
+                      <table class="table-bordered">
+                        <thead style="background-color: #fff;">
+                          <tr>
+                            <th scope="col" style="width: 320px;">Reference</th>
+                            <th scope="col" style="width: 100px;">Prix</th>
+                            <th scope="col" style="width: 100px;">Store</th>
+                          
+                          </tr>
+                        </thead>
+                           <tbody>
+                             <tr *ngFor="let prod of order.produits;">
+                               <td style="font-size:14px ;">{{prod.reference}}</td>
+                               <td>{{prod.prix}}</td>
+                               <td>{{prod.organization}}</td>
+                             </tr>
+                           </tbody>
+                       </table>
+                    </div>
+                </div>
+                <br>
+                <div class="row row-cols-2">
+                    <div class="col-6 col-md-4 format">Payment Method</div>
+                    <div class="col-6 col-md-4">{{order.payment}}</div>
+                </div>
+
+                <br> 
+                <div class="row row-cols-2">
+                  <div class="col-6 col-md-4" *ngIf="order.delivred"><button class="deli">
+                    <i class="fa fa-check" style="color: green;"></i> Delivred</button>
+                  </div>
+              </div>
+
+                <br> 
+              </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <br><br>
+</div>
+  
+</section> 

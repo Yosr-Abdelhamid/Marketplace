@@ -7,7 +7,8 @@ export class User {
     num_Telephone: string ="";
     zipCode:string="";
     organization: string ="";
-    constructor(id: string, nom: string, prenom: string, email: string, adresse: string , num_Telephone :string, zipCode:string, organization:string) {
+    isActived:boolean ;
+    constructor(id: string, nom: string, prenom: string, email: string, adresse: string , num_Telephone :string, zipCode:string, organization:string , isActived:boolean) {
         this.id = id ;
         this.nom =nom ;
         this.prenom =prenom ;
@@ -15,7 +16,8 @@ export class User {
         this.adresse =adresse;
         this.num_Telephone=num_Telephone ;
         this.zipCode= zipCode;
-        this.organization =organization
+        this.organization =organization;
+        this.isActived =isActived;
 
 }
 

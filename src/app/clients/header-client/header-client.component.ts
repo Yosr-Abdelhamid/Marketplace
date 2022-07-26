@@ -50,7 +50,7 @@ items:Product[] ;
       this.whislistService.itemsW$.subscribe(result  => {
         this.items = result;
         console.log(this.items);
-        const index = this.items.findIndex(o => o.id_prod === item.id_prod);
+        const index = this.items.findIndex(o => o.id === item.id);
         console.log(index);
         if (index > -1) {
           this.items.splice(index, 1);

@@ -24,9 +24,9 @@
     <ul class="navbar-nav ml-auto">
     
     <li class="nav-item dropdown">
-    <a class="nav-link" data-toggle="dropdown" href="#">
-    <i class="far fa-comments"></i>
-    <span class="badge badge-danger navbar-badge">3</span>
+    <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/notifications">
+    <i class="fa fa-bell"></i>
+    <span class="badge badge-danger navbar-badge">1</span>
     </a>
     </li>
     <li class="nav-item">
@@ -185,7 +185,7 @@
       
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputEmailAddress">Product Price</label>
-                                    <input class="form-control"  type="text" decimal-precision="3"  string-to-number step="0.001" name="prix_prod"
+                                    <input class="form-control"  type="text" string-to-number step="0,001" name="prix_prod"
                                      id="prix_prod" placeholder="Enter the price" value="{{item.prix_prod}}">
                                 </div>
                             

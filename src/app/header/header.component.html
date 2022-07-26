@@ -37,84 +37,69 @@
                                     <option value="15">Smartphones</option>                           
                                     <option value="16">Laptops</option>
                                 </select>
-                                <input type="text" placeholder="Enter your search key ...">
-                                <button class="search-btn">Search</button>
+                               
+                                   
+                                    <input matInput type = "text" class="form-control" style="font-size:14px; font-weight: 400;"
+                                     name="search" [(ngModel)]="searchText"  placeholder="Enter your search key ..." id="ngop"
+                                    [matAutocomplete]="auto" />
+                                    
+                                    <mat-autocomplete #auto="matAutocomplete">
+                                      <mat-option id="option" *ngFor="let produit of produits | filter:searchText" [value]="produit.reference">
+										{{produit.reference}}
+                                      </mat-option>
+                                    </mat-autocomplete>
+                                    <button class="search-btn" (click)="searchB()" >Search</button>
+                                   
+                                 
                             </form>
                             <!-- Header Middle Searchbox Area End Here -->
                             <!-- Begin Header Middle Right Area -->
                             <div class="header-middle-right">
                                 <div class="col-md-3 clearfix">
                                     <div class="header-ctn">
-                                        <!-- Wishlist -->
-                                        <!-- <div class="order-last">
-                                            <button type="button" class="cart_btn">
-                                                <i class="icon icon-ShoppingCart"></i>
-                                                <span>Your Wishlist</span>
-                                                <div class="qty">0</div>
-                                            </button> 
-                                        </div> -->
+                                       
                                         <div ngbDropdown class="d-inline-block">
                                             <a type="button"  id="dropdownBasic1" ngbDropdownToggle>
                                                 <i class="fa fa-heart-o"></i>
                                                 <span>Your Wishlist</span>
-                                                <div class="qty">0</div>
+                                                <div class="qty">{{(itemsW$ | async).length}}</div>
                                             </a>
                                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="drop">
                                                 <div class="dropdown-cart-products">
-                                                    <div class="product">
+                                                    <div class="product" *ngFor="let item of itemsW$ | async | slice:0:3">
                                                         <div class="product-cart-details">
                                                             <h4 class="product-title">
-                                                                <a href="product.html">Beige knitted elastic runner shoes</a>
+                                                                <a href="product.html">{{item.reference}}</a>
                                                             </h4>
                 
                                                             <span class="cart-product-info">
                                                                
-                                                             $84.00
+                                                            {{item.prix_prod}} DT
                                                             </span>
                                                         </div><!-- End .product-cart-details -->
                 
                                                         <figure class="product-image-container">
                                                             <a href="product.html" class="product-image">
-                                                                <img src="./assets/images/pc_1.jpg" >
+                                                                <img  src="data:image/png;base64,{{item.image_prod}}">
                                                             </a>
                                                         </figure>
-                                                        <a href="#" class="btn-remove" title="Remove Product"><i class="fa fa-close"></i></a>
+                                                        <a  class="btn-remove" (click)="removeItem(item)" title="Remove Product"><i class="fa fa-close"></i></a>
                                                     </div><!-- End .product -->
                 
-                                                    <div class="product">
-                                                        <div class="product-cart-details">
-                                                            <h4 class="product-title">
-                                                                <a href="product.html">Blue utility pinafore denim dress</a>
-                                                            </h4>
-                
-                                                            <span class="cart-product-info">
-                                                               
-                                                                $76.00
-                                                            </span>
-                                                        </div><!-- End .product-cart-details -->
-                
-                                                        <figure class="product-image-container">
-                                                            <a href="product.html" class="product-image">
-                                                                <img src="./assets/images/pc_1.jpg">
-                                                            </a>
-                                                        </figure>
-                                                        <a href="#" class="btn-remove" title="Remove Product"><i class="fa fa-close"></i></a>
-                                                    </div>
                                                     <div class="dropdown-cart-action">
-                                                        <button class="whish">View WhishList</button>
+                                                        <button class="whish" (click)="route()">View WhishList</button>
                                                        
                                                     </div><!-- End .product -->
                                                </div>
                                             </div>
                                         </div>
-                                        
         
                                         <!-- Cart -->
                                         <div class="dropdown">
-                                            <a>
+                                            <a class="dropdown-toggle" routerLink="/add-toCart" data-toggle="dropdown" aria-expanded="true">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 <span>Your Cart</span>
-                                                <div class="qty">0</div>
+                                                <div class="qty">{{(items$ | async).length}}</div>
                                             </a>
                                         </div>
                                     </div>

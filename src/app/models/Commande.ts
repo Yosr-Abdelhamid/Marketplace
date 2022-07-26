@@ -20,7 +20,7 @@ export class Commande {
     public  country:string,
     public  street: string,
     public  city: string,
-    public  zip: number,
+    public  zip: string,
     public  phone: string,
     public  email: string,
     public  produits : ProduitOrder[],

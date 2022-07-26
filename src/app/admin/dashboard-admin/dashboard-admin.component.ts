@@ -3,6 +3,7 @@ import {Router} from '@angular/router' ;
 import { MatTableDataSource } from '@angular/material/table';
 import { AdminClientService } from 'src/app/clients/admin-client.service';
 import { LoginVendeurService } from 'src/app/login-vendeur.service';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -11,10 +12,15 @@ import { LoginVendeurService } from 'src/app/login-vendeur.service';
 })
 export class DashboardAdminComponent implements OnInit {
 userDetails ;
-displayedColumns = ['rowIndex','nom','prenom','email' ,'adresse','zipCode' , 'organization'];
+displayedColumns = ['rowIndex','nom','prenom','email' ,'adresse','zipCode' , 'organization', 'actions'];
 dataSource!:MatTableDataSource<any>;
 rowIndex =1 ;
-  constructor(private service: AdminClientService , private userService: LoginVendeurService, private router : Router ) { }
+listVendeurs ;
+click : boolean = false;
+
+
+  constructor(private service: AdminClientService , private userService: LoginVendeurService, private notifyService : NotificationService, 
+    private router : Router ) { }
 
   ngOnInit(): void {
 
@@ -27,12 +33,27 @@ rowIndex =1 ;
         .subscribe((response) => { 
          
           this.dataSource = new MatTableDataSource(response);
-
+          this.listVendeurs = response ;
   });
 }
 onLogout() {
   localStorage.removeItem('userInf');
   this.router.navigate(['/accueil']);
 }
+
+activate(item){
+ this.service.ActivateVendeur(item.id).subscribe(res => {
+  this.showToasterSuccess() ;
+  this.ngOnInit();
+  
+})
+
+}
+
+
+showToasterSuccess() {
+  this.notifyService.showSuccess(
+    'This Account is Activated !!' );
+    }
 
 }

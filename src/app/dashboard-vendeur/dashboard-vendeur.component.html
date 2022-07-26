@@ -17,16 +17,16 @@
   <a routerLink="/accueil" class="nav-link">Home</a>
   </li>
   <li class="nav-item d-none d-sm-inline-block">
-  <a href="#" class="nav-link">Contact</a>
+  <a routerLink="/accueil/contact" class="nav-link">Contact</a>
   </li>
   </ul>
   
   <ul class="navbar-nav ml-auto">
   
   <li class="nav-item dropdown">
-  <a class="nav-link" data-toggle="dropdown" href="#">
-  <i class="far fa-comments"></i>
-  <span class="badge badge-danger navbar-badge">3</span>
+  <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/notifications">
+  <i class="fa fa-bell" style="font-size: 24px;"></i>
+  <span class="badge badge-danger navbar-badge">1</span>
   </a>
   </li>
   <li class="nav-item">
@@ -141,13 +141,13 @@ Products
           <div class="card user-card-full">
                <div class="row m-l-0 m-r-0">
                   <div class="col-sm-4 bg-c-lite-green user-profile">
-                    <h6 class="m-b-22 p-b-5 cc m-l-5 b-b-default f-w-500">  Organization Information </h6>
+                    <h6 class="m-b-22 p-b-5 cc m-l-5 b-b-default f-w-500">  Store Information </h6>
                     <div class="col-sm-6">
-                      <p class="m-b-10 m-l-4 f_w f-w-600">Organization Name</p>
+                      <p class="m-b-10 m-l-4 f_w f-w-600">Store Name</p>
                           <h6 class="text-mute m-l-4 f-w-400">{{userDetails.organization}}</h6>
                       </div>
                       <div class="col-sm-6">
-                        <p class="m-b-10 m-l-4 f_w f-w-600">Organization Logo</p> 
+                        <p class="m-b-10 m-l-4 f_w f-w-600">Store Logo</p> 
                         </div>
                       <div class="card-block text-center text-white">
                           <div class="m-b-25" *ngIf="userDetails">

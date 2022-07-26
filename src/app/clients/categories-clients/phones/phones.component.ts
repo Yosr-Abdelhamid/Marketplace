@@ -33,7 +33,7 @@ export class PhonesComponent implements OnInit {
     }
     routProd(item){
       this.router.navigate(['compte-client/prod-details'], {
-        queryParams:{item:btoa(JSON.stringify(item))}
+        queryParams:{item:btoa(unescape(encodeURIComponent(JSON.stringify(item))))}
       });
       
     }

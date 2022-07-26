@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AdminClientService } from 'src/app/clients/admin-client.service';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-list-clients',
@@ -10,11 +11,11 @@ import { AdminClientService } from 'src/app/clients/admin-client.service';
 })
 export class ListClientsComponent implements OnInit {
 userDetails ;
-displayedColumns = ['rowIndex','nom','prenom','email' ,'adresse','num_Telephone' ,'zipCode'];
+displayedColumns = ['rowIndex','nom','prenom','email' ,'adresse','num_Telephone' ,'zipCode' ,'actions'];
 dataSource!:MatTableDataSource<any>;
 rowIndex =1 ;
-
-  constructor(private service: AdminClientService, private router : Router) { }
+listClients;
+  constructor(private service: AdminClientService, private router : Router ,private notifyService : NotificationService,) { }
 
   ngOnInit(): void {
     this.service.getAdmin().subscribe(
@@ -24,11 +25,27 @@ rowIndex =1 ;
     );
     this.service.getAllClients().subscribe((response) => { 
          
-      this.dataSource = new MatTableDataSource(response);}
+      this.dataSource = new MatTableDataSource(response);
+      this.listClients = response }
     )
   }
   onLogout() {
     localStorage.removeItem('userInf');
     this.router.navigate(['/accueil']);
   }
+
+  activate(item){
+    this.service.ActivateClient(item.id).subscribe(res => {
+     this.showToasterSuccess() ;
+     this.ngOnInit();
+     
+   })
+   
+   }
+   
+   
+   showToasterSuccess() {
+     this.notifyService.showSuccess(
+       'This Account is Activated !!' );
+       }
 }

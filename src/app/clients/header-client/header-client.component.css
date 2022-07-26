@@ -113,20 +113,24 @@
 	top: 100%;
 	transition: all 0.3s ease-in-out;
 }
+
+.hb-menu nav > ul > li > a::after {
+  content: "" !important;
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  font-family: fontawesome;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+  color: #242424;
+}
+
 .hb-menu nav > ul > li > ul > li:hover > ul.hb-sub-dropdown {
 	opacity: 1;
 	visibility: visible;
 	top: 0;
 }
-.hb-menu nav ul > li > ul.hb-dropdown > li.sub-dropdown-holder::after {
-	content: "\f107";
-	font-family: fontawesome;
-	position: absolute;
-	right: 25px;
-	top: 5px;
-	transition: all 0.3s ease-in-out;
-	color: #242424;
-}
+
 .hb-menu nav ul > li > ul.hb-dropdown > li.sub-dropdown-holder:hover::after {
 		transform: rotate(-90deg);
 		color: #D10024;

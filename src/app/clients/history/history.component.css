@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+  }
+th {
+
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #dddbdb;
+}
+.format {
+    font-size: 17px;
+    font-weight: 500;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    margin-bottom: 5px;
+}
+.des {
+    font-size: 20px;
+    font-weight: 600;
+}
+.deli{
+    font-size: 18px;
+    font-weight: 700;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    background-color: transparent;
+    border: 2px solid green;
+
+    
+   
+}

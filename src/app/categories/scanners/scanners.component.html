@@ -6,73 +6,119 @@
             <div class="col-lg-3">
               <aside class="sidebar_section p-0 mt-0">
                 <div class="sb_widget sb_category">
-                  <h3 class="sb_widget_title">Categories</h3>
+                  <h3 class="sb_widget_title"> Top Gategories</h3>
                   <ul class="sb_category_list ul_li_block">
-                    <li><a href="#!">Official electronic <span></span></a></li>
-                    <li><a href="#!">Dell <span>(1375)</span></a></li>
-                    <li><a href="#!">Asus <span>(1687)</span></a></li>
-                    <li><a href="#!">HP <span>(1036)</span></a></li>
-                    <li><a href="#!">Acer <span>(202)</span></a></li>
-                    <li><a href="#!">Aivta <span>(525)</span></a></li>
-                    <li><a href="#!">HP <span>(135)</span></a></li>
-                    <li><a href="#!">Apple <span>(298)</span></a></li>
-                    <li><a href="#!"><span>All Categories</span></a></li>
+                    <li><a routerLink="/accueil/smartphones">Smartphones</a></li>
+                    <li><a routerLink="/accueil/laptops">Laptops <span></span></a></li>
+                    <li style="background-color: #d10024;"><a style="color: #ffffff;">Printers <span></span></a></li>
+                    <li><a routerLink="/accueil/air-conditoner">Air Conditioner<span></span></a></li>
+                    <li><a routerLink="/accueil/fridges">Fridges <span></span></a></li>
+                    <li><a routerLink = "/accueil/Blender" >Blender<span></span></a></li>
+                    <li><a routerLink = "/accueil/Coffe">Coffe Machine <span></span></a></li>
                   </ul>
+                  
                 </div>
 
                 <div class="sb_widget">
                   <h3 class="sb_widget_title">Your Filter</h3>
                   <div class="filter_sidebar">
                     <div class="fs_widget">
-                      <h3 class="fs_widget_title">Category</h3>
-                      <form action="#">
-                        <div class="select_option clearfix">
-                          <select>
-                            <option data-display="Select Category">Select Your Option</option>
-                            <option value="1" selected>HP</option>
-                            <option value="2">HP</option>
-                            <option value="3">HP</option>
-                          </select>
-                        </div>
-                      </form>
+                      <h3 class="fs_widget_title">Filter By Category</h3>
+                      <ul class="sb_category_list ul_li_block">
+                        <li><a (click)="filter('Rowe')">Rowe <span></span></a></li>
+                        <li><a (click)="filter('Canon')">Canon <span></span></a></li>
+                        <li><a (click)="filter('Panasonic')">Panasonic <span></span></a></li>
+                        <li><a (click)="filter(' HP')">HP<span></span></a></li>
+                        <li><a (click)="filter('Image acces ')">Image acces <span></span></a></li>
+                        <li><a (click)="filter('Ibml')">Ibml <span></span></a></li>
+                        <li><a (click)="filter('Contex')">Contex<span></span></a></li>
+                        <li><a (click)="filter('EPSON')">EPSON<span></span></a></li>
+                        <li><a (click)="filter('Mucar')">Mucar<span></span></a></li>
+                        <li><a (click)="filter('')">ALL<span></span></a></li>
+                      </ul>
                     </div>
 
-                    <div class="fs_widget">
+                 <!--    <div class="fs_widget">
                       <h3 class="fs_widget_title">Manufacturer</h3>
                       <form action="#">
                         <ul class="fs_brand_list ul_li_block">
                           <li>
                             <div class="checkbox_item">
                               <input id="apple_brand" type="checkbox" name="brand_checkbox">
-                              <label for="apple_brand">Apple <span>(19)</span></label>
+                              <label for="apple_brand">Canon <span>(19)</span></label>
                             </div>
                           </li>
                           <li>
                             <div class="checkbox_item">
                               <input id="asus_brand" type="checkbox" name="brand_checkbox">
-                              <label for="asus_brand">Asus <span>(1)</span></label>
+                              <label for="asus_brand">HP <span>(1)</span></label>
                             </div>
                           </li>
                           <li>
                             <div class="checkbox_item">
                               <input id="bank_oluvsen_brand" type="checkbox" name="brand_checkbox">
-                              <label for="bank_oluvsen_brand">Bank & Oluvsen <span>(1)</span></label>
+                              <label for="bank_oluvsen_brand">Epson <span>(1)</span></label>
                             </div>
                           </li>
                         </ul>
                       </form>
-                    </div>
+                    </div> -->
 
                     <div class="fs_widget">
                       <h3 class="fs_widget_title">Price</h3>
                       <form action="#">
-                        <div class="price-range-area clearfix">
-                          <div class="price-text d-flex align-items-center">
-                            <span>Range:</span>
-                            <input type="text" id="amount" readonly>
-                          </div>
-                          <div id="slider-range" class="slider-range"></div>
-                        </div>
+                        <div class="custom-filter filter-wrapper">
+                          <ul style="padding-left: 8px;">
+                            <li>
+                          <label class="fake-checkbox">
+                            <input type="radio" name="price" (click)="search('200','400')">
+                            <span class="circle"><span class="fill"></span></span>
+                            <span class="range"> 200 DT-->400 DT</span>
+                            <span></span>
+                          </label>
+                          </li>
+                          <li>
+                          <label class="fake-checkbox">
+                            <input type="radio" name="price" (click)="search('400','600')">
+                            <span class="circle"><span class="fill"></span></span>
+                            <span class="range"> 400 DT-->600 DT</span>
+                            <span></span>
+                          </label>
+                          </li>
+                          <li>
+                          <label class="fake-checkbox">
+                            <input type="radio" name="price" (click)="search('600','800')">
+                            <span class="circle"><span class="fill"></span></span>
+                            <span class="range"> 600 DT-->800 DT</span>
+                            <span></span>
+                          </label>
+                          </li>
+                          <li>
+                          <label class="fake-checkbox">
+                            <input type="radio" name="price" (click)="search('800','1000')">
+                            <span class="circle"><span class="fill"></span></span>
+                            <span class="range"> 800 DT-->1000 DT</span>
+                            <span></span>
+                          </label>
+                          </li>
+                          <li>
+                          <label class="fake-checkbox">
+                            <input type="radio" name="price" (click)="search('1000','2000')">
+                            <span class="circle"><span class="fill"></span></span>
+                            <span class="range"> 1000 DT --> 2000 DT</span>
+                            <span></span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="fake-checkbox">
+                            <input type="radio" name="price" (click)="search('2000','5000')">
+                            <span class="circle"><span class="fill"></span></span>
+                            <span class="range"> > 2000 DT</span>
+                            <span></span>
+                          </label>
+                        </li>
+                        </ul>
+                      </div>
                       </form>
                     </div>
 
@@ -122,17 +168,7 @@
                       </ul>
                     </div>
 
-                    <div class="fs_widget">
-                      <h3 class="fs_widget_title">Filter by Memory</h3>
-                      <ul class="filter_memory_list ul_li_block">
-                        <li><a href="#!">256 GB or more <span>(12)</span></a></li>
-                        <li><a href="#!">128 GB <span>(12)</span></a></li>
-                        <li><a href="#!">16 GB <span>(6)</span></a></li>
-                        <li><a href="#!">32 GB <span>(7)</span></a></li>
-                        <li><a href="#!">64 GB <span>(9)</span></a></li>
-                        <li><a href="#!">8 GB or less <span>(8)</span></a></li>
-                      </ul>
-                    </div>
+                   
                   </div>
                 </div>
 
@@ -270,8 +306,8 @@
                     </ul>
                   </div>
 
-                  <div class="col col-md-2">
-                    <form action="#">
+                   <div class="col col-md-2">
+                    <!--<form action="#">
                       <div class="select_option clearfix">
                         <select class="form-select" aria-label="Default select example">
                           <option data-display="Defaul Sorting">Sorting By Name</option>
@@ -280,7 +316,7 @@
                           <option value="3">Sorting By Size</option>
                         </select>
                       </div>
-                    </form>
+                    </form> -->
                   </div>
 
                   <div class="col col-md-8">
@@ -293,7 +329,7 @@
             <div class="contain">
               <div fxFill fxLayout="column" fxLayoutAlign="space-between">
                 <div fxLayout="row wrap">
-                  <ng-container *ngFor="let item of data | paginate: 
+                  <ng-container *ngFor="let item of filterCategory | paginate: 
                   { itemsPerPage: 12, currentPage: p }" >
                     <div class="product_layout1">
                         <div class="item_image">
@@ -319,7 +355,7 @@
                             <span>{{item.prix_prod}} DT</span>
                           </div>
                           <ul class="item_btns_group ul_li">
-                            <li><a class="addtocart_btn center" href="#!">Add To Cart</a></li>
+                            <li><button class="addtocart_btn center" (click)="addToCart(item)">Add To Cart</button></li>
                             <li><a (click)="addToWhishlist(item)"><i class="fas fa-heart"></i></a></li>
                            </ul>
                         </div>

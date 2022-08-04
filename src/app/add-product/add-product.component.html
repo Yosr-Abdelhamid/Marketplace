@@ -22,10 +22,19 @@
   </ul>
   
   <ul class="navbar-nav ml-auto">
+
+    <li class="nav-item dropdown" *ngIf="solde">
+      <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/sold">
+      <i class="fa fa-credit-card" style="font-size: 22px;"></i>
+      <span class="badge navbar-badge" style="color:#dc3545 ; font-size:14px ; font-weight: bold;margin-top: 19px;
+      margin-right: -15px">{{solde.sold | number}}DT</span>
+      </a>
+      </li>
+      <li></li>
   
   <li class="nav-item dropdown">
   <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/notifications">
-  <i class="fa fa-bell"></i>
+  <i class="fa fa-bell"  style="font-size: 24px;"></i>
   <span class="badge badge-danger navbar-badge">1</span>
   </a>
   </li>
@@ -120,7 +129,11 @@
       <mat-card-title>Add new Product</mat-card-title>
 
       <mat-card-content>
-        <br> <br>
+        <br>
+        <div class="alert alert-warning" role="alert" style="color:gray !important ; font-weight : 400">
+          <i class="fa fa-exclamation-triangle">  Your product will be published on our Marketplace only when you paied the add-on Fees </i>
+          </div>
+          <br>
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" novalidate>
                 <div class="row">
                   <div class="col-sm-5 col-md-6">
@@ -129,15 +142,17 @@
                   </div>
                   <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                     <label for="sous_famille_prod">Product Category</label>
-                     <mat-select placeholder ="Smartphone" class="form-control" type="text" id="sous_famille_prod" formControlName="sous_famille_prod">
-                        <mat-option value="Smartphone">Smartphone</mat-option>
+                     <mat-select placeholder ="Smartphone" class="form-control" type="text" id="sous_famille_prod" (selectionChange)="getCommission($event.value)" formControlName="sous_famille_prod">
+                        <mat-option value="Smartphone" >Smartphone</mat-option>
                         <mat-option value="PC Portable">Laptops</mat-option>
                         <mat-option value="Climatiseur">Air Conditioner</mat-option>
                         <mat-option value="Refrigérateur">Fridge</mat-option>
-                        <mat-option value="Scanner">Scanner</mat-option>
+                        <mat-option value="Scanner">Printer</mat-option>
                     </mat-select>
+                    <div *ngIf = "commissions" class="commi">Commission Per Category :{{commissions.commission}}</div>
                   </div>
                 </div>
+                <br>
                 <div class="row">
                   <div class="col-sm-5 col-md-6">
                       <label for="Brand">Product Brand</label>
@@ -155,7 +170,7 @@
                       <span matSuffix></span>
                   </div>
                 </div>
-      
+                <br>
                 <div class="row">
                   <div class="col-sm-5 col-md-6">
                       <label for="Description">Product Description</label>
@@ -165,14 +180,16 @@
                   </div>
                   <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                         <label>Product Price</label>
-                        <input matInput type="text" class="form-control" placeholder="0,000" step=0.001 id="prix_prod" 
+                        <input matInput type="number" class="form-control" placeholder="0.000" step=0.001 id="prix_prod" 
                         formControlName="prix_prod">
-                        <span style="top:150px">DT</span>
+                        <span class="input-group-text" style="float: right; margin-top: -52px; margin-right: 55px ; background-color : transparent !important"> DT</span>
+                    
                   </div>
                 </div>
+                <br>
                 <div class="row">
                 <div class="col">
-                  <br> <br>
+                 
                   <label class="image-upload-container btn btn-bwm">
                     <span>Select Product Image</span>
                     <input #imageInput
@@ -234,3 +251,16 @@
 
 
 
+<!-- <mat-select placeholder ="Black" class="form-control" type="text" id="color" formControlName="sous_famille_prod">
+  <mat-option value="Blue">Blue</mat-option>
+  <mat-option value="Cyan">Cyan</mat-option>
+  <mat-option value="Green" >Green</mat-option>
+  <mat-option value="Golden">Golden</mat-option>
+  <mat-option value="Grey">Grey</mat-option>
+  <mat-option value="Red">Red</mat-option>
+  <mat-option value="Silver">Silver</mat-option>
+  <mat-option value="Pink">Pink</mat-option>
+  <mat-option value="Purple">Purple</mat-option>
+  <mat-option value="White">White</mat-option>
+  
+</mat-select> -->

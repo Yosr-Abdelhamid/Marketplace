@@ -16,6 +16,7 @@ export class DashboardVendeurComponent  implements OnInit {
   isUploading: boolean = false;
   file: File;
   infoMessage: any;
+  solde ;
 
   imageUrl: string | ArrayBuffer =
     "./assets/images/add_log.png";
@@ -28,7 +29,12 @@ export class DashboardVendeurComponent  implements OnInit {
     this.userService.getUser().subscribe(
       res => {
         this.userDetails = res;
-      }
+        this.userService.GetPortfeuille(this.userDetails.id).subscribe(
+          res => {
+            this.solde = res ;
+          }
+        )
+      },
     );
   }
 

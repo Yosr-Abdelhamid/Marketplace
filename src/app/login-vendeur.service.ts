@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { PasswordReset } from './models/PasswordReset';
+import { Portfeuille } from './models/Portfeuille';
 import { RequestProduct } from './models/RequestProduct';
 import { ResponseModel } from './models/ResponseModel';
 import { User } from './models/User';
@@ -181,5 +182,27 @@ export class LoginVendeurService {
   }
 
 
+  AddPortfeuille(portfeuille : Portfeuille) { 
+    const httpOptions  = {headers: new HttpHeaders({ 'Content-Type': 'application/json' }),withCredentials: true
+     };
+    
+    return this.http.post(this.Url + 'AddPortfeuille', portfeuille , httpOptions)  
+  } 
+
+  public GetPortfeuille(Id: string) {
+   
+   
+    let params = new HttpParams()
+            .set('Id', Id)
+  
+    console.log(params.toString());
+  
+    return this.http.get<any[]>(this.Url + 'GetPortfeuille' , {params});
+
+}
+
+updatePortfeuille(data: FormData){
+  return this.http.put(this.Url+'UpdateSold',data);
+}
 
 }

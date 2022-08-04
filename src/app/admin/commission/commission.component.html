@@ -76,7 +76,7 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false">
     
     <li class="nav-item">
-    <a routerLink="/dashboard-admin" class="nav-link active">
+    <a routerLink="/dashboard-admin" class="nav-link">
     <i class="nav-icon fas fa-user-circle"></i>
     <p>
     Sellers
@@ -92,15 +92,14 @@
     </p>
     </a>
     </li>
-
     <li class="nav-item">
-      <a routerLink="/dashboard-admin/commision" class="nav-link">
-      <i class="nav-icon fa fa-money"></i>
-      <p>
-      Commissions
-      </p>
-      </a>
-  </li>
+        <a routerLink="/dashboard-admin/commision" class="nav-link active">
+        <i class="nav-icon fa fa-money"></i>
+        <p>
+        Commissions
+        </p>
+        </a>
+    </li>
   
     <li class="nav-item">
     <a routerLink="/dashboard-admin/list-produits" class="nav-link">
@@ -122,8 +121,6 @@
       </div>
   
   </li>
-
-  
   
     <li class="nav-item">
       <a routerLink="/dashboard-admin/Messages" class="nav-link">
@@ -148,14 +145,14 @@
     <div class="row mb-2">
     <div class="col-sm-6">
       <nav class="nav nav-borders">
-        <a class="nav-link active ms-0" target="__blank"> List Of Sellers</a>
+        <a class="nav-link active ms-0" target="__blank"> Commissions</a>
        
     </nav>
     </div>
     <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item active">Sellers</li>
+    <li class="breadcrumb-item active">Commissions</li>
     </ol>
     </div>
     </div>
@@ -164,69 +161,96 @@
   
     <section class="content">
     <div class="container-fluid">
-      <section class="example-container mat-elevation-z8" tabindex="0">
-        <table mat-table [dataSource]="dataSource">
-      
-          <!-- Position Column -->
-          <ng-container matColumnDef="rowIndex">
-            <th mat-header-cell  *matHeaderCellDef> No. </th>
-            <td mat-cell *matCellDef="let element;index as i;"> {{i+1}} </td>
-          </ng-container>
-      
-          <!-- Name Column -->
-          <ng-container matColumnDef="nom">
-            <th mat-header-cell *matHeaderCellDef> First Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
-          </ng-container>
-      
-          <!-- Weight Column -->
-          <ng-container matColumnDef="prenom">
-            <th mat-header-cell *matHeaderCellDef> Last Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
-          </ng-container>
-      
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> Email </th>
-            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="adresse">
-            <th mat-header-cell *matHeaderCellDef> Address </th>
-            <td mat-cell *matCellDef="let element"> {{element.adresse}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="zipCode">
-            <th mat-header-cell *matHeaderCellDef> ZipCode </th>
-            <td mat-cell *matCellDef="let element"> {{element.zipCode}} </td>
-          </ng-container>
-      
-          <ng-container matColumnDef="organization">
-            <th mat-header-cell *matHeaderCellDef> Store Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.organization}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef class="sticky"> </th>
-          <td mat-cell *matCellDef="let item of listVendeurs">
-            
-            <button mat-raised-button *ngIf="!(item.isActived);else other_content" class="active-button" (click)="activate(item)">Activate</button>
-            <ng-template #other_content> <div class="text-muted">Is Active </div> </ng-template>
+        <br> <br>
+        <table  class="mat-elevation-z8 table-bordered" style="width: 650px;margin-left:150px">
+          <!-- Item Column -->
+          <tr>
+            <th scope="col" style="height: 50px;">Category</th>
+            <th scope="col" style="height: 50px;">Commission</th>
+        </tr>
+        <tr>
+            <th style="background-color: #fff;height: 40px; ">Smartphone</th>
+            <td *ngIf="listCommision" >
+              <input   class="form-control" style="border: transparent !important;padding-left: 28px; width: 200px;" type="text" name="commission" id ="commission"  value={{listCommision.commission}}>
+              <span (click)="update($event,listCommision)" style="float: right;margin-top: -35px;"><i class="fa fa-edit"></i></span>  
+            </td>
+        </tr>
+        <tr>
+          <th scope="row" style="background-color: #fff;height: 40px;">Laptops</th>
+          <td *ngIf="list">
+            <input   class="form-control" style="border: transparent !important;padding-left: 28px; width: 200px;" type="text" name="commission" id ="commissi"  value={{list.commission}}>
+              <span (click)="updatet($event,list)" style="float: right;margin-top: -35px;"><i class="fa fa-edit"></i></span>  
           </td>
-          </ng-container>
+      </tr>
+        <tr>
+          <th scope="row" style="background-color: #fff;height: 40px;">Fridge</th>
+          <td>
+            <input   class="form-control" style="border: transparent !important;padding-left: 28px; width: 200px;" type="text" name="commission" id ="commiss"  value={{listc.commission}}>
+              <span (click)="updatec($event,listc)" style="float: right;margin-top: -35px;"><i class="fa fa-edit"></i></span>  
+          </td>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </tr>
+      <tr>
+        <th scope="row" style="background-color: #fff;height: 40px;">Air Conditioner</th>
+        <td>
+          <input   class="form-control" style="border: transparent !important;padding-left: 28px; width: 200px;" type="text" name="commission" id ="commis"  value={{listcatg.commission}}>
+              <span (click)="updateg($event,listcatg)" style="float: right;margin-top: -35px;"><i class="fa fa-edit"></i></span>  
+          </td>
+    </tr>
+    <tr>
+      <th scope="row" style="background-color: #fff;height: 40px;">Printer</th>
+      <td>
+        <input   class="form-control" style="border: transparent !important;padding-left: 28px; width: 200px;" type="text" name="commission" id ="commi"  value={{listcategr.commission}}>
+              <span (click)="updategr($event,listcategr)" style="float: right;margin-top: -35px;"><i class="fa fa-edit"></i></span>  
+          </td>
+  </tr>
+       
+         
+         
         </table>
-      </section>
-      
-  </div>
-  
-  </section> 
-  
-  </div>
-  
-  </div>
-  
-  </section>
-  
+    </div>
+    </section>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- <table class="table-bordered">
+  <thead style="background-color: #fff;">
+    <tr style="height: 60px;">
+      <th scope="col" style="width: 50px;font-size: 18px;">Category</th>
+      <th scope="col" style="width: 70px;">Smartphone</th>
+      <th scope="col" style="width: 100px;">Laptop</th>
+      <th scope="col" style="width: 100px;">Fridge</th>
+      <th scope="col" style="width: 100px;">Air Conditioner</th>
+      <th scope="col" style="width: 100px;">Printer</th>
+    
+    </tr>
+  </thead>
+     <tbody>
+       <tr style="height: 60px;font-weight: 500">
+         <td style="background-color:#dddbdb;font-size: 18px;
+         font-weight: 500 ;" class="text-center">Commission</td>
+         <td *ngFor="let com of listCommision;" > 
+          <div class="row justify-content-center">
+              <div class="col-3">
+                  <input   class="form-control"  type="text" name="commission" id ="commission"  value={{com.commission}}>
+              </div>
+              <div class="col-1">
+                  <a (click)="update($event,com)"><i class="fa fa-edit"></i></a>
+              </div>
+        </div> 
+      </td>
+            
+        
+       </tr>
+     </tbody>
+ </table> -->

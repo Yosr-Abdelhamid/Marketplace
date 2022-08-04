@@ -11,6 +11,8 @@ import { User } from '../models/User';
 import { Router } from '@angular/router';
 import { AlertService } from '../alert/alert.service';
 import { MatStepper } from '@angular/material/stepper';
+import { AdminClientService } from '../clients/admin-client.service';
+import { formatDate } from '@angular/common';
 
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
@@ -25,22 +27,24 @@ export class AddProductComponent implements OnInit {
 
   @ViewChild('imageInput', { static: true}) imageInput;  
  
-  options =["Apple", "Acer" , "Asus" ,"Beko" ,"Bosh" ,"Brandt", "Dell" ,"Haier","Huawei", " HP" , "Infinix" ,"LG" ,"Lenovo","EPSON" ,"MSI" ,"Midea" , "Nokia" ,"Samsung", "TCL" , "Gree",
+  options =["Apple", "Acer" , "Asus" ,"Beko" ,"Biolux" ,"Bosh" ,"Brandt", "Dell" ,"Haier","Huawei", " HP" , "Infinix" ,"LG" ,"Lenovo","EPSON" ,"MONBLANC" ,"NewStar" ,"MSI" ,"Midea" , "Nokia" ,"Samsung", "TCL" , "Gree",
    "Xiaomi"]
   filteredOptions: any;
-  title = 'angular13bestcode';
+  id_por ;
   isLinear = false;
   firstFormGroup: FormGroup;
   PcFormGroup: FormGroup;
   SmartphoneFormGroup: FormGroup;
   step = 1;
-  isDisabled=true ;
+  isDisabled=true ; num ;
   selectedFile: ImageSnippet |any ;
   Reference:string ='';
   image:string='';
-  userDetails ;
+  userDetails ; myDate ;
   model : any={}; 
+  getCom ;
   userId:string ;
+  comision ;
   inspectionTypesList:any=[];
   pcSelected:boolean=false;
   phoneSelected:boolean=false ;
@@ -48,13 +52,16 @@ export class AddProductComponent implements OnInit {
   showMe:boolean=false ;
 
   loading = false;
-  errorMessage = '';
+  errorMessage = ''; streetaddress;
   formGroup : FormGroup |any;
   addDetailsformGroup : FormGroup |any;
   addProduct :FormGroup
+  commissions ;
+  solde ; getSolde ;
+  Sold;
     
     constructor(private productapi:ProductApiService , private fb: FormBuilder ,private formBuilder: FormBuilder,
-      private userService: LoginVendeurService,private router:Router,private alertService: AlertService ,
+      private userService: LoginVendeurService,private router:Router,private alertService: AlertService , private service : AdminClientService,
       private sanitizer: DomSanitizer ,private _formBuilder: FormBuilder ) { 
       }
 
@@ -112,31 +119,6 @@ export class AddProductComponent implements OnInit {
     })
   }
 
-  onSubmit(){
- 
-    let formData = new FormData();  
-       
-    formData.append('Reference', this.formGroup.value.Reference);
-    formData.append('sous_famille_prod', this.formGroup.value.sous_famille_prod);
-    formData.append('Brand', this.formGroup.value.Brand);
-    formData.append('quantity', this.formGroup.value.quantity);
-    formData.append('description_prod', this.formGroup.value.description_prod);
-    formData.append('prix_prod', this.formGroup.value.prix_prod);  
-    formData.append('image_prod', this.imageInput.nativeElement.files[0]);
-    formData.append('id', this.userDetails.id);
-    this.userService.AddFileDetails(formData).subscribe(result => {
-      this.alertService.success('Product Added with success !');
-    },
-    err => {
-    if (err.status == 400)
-      this.alertService.error('Enter a valid informations please!');
-    else
-      console.log(err);
-    })        
-    
-  }
-
-
   filterData(enteredData: string){
     this.filteredOptions = this.options.filter(item => {
       return item.toLowerCase().indexOf(enteredData.toLowerCase()) > -1
@@ -148,6 +130,12 @@ export class AddProductComponent implements OnInit {
       this.userService.getUser().subscribe(
         res => {
           this.userDetails = res;
+          this.userService.GetPortfeuille(this.userDetails.id).subscribe(
+            res => {
+              this.solde = res ;
+              this.getSolde = this.solde.sold ;
+            }
+          );
           this.userId=this.userDetails.id;
         },
         err => {
@@ -155,8 +143,66 @@ export class AddProductComponent implements OnInit {
         },
       );
       }
+
+
+
+      getCommission(value){
+      console.log(value);
+      this.service.GetCommissionByCategorie(value).subscribe(
+        res => {
+          this.commissions =  res ;
+         this.streetaddress = this.commissions.commission.split('%')[0];
+        }
+      )
+    }
       //this.getUserDetails(
 
+  onSubmit(){
+ 
+    let formData = new FormData();  
+             
+    formData.append('Reference', this.formGroup.value.Reference);
+    formData.append('sous_famille_prod', this.formGroup.value.sous_famille_prod);
+    formData.append('Brand', this.formGroup.value.Brand);
+    formData.append('quantity', this.formGroup.value.quantity);
+    formData.append('description_prod', this.formGroup.value.description_prod);
+    formData.append('prix_prod', this.formGroup.value.prix_prod);  
+    formData.append('image_prod', this.imageInput.nativeElement.files[0]);
+    formData.append('id', this.userDetails.id);
+      
+    this.comision = (this.formGroup.value.prix_prod*this.streetaddress)/100 ;
+
+    this.num = this.comision.toFixed(2)
+    console.log(this.num);
+
+    if (this.getSolde > this.num){
+      this.userService.AddFileDetails(formData).subscribe(result => {
+        this.alertService.success('Product Added with success !');
+        this.updateSold();
+        this.ngOnInit();
+          },
+
+          err => {
+          if (err.status == 400)
+            this.alertService.error('Enter a valid informations please!');
+          else
+            console.log(err);
+          })
+
+    } else if (this.getSolde < this.num) {
+      this.alertService.error('Lack of Sold ! Please recharge your Wallet to continue selling!');
+    }
+  }
+
+    updateSold() {
+      let formData = new FormData();
+      this.Sold = this.getSolde - this.num;           
+      formData.append('Id_portf', this.solde.id_portf);
+      formData.append('Sold', this.Sold);
+      this.userService.updatePortfeuille(formData).subscribe(res => {}) ;
+
+    }
+            
     reset(){
       this.formGroup.reset() ;
     }
@@ -165,6 +211,8 @@ export class AddProductComponent implements OnInit {
       localStorage.removeItem('userInfo');
       this.router.navigate(['/accueil']);
     }
+
+    
 
 }
 

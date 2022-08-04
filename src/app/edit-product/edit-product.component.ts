@@ -26,6 +26,7 @@ export class EditProductComponent implements OnInit {
   file: File;
   infoMessage: any;
   imageUrl: string | ArrayBuffer;
+  solde ;
  
 
 
@@ -37,6 +38,11 @@ export class EditProductComponent implements OnInit {
     this.userService.getUser().subscribe(
       res => {
         this.userDetails = res;
+        this.userService.GetPortfeuille(this.userDetails.id).subscribe(
+          res => {
+            this.solde = res ;
+          }
+        );
       },
       err => {
         console.log(err);

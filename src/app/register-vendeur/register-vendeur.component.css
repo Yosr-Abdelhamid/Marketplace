@@ -147,8 +147,7 @@
   }
   
 .card-4 .card-body {
-    padding: 50px 55px;
-    padding-bottom: 65px;
+   
   }
   
  @media (max-width: 767px) {
@@ -243,4 +242,11 @@ line-height: 1;
 }
 .mat-error{
   font-size: 12px;
+}
+.input-text{
+  width: 80%;
+  height: 100%;
+  padding-left: 7px;
+  border:1px solid #585757;
+
 }

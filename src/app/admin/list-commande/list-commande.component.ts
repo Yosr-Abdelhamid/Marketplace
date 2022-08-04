@@ -14,7 +14,7 @@ export class ListCommandeComponent implements OnInit {
 
  userDetails ;
  orders ;
- @ViewChild('collapseOne') collapseOne:ElementRef;  
+ @ViewChild('collapseOneShow') collapseOne:ElementRef;  
 
 constructor(private service: AdminClientService, private router : Router , private adminService : AdminClientService) { }
   
@@ -33,7 +33,7 @@ ngOnInit(): void {
     )
 }
 SavePDF(): void {  
-  let DATA: any = document.getElementById('collapseOne');
+  let DATA: any = document.getElementById('collapseOneShow');
   html2canvas(DATA).then((canvas) => {
     let fileWidth = 208;
     let fileHeight = (canvas.height * fileWidth) / canvas.width;

@@ -15,11 +15,13 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import { ProductApiService } from './product-api.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatNativeDateModule } from '@angular/material/core';
 import { AccueilComponent } from './accueil/accueil.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -92,6 +94,9 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ProfilUserComponent } from './clients/profil-user/profil-user.component';
 import { HistoryComponent } from './clients/history/history.component';
+import { CommissionComponent } from './admin/commission/commission.component';
+import { PocketComponent } from './pocket/pocket.component';
+import { CommandesBySellerComponent } from './admin/commandes-by-seller/commandes-by-seller.component';
 
 
 
@@ -156,12 +161,16 @@ export function tokenGetter() {
     NotificationsComponent,
     ProfilUserComponent,
     HistoryComponent,
+    CommissionComponent,
+    PocketComponent,
+    CommandesBySellerComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,Ng2SearchPipeModule,
-    BrowserAnimationsModule,FlexLayoutModule,
+    BrowserAnimationsModule,FlexLayoutModule,MatDatepickerModule, MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,MatTabsModule,MatProgressBarModule,
     MatInputModule,CarouselModule,MatPaginatorModule,MatStepperModule,
     MDBBootstrapModule.forRoot(),ToastrModule.forRoot(),
@@ -180,7 +189,7 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [ProductApiService],
+  providers: [ProductApiService ,MatDatepickerModule],
   bootstrap: [AppComponent],
   entryComponents:[LoginComponent,RegisterComponent]
 })

@@ -23,6 +23,7 @@ export class Commande {
     public  zip: string,
     public  phone: string,
     public  email: string,
+    public dateCommande:string,
     public  produits : ProduitOrder[],
     public  total:number,
     public  payment:string) {}

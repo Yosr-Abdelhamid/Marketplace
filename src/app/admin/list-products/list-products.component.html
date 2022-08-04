@@ -74,7 +74,7 @@
     
     <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false">
-    
+         
     <li class="nav-item">
       <a routerLink="/dashboard-admin" class="nav-link ">
         <i class="nav-icon fas fa-user-circle"></i>
@@ -94,6 +94,16 @@
         </li>
       
         <li class="nav-item">
+          <a routerLink="/dashboard-admin/commision" class="nav-link">
+          <i class="nav-icon fa fa-money"></i>
+          <p>
+          Commissions
+          </p>
+          </a>
+      </li>
+
+
+        <li class="nav-item">
         <a routerLink="/dashboard-admin/list-produits" class="nav-link active">
     <i class="nav-icon fas fa-shopping-cart"></i>
     <p>
@@ -101,13 +111,16 @@
     </p>
     </a>
     </li>
-    <li class="nav-item">
-      <a routerLink="/dashboard-admin/Orders" class="nav-link">
-        <i class="nav-icon fa fa-shopping-basket"></i>
-  <p>
- Orders
-  </p>
-  </a>
+    <li class="nav-item" ngbDropdown>
+      <a  class="nav-link" ngbDropdownToggle aria-haspopup="true" id="dropdownBasic1" aria-expanded="false"
+        style="color:#6C757D ;font-size:16px"
+       role="button"><i class="nav-icon fa fa-shopping-basket"></i><p>Orders</p></a>
+      <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <a class="dropdown-item" routerLink="/dashboard-admin/Orders" style="font-weight:500 ;">Orders By Clients</a>
+        <a class="dropdown-item"  routerLink="/dashboard-admin/OrdersBySellers" style="font-weight:500 ;">Orders By Sellers</a>
+        <!--i class="nav-icon fa fa-shopping-basket"></i-->
+      </div>
+  
   </li>
   
     <li class="nav-item">

@@ -49,6 +49,9 @@ import { ListCommandeComponent } from './admin/list-commande/list-commande.compo
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProfilUserComponent } from './clients/profil-user/profil-user.component';
 import { HistoryComponent } from './clients/history/history.component';
+import { CommissionComponent } from './admin/commission/commission.component';
+import { PocketComponent } from './pocket/pocket.component';
+import { CommandesBySellerComponent } from './admin/commandes-by-seller/commandes-by-seller.component';
 
 export const routes: Routes = [ 
   { path: 'accueil', component : AccueilComponent }, 
@@ -59,6 +62,7 @@ export const routes: Routes = [
   { path: 'forgot-password', component : ForgotPasswordComponent},
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'dashboard-vendeur' , component: DashboardVendeurComponent,canActivate:[AuthGuard]},
+  { path: 'dashboard-vendeur/sold' , component: PocketComponent,canActivate:[AuthGuard]},
   { path: 'dashboard-vendeur/add-product' , component: AddProductComponent,canActivate:[AuthGuard]},
   { path: 'dashboard-vendeur/edit-product' , component : EditProductComponent ,canActivate:[AuthGuard]},
   { path: 'dashboard-vendeur/notifications', component: NotificationsComponent },
@@ -84,7 +88,9 @@ export const routes: Routes = [
   { path : 'accueil/about' , component : AboutComponent} ,
   { path : 'accueil/contact' , component : ContactComponent} ,
   { path :  'accueil/product-details' , component : ProductDetailsComponent},
-  { path : 'dashboard-admin/Orders' , component : ListCommandeComponent },
+  { path : 'dashboard-admin/Orders' , component : ListCommandeComponent ,canActivate:[AuthorizationGuard]},
+  { path : 'dashboard-admin/OrdersBySellers' , component : CommandesBySellerComponent ,canActivate:[AuthorizationGuard]},
+  { path : 'dashboard-admin/commision' , component : CommissionComponent,canActivate:[AuthorizationGuard]},
   { path : 'dashboard-admin/Messages' , component : ListContactComponent,canActivate:[AuthorizationGuard]},
   { path : 'dashboard-admin/Messages/Reply' , component : ReplyContactComponent ,canActivate:[AuthorizationGuard]},
   { path : 'login-user/forgot-password-user' , component : ForgotPasswordComponent} ,
@@ -98,9 +104,8 @@ export const routes: Routes = [
   {path:'compte-client/smartphones' , component : PhonesComponent , canActivate:[AuthorizationGuard]} ,
   {path:'compte-client/fridges' , component : FridgeComponent ,canActivate:[AuthorizationGuard]} ,
   {path:'compte-client/air-conditoner' , component : ClimaComponent ,canActivate:[AuthorizationGuard]} ,
-  { path:'compte-client/scanners' , component : ScannerComponent ,canActivate:[AuthorizationGuard]} ,
-  { path: 'whislist-Table' , component : WhishlistTableComponent ,canActivate:[AuthorizationGuard] } ,
-  
+  {path:'compte-client/scanners' , component : ScannerComponent ,canActivate:[AuthorizationGuard]} ,
+  {path: 'whislist-Table' , component : WhishlistTableComponent} ,  
   { path: '', redirectTo: 'accueil', pathMatch: 'full' }
 
 ]; 

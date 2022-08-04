@@ -60,7 +60,10 @@ export class AddToCartComponent implements OnInit {
           console.log(this.productAddedTocart);
           this.calculteAllTotal(this.productAddedTocart)
 
-    })}
+    })} else {
+          this.showToasterStop();
+
+    }
   }
   
   onRemoveQuantity(product:Product)
@@ -116,4 +119,11 @@ showToasterSuccess() {
   this.notifyService.showError(
     'Product Deleted !!' );
 }
+
+showToasterStop() {
+  this.notifyService.showError(
+    'Stock Limit !!' );
+    }
+
+
 }

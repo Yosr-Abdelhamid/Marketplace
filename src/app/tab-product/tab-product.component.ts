@@ -24,6 +24,7 @@ export class TabProductComponent implements OnInit {
   userDetails;
   listProduits =[];
   id:string ;
+  solde ;
 
   @ViewChild('paginator') paginator! : MatPaginator ;
   @ViewChild(MatSort) matSort! : MatSort;
@@ -36,16 +37,23 @@ export class TabProductComponent implements OnInit {
       res => {
         this.userDetails = res;
         this.id =  this.userDetails.id ;
+        this.userService.GetPortfeuille(this.userDetails.id).subscribe(
+          res => {
+            this.solde = res ;
+          }
+        );
         this.userService.getAllProducts(this.userDetails.id)
         .subscribe((response) => { 
          
           this.dataSource = new MatTableDataSource(response);
           this.dataSource.paginator = this.paginator;
           this.listProduits = response;
-      }
-    );
+          
+    
+    },
+    );  })
     //this.getAllProducts();
-  });}
+  }
   
   addData(){
     this.router.navigate(['dashboard-vendeur/add-product']);

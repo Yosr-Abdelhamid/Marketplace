@@ -86,7 +86,7 @@ export class CartService {
     return JSON.parse(localStorage.getItem('product'));
   }
   removeAllProductFromCart() {
-    return localStorage.removeItem("products");
+    return localStorage.removeItem('products');
   }
 /*   updateCartCount(count: number) {
     this.currentCartCount.next(count)

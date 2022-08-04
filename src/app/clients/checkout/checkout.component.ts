@@ -8,6 +8,7 @@ import { ProduitOrder } from 'src/app/models/ProduitOrder';
 import { NotificationService } from 'src/app/notification.service';
 import { AdminClientService } from '../admin-client.service';
 import { CartService } from '../services/cart.service';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -117,9 +118,10 @@ sendOrder(){
     commande.zip = (<HTMLInputElement>document.getElementById("zipCode")).value,
     commande.phone = (<HTMLInputElement>document.getElementById("phone")).value,
     commande.email = (<HTMLInputElement>document.getElementById("email")).value,
+    commande.dateCommande = formatDate(new Date(), 'yyyy-MM-dd', 'en'),
     commande.total = this.allTotal+7 ,
-    commande.produits= this.list
-    commande.payment = this.selectedRadio ,
+    commande.produits= this.list,
+    commande.payment = this.selectedRadio 
     
   this.service.AddOrder(commande).subscribe(result => {
     this.cartService.removeAllProductFromCart() ;

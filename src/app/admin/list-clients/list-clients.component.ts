@@ -34,7 +34,7 @@ listClients;
     this.router.navigate(['/accueil']);
   }
 
-  activate(item){
+  block(item){
     this.service.ActivateClient(item.id).subscribe(res => {
      this.showToasterSuccess() ;
      this.ngOnInit();
@@ -46,6 +46,6 @@ listClients;
    
    showToasterSuccess() {
      this.notifyService.showSuccess(
-       'This Account is Activated !!' );
+       'This Account is Blocked !!' );
        }
 }

@@ -157,3 +157,8 @@ tr{
   max-width: 100%;
   overflow: auto;
 }
+
+.commi{
+  color : gray ;
+  font-weight: bold;
+}

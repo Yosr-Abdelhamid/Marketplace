@@ -63,13 +63,28 @@
                     <div class="col-6 col-md-4 format">Payment Method</div>
                     <div class="col-6 col-md-4">{{order.payment}}</div>
                 </div>
+                <div class="row row-cols-2">
+                  <div class="col-6 col-md-4 format">Date of Order </div>
+                  <div class="col-6 col-md-4">{{order.dateCommande}}</div>
+              </div>
+                
+                <br>
+
+                <div class="row" *ngIf="order.delivred === 'Not mention'" >
+                  <div class="col-6 col-md-4 formatt">Delivery Status</div>
+                  <div class="col-6 col-md-4" style="font-size:18px;color:#d10024"><i class="fa fa-hourglass-2"></i> {{order.state}}</div>
+                 
+                 </div>
+
+                 <div class="row" *ngIf="order.delivred !== 'Not mention'" >
+                  <div class="col-6 col-md-4 formatt">Order Status</div>
+                  <div class="col-6 col-md-4 colstate"><button class="deli">{{order.delivred}}</button>
+                  </div>
+                 
+                 </div>
 
                 <br> 
-                <div class="row row-cols-2">
-                  <div class="col-6 col-md-4" *ngIf="order.delivred"><button class="deli">
-                    <i class="fa fa-check" style="color: green;"></i> Delivred</button>
-                  </div>
-              </div>
+               
 
                 <br> 
               </div>

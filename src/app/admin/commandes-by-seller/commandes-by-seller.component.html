@@ -25,7 +25,6 @@
     
     <li class="nav-item dropdown">
     <a class="nav-link" data-toggle="dropdown" href="#">
-  
     </a>
     </li>
     <li class="nav-item">
@@ -75,44 +74,44 @@
     
     <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false">
-        
+    
     <li class="nav-item">
-      <a routerLink="/dashboard-admin" class="nav-link ">
-        <i class="nav-icon fas fa-user-circle"></i>
+    <a routerLink="/dashboard-admin" class="nav-link">
+    <i class="nav-icon fas fa-user-circle"></i>
+    <p>
+    Sellers
+    </p>
+    </a>
+    </li>
+  
+    <li class="nav-item">
+    <a routerLink="/dashboard-admin/list-clients" class="nav-link">
+    <i class= "nav-icon fa fa-users"></i>
+    <p>
+  Clients
+    </p>
+    </a>
+    </li>
+    <li class="nav-item">
+        <a routerLink="/dashboard-admin/commision" class="nav-link">
+        <i class="nav-icon fa fa-money"></i>
         <p>
-        Sellers
+        Commissions
         </p>
         </a>
-        </li>
-      
-        <li class="nav-item">
-        <a routerLink="/dashboard-admin/list-clients" class="nav-link active">
-          <i class= "nav-icon fa fa-users"></i>
-        <p>
-      Clients
-        </p>
-        </a>
-        </li>
-
-        <li class="nav-item">
-          <a routerLink="/dashboard-admin/commision" class="nav-link">
-          <i class="nav-icon fa fa-money"></i>
-          <p>
-          Commissions
-          </p>
-          </a>
-      </li>
-      
-        <li class="nav-item">
-        <a routerLink="/dashboard-admin/list-produits" class="nav-link">
-          <i class="nav-icon fas fa-shopping-cart"></i>
+    </li>
+  
+    <li class="nav-item">
+    <a routerLink="/dashboard-admin/list-produits" class="nav-link">
+      <i class="nav-icon fas fa-shopping-cart"></i>
     <p>
    Products
     </p>
     </a>
     </li>
+
     <li class="nav-item" ngbDropdown>
-      <a  class="nav-link" ngbDropdownToggle aria-haspopup="true" id="dropdownBasic1" aria-expanded="false"
+      <a  class="nav-link active" ngbDropdownToggle aria-haspopup="true" id="dropdownBasic1" aria-expanded="false"
         style="color:#6C757D ;font-size:16px"
        role="button"><i class="nav-icon fa fa-shopping-basket"></i><p>Orders</p></a>
       <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
@@ -146,88 +145,27 @@
     <div class="row mb-2">
     <div class="col-sm-6">
       <nav class="nav nav-borders">
-        <a class="nav-link active ms-0" target="__blank"> List Of Clients</a>
+        <a class="nav-link active ms-0" target="__blank"> Orders Per Sellers</a>
        
     </nav>
     </div>
     <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item active">Clients</li>
+    <li class="breadcrumb-item active">Orders Per Sellers</li>
     </ol>
     </div>
     </div>
     </div>
     </div>
+  
     <section class="content">
     <div class="container-fluid">
-      <section class="example-container mat-elevation-z8" tabindex="0">
-        <table mat-table [dataSource]="dataSource">
-      
-          <!-- Position Column -->
-          <ng-container matColumnDef="rowIndex">
-            <th mat-header-cell  *matHeaderCellDef> No. </th>
-            <td mat-cell *matCellDef="let element;index as i;"> {{i+1}} </td>
-          </ng-container>
-      
-          <!-- Name Column -->
-          <ng-container matColumnDef="nom">
-            <th mat-header-cell *matHeaderCellDef> First Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
-          </ng-container>
-      
-          <!-- Weight Column -->
-          <ng-container matColumnDef="prenom">
-            <th mat-header-cell *matHeaderCellDef> Last Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
-          </ng-container>
-      
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> Email </th>
-            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-          </ng-container>
 
-          <ng-container matColumnDef="adresse">
-            <th mat-header-cell *matHeaderCellDef> Address </th>
-            <td mat-cell *matCellDef="let element"> {{element.adresse}} </td>
-          </ng-container>
 
-          <ng-container matColumnDef="num_Telephone">
-            <th mat-header-cell *matHeaderCellDef> Number Phone </th>
-            <td mat-cell *matCellDef="let element"> {{element.num_Telephone}} </td>
-          </ng-container>
-      
-          <ng-container matColumnDef="zipCode">
-            <th mat-header-cell *matHeaderCellDef> Zip Code </th>
-            <td mat-cell *matCellDef="let element"> {{element.zipCode}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef class="sticky"> </th>
-          <td mat-cell *matCellDef="let item of listClients">
-            
-            <button mat-raised-button *ngIf="item.isActived;else other_content" class="desactive-button" (click)="block(item)">Block it ! </button>
-            <ng-template #other_content> <span class="text-muted">Blocked! </span> </ng-template>
-           
-           
-          
-          </td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-      </section>
-      
-  </div>
-  
-  </section> 
-  
-  </div>
-  
-  </div>
-  
-  </section>
-  
+    </div>
+    </section>
+    </div>
+</div>
+</section>
 

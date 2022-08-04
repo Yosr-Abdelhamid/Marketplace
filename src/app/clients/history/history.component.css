@@ -13,6 +13,13 @@ th {
     font-family:Georgia, 'Times New Roman', Times, serif ;
     margin-bottom: 5px;
 }
+.formatt {
+    font-size: 17px;
+    font-weight: 700;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    margin-bottom: 5px;
+}
+
 .des {
     font-size: 20px;
     font-weight: 600;
@@ -22,7 +29,7 @@ th {
     font-weight: 700;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
     background-color: transparent;
-    border: 2px solid green;
+    border: 2px solid #d10024;
 
     
    

@@ -3,8 +3,14 @@
         <br>
         <div class="card card-4">
             <div class="card-body">
-                <h2 class="title">Registration Form</h2>
+                <mat-stepper linear #stepper>
+             
+                <mat-step [stepControl]="registerForm" [editable]="isEditable">
+                        
+                <!--h2 class="title">Registration Form</h2-->
+
                 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <ng-template style="font-size : 18px ;font-weight: 600 ;" matStepLabel>Seller Informations</ng-template>
                     <div class="login-form">                     
                         <div class="row">
                             <div class="col-md-6 col-12 mb-20">
@@ -66,7 +72,7 @@
                             <div class="col-12 mb-20">
                                 <label>Password</label>
                                 <input matInput class="mb-0" type="password" placeholder="Password" formControlName="MotDePasse"> 
-                                <mat-error *ngIf="!registerForm.get('MotDePasse')?.errors?.required  && (registerForm.get('MotDePasse')?.errors?.pattern)">
+                                <mat-error *ngIf="!registerForm.get('MotDePasse')?.errors?.required && (registerForm.get('MotDePasse')?.errors?.pattern)">
                                     Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters
                                 </mat-error>
                                 <mat-error *ngIf="registerForm.get('MotDePasse')?.invalid && (registerForm.get('MotDePasse')?.dirty || registerForm.get('MotDePasse')?.touched) && registerForm.get('MotDePasse')?.errors?.required">
@@ -76,14 +82,91 @@
                             <br>
                             <br>
                             <div class="col-md-12">
-                                <button type="submit" data-dismiss="modal" [disabled]="!registerForm.valid" class="register-button btn-lg btn-block">Register</button>
+                                <!--button type="submit" data-dismiss="modal" [disabled]="!registerForm.valid" class="register-button btn-lg btn-block">Register</button-->
+                                <div>
+                                    <br>
+                                    <button mat-raised-button [disabled]="!registerForm.valid" style="float:right ; background-color: #65ba7d;"  matStepperNext>Continue <i class="fa fa-arrow-right"></i></button>
+                                  </div>
                            
-                            <app-alert></app-alert>
                             </div>
                            
                         </div>
                     </div>
                 </form>
+                </mat-step>
+                <mat-step [stepControl]="BillingForm" [editable]="isEditable">
+                    <form [formGroup]="BillingForm" (ngSubmit)="onSubmit()">
+                
+                    <ng-template style="font-size : 18px ;font-weight: 600 ;" matStepLabel>Set up Billing</ng-template>
+                    
+                    <br> <br> 
+                    <h5 class="text-center" style="color: #c9bdbd;"> Let us Know how you'd like to pay your Marketplace bill</h5>
+                    <br> <br>
+                    <div class="row" style="height: 45px !important;">
+                        <div class="col-6 col-md-4"><label style="margin-top: 8px; font-size: 18px;">Card Number :</label> 
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-8"><input matInput class="input-text" type="text" formControlName="numberCard" placeholder=" Card Number">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6 col-md-4"><label style="margin-top: 8px; font-size: 18px;">Expiration Date :</label> 
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-8"><mat-form-field color="accent" appearance="fill">
+                            <mat-label>Select Expiration Date</mat-label>
+                            <input matInput [matDatepicker]="picker1" formControlName="Exprdate">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" style="height: 45px !important;">
+                        <div class="col-6 col-md-4"><label style="margin-top: 8px; font-size: 18px;">Card Name :</label> 
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-8"><input matInput class="input-text" type="text" formControlName="CartName" placeholder=" Card Name">
+                        </div>
+                    </div>
+                    <br> <br>
+                    <div class="row">
+                        <div class="alert alert-warning" role="alert">
+                            <i class="fa fa-exclamation-triangle"> We notified you have to pay 10 DT as registration fees to activate 
+                            your account  </i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="checkTerme">
+                            <label class="form-check-label" for="exampleCheck1">Check here to indicate that you have read and agree to the terms of Our Marketplace Seller Agreement</label>
+                          </div>
+                    </div>
+                    <br>
+                    <button mat-raised-button [disabled]="!BillingForm.valid" style="float:right ; background-color: #65ba7d;" (click)="onSubmit()" matStepperNext>Continue <i class="fa fa-arrow-right"></i></button>
+                    <app-alert></app-alert>
+                </form>
+                </mat-step>
+                <mat-step [editable]="isEditable">
+                    <ng-template matStepLabel>Validation </ng-template>
+                    <br> <br>
+                    <div class="text-center">
+                        <div class="success-marker">
+                            <i class="fa fa-check-circle" style="color: green; font-size: 48px;"></i>
+                        </div>
+                        <br>
+                        <div class="success-text">
+                            <h2 class="sample-step-title">Please check your email to confirm your registration ! 
+                                </h2>
+                            <p>In this time, We will check your Bank account .</p>
+                            <p>Go to <a routerLink="/login"> Login Page </a></p>
+                        </div>
+                    </div>
+                
+                </mat-step>
+                
+
+                </mat-stepper>
             </div>
         </div>
         <br>

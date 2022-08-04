@@ -6,5 +6,8 @@ export class Register {
     Num_Telephone: string ="";
     ZipCode: number;
     Organization : string ="";
+    CartNumber:string="";
+    expireDate:string= "";
+    CartName:string="";
     MotDePasse : string ="";
 }

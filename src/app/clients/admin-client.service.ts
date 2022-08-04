@@ -145,6 +145,23 @@ export class AdminClientService {
     return this.http.get<any[]>(this.baseUrl + 'GetOrder')  
   } 
 
+  GetCommission():Observable<any[]>  { 
+  
+    return this.http.get<any[]>(this.baseUrl + 'GetCommission')  
+  } 
+
+  updateCommission(data: FormData){
+    return this.http.put(this.baseUrl+'UpdateCommission',data);
+  }
+
+  public GetCommissionByCategorie(categorie: string):Observable<any[]>{
+    let params = new HttpParams()
+    .set('categorie', categorie)
+    
+    return this.http.get<any[]>(this.baseUrl + 'GetCommisionByCategorie' , {params})  
+    }
+
+
   public GetOrderByStore(organization: string):Observable<any[]>{
     let params = new HttpParams()
     .set('organization', organization)
@@ -181,6 +198,11 @@ export class AdminClientService {
       return this.http.post(this.baseUrl + 'UpdateOrder' , {id})
   }
 
+  DelivredOrder(id: string){
+
+    return this.http.post(this.baseUrl + 'DelivredOrder' , {id})
+}
+
   GetContact():Observable<any[]>  { 
   
     return this.http.get<any[]>(this.baseUrl + 'GetContact')  
@@ -204,4 +226,17 @@ export class AdminClientService {
   resetPassword(requestPass: PasswordReset) {
     return this.http.post(this.baseUrl+  'reset-password-user',requestPass);
 }
+
+updateCommande(data: FormData){
+  return this.http.put(this.baseUrl+'UpdateOrder',data);
+}
+
+DelivredCommande(data: FormData){
+  return this.http.put(this.baseUrl+'DelivredOrder',data);
+}
+
+RejectedCommande(data: FormData){
+  return this.http.put(this.baseUrl+'RejectedOrder',data);
+}
+
 }

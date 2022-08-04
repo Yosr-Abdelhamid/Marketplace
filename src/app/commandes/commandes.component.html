@@ -22,6 +22,15 @@
     </ul>
     
     <ul class="navbar-nav ml-auto">
+
+      <li class="nav-item dropdown" *ngIf="solde">
+        <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/sold">
+        <i class="fa fa-credit-card" style="font-size: 22px;"></i>
+        <span class="badge navbar-badge" style="color:#dc3545 ; font-size:14px ; font-weight: bold;margin-top: 19px;
+        margin-right: -15px">{{solde.sold | number}}DT</span>
+        </a>
+        </li>
+        <li></li>
     
     <li class="nav-item dropdown">
     <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/notifications">
@@ -144,6 +153,7 @@
           <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionExample" #collapseOne>
             <div class="accordion-body">
                 <div class="container">
+                  <div id="collapseOneShow" class="text">
                     <div class="row row-cols-2">
                         <div class="col-6 col-md-4 format">Client Name </div>
                         <div class="col-6 col-md-4">{{order.name}} {{order.lastName}}</div>
@@ -195,14 +205,32 @@
                         <div class="col-6 col-md-4 format">Payment Method</div>
                         <div class="col-6 col-md-4">{{order.payment}}</div>
                     </div>
-                    <br> 
-                    <mat-card-actions style="float:right ;">
-                      <input type="checkbox" class="btn-check" id="btn-check-2-outlined" autocomplete="off" [checked]="checked" [ngModel]="checked" (click)="delivred(order)">
-                      <label class="btn btn-outline-success" for="btn-check-2-outlined"><i class="fa fa-check"></i> Delivered</label>
-                    <input type="button" value="Download PDF" class="btn btn-success"  style="margin-left: 5px; margin-bottom: 6px;" (click)="SavePDF()">
-                    </mat-card-actions>
-                    <br> <br>
+                    <br>
+                    <div class="row row-cols-2">
+                      <div class="col-6 col-md-4 format">Date of Order </div>
+                      <div class="col-6 col-md-4">{{order.dateCommande}}</div>
                   </div>
+
+                    <div class="row" *ngIf="order.delivred === 'Not mention'" >
+                      <div class="col-6 col-md-4 format">Delivery Status</div>
+                      <div class="col-6 col-md-4 colstate"><i class="fa fa-hourglass-2"></i>{{order.state}}</div>
+                      <div class="col-6 col-md-4"><button mat-raised-button *ngIf="order.state === 'Pending'" (click)="deliver(order)" class="btn btn-success">Deliver Now!</button></div>
+                  </div>
+                  </div>
+                    <br> 
+                    <div>
+                      <h4>Order Status: </h4>
+                      <div>
+                     
+                    <button mat-raised-button *ngIf="order.delivred === 'Not mention';else other_content" class="btn btn-success" style="margin-right: 5px;" (click)="delivred(order)"> <i class="fa fa-check"></i>Delivered</button>
+                    <ng-template #other_content> <span style="font-size:18px;font-weight:600 ; color:#d10024;">{{order.delivred}} </span> </ng-template>
+                    <button mat-raised-button *ngIf="order.delivred === 'Not mention'" class="btn btn-danger" (click)="rejected(order)"><i class="fa fa-remove"></i>Rejected</button>
+                  </div>
+                      <!--label class="btn btn-outline-success" for="btn-check-2-outlined"><i class="fa fa-check"></i> Delivered</label-->
+                    <input type="button" value="Download PDF" class="btn btn-light"  style="float: right; margin-bottom: 6px;" (click)="SavePDF()">
+                  </div>
+                    <br> <br>
+                </div>
             </div>
           </div>
         </div>

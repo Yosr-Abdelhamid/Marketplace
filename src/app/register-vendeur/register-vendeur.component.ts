@@ -52,11 +52,12 @@ export class RegisterVendeurComponent implements OnInit {
         });
 
         this.BillingForm =  new FormGroup({
+
+          Namecart:new FormControl('', [Validators.required]),
           numberCard:new FormControl('', [Validators.required]),
           Exprdate:new FormControl('', [Validators.required]),
-          CartName:new FormControl('', [Validators.required]),
           checkTerme:new FormControl('', [Validators.required])
-        })
+        });
  
 }
 onSubmit(){
@@ -68,23 +69,16 @@ onSubmit(){
   register.Num_Telephone =this.registerForm.value.Num_Telephone,
   register.ZipCode=this.registerForm.value.ZipCode,
   register.Organization=this.registerForm.value.Organization,
+  register.CartName=this.BillingForm.value.Namecart,
   register.CartNumber=this.BillingForm.value.numberCard,
   register.expireDate=this.BillingForm.value.Exprdate,
-  register.CartName=this.BillingForm.value.CartName,
   register.MotDePasse=this.registerForm.value.MotDePasse,
-
-  console.log(this.BillingForm.value.Exprdate);
-  console.log(this.BillingForm.value.CartName);
 
  this.loginService.Signup(register).pipe(first())
     .subscribe({
     next: () => {
-        /* this.alertService.success('Registration successful, please check your email for verification instructions');
-        setTimeout(() => {
-          this.router.navigate(['/login']);
-          }, 4000);
-        //this.closeDialog();
-        this.myStepper.next();*/
+        this.alertService.success('Registration successful, please check your email for verification instructions');
+        
     }, 
     error: error => {
       if (error.status == 400) {

@@ -1,0 +1,43 @@
+<button type="button" class="close text-end" mat-dialog-close>
+    <span  aria-hidden="true">x</span>
+    </button>
+  <h2>Orders</h2>
+<div class="example-container">
+<div class="card" *ngFor="let order of orders ; let i=index">
+    <div class="card-body">
+        <h6 style="color:rgb(78, 114, 190);">Order N°{{i+1}}</h6>
+        <div class="row row-cols-2">
+            <div class="col-6 col-md-4 format">Order Date </div>
+            <div class="col-6 col-md-4">{{order.dateCommande}}</div>
+        </div>
+        <div class="row row-cols-2">
+            <div class="col-6 col-md-4 format">Order State </div>
+            <div class="col-6 col-md-4">{{order.delivred}}</div>
+        </div>
+        <br>
+        <table class="table-bordered">
+            <thead style="background-color: rgb(221, 219, 219);">
+              <tr>
+                <th scope="col" style="font-weight:500;padding-left: 10px;padding-right: 10px;"> Reference</th>
+                <th scope="col" style="font-weight:500;padding-left: 10px;padding-right: 10px;"> Prix</th>
+              
+              </tr>
+            </thead>
+               <tbody>
+                 <tr *ngFor="let prod of order.produits;" ng-init="$parent.total=total+prod.prix">
+                   <td style="font-size:14px ;padding-left: 10px;padding-right: 10px;">{{prod.reference}}</td>
+                   <td style="padding-left: 10px;padding-right: 10px;">{{prod.prix}} DT</td>
+                 </tr>
+                 <tr>
+                    <td class="bord">Total</td>
+                    <td class="bordd" [(ngModel)]="inputfile">{{getTotal(order.produits)}} DT </td>
+                 </tr>
+                 <tr>
+               </tbody>
+           </table>
+          <br>
+          <button mat-raised-button class="btn-success" style="float: right;"(click)="opendialog(order)">Procees to payment</button>
+   
+</div>
+</div>
+</div>                        

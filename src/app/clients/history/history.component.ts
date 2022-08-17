@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AdminClientService } from '../admin-client.service';
 
 @Component({
@@ -28,8 +29,7 @@ export class HistoryComponent implements OnInit {
    
     }) ;
      
-
-    
   }
+ 
 
 }

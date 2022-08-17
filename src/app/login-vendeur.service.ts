@@ -205,4 +205,9 @@ updatePortfeuille(data: FormData){
   return this.http.put(this.Url+'UpdateSold',data);
 }
 
+getPocketSeller(){
+  const httpOptions  = {headers: new HttpHeaders({ 'Content-Type': 'application/json' }),withCredentials: true
+     };
+  return this.http.get<any[]>(this.Url + 'GetPocketSeller' , httpOptions)
+}
 }

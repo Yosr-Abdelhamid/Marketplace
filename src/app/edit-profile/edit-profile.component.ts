@@ -81,7 +81,7 @@ export class EditProfileComponent implements OnInit {
     formData.append("ZipCode" , (<HTMLInputElement>document.getElementById("ZipCode")).value);
     formData.append("Organization" , (<HTMLInputElement>document.getElementById("Organization")).value);
     this.userService.UpdateProfile(formData).subscribe(result => {
-      this.alertService.success('Product updated with success !')
+      this.alertService.success('Informations are updated with success !')
     }); 
     
   }

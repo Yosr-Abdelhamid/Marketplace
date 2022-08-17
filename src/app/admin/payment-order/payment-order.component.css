@@ -1,0 +1,12 @@
+.coll{
+    background-color: rgb(228, 228, 222);
+    border: 2px solid rgb(184, 184, 179); ;
+}
+.text-center {
+    align:center
+}
+.toast-top-center {
+    top: 12px;
+    left:50%;
+    margin:0 0 0 -150px;
+}

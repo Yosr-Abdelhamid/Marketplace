@@ -52,6 +52,7 @@ import { HistoryComponent } from './clients/history/history.component';
 import { CommissionComponent } from './admin/commission/commission.component';
 import { PocketComponent } from './pocket/pocket.component';
 import { CommandesBySellerComponent } from './admin/commandes-by-seller/commandes-by-seller.component';
+import { LoginCompteUserComponent } from './clients/login-compte-user/login-compte-user.component';
 
 export const routes: Routes = [ 
   { path: 'accueil', component : AccueilComponent }, 
@@ -105,7 +106,8 @@ export const routes: Routes = [
   {path:'compte-client/fridges' , component : FridgeComponent ,canActivate:[AuthorizationGuard]} ,
   {path:'compte-client/air-conditoner' , component : ClimaComponent ,canActivate:[AuthorizationGuard]} ,
   {path:'compte-client/scanners' , component : ScannerComponent ,canActivate:[AuthorizationGuard]} ,
-  {path: 'whislist-Table' , component : WhishlistTableComponent} ,  
+  {path: 'whislist-Table' , component : WhishlistTableComponent} ,
+  {path:'Login-registerUser' , component :LoginCompteUserComponent} ,
   { path: '', redirectTo: 'accueil', pathMatch: 'full' }
 
 ]; 

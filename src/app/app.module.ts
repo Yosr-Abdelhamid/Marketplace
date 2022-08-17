@@ -24,7 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AccueilComponent } from './accueil/accueil.component';
 import { FooterComponent } from './footer/footer.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule,MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {MatRadioModule} from '@angular/material/radio';
@@ -97,6 +97,10 @@ import { HistoryComponent } from './clients/history/history.component';
 import { CommissionComponent } from './admin/commission/commission.component';
 import { PocketComponent } from './pocket/pocket.component';
 import { CommandesBySellerComponent } from './admin/commandes-by-seller/commandes-by-seller.component';
+import { EditProfileClientComponent } from './clients/edit-profile-client/edit-profile-client.component';
+import { LoginCompteUserComponent } from './clients/login-compte-user/login-compte-user.component';
+import { ViewOrderComponent } from './admin/view-order/view-order.component';
+import { PaymentOrderComponent } from './admin/payment-order/payment-order.component';
 
 
 
@@ -164,6 +168,10 @@ export function tokenGetter() {
     CommissionComponent,
     PocketComponent,
     CommandesBySellerComponent,
+    EditProfileClientComponent,
+    LoginCompteUserComponent,
+    ViewOrderComponent,
+    PaymentOrderComponent,
    
   ],
   imports: [

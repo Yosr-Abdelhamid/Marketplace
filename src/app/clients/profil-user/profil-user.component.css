@@ -274,6 +274,7 @@ label:hover {
 .button-demo{
     background:rgb(212, 211, 211);
     margin-left: 94px;
-    width: 75px;
+    margin-left: 355px;
+    margin-top: 5px;
    
 }

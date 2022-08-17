@@ -1,0 +1,66 @@
+<div class="modal-content">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()"> 
+        <div class="login-form">                 
+        <div class="row" *ngIf ="profile;">
+            
+                <button type="button" class="close text-end" data-dismiss="modal" mat-dialog-close>
+                <span  aria-hidden="true">x</span>
+                </button>
+            
+                            <div class="row">        
+                            <div class="col">
+                            <label>First Name</label>
+                            <input matInput type="text" placeholder="First Name" id ="Nom"  value={{profile.nom}}>
+                           
+                            </div>
+                            <div class="col">
+                            
+                                <label>LastName Name</label>
+                                <input matInput type="text" placeholder="Last Name" required id="Prenom" value={{profile.prenom}}>
+                            </div>
+                            </div>
+    
+                            <div class="row">
+                            <div class="col">
+                               
+                                <label>Email Address*</label>
+                                <input matInput class="mb-0" type="email" placeholder="Email Address"  value={{profile.email}} id="Email">
+                            
+                            </div>
+                            <div class="col">
+                             
+                                <label>Address*</label>
+                                <input matInput class="mb-0" type="text" placeholder="Address" value={{profile.adresse}} id="Adresse">
+                            </div>
+                            </div>
+                       
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-20">
+                                <label>Phone</label>
+                                <input matInput class="mb-0" type="text" placeholder="Phone" id="Num_Telephone" value={{profile.num_Telephone}}>
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                <label>Zip Code</label>
+                                <input class="mb-0" type="text" placeholder="Zip Code" id="ZipCode" value={{profile.zipCode}}>
+                                
+                            </div>
+                        </div>
+                            <br>
+                            <div class="demo-button-container text-left">
+                                <br>
+                                <button mat-raised-button  (click)="onSubmit()" class="demo-button pp">
+                                  Save
+                                </button>
+                                <button mat-raised-button class="demo-button">
+                                   Clear
+                                  </button>
+                              </div>
+                            <app-alert></app-alert>
+                            
+                           
+        </div>
+        </div>           
+    </form>
+    </div>
+     

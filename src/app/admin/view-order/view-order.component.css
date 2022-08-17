@@ -1,0 +1,32 @@
+.example-container {
+    height: 440px;
+    max-width: 100%;
+    overflow: auto;
+  }
+  .rotate {
+    animation: rotation 8s infinite linear;
+  }
+  
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+.inp {
+  width:100px;
+  border: transparent;
+}
+.bord {
+  font-weight:500;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: 2px solid black;
+}
+.bordd{
+  padding-left: 10px;
+  color:red;
+  border-top: 2px solid black;
+}

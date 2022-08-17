@@ -115,3 +115,37 @@ th {
     font-size: 20px;
     font-weight: 600;
 }
+.example-container {
+    height: 800px;
+    max-width: 100%;
+    overflow: auto;
+  }
+.card {
+    margin-top: 10px;
+    margin-bottom: 80px;
+    height:auto;
+}
+.under{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: #6583ac;
+    font-weight: 400;
+}
+.desig{
+    background-color: #8fe0aa !important;
+    height: 50px;
+    padding-left: 5px;
+}
+.bout {
+    background-color: #ffffff ;
+    border: 5px solid #87D37C;
+}
+th,td{
+    padding-left: 7px;
+}
+.dialog-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

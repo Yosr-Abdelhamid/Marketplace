@@ -1,0 +1,33 @@
+<h4>Commission Details</h4>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6 col-md-4 format">Commission </div>
+            <div class="col"> <input class="inp" placeholder="10% * Total" value ={{commission}} disabled>
+                <button (click)="apply()" class="coll" style="padding-left:5px ;" >Calculate!
+                    <i class="fa fa-calculator rotate"></i></button>
+            </div>
+            <br>
+            <br>
+            
+            <div *ngIf="getOrde" class="text-center">
+            <button mat-raised-button *ngIf="getOrde.payed === 'Not paid';else other_content" class="btn-danger" (click)="Applycomm()">Apply Commission</button>
+            <ng-template #other_content> <span style="font-size:16px;font-weight:500 ; color:#d10024">{{getOrde.payed}} on {{getOrde.datepayed}} </span> </ng-template>
+            <app-alert></app-alert>
+        </div>
+          
+
+        
+        </div>
+    
+<!-- <div *ngIf="getOrde">
+    <button mat-raised-button *ngIf="getOrde.payed === 'Not paid';else other_content" class="btn-success" style="float: right;width:130px;padding-left:5px" (click)="Applycomm(order)">Apply Commission</button>
+    <ng-template #other_content> <span style="font-size:18px;font-weight:600 ; color:#d10024; float:right">{{getOrde.payed}} </span> </ng-template>
+   </div>
+
+    <td style="font-weight:500;padding-left: 10px;padding-right: 10px;">Calculate Commission</td>
+                  <td><input class="inp" placeholder="10% * Total" value ={{commission}}><a (click)="apply(order)" style="padding-left: 5px;padding-right:5px"><i class="fa fa-calculator rotate"></i></a>
+                 </td> -->
+
+</div>
+</div>

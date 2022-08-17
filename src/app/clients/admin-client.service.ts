@@ -6,7 +6,9 @@ import { CategoryProduct } from '../models/CategoryProduct';
 import { Commande } from '../models/Commande';
 import { Contact } from '../models/Contact';
 import { ContactRequest } from '../models/ContactRequest';
+import { mailrequest } from '../models/mailrequest';
 import { PasswordReset } from '../models/PasswordReset';
+import { PayedOrder } from '../models/PayedOrder';
 import { ProductResult } from '../models/ProductResult';
 import { RequestCategory } from '../models/RequestCategory';
 import { RequestProduct } from '../models/RequestProduct';
@@ -76,7 +78,9 @@ export class AdminClientService {
     return this.http.get(this.baseUrl + 'GetClientProfile' , {headers: headers}) 
   }
 
-
+  UpdateProfile(data: FormData){
+    return this.http.put(this.baseUrl+'UpdateClientProfile' , data) ;
+  }
 
   public getAllClients() {
     let userInfo = JSON.parse(localStorage.getItem("userInf")) ;
@@ -177,6 +181,19 @@ export class AdminClientService {
       return this.http.get<any[]>(this.baseUrl + 'GetOrderByEmail' , {params})  
       }
 
+  public GetOrdersBySeller():Observable<any[]>  { 
+  
+        return this.http.get<any[]>(this.baseUrl + 'GetOrderBySeller')  
+      } 
+
+
+  public GetOrderPayed(id : string , id_v : string):Observable<any[]>  {
+    let params = new HttpParams()
+    .set('id', id)
+    .set('id_v',id_v) 
+  
+    return this.http.get<any[]>(this.baseUrl + 'GetOrderPayed' , {params})  
+  } 
 
   AddContact(contact:Contact)  { 
     const httpOptions  = {headers: new HttpHeaders({ 'Content-Type': 'application/json' }),withCredentials: true
@@ -202,6 +219,7 @@ export class AdminClientService {
 
     return this.http.post(this.baseUrl + 'DelivredOrder' , {id})
 }
+
 
   GetContact():Observable<any[]>  { 
   
@@ -239,4 +257,27 @@ RejectedCommande(data: FormData){
   return this.http.put(this.baseUrl+'RejectedOrder',data);
 }
 
+PayedOrder(data: FormData){
+  return this.http.put(this.baseUrl +'PayedOrder',data)
+}
+
+
+  AddOrderPayed(payed : PayedOrder) { 
+    const httpOptions  = {headers: new HttpHeaders({ 'Content-Type': 'application/json' }),withCredentials: true
+     };
+    
+    return this.http.post(this.baseUrl + 'AddOrderSellerPayed', payed , httpOptions)  
+  }
+
+OrderSellerPayed(data: FormData){
+  return this.http.put(this.baseUrl +'OrderSellerPayed',data)
+}
+
+
+SendNotifEmail(request:mailrequest){  
+
+  const httpOptions  = {headers: new HttpHeaders({ 'Content-Type': 'application/json' }),withCredentials: true
+   };
+  return this.http.post(this.baseUrl+ 'NotifSeller' ,request, httpOptions);
+}
 }

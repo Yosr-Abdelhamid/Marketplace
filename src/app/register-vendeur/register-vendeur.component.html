@@ -6,10 +6,8 @@
                 <mat-stepper linear #stepper>
              
                 <mat-step [stepControl]="registerForm" [editable]="isEditable">
-                        
-                <!--h2 class="title">Registration Form</h2-->
 
-                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="registerForm">
                     <ng-template style="font-size : 18px ;font-weight: 600 ;" matStepLabel>Seller Informations</ng-template>
                     <div class="login-form">                     
                         <div class="row">
@@ -95,7 +93,7 @@
                 </form>
                 </mat-step>
                 <mat-step [stepControl]="BillingForm" [editable]="isEditable">
-                    <form [formGroup]="BillingForm" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="BillingForm">
                 
                     <ng-template style="font-size : 18px ;font-weight: 600 ;" matStepLabel>Set up Billing</ng-template>
                     
@@ -108,6 +106,7 @@
                         <div class="col-12 col-sm-6 col-md-8"><input matInput class="input-text" type="text" formControlName="numberCard" placeholder=" Card Number">
                         </div>
                     </div>
+                  
                     <br>
                     <div class="row">
                         <div class="col-6 col-md-4"><label style="margin-top: 8px; font-size: 18px;">Expiration Date :</label> 
@@ -126,9 +125,10 @@
                     <div class="row" style="height: 45px !important;">
                         <div class="col-6 col-md-4"><label style="margin-top: 8px; font-size: 18px;">Card Name :</label> 
                         </div>
-                        <div class="col-12 col-sm-6 col-md-8"><input matInput class="input-text" type="text" formControlName="CartName" placeholder=" Card Name">
+                        <div class="col-12 col-sm-6 col-md-8"><input matInput class="input-text" type="text" formControlName="Namecart" placeholder=" Card Name">
                         </div>
                     </div>
+                  
                     <br> <br>
                     <div class="row">
                         <div class="alert alert-warning" role="alert">

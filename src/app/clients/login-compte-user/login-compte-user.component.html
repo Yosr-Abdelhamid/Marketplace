@@ -1,0 +1,134 @@
+<div class="page-wrapper bg-gra-02">
+    <div class="wrapper wrapper--w680">
+        <br>
+<div class="section">
+    <div class="container">
+        <div class="row full-height justify-content-center">
+            <div class="col-12 text-center align-self-center py-5">
+                <div class="section pb-3 pt-5 pt-sm-2 text-center">
+                    <h6 class="mb-0 pb-2"><span>Log In </span><span>Sign Up</span></h6>
+                      <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+                      <label for="reg-log"></label>
+                    <div class="card-3d-wrap mx-auto">
+                        <div class="card-3d-wrapper">
+                            <div class="card-front">
+                                <div class="center-wrap">
+                                    <div class="section text-center">
+                                        <img src="./assets/images/login.png"  class="imageclass"style="width: 70px ; height: 70px">
+                                        <br>
+                                        <h4 class="mb-4 pb-3">Log In</h4>
+                                        <form [formGroup]="loginForm">
+                                        <div class="form-group">
+                                            <input matInput type="email" [(ngModel)]="model.email" class="form-style" placeholder="Your Email" formControlName="email">
+                                            <i class="input-icon fa fa-envelope"></i>
+                                            <mat-error *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
+                                                Please enter a valid email address
+                                            </mat-error>
+                                            <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
+                                                Email is required
+                                            </mat-error>
+                                        </div>	
+                                        <div class="form-group mt-2">
+                                            <input type="password" [type]="showPassword ? 'text' : 'password'"
+                                             class="form-style" placeholder="Your Password" [(ngModel)]="model.motDePasse" formControlName="motDePasse">
+                                            <i class="input-icon fa fa-unlock-alt"></i>
+                                            <i class="far fa-eye fa-1x" id="togglePassword"
+                                                (click)="showPassword = !showPassword"
+                                                [class.hide]="showPassword" 
+                                                style="margin-left: -21px ; cursor: pointer;"></i>
+                                            <mat-error *ngIf="loginForm.get('motDePasse')?.invalid && (loginForm.get('motDePasse')?.dirty || loginForm.get('motDePasse')?.touched) && loginForm.get('motDePasse')?.errors?.required">
+                                                    Password is required
+                                            </mat-error>
+                                        </div>
+                                        <button  class="btn mt-4" (click)="Loginn()">Login</button>
+                                        <p class="mb-0 mt-4 text-center"><button (click)="openDialog()" class="link">Forgot your password?</button></p>
+                                        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+                                        <app-alert></app-alert>    
+                                    </form>
+                                      </div>
+                                  </div>
+                              </div>
+                            <div class="card-back">
+                                <div class="center-wrapp">
+                                    <div class="section text-center">
+                                        <h4 class="mb-3 mt-2 pb-1">Sign Up</h4>
+                                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                        <div class="form-group">
+                                        <div class="row">
+                                            <div class="col">
+                                            <input matInput type="text" name="Nom" class="form-stylee" placeholder="First Name" formControlName="Nom" required>
+                                            <i class="input-icon fas fa-user-circle"></i>
+                                            <mat-error *ngIf="registerForm.get('Nom')?.invalid && (registerForm.get('Nom')?.dirty || registerForm.get('Nom')?.touched) && registerForm.get('Nom')?.errors?.required">
+                                                FirstName is required
+                                            </mat-error></div>
+
+                                            <div class="col">
+                                            <input matInput type="text" name="Prenom" class="form-stylee" placeholder="Last Name" required formControlName="Prenom">
+                                            <i class="input-icon fas fa-user-circle"></i>
+                                            <mat-error *ngIf="registerForm.get('Prenom')?.invalid && (registerForm.get('Prenom')?.dirty || registerForm.get('Prenom')?.touched) && registerForm.get('Prenom')?.errors?.required">
+                                                Last Name is required
+                                            </mat-error></div>
+                                        </div>
+                                        </div>	
+                                        <div class="form-group mt-1">
+                                            <div class="row mb-2">
+                                            <div class="col">
+                                            <input type="text" name="Adresse" class="form-stylee" placeholder="Your Address"  formControlName="Adresse">
+                                            <i class="input-icon fa fa-map-marker"></i>
+                                            <mat-error *ngIf="registerForm.get('Adresse')?.invalid && (registerForm.get('Adresse')?.dirty || registerForm.get('Adresse')?.touched) && registerForm.get('Adresse')?.errors?.required">
+                                                Address is required
+                                            </mat-error>
+                                            </div>
+                                            <div class="col">
+                                                <input matInput type="text" name="Num_Telephone" class="form-stylee" placeholder="Your Phone" formControlName="Num_Telephone">
+                                            <i class="input-icon fa fa-phone"></i>
+                                            <mat-error *ngIf="registerForm.get('Num_Telephone')?.invalid && (registerForm.get('Num_Telephone')?.dirty || registerForm.get('Num_Telephone')?.touched) && registerForm.get('Num_Telephone')?.errors?.required">
+                                                Phone is required
+                                            </mat-error></div>
+                                        </div>	
+                                        </div>
+                                        <div class="form-group mt-1">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                            <input matInput type="number" name="ZipCode" class="form-stylee" placeholder="Your Zip Code" formControlName="ZipCode">
+                                            <i class="input-icon fa fa-info-circle"></i>
+                                            <mat-error *ngIf="registerForm.get('ZipCode')?.invalid && (registerForm.get('ZipCode')?.dirty || registerForm.get('ZipCode')?.touched) && registerForm.get('ZipCode')?.errors?.required">
+                                                Zip Code is required
+                                            </mat-error></div>
+                                            <div class="col">
+                                                <input type="email" name="email" class="form-stylee" placeholder="Your Email" formControlName="email">
+                                                <i class="input-icon fa fa-envelope"></i>
+                                                <mat-error *ngIf="!registerForm.get('email')?.errors?.required && (registerForm.get('email')?.errors?.pattern)">
+                                                    Please enter a valid email address
+                                                </mat-error>
+                                                <mat-error *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched) && registerForm.get('email')?.errors?.required">
+                                                    Email is required
+                                                </mat-error></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-1">
+                                            <input type="password" name="MotDePasse" class="form-stylee" placeholder="Your Password" formControlName="MotDePasse">
+                                            <i class="input-iconn fa fa-unlock-alt"></i>
+                                            <mat-error *ngIf="!registerForm.get('MotDePasse')?.errors?.required  && (registerForm.get('MotDePasse')?.errors?.pattern)">
+                                                Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters
+                                            </mat-error>
+                                            <mat-error *ngIf="registerForm.get('MotDePasse')?.invalid && (registerForm.get('MotDePasse')?.dirty || registerForm.get('MotDePasse')?.touched) && registerForm.get('MotDePasse')?.errors?.required">
+                                                Password is required
+                                            </mat-error>
+                                        </div>
+                                        <button (click)="register()" class="btn mt-3">Register</button>
+                                        <app-alert></app-alert>
+                                    </form>  
+                                    </div>
+                                   
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+    </div>
+</div>
+    </div></div>

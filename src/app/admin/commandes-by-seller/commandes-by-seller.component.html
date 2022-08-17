@@ -162,8 +162,32 @@
     <section class="content">
     <div class="container-fluid">
 
+      <div class="example-container mat-elevation-z8">
+        <div class="container">
+          <div class="card">
+            <table class="mat-elevation-z8 table-bordered">
+              <tr class="desig">
+                <th>Seller Name</th>
+                <th>Seller Email</th>
+                <th>Seller Store</th>
+                <th>Seller Phone</th>
+                <th>Orders</th>
+              </tr>
+              <tr *ngFor="let seller of listVendeurs" style="height: 50px;">
+                <td>{{seller.nom}} {{seller.prenom}}</td>
+                <td>{{seller.email}}</td>
+                <td>{{seller.organization}}</td>
+                <td>{{seller.num_Telephone}}</td>
+                <td><button mat-raised-button class="bout" (click)="view(seller)">View Orders</button></td>
+              </tr>
+            </table>
+          
+                
 
+            </div>
     </div>
+  </div>
+</div>
     </section>
     </div>
 </div>

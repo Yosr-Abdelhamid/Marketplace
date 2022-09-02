@@ -111,5 +111,24 @@ th {
 .text-muted{
     color :#c0bdbd ;
     font-weight: 500;
-    
+    width: 75px;
+    margin-right: 21px;
 }
+.text-mut{
+    color :rgb(235, 109, 109) ;
+    font-weight: 500;
+    width: 75px;
+    margin-right: 21px;
+}
+.edit-button{
+    background:rgb(119, 173, 102);
+    width: 75px;
+    margin-right: 5px;
+    padding-left: 12px;
+ 
+  }
+.remove-button{
+    background:rgb(235, 109, 109);
+    width: 75px;
+    margin-left: 0px;
+  }

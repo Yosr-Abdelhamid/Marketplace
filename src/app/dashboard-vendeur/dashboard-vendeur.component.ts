@@ -17,9 +17,8 @@ export class DashboardVendeurComponent  implements OnInit {
   file: File;
   infoMessage: any;
   solde ;
-
-  imageUrl: string | ArrayBuffer =
-    "./assets/images/add_log.png";
+  imageUrl: string | ArrayBuffer;
+  image: string | ArrayBuffer ="./assets/images/add_log.png";
   
 
   constructor(private userService:LoginVendeurService , private router:Router ,
@@ -29,6 +28,11 @@ export class DashboardVendeurComponent  implements OnInit {
     this.userService.getUser().subscribe(
       res => {
         this.userDetails = res;
+        if (this.userDetails.image_org == null) {
+            this.imageUrl="./assets/images/add_log.png" 
+        }else{
+          this.imageUrl ='data:image/png;base64,'+this.userDetails.image_org ; 
+        }
         this.userService.GetPortfeuille(this.userDetails.id).subscribe(
           res => {
             this.solde = res ;
@@ -38,33 +42,29 @@ export class DashboardVendeurComponent  implements OnInit {
     );
   }
 
-  processFile(imageInput){
-  }
-
   onChange(file: File) {
     if (file) {
       this.file = file;
+      
 
       const reader = new FileReader();
       reader.readAsDataURL(file);
 
       reader.onload = event => {
         this.imageUrl = reader.result;
-      };
-    }
+        let formData = new FormData();
+        formData.append('id', this.userDetails.id);
+        formData.append('image_org', this.file); 
+        this.userService.AddImageOrg(formData).subscribe(result => {
+        
+      });
+   
+    }}
   }
 
-  onUpload() {
-  
-    this.isUploading = true;
-    let formData = new FormData();
-    formData.append('id', this.userDetails.id);
-    formData.append('image_org', this.file); 
-    this.userService.AddImageOrg(formData).subscribe(message => {
-      this.isUploading = false;
-      this.alertService.success("Image uploaded successufly")
-    });
-  }
+
+
+
 
   edit(){
     const dialogConfig = new MatDialogConfig();

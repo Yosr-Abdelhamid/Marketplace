@@ -8,7 +8,8 @@ export class User {
     zipCode:string="";
     organization: string ="";
     isActived:boolean ;
-    constructor(id: string, nom: string, prenom: string, email: string, adresse: string , num_Telephone :string, zipCode:string, organization:string , isActived:boolean) {
+    isNotBlocked:boolean;
+    constructor(id: string, nom: string, prenom: string, email: string, adresse: string , num_Telephone :string, zipCode:string, organization:string , isActived:boolean , isNotBlocked:boolean) {
         this.id = id ;
         this.nom =nom ;
         this.prenom =prenom ;
@@ -18,6 +19,7 @@ export class User {
         this.zipCode= zipCode;
         this.organization =organization;
         this.isActived =isActived;
+        this.isNotBlocked = isNotBlocked;
 
 }
 

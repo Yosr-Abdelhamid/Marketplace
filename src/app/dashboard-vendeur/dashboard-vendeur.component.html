@@ -160,7 +160,14 @@ Products
                       <div class="card-block text-center text-white">
                           <div class="m-b-25" *ngIf="userDetails">
                               
-                             <img src="data:image/PNG;base64,{{userDetails.image_org }}" class="img-radius" alt="User-Profile-Image">
+                            <img [src]="imageUrl" style="width:170px;height:170px"  (click)="fileInput.click()"/>
+                            <br> <br>
+                            <input  #fileInput
+                                type="file"
+                                accept="image/*"
+                                (change)="onChange(fileInput.files[0])"
+                                id="file"><label class="imq" for="file"></label> 
+                            <!--img src="data:image/PNG;base64,{{userDetails.image_org }}" class="img-radius" alt="User-Profile-Image"-->
                               </div>
                                 </div>
                                    </div>

@@ -54,6 +54,11 @@ export class AdminClientService {
     return this.http.post(this.baseUrl + 'ActivateVendeur' , {id})
 }
 
+  BlockVendeur(id: string){
+
+    return this.http.post(this.baseUrl + 'BlockVendeur' , {id})
+  }
+
   ActivateClient(id: string){
 
   return this.http.post(this.baseUrl + 'ActivateClient' , {id})

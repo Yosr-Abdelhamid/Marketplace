@@ -130,7 +130,7 @@ export class LoginVendeurService {
             if(res.dateSet)
              {
              res.dateSet.map((x:User)=>{
-                 userList.push(new User(x.id,x.nom,x.prenom,x.email,x.adresse,x.num_Telephone,x.zipCode ,x.organization, x.isActived));
+                 userList.push(new User(x.id,x.nom,x.prenom,x.email,x.adresse,x.num_Telephone,x.zipCode ,x.organization, x.isActived,x.isNotBlocked));
              })
              }
             }

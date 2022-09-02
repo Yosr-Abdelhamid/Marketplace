@@ -23,7 +23,7 @@
     
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/notifications">
+        <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/sold">
         <i class="fa fa-credit-card" style="font-size: 24px;"></i>
         <span class="badge badge-danger navbar-badge">0</span>
         </a>
@@ -32,7 +32,7 @@
     <li class="nav-item dropdown">
     <a class="nav-link" data-toggle="dropdown" routerLink="/dashboard-vendeur/notifications">
     <i class="fa fa-bell" style="font-size: 24px;"></i>
-    <span class="badge badge-danger navbar-badge">1</span>
+    <span class="badge badge-danger navbar-badge">0</span>
     </a>
     </li>
     <li class="nav-item">
@@ -142,14 +142,14 @@
     <div class="container-fluid">
         <article class="card">
         <div class="card-body p-5">
-        <form role="form">
+        <form role="form" *ngIf="userDetails">
             <div class="form-group">
             <label for="username">Full name (on the card)</label>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                 </div>
-                <input type="text" class="form-control" name="username" id="cardName" placeholder="" required="">
+                <input type="text" class="form-control" name="username" id="cardName" value={{userDetails.cartName}} required="">
             </div> <!-- input-group.// -->
             </div> <!-- form-group.// -->
             
@@ -159,7 +159,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
                 </div>
-                <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="">
+                <input type="text" class="form-control" id="cardNumber" name="cardNumber" value={{userDetails.cartNumber}}>
             </div> <!-- input-group.// -->
             </div> <!-- form-group.// -->
             
@@ -170,7 +170,7 @@
                         <div class="form-inline">
                             <mat-form-field color="accent" appearance="fill"  style="width:80% !important ;">
                                 <mat-label>Select Expiration Date</mat-label>
-                                <input matInput [matDatepicker]="picker1"  id="dateExp" formControlName="Exprdate">
+                                <input matInput [matDatepicker]="picker1"  id="dateExp" formControlName="Exprdate" value={{userDetails.expireDate}} >
                                 <mat-hint>MM/DD/YYYY</mat-hint>
                                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                                 <mat-datepicker #picker1></mat-datepicker>
@@ -193,7 +193,7 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
-                        <input class="form-control" required="" type="text" id="CVV">
+                        <input class="form-control" required="" type="password" id="CVV">
                     </div> <!-- form-group.// -->
                 </div>
             </div> <!-- row.// -->
